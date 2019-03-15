@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5642FF421E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5642FF3C1E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.cpp */; };
+		5642FF431E41DEB20063FB84 /* ExtObjDemoSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5642FF3E1E41DEB20063FB84 /* ExtObjDemoSystem.cpp */; };
+		5642FF441E41DEB20063FB84 /* SystemObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5642FF401E41DEB20063FB84 /* SystemObject.cpp */; };
+		5642FF4A1E41DED10063FB84 /* DlgSysObjEditParam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5642FF461E41DED10063FB84 /* DlgSysObjEditParam.cpp */; };
+		5642FF4B1E41DED10063FB84 /* DlgSystemObjPrefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5642FF481E41DED10063FB84 /* DlgSystemObjPrefs.cpp */; };
+		5653758D1A70E86F006EB08D /* DemoSpaceObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5653758B1A70E86F006EB08D /* DemoSpaceObject.cpp */; };
+		567052301A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5670522C1A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.cpp */; };
+		567052311A780DE300ACD46D /* ExtObjDemoWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5670522E1A780DE300ACD46D /* ExtObjDemoWindow.cpp */; };
+		567052371A780E0A00ACD46D /* WindowObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567052351A780E0A00ACD46D /* WindowObject.cpp */; };
+		5670523C1A780E2400ACD46D /* WindowEnergyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5670523A1A780E2400ACD46D /* WindowEnergyData.cpp */; };
+		5670523F1A780E2F00ACD46D /* DlgWindowSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5670523D1A780E2F00ACD46D /* DlgWindowSettings.cpp */; };
+		56C732201A6FAD5400317ECF /* CommonPrefix.h in Sources */ = {isa = PBXBuildFile; fileRef = 81494D9309DA5867006864FB /* CommonPrefix.h */; };
+		56C732211A6FAD5400317ECF /* DebugPrefix.h in Sources */ = {isa = PBXBuildFile; fileRef = 65B9721B16C05486000E38F0 /* DebugPrefix.h */; };
+		56C732221A6FAD5400317ECF /* ReleasePrefix.h in Sources */ = {isa = PBXBuildFile; fileRef = 81494D9509DA5867006864FB /* ReleasePrefix.h */; };
+		56C732231A6FAD5400317ECF /* StdAfx.h in Sources */ = {isa = PBXBuildFile; fileRef = 81494D9609DA5867006864FB /* StdAfx.h */; };
+		86403AF01A703EC400F25904 /* SpaceEnergyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86403AE71A703EC400F25904 /* SpaceEnergyData.cpp */; };
+		86403AF11A703EC400F25904 /* ExtObjDemoSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86403AE91A703EC400F25904 /* ExtObjDemoSpace.cpp */; };
+		86403AF21A703EC400F25904 /* ExtObjDemoSpace_ShapePane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86403AEB1A703EC400F25904 /* ExtObjDemoSpace_ShapePane.cpp */; };
+		86403AF31A703EC400F25904 /* DlgSpaceSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86403AEE1A703EC400F25904 /* DlgSpaceSettings.cpp */; };
+		8688F64816A7433000566255 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8688F64716A7433000566255 /* Cocoa.framework */; };
+		8696035D1816CEC00025A4F6 /* SDKSamplesEnergy_ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8696035B1816CEC00025A4F6 /* SDKSamplesEnergy_ModuleMain.cpp */; };
+		86DC195F17FF33E3003DBE8D /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863B3E9417FF320B00EA3F9B /* VWMM.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86384A5116BC200A00C8C001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8688F64616A742C600566255 /* VWSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0777F6DA0EAE62A700940013;
+			remoteInfo = VWSDK;
+		};
+		863B3E9317FF320B00EA3F9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 863B3E8F17FF320B00EA3F9B /* VWMM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = VWMM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		5642FF3C1E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtObjDemoSystem_ShapePane.cpp; path = Source/DemoSystem/ExtObjDemoSystem_ShapePane.cpp; sourceTree = "<group>"; };
+		5642FF3D1E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtObjDemoSystem_ShapePane.h; path = Source/DemoSystem/ExtObjDemoSystem_ShapePane.h; sourceTree = "<group>"; };
+		5642FF3E1E41DEB20063FB84 /* ExtObjDemoSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtObjDemoSystem.cpp; path = Source/DemoSystem/ExtObjDemoSystem.cpp; sourceTree = "<group>"; };
+		5642FF3F1E41DEB20063FB84 /* ExtObjDemoSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtObjDemoSystem.h; path = Source/DemoSystem/ExtObjDemoSystem.h; sourceTree = "<group>"; };
+		5642FF401E41DEB20063FB84 /* SystemObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SystemObject.cpp; path = Source/DemoSystem/SystemObject.cpp; sourceTree = "<group>"; };
+		5642FF411E41DEB20063FB84 /* SystemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemObject.h; path = Source/DemoSystem/SystemObject.h; sourceTree = "<group>"; };
+		5642FF461E41DED10063FB84 /* DlgSysObjEditParam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DlgSysObjEditParam.cpp; path = Source/DemoSystem/UI/DlgSysObjEditParam.cpp; sourceTree = "<group>"; };
+		5642FF471E41DED10063FB84 /* DlgSysObjEditParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgSysObjEditParam.h; path = Source/DemoSystem/UI/DlgSysObjEditParam.h; sourceTree = "<group>"; };
+		5642FF481E41DED10063FB84 /* DlgSystemObjPrefs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DlgSystemObjPrefs.cpp; path = Source/DemoSystem/UI/DlgSystemObjPrefs.cpp; sourceTree = "<group>"; };
+		5642FF491E41DED10063FB84 /* DlgSystemObjPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgSystemObjPrefs.h; path = Source/DemoSystem/UI/DlgSystemObjPrefs.h; sourceTree = "<group>"; };
+		5653758B1A70E86F006EB08D /* DemoSpaceObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DemoSpaceObject.cpp; sourceTree = "<group>"; };
+		5653758C1A70E86F006EB08D /* DemoSpaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSpaceObject.h; sourceTree = "<group>"; };
+		5670522C1A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtObjDemoWindow_ShapePane.cpp; path = Source/DemoWindow/ExtObjDemoWindow_ShapePane.cpp; sourceTree = "<group>"; };
+		5670522D1A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtObjDemoWindow_ShapePane.h; path = Source/DemoWindow/ExtObjDemoWindow_ShapePane.h; sourceTree = "<group>"; };
+		5670522E1A780DE300ACD46D /* ExtObjDemoWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtObjDemoWindow.cpp; path = Source/DemoWindow/ExtObjDemoWindow.cpp; sourceTree = "<group>"; };
+		5670522F1A780DE300ACD46D /* ExtObjDemoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtObjDemoWindow.h; path = Source/DemoWindow/ExtObjDemoWindow.h; sourceTree = "<group>"; };
+		567052351A780E0A00ACD46D /* WindowObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowObject.cpp; path = Source/DemoWindow/WindowObject.cpp; sourceTree = "<group>"; };
+		567052361A780E0A00ACD46D /* WindowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowObject.h; path = Source/DemoWindow/WindowObject.h; sourceTree = "<group>"; };
+		5670523A1A780E2400ACD46D /* WindowEnergyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowEnergyData.cpp; path = Source/DemoWindow/Data/WindowEnergyData.cpp; sourceTree = "<group>"; };
+		5670523B1A780E2400ACD46D /* WindowEnergyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowEnergyData.h; path = Source/DemoWindow/Data/WindowEnergyData.h; sourceTree = "<group>"; };
+		5670523D1A780E2F00ACD46D /* DlgWindowSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DlgWindowSettings.cpp; path = Source/DemoWindow/UI/DlgWindowSettings.cpp; sourceTree = "<group>"; };
+		5670523E1A780E2F00ACD46D /* DlgWindowSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgWindowSettings.h; path = Source/DemoWindow/UI/DlgWindowSettings.h; sourceTree = "<group>"; };
+		65B9721B16C05486000E38F0 /* DebugPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugPrefix.h; path = Source/Prefix/DebugPrefix.h; sourceTree = "<group>"; };
+		81494D9309DA5867006864FB /* CommonPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CommonPrefix.h; path = Source/Prefix/CommonPrefix.h; sourceTree = "<group>"; };
+		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
+		81494D9609DA5867006864FB /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = Source/Prefix/StdAfx.h; sourceTree = "<group>"; };
+		863B3E8B17FF31F600EA3F9B /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
+		863B3E8C17FF31F600EA3F9B /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = "<group>"; };
+		863B3E8D17FF31F600EA3F9B /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
+		863B3E8E17FF31F600EA3F9B /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
+		863B3E8F17FF320B00EA3F9B /* VWMM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VWMM.xcodeproj; path = ../../../SDKLib/Source/VWMM/VWMM.xcodeproj; sourceTree = "<group>"; };
+		86403AE71A703EC400F25904 /* SpaceEnergyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceEnergyData.cpp; sourceTree = "<group>"; };
+		86403AE81A703EC400F25904 /* SpaceEnergyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceEnergyData.h; sourceTree = "<group>"; };
+		86403AE91A703EC400F25904 /* ExtObjDemoSpace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjDemoSpace.cpp; sourceTree = "<group>"; };
+		86403AEA1A703EC400F25904 /* ExtObjDemoSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjDemoSpace.h; sourceTree = "<group>"; };
+		86403AEB1A703EC400F25904 /* ExtObjDemoSpace_ShapePane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjDemoSpace_ShapePane.cpp; sourceTree = "<group>"; };
+		86403AEC1A703EC400F25904 /* ExtObjDemoSpace_ShapePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjDemoSpace_ShapePane.h; sourceTree = "<group>"; };
+		86403AEE1A703EC400F25904 /* DlgSpaceSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DlgSpaceSettings.cpp; sourceTree = "<group>"; };
+		86403AEF1A703EC400F25904 /* DlgSpaceSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DlgSpaceSettings.h; sourceTree = "<group>"; };
+		8688F64616A742C600566255 /* VWSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VWSDK.xcodeproj; path = ../../../SDKLib/Source/VWSDK/VWSDK.xcodeproj; sourceTree = "<group>"; };
+		8688F64716A7433000566255 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		8696035B1816CEC00025A4F6 /* SDKSamplesEnergy_ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SDKSamplesEnergy_ModuleMain.cpp; path = Source/SDKSamplesEnergy_ModuleMain.cpp; sourceTree = "<group>"; };
+		8696035E1816CECB0025A4F6 /* SDKSamplesEnergy.vwr */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SDKSamplesEnergy.vwr; sourceTree = "<group>"; };
+		86E579E517BBE40D00CEBA9F /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "Source/Module-Info.plist"; sourceTree = "<group>"; };
+		9216EA3E09D88959007B8710 /* SDKSamplesEnergy.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDKSamplesEnergy.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		867DDB5D13EB275000B1D151 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DC195F17FF33E3003DBE8D /* VWMM.framework in Frameworks */,
+				8688F64816A7433000566255 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9216EA3E09D88959007B8710 /* SDKSamplesEnergy.vwlibrary */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				863B3E8B17FF31F600EA3F9B /* NNA_PluginBuild Debug 64.xcconfig */,
+				863B3E8C17FF31F600EA3F9B /* NNA_PluginBuild Debug.xcconfig */,
+				863B3E8D17FF31F600EA3F9B /* NNA_PluginBuild Release 64.xcconfig */,
+				863B3E8E17FF31F600EA3F9B /* NNA_PluginBuild Release.xcconfig */,
+				8696035E1816CECB0025A4F6 /* SDKSamplesEnergy.vwr */,
+				08FB77ACFE841707C02AAC07 /* Source */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+			);
+			name = SampleObject;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				863B3E8F17FF320B00EA3F9B /* VWMM.xcodeproj */,
+				8688F64616A742C600566255 /* VWSDK.xcodeproj */,
+				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
+				8688F64716A7433000566255 /* Cocoa.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ACFE841707C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5642FF391E41DE5C0063FB84 /* DemoSystem */,
+				567052341A780DED00ACD46D /* DemoWindow */,
+				81494D9209DA5867006864FB /* Prefix */,
+				86403AE51A703EC400F25904 /* DemoSpace */,
+				8696035B1816CEC00025A4F6 /* SDKSamplesEnergy_ModuleMain.cpp */,
+				86E579E517BBE40D00CEBA9F /* Module-Info.plist */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		5642FF391E41DE5C0063FB84 /* DemoSystem */ = {
+			isa = PBXGroup;
+			children = (
+				5642FF451E41DEB90063FB84 /* UI */,
+				5642FF3C1E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.cpp */,
+				5642FF3D1E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.h */,
+				5642FF3E1E41DEB20063FB84 /* ExtObjDemoSystem.cpp */,
+				5642FF3F1E41DEB20063FB84 /* ExtObjDemoSystem.h */,
+				5642FF401E41DEB20063FB84 /* SystemObject.cpp */,
+				5642FF411E41DEB20063FB84 /* SystemObject.h */,
+			);
+			name = DemoSystem;
+			sourceTree = "<group>";
+		};
+		5642FF451E41DEB90063FB84 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5642FF461E41DED10063FB84 /* DlgSysObjEditParam.cpp */,
+				5642FF471E41DED10063FB84 /* DlgSysObjEditParam.h */,
+				5642FF481E41DED10063FB84 /* DlgSystemObjPrefs.cpp */,
+				5642FF491E41DED10063FB84 /* DlgSystemObjPrefs.h */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		567052341A780DED00ACD46D /* DemoWindow */ = {
+			isa = PBXGroup;
+			children = (
+				567052391A780E1500ACD46D /* Data */,
+				567052381A780E0F00ACD46D /* UI */,
+				567052351A780E0A00ACD46D /* WindowObject.cpp */,
+				567052361A780E0A00ACD46D /* WindowObject.h */,
+				5670522C1A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.cpp */,
+				5670522D1A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.h */,
+				5670522E1A780DE300ACD46D /* ExtObjDemoWindow.cpp */,
+				5670522F1A780DE300ACD46D /* ExtObjDemoWindow.h */,
+			);
+			name = DemoWindow;
+			sourceTree = "<group>";
+		};
+		567052381A780E0F00ACD46D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5670523D1A780E2F00ACD46D /* DlgWindowSettings.cpp */,
+				5670523E1A780E2F00ACD46D /* DlgWindowSettings.h */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		567052391A780E1500ACD46D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5670523A1A780E2400ACD46D /* WindowEnergyData.cpp */,
+				5670523B1A780E2400ACD46D /* WindowEnergyData.h */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		81494D9209DA5867006864FB /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9309DA5867006864FB /* CommonPrefix.h */,
+				65B9721B16C05486000E38F0 /* DebugPrefix.h */,
+				81494D9509DA5867006864FB /* ReleasePrefix.h */,
+				81494D9609DA5867006864FB /* StdAfx.h */,
+			);
+			name = Prefix;
+			sourceTree = "<group>";
+		};
+		86384A4E16BC200A00C8C001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86384A5216BC200A00C8C001 /* libVWSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		863B3E9017FF320B00EA3F9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				863B3E9417FF320B00EA3F9B /* VWMM.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86403AE51A703EC400F25904 /* DemoSpace */ = {
+			isa = PBXGroup;
+			children = (
+				86403AE61A703EC400F25904 /* Data */,
+				86403AE91A703EC400F25904 /* ExtObjDemoSpace.cpp */,
+				86403AEA1A703EC400F25904 /* ExtObjDemoSpace.h */,
+				5653758B1A70E86F006EB08D /* DemoSpaceObject.cpp */,
+				5653758C1A70E86F006EB08D /* DemoSpaceObject.h */,
+				86403AEB1A703EC400F25904 /* ExtObjDemoSpace_ShapePane.cpp */,
+				86403AEC1A703EC400F25904 /* ExtObjDemoSpace_ShapePane.h */,
+				86403AED1A703EC400F25904 /* UI */,
+			);
+			name = DemoSpace;
+			path = Source/DemoSpace;
+			sourceTree = "<group>";
+		};
+		86403AE61A703EC400F25904 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				86403AE71A703EC400F25904 /* SpaceEnergyData.cpp */,
+				86403AE81A703EC400F25904 /* SpaceEnergyData.h */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		86403AED1A703EC400F25904 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				86403AEE1A703EC400F25904 /* DlgSpaceSettings.cpp */,
+				86403AEF1A703EC400F25904 /* DlgSpaceSettings.h */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9216EA3D09D88959007B8710 /* SDKSamplesEnergy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "SDKSamplesEnergy" */;
+			buildPhases = (
+				9216EA3B09D88959007B8710 /* Sources */,
+				867DDB5D13EB275000B1D151 /* Frameworks */,
+				9216EA4C09D889C0007B8710 /* Rez */,
+				86E579E317BA8A3600CEBA9F /* Validate and Copy VWR */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDKSamplesEnergy;
+			productName = Untitled;
+			productReference = 9216EA3E09D88959007B8710 /* SDKSamplesEnergy.vwlibrary */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "SDKSamplesEnergy" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* SampleObject */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 863B3E9017FF320B00EA3F9B /* Products */;
+					ProjectRef = 863B3E8F17FF320B00EA3F9B /* VWMM.xcodeproj */;
+				},
+				{
+					ProductGroup = 86384A4E16BC200A00C8C001 /* Products */;
+					ProjectRef = 8688F64616A742C600566255 /* VWSDK.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				9216EA3D09D88959007B8710 /* SDKSamplesEnergy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		86384A5216BC200A00C8C001 /* libVWSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libVWSDK.a;
+			remoteRef = 86384A5116BC200A00C8C001 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		863B3E9417FF320B00EA3F9B /* VWMM.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VWMM.framework;
+			remoteRef = 863B3E9317FF320B00EA3F9B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXRezBuildPhase section */
+		9216EA4C09D889C0007B8710 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86E579E317BA8A3600CEBA9F /* Validate and Copy VWR */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Validate and Copy VWR";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../../SDKLib/ToolsMac/BuildVWR/BuildVWR";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9216EA3B09D88959007B8710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86403AF01A703EC400F25904 /* SpaceEnergyData.cpp in Sources */,
+				5642FF4B1E41DED10063FB84 /* DlgSystemObjPrefs.cpp in Sources */,
+				56C732201A6FAD5400317ECF /* CommonPrefix.h in Sources */,
+				56C732211A6FAD5400317ECF /* DebugPrefix.h in Sources */,
+				5642FF441E41DEB20063FB84 /* SystemObject.cpp in Sources */,
+				5670523C1A780E2400ACD46D /* WindowEnergyData.cpp in Sources */,
+				56C732221A6FAD5400317ECF /* ReleasePrefix.h in Sources */,
+				5642FF4A1E41DED10063FB84 /* DlgSysObjEditParam.cpp in Sources */,
+				56C732231A6FAD5400317ECF /* StdAfx.h in Sources */,
+				8696035D1816CEC00025A4F6 /* SDKSamplesEnergy_ModuleMain.cpp in Sources */,
+				567052311A780DE300ACD46D /* ExtObjDemoWindow.cpp in Sources */,
+				5670523F1A780E2F00ACD46D /* DlgWindowSettings.cpp in Sources */,
+				5642FF421E41DEB20063FB84 /* ExtObjDemoSystem_ShapePane.cpp in Sources */,
+				5642FF431E41DEB20063FB84 /* ExtObjDemoSystem.cpp in Sources */,
+				567052371A780E0A00ACD46D /* WindowObject.cpp in Sources */,
+				5653758D1A70E86F006EB08D /* DemoSpaceObject.cpp in Sources */,
+				86403AF11A703EC400F25904 /* ExtObjDemoSpace.cpp in Sources */,
+				86403AF21A703EC400F25904 /* ExtObjDemoSpace_ShapePane.cpp in Sources */,
+				86403AF31A703EC400F25904 /* DlgSpaceSettings.cpp in Sources */,
+				567052301A780DE300ACD46D /* ExtObjDemoWindow_ShapePane.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB916608733D950010E9CD /* Debug 32 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 863B3E8C17FF31F600EA3F9B /* NNA_PluginBuild Debug.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include,
+					./Source,
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
+				);
+				LIBRARY_SEARCH_PATHS = "$(STANDARD_PLUGIN_LIBRARY_SEARCH_PATHS)";
+			};
+			name = "Debug 32";
+		};
+		863B3E9517FF322E00EA3F9B /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 863B3E8B17FF31F600EA3F9B /* NNA_PluginBuild Debug 64.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include,
+					./Source,
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
+				);
+				LIBRARY_SEARCH_PATHS = "$(STANDARD_PLUGIN_LIBRARY_SEARCH_PATHS)";
+			};
+			name = "Debug 64";
+		};
+		863B3E9617FF322E00EA3F9B /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = SDKSamplesEnergy;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Debug 64";
+		};
+		863B3E9717FF323500EA3F9B /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 863B3E8D17FF31F600EA3F9B /* NNA_PluginBuild Release 64.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include,
+					./Source,
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
+				);
+				LIBRARY_SEARCH_PATHS = "$(STANDARD_PLUGIN_LIBRARY_SEARCH_PATHS)";
+			};
+			name = "Release 64";
+		};
+		863B3E9817FF323500EA3F9B /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = SDKSamplesEnergy;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Release 64";
+		};
+		9216EA4109D8895A007B8710 /* Debug 32 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = SDKSamplesEnergy;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Debug 32";
+		};
+		9216EA4209D8895A007B8710 /* Release 32 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = SDKSamplesEnergy;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Release 32";
+		};
+		92E0F397099A8ACA009D4644 /* Release 32 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 863B3E8E17FF31F600EA3F9B /* NNA_PluginBuild Release.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include,
+					./Source,
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
+				);
+				LIBRARY_SEARCH_PATHS = "$(STANDARD_PLUGIN_LIBRARY_SEARCH_PATHS)";
+			};
+			name = "Release 32";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "SDKSamplesEnergy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB916608733D950010E9CD /* Debug 32 */,
+				863B3E9517FF322E00EA3F9B /* Debug 64 */,
+				92E0F397099A8ACA009D4644 /* Release 32 */,
+				863B3E9717FF323500EA3F9B /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 32";
+		};
+		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "SDKSamplesEnergy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9216EA4109D8895A007B8710 /* Debug 32 */,
+				863B3E9617FF322E00EA3F9B /* Debug 64 */,
+				9216EA4209D8895A007B8710 /* Release 32 */,
+				863B3E9817FF323500EA3F9B /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 32";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
