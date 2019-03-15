@@ -15,6 +15,7 @@
 *.so
 *.dylib
 *.dll
+!7z.dll
 
 # Fortran module files
 *.mod
@@ -28,6 +29,8 @@
 *.exe
 *.out
 *.app
+!7z.exe
+!buildvwr.exe
 
 # Visual Studio specific
 *.vs
