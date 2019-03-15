@@ -14,6 +14,8 @@ If you use this code as a base of your work and copy it directly, make sure you 
 ```
 Failure to do so will result in plugin conflicts between source that have duplicate UUIDs ultimately resulting in one of the two features not working on the client machine.
 
+**Note:** The Debug builds for win and mac are actually based on the release SDK with the difference that symbol generation is turned on and optimizations are turned off. The Debug SDK doesn't actually work with the release Vectorworks and I kept the mac version the same as git doesn't allow the large debug library files to be added to the repository.
+
 ## Build tools requirements
 - Windows - Visual Studio 2017, toolset version 14.12
 - Mac - Xcode 8.2
@@ -40,8 +42,8 @@ Find your Vectorworks instalation's Plug-ins folder and create a shortcut/alias 
 ```
 
 Alternatively, you can add this shortcut to the Vectorworks user's folder:
- Mac: /Users/<Username>/Library/Application Support/Vectorworks/2019/
- Windows: C:\Users\<Username>\AppData\Roaming\Nemetschek\Vectorworks\2019\
+ * Mac: `/Users/<Username>/Library/Application Support/Vectorworks/2019/`
+ * Windows: `C:\Users\<Username>\AppData\Roaming\Nemetschek\Vectorworks\2019\`
   
 Note: this has the advantage that the plugin will be visible always to the specified Vectorworks version, regardless which Vectorworks copy you are running)
   
@@ -61,4 +63,4 @@ This will instruct the VisualStudio to execute Vectorworks.exe for the debug set
 
 ## Xcode
 
-...comming soon...
+From the Xcode menu, select Product -> Scheme -> Edit Scheme... menu command. Then on the 'Run' pane, open up the 'Executable' popup  and choose 'Other...' which will allow selection of an application that will be used for debugging.
