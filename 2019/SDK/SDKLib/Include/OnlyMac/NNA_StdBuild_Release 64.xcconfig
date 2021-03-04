@@ -1,9 +1,0 @@
-#include "NNA_StdBuild_Release.xcconfig"
-
-
-VALID_ARCHS = x86_64
-ARCHS = x86_64
-OBJROOT=$PROJECT_DIR/Out64/XcodeIntermediateFiles
-SYMROOT=$PROJECT_DIR/Out64
-SHORT_CONFIG=Release
-OUTPUT_NAME=Out64
