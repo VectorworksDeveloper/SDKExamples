@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{90db5a0c-2b9f-46ee-9c28-9d50667e2cda}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{5454b860-cbd4-43ec-8baf-806ed8435a6f}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\TesterModule">
+      <UniqueIdentifier>{a7224711-fbe1-49b4-970f-4a75e327fc8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProvidersSampleModule.vwr">
+      <UniqueIdentifier>{b5ae5f2a-e9f1-4ded-b7f8-85ae35013d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProvidersSampleModule.vwr\Images">
+      <UniqueIdentifier>{e9fa321c-6d2a-45e9-a808-e005a7725ce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProvidersSampleModule.vwr\Strings">
+      <UniqueIdentifier>{a0cfd703-2c68-479f-98fe-285dc43fbe92}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtObjClassName.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ProviderShapePane.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\UpdateSupport.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtObjClassName.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ProviderShapePane.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\UpdateSupport.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ProvidersSampleModule.vwr\Images\ExtObjClassNameDefTool%402x.png">
+      <Filter>ProvidersSampleModule.vwr\Images</Filter>
+    </Image>
+    <Image Include="ProvidersSampleModule.vwr\Images\ExtObjClassNameDefTool.png">
+      <Filter>ProvidersSampleModule.vwr\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProvidersSampleModule.vwr\Strings\ExtObjClassName.vwstrings">
+      <Filter>ProvidersSampleModule.vwr\Strings</Filter>
+    </None>
+  </ItemGroup>
+</Project>
