@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{85fde1cb-3e68-4c1a-9844-84c57f0e8baf}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{461481f9-fe3d-449d-8302-c82c325e2f1f}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{fb792d57-c93d-402c-8e96-8368109c8672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VWUI Dialogs Sample.vwr">
+      <UniqueIdentifier>{b7eeb054-1949-479d-b0a6-b67fd51e69ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VWUI Dialogs Sample.vwr\DialogLayout">
+      <UniqueIdentifier>{b935e6ac-f199-4997-b4c1-d457aa0b882d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VWUI Dialogs Sample.vwr\Images">
+      <UniqueIdentifier>{7675e209-5120-4b18-ba93-666cf6c0d315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VWUI Dialogs Sample.vwr\Strings">
+      <UniqueIdentifier>{8ec65b05-5c0d-49a6-b3a3-8a233967a6a3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\ExtMenuClassName.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\MyControl.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\SampleDlg1.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\SampleDlg2.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\SampleDlg3.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\SampleDlg4.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\DlgDirectEditListBrowser.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\ExtMenuDirectEditLb.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\ExtMenuClassName.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\MyControl.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\SampleDlg1.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\SampleDlg2.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\SampleDlg3.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\SampleDlg4.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\DlgDirectEditListBrowser.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\ExtMenuDirectEditLb.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VWUI Dialogs Sample.vwr\DialogLayout\SampleDlg2.vs">
+      <Filter>VWUI Dialogs Sample.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\DialogLayout\SampleDlg3.vs">
+      <Filter>VWUI Dialogs Sample.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\DialogLayout\SampleDlg4.vs">
+      <Filter>VWUI Dialogs Sample.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\DialogLayout\SampleDlg1.vs">
+      <Filter>VWUI Dialogs Sample.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\Strings\SampleDlg1.vwstrings">
+      <Filter>VWUI Dialogs Sample.vwr\Strings</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\Strings\SampleDlg2.vwstrings">
+      <Filter>VWUI Dialogs Sample.vwr\Strings</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\Strings\SampleDlg3.vwstrings">
+      <Filter>VWUI Dialogs Sample.vwr\Strings</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\Strings\SampleDlg4.vwstrings">
+      <Filter>VWUI Dialogs Sample.vwr\Strings</Filter>
+    </None>
+    <None Include="VWUI Dialogs Sample.vwr\Strings\ExtMenuClassName.vwstrings">
+      <Filter>VWUI Dialogs Sample.vwr\Strings</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="VWUI Dialogs Sample.vwr\Images\Image.png">
+      <Filter>VWUI Dialogs Sample.vwr\Images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

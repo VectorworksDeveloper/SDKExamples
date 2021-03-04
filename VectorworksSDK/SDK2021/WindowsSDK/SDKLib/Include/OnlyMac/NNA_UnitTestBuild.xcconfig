@@ -1,0 +1,12 @@
+//
+//  NNA_UnitTestBuild.xcconfig
+//  VectorWorks
+//
+//  Created by Lyndsey Ferguson on 8/21/13.
+//
+//
+
+GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1 $(inherited) GTEST_DONT_DEFINE_TEST=1 GTEST_HAS_TR1_TUPLE=0
+
+GCC_ENABLE_OBJC_EXCEPTIONS = YES
+
