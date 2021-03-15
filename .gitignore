@@ -1,3 +1,11 @@
 Output/*
 *.user
+*.pdb
 Examples/WebExample/.vs/*
+VectorworksSDK/SDK2021/READ ME/VectorScript Reference.xml
+VectorworksSDK/SDK2021/SDKLib/LibWin/Debug/*
+VectorworksSDK/SDK2021/SDKLib/LibWin/Debug_MT/*
+VectorworksSDK/SDK2021/SDKLib/LibWin/Release/VWMM.dll
+VectorworksSDK/SDK2021/SDKLib/ToolsWin/BatchEncryption/*
+VectorworksSDK/SDK2021/SDKLib/ToolsWin/SDK Plug-in Wizard/*
+VectorworksSDK/SDK2021/SDKLib/ToolsWin/rezwack.exe
