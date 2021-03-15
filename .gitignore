@@ -5,6 +5,9 @@ Output/*
 *.user
 *.pdb
 .vs
+xcshareddata
+xcuserdata
+*.xcworkspacedata
 VectorworksSDK/SDK2021/READ ME/VectorScript Reference.xml
 VectorworksSDK/SDK2021/SDKLib/LibWin/Debug/*
 VectorworksSDK/SDK2021/SDKLib/LibWin/Debug_MT/*
