@@ -557,7 +557,6 @@ bool VWStyleSupport::AddItemToEditList( const TXString& key, EPluginStyleEditLis
 	}
 	sEditInfo.paramIndex = paramObj.GetParamIndex( key );
 
-			
 	bool bReturn = true;
 	TStyleEditList_Iterator iter = fmapStyleEditList.find( key );
 	if ( iter == fmapStyleEditList.end() ) {			
@@ -569,6 +568,10 @@ bool VWStyleSupport::AddItemToEditList( const TXString& key, EPluginStyleEditLis
 		ser.SetValueTXString( groupID, kPluginStyleMapEditListPosition_DisplayName, sEditInfo.displayName );
 		bReturn = ser.Save();
 
+	}
+	else if ( editListType == kPluginSytleEditList_NewDisplayName ) {
+		iter->second.displayName = displayName;
+		bReturn = UpdateSymbolDefinition();
 	}
 	else {	
 		bReturn = false;		

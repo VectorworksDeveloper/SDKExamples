@@ -112,9 +112,6 @@ namespace VWFC
 			// if no virutal is present for an event, this function is called to allow the user to catch everything
 			virtual Sint32			OnDefaultEvent(ParametricMessage* message);
 
-			// Get customized Bounds for Rotated, Align, Flip Horizontal and Flip Vertical
-			virtual bool			OnGetCustomBounds(WorldRect& outBounds){ return false; }
-
 		// IParametricEventSink
 		public:
 			virtual Sint32 VCOM_CALLTYPE	Execute(ParametricMessage* message);

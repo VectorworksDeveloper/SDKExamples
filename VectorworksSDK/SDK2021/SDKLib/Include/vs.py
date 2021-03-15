@@ -15594,14 +15594,14 @@ def GetObjectVariableString(
 		index  # INTEGER - Object property index.
 		):
 	'''
-		Python: STRING = vs.GetObjectVariableString(h, index)
-		VectorScript: FUNCTION GetObjectVariableString(h:HANDLE; index:INTEGER) : STRING;
+		Python: DYNARRAY of CHAR = vs.GetObjectVariableString(h, index)
+		VectorScript: FUNCTION GetObjectVariableString(h:HANDLE; index:INTEGER) : DYNARRAY of CHAR;
 		
 		Category: Object Info
 		Returns the value of a Vectorworks object property. Used with properties returning a STRING value.
 	'''
 	pass
-	return 'STRING' # Returns the value of the property as a STRING value.
+	return 'DYNARRAY[] of CHAR' # Returns the value of the property as a STRING value.
 
 
 def GetObjectWallHeight(
@@ -15701,20 +15701,6 @@ def GetObjMaterialHandle(
 	'''
 	pass
 	return 'HANDLE' # 
-
-
-def GetObjMaterialName(
-		h  # HANDLE -  
-		):
-	'''
-		Python: (BOOLEAN, materialName) = vs.GetObjMaterialName(h)
-		VectorScript: FUNCTION GetObjMaterialName(h:HANDLE; VAR materialName:STRING) : BOOLEAN;
-		
-		Category: Object Attributes
-	'''
-	pass
-	return ( False   , # 
-	         'string' )
 
 
 def GetObjMaterialName(
@@ -23778,11 +23764,11 @@ def IsMaterialSimple(
 
 
 def IsMtrlFillStyleByCls(
-		materialHandle)  # HANDLE -  
+		materialHandle  # HANDLE -  
 		):
 	'''
-		Python: BOOLEAN = vs.IsMtrlFillStyleByCls(materialHandle))
-		VectorScript: FUNCTION IsMtrlFillStyleByCls(materialHandle):HANDLE) : BOOLEAN;
+		Python: BOOLEAN = vs.IsMtrlFillStyleByCls(materialHandle)
+		VectorScript: FUNCTION IsMtrlFillStyleByCls(materialHandle:HANDLE) : BOOLEAN;
 		
 		Category: Object Attributes
 	'''
@@ -24386,6 +24372,20 @@ def LDevice_GetActSym():
 	'''
 	pass
 	return 'HANDLE' # 
+
+
+def LDevice_GetCellCount(
+		handle  # HANDLE -  
+		):
+	'''
+		Python: LONGINT = vs.LDevice_GetCellCount(handle)
+		VectorScript: FUNCTION LDevice_GetCellCount(handle:HANDLE) : LONGINT;
+		
+		Category: Spotlight
+		Get the count of cells attached to a Lighting Device.
+	'''
+	pass
+	return 'LONGINT' # 
 
 
 def LDevice_GetParamBool(
@@ -28246,6 +28246,17 @@ def QTSetMovieOptionsN(
 		VectorScript: PROCEDURE QTSetMovieOptionsN(movieRef:INTEGER; frameRate:REAL; keyFrameRate:LONGINT; useDLG:BOOLEAN; useDlgPreview:BOOLEAN; frameWidth:LONGINT; frameHeight:LONGINT);
 		
 		Category: Special - QuickTime
+	'''
+	pass
+
+
+def QTTerminate():
+	'''
+		Python: vs.QTTerminate()
+		VectorScript: PROCEDURE QTTerminate;
+		
+		Category: Special - QuickTime
+		Disables QuickTime and disposes of internal QuickTime data structures.
 	'''
 	pass
 
@@ -34862,13 +34873,13 @@ def SetObjectVariableReal(
 
 
 def SetObjectVariableString(
-		h    , # HANDLE  - Handle to object.      
-		index, # INTEGER - Object property index. 
-		value  # STRING  - New value for property.
+		h    , # HANDLE             - Handle to object.      
+		index, # INTEGER            - Object property index. 
+		value  # DYNARRAY[] of CHAR - New value for property.
 		):
 	'''
 		Python: vs.SetObjectVariableString(h, index, value)
-		VectorScript: PROCEDURE SetObjectVariableString(h:HANDLE; index:INTEGER; value:STRING);
+		VectorScript: PROCEDURE SetObjectVariableString(h:HANDLE; index:INTEGER; value:DYNARRAY of CHAR);
 		
 		Category: Object Info
 		Sets the value of a Vectorworks object property. Used with properties requiring a STRING value.
@@ -39738,6 +39749,283 @@ def SrndArea(
 	'''
 	pass
 	return 'REAL' # 
+
+
+def StairGet2D3DCompType(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.StairGet2D3DCompType(stair)
+		VectorScript: FUNCTION StairGet2D3DCompType(stair:HANDLE) : INTEGER;
+		
+		Category: Objects - Stairs
+		Returns 2D3D components type of stair.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def StairGetConfigType(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.StairGetConfigType(stair)
+		VectorScript: FUNCTION StairGetConfigType(stair:HANDLE) : INTEGER;
+		
+		Category: Objects - Stairs
+		Returns Stair Configuration Type.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def StairGetConstType(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.StairGetConstType(stair)
+		VectorScript: FUNCTION StairGetConstType(stair:HANDLE) : INTEGER;
+		
+		Category: Objects - Stairs
+		Returns construction type of stair.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def StairGetNumRisers(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: (BOOLEAN, NumRisers1, NumRisers2, NumRisers3, NumRisers4) = vs.StairGetNumRisers(stair)
+		VectorScript: FUNCTION StairGetNumRisers(stair:HANDLE; VAR NumRisers1:INTEGER; VAR NumRisers2:INTEGER; VAR NumRisers3:INTEGER; VAR NumRisers4:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Returns numbers of risers of stair flights
+	'''
+	pass
+	return ( False  , # 
+	         0      , 
+	         0      , 
+	         0      , 
+	         0       )
+
+
+def StairGetOptTotalRise(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.StairGetOptTotalRise(stair)
+		VectorScript: FUNCTION StairGetOptTotalRise(stair:HANDLE) : INTEGER;
+		
+		Category: Objects - Stairs
+		Returns Stair Total Rise Option.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def StairGetSideLengthsM(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: (BOOLEAN, LengthSide1M, LengthSide2M, LengthSide3M, LengthSide4M, LengthSide5M) = vs.StairGetSideLengthsM(stair)
+		VectorScript: FUNCTION StairGetSideLengthsM(stair:HANDLE; VAR LengthSide1M:REAL; VAR LengthSide2M:REAL; VAR LengthSide3M:REAL; VAR LengthSide4M:REAL; VAR LengthSide5M:REAL) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Returns Lengths of sides of stair
+	'''
+	pass
+	return ( False  , # 
+	         0.0    , 
+	         0.0    , 
+	         0.0    , 
+	         0.0    , 
+	         0.0     )
+
+
+def StairGetTopGrUpFlMode(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.StairGetTopGrUpFlMode(stair)
+		VectorScript: FUNCTION StairGetTopGrUpFlMode(stair:HANDLE) : INTEGER;
+		
+		Category: Objects - Stairs
+		Returns top graphic on other floor mode of stair.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def StairGetTotalRiseM(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: REAL = vs.StairGetTotalRiseM(stair)
+		VectorScript: FUNCTION StairGetTotalRiseM(stair:HANDLE) : REAL;
+		
+		Category: Objects - Stairs
+		Returns Total Rise
+	'''
+	pass
+	return 'REAL' # 
+
+
+def StairGetWFlight1M(
+		stair  # HANDLE -  
+		):
+	'''
+		Python: REAL = vs.StairGetWFlight1M(stair)
+		VectorScript: FUNCTION StairGetWFlight1M(stair:HANDLE) : REAL;
+		
+		Category: Objects - Stairs
+		Returns Width Of First Flight
+	'''
+	pass
+	return 'REAL' # 
+
+
+def StairSet2D3DCompType(
+		stair            , # HANDLE  -  
+		ComponentType2D3D  # INTEGER -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSet2D3DCompType(stair, ComponentType2D3D)
+		VectorScript: FUNCTION StairSet2D3DCompType(stair:HANDLE; ComponentType2D3D:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets 2D3D components type of stair - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetConfigType(
+		stair            , # HANDLE  -  
+		ConfigurationType  # INTEGER -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetConfigType(stair, ConfigurationType)
+		VectorScript: FUNCTION StairSetConfigType(stair:HANDLE; ConfigurationType:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets Stair Configuration Type.
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetConstType(
+		stair           , # HANDLE  -  
+		ConstructionType  # INTEGER -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetConstType(stair, ConstructionType)
+		VectorScript: FUNCTION StairSetConstType(stair:HANDLE; ConstructionType:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets construction Type of stair - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetNumRisers(
+		stair     , # HANDLE  -  
+		NumRisers1, # INTEGER -  
+		NumRisers2, # INTEGER -  
+		NumRisers3, # INTEGER -  
+		NumRisers4  # INTEGER -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetNumRisers(stair, NumRisers1, NumRisers2, NumRisers3, NumRisers4)
+		VectorScript: FUNCTION StairSetNumRisers(stair:HANDLE; NumRisers1:INTEGER; NumRisers2:INTEGER; NumRisers3:INTEGER; NumRisers4:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets numbers of risers of stair flights - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetOptTotalRise(
+		stair          , # HANDLE  -  
+		OptionTotalRise  # INTEGER -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetOptTotalRise(stair, OptionTotalRise)
+		VectorScript: FUNCTION StairSetOptTotalRise(stair:HANDLE; OptionTotalRise:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets Stair Total Rise Option - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetSideLengthsM(
+		stair       , # HANDLE -  
+		LengthSide1M, # REAL   -  
+		LengthSide2M, # REAL   -  
+		LengthSide3M, # REAL   -  
+		LengthSide4M, # REAL   -  
+		LengthSide5M  # REAL   -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetSideLengthsM(stair, LengthSide1M, LengthSide2M, LengthSide3M, LengthSide4M, LengthSide5M)
+		VectorScript: FUNCTION StairSetSideLengthsM(stair:HANDLE; LengthSide1M:REAL; LengthSide2M:REAL; LengthSide3M:REAL; LengthSide4M:REAL; LengthSide5M:REAL) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets side lengths of stair - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetTopGrUpFlMode(
+		stair                     , # HANDLE  -  
+		TopGraphicOnOtherFloorMode  # INTEGER -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetTopGrUpFlMode(stair, TopGraphicOnOtherFloorMode)
+		VectorScript: FUNCTION StairSetTopGrUpFlMode(stair:HANDLE; TopGraphicOnOtherFloorMode:INTEGER) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets top graphic on other floor mode of stair - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetTotalRiseM(
+		stair    , # HANDLE -  
+		TotalRise  # REAL   -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetTotalRiseM(stair, TotalRise)
+		VectorScript: FUNCTION StairSetTotalRiseM(stair:HANDLE; TotalRise:REAL) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets total rise of stair - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def StairSetWFlight1M(
+		stair             , # HANDLE -  
+		WidthOfFirstFlight  # REAL   -  
+		):
+	'''
+		Python: BOOLEAN = vs.StairSetWFlight1M(stair, WidthOfFirstFlight)
+		VectorScript: FUNCTION StairSetWFlight1M(stair:HANDLE; WidthOfFirstFlight:REAL) : BOOLEAN;
+		
+		Category: Objects - Stairs
+		Sets width of stair - not recommended for use
+	'''
+	pass
+	return 'BOOLEAN' # 
 
 
 def Stipple(

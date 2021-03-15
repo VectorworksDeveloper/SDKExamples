@@ -398,6 +398,8 @@ namespace VectorWorks
 
 			// VW 2021 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			virtual VCOMError VCOM_CALLTYPE ConvertIfcGloballyUniqueIdToUUID(const TXString& inIfcGUID, TXString& outUUID) = 0;
+			virtual VCOMError VCOM_CALLTYPE	ExportObject(TXString& outPartialModel, const std::vector<MCObjectHandle>& arrhObject) = 0;
+			virtual VCOMError VCOM_CALLTYPE	IFC_ExportNoUI(IFileIdentifier* pFileID) = 0;
 		};
 	}
 }

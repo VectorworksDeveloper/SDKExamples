@@ -122,7 +122,7 @@ namespace VectorWorks
 			virtual VCOMError VCOM_CALLTYPE	EnumerateContents(TFolderContentCallback_Folder folderCallback, TFolderContentCallback_File fileCallback, bool bReqursive) = 0; // use nullptr if callbacks not defined
 
 		// VW2021
-			virtual VCOMError VCOM_CALLTYPE	Set(EOSFolderSpecifier folderSpec) = 0;
+			virtual VCOMError VCOM_CALLTYPE	SetAsOS(EOSFolderSpecifier folderSpec) = 0;
 		};
 
 		// ----------------------------------------------------------------------------------------------------

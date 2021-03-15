@@ -29,7 +29,7 @@
 Boolean	TVariableBlock::GetTXString(TXString& data) const
 { 
 	if (eType == t_TXString) {
-        data = uStr;
+        data = fData.uStr;
 		return true ;
 	} 
 	else return false ;
@@ -37,7 +37,7 @@ Boolean	TVariableBlock::GetTXString(TXString& data) const
 
 TVariableBlock& TVariableBlock::operator=(const TXString& data)
 {
-    uStr = data;
+    data.CopyInto(fData.uStr, 256);
 	eType = t_TXString ;
 	return *this ;
 }

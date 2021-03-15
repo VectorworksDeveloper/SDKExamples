@@ -107,6 +107,8 @@ public:
 
 	virtual Boolean		VCOM_CALLTYPE	RecordsEqual(MCObjectHandle rec) = 0;
 	virtual Boolean		VCOM_CALLTYPE	RecordsEqual(MCObjectHandle rec, Boolean thisRecNeedsByteSwap) = 0;
+	
+	virtual Boolean		VCOM_CALLTYPE	SetFieldObjectOptions(short fieldIndex, IRecordItem* value, bool isUpdatingOfOIPSkipped = false) = 0;
 };
 
 // ----------------------------------------------------------------------------------------------------------------------------

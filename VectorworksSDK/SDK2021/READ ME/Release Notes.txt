@@ -1,0 +1,2575 @@
+
+=======================
+RELEASE NOTES
+for VectorWorks SDK
+=======================
+
+We recomend using the new module plug-ins for future development. See http://developer.vectorworks.net
+
+SDK 2012
+September 14
+-----------------------
+
+VisualStudio 2010 is used for development under windows. Xcode 3.2.5 is used for development under Mac.
+
+
+SDK 2011
+September 14
+-----------------------
+
+NOTE: Due to problems with Mac OS 10.3.9, it is highly recommended that static variables not be used in SDK plug-ins.  Using static variables in plugins can lead to a crash when VectorWorks is quitting as it attempts to clean up statics that have already been destroyed.
+
+SDK 2009a (88651)
+May 2008
+-----------------------
+This is the initial "alpha" release of SDK for VW 2009.
+
+
+- Developer Tools
+
+We now recommend Microsoft "Visual Studio .NET 2005 Professional" for developing VectorWorks SDK Plug-ins. 
+The sample plug-in projects have been updated to build with the new tools.
+
+- API
+
+The GS_ functions are replaced with general purpose VCOM interface called ISDK (located in SDKLib\Include\Interfaces\VectorWorks). ISDK interface provides functions for all GS_ functions except file related GS_ functions.
+
+There are no OS dependent functions in ISDK interface.
+
+All new functions to the SDK will be provided only in ISDK interface. No new GS_ functions will be provided.
+
+New functions are documented in public developer web site: http://developer.vectorworks.net
+
+
+SDK 2008b (74828)
+July 2007
+This is the forth beta release of SDK for VW 2008.
+
+
+SDK 2008b (73386)
+July 2007
+This is the third beta release of SDK for VW 2008.
+ 
+
+
+SDK 2008b (72783)
+June 2007
+This is the second beta release of SDK for VW 2008.
+ 
+New APIs:
+-----------------------
+short GS_CALLBACK GS_GetCurrentView(CallBackPtr cbp)
+
+
+Boolean GS_CALLBACK GS_SetCustomObjectColor(CallBackPtr cbp, MCObjectHandle objectHand, int iTagID, ColorRef inColorRef)
+Boolean GS_CALLBACK GS_GetCustomObjectColor(CallBackPtr cbp, MCObjectHandle objectHand, int iTagID, ColorRef& ioColorRef)
+
+GS_S(G)etCustomObjectColor  allow plugin developers to store and retrieve ColorRefs in Plugin Objects.
+See the SampleObject for sample usage.  Storing ColorRefs using these APIs allows the application to preserve the ColorRefs during document transfer and during "Purge Unused Colors".  In the Sample is also an example for attaching ColorRefs to ANY object.
+
+
+SDK 2008b (71989)
+June 2007
+This is the fist beta release of SDK for VW 2008.
+ 
+Highlights for SDK 2008b (71989)
+
+=========================================== Transition TO VW 2008 Color:
+
+General Concepts:
+1)	As in VW 12, color in VW 2008 is stored in objects as an index in the current document's Color Table.
+2)	As in VW 12, color indices stored in an object can change when the object is moved from one document to another.
+3)	In VW 2008, color indices can also be changed if the user Purges Unused Colors.
+4)	In VW 2008, color indices stored in objects are all larger than 255.
+
+
+Color Checklist for Beta 1:
+1) Recompile your plug-ins.  The SDK APIs that previously included color index parameters of type Byte have been changed to take a ColorRef type instead (See Changed APIs below).  Developers must seek out and find all instances of these color indices and make sure that there is no casting of ColorRef to Byte.
+
+2) Identify all Plugin solutions that store color indices in a data container such as a record node, UserDatNode, or preference file.  These color indices will need special treatment.  As in VW 12, VectorWorks can not find these color indices so it can't map them to new indices when moving to a new document or when user selects Purge Unused Colors.  Updating solutions that exhibit this behavior will require support services to be provided in beta  ( see item 3 below)
+
+
+----------------------------
+New behavior to be added to Beta 2:
+1) Color stored in objects will always be OUTSIDE the range of 0..255.  All Color APIs that take a color index will check for input in range 0..255.  Indices in this range will automatically be converted to to a valid index for the color. The color specified will be determined using the colors of the Default Color Table of VectorWorks 12.  If the current document has a custom color table prior to VW 2008, the color will be determined using this custom color table.  This automatic mapping of color indices in the 0..255 range will be provided in beta 2.
+
+2) In beta 2, GS_ColorIndexToRGB can be used with color indices between 0..255 to get a RGB color.  Color indices stored in a file prior to VW 2008 can be converted to a RGB and then converted to a VW 2008 index using GS_RGBToColorIndex.
+
+3) If a plugin solution needs to store ColorRefs inside the VectorWorks file it will need to store them using a new SDK API.  The application must be able to keep track of the color indices stored inside the VectorWorks document so that the color indices can be treated correctly when the object is transfered to another file or when the user selects purge unused colors.  These APIs will be provided in beta 2.  
+
+
+
+New APIs:
+-----------------------
+CBBoolean GS_CALLBACK GS_GetDefaultBeginningMarker(CallBackPtr cbp, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetDefaultBeginningMarker(CallBackPtr cbp, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_GetDefaultEndMarker(CallBackPtr cbp, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetDefaultEndMarker(CallBackPtr cbp, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_GetObjBeginningMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetObjBeginningMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_GetObjEndMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetObjEndMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_SetClassBeginningMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle mstyle)
+CBBoolean GS_CALLBACK GS_SetClassEndMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle mstyle)
+CBBoolean GS_CALLBACK GS_GetClassBeginningMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle& mstyle)
+CBBoolean GS_CALLBACK GS_GetClassEndMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle& mstyle)
+VoidPtr GS_CALLBACK GS_OverrideControl(CallBackPtr cbp, long dlogID, long controlID, VoidPtr vp)
+EForEachFileResult GS_CALLBACK GS_ForEachFileInStandardFolder(CallBackPtr cbp, GS_ForEachFilePathProcPtr processFile, long folderSpec, void* env)
+Boolean GS_CALLBACK GS_GetFilePathInStandardFolder(CallBackPtr cbp, long folderClass, const char fileName[255], char outFilePath[255], Boolean& exists)
+Boolean GS_CALLBACK GS_GetFilePathInUserRoot(CallBackPtr cbp, FolderSpecifier folderClass, const char fileName[255], char outFilePath[255])
+Boolean GS_CALLBACK GS_IsInStandardFolder(CallBackPtr cbp, FolderSpecifier folderClass, const char filePath[255], char outFolderPath[255])
+Boolean GS_CALLBACK GS_GetNumFilesInStandardFolder(CallBackPtr cbp, FolderSpecifier folderClass, unsigned long& numFiles)
+Boolean GS_CALLBACK GS_SetImageControlPath(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strPath)
+Boolean GS_CALLBACK GS_GetComponentTextWidth(CallBackPtr cbp, long nDialogID, long nComponentID, int& nWidthInLMUnits)
+Boolean GS_CALLBACK GS_SetListBrowserColumnImage(CallBackPtr cbp, long nDialogID, long nComponentID, int nColumnIndex, int nImageIndex)
+Boolean GS_CALLBACK GS_CreateClassPullDownMenu(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars)
+Boolean GS_CALLBACK GS_CreateDesignLayerPullDownMenu(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars)
+Boolean GS_CALLBACK GS_CreateSheetLayerPullDownMenu(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars)
+Boolean GS_CALLBACK GS_InsertProposedClassOrLayerItem(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strLabel, int nIconIndex)
+Boolean GS_CALLBACK GS_CreateTreeControl(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars, int nHeightInChars)
+int GS_CALLBACK GS_InsertTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strItemLabel, int nParentID, int nAfterID)
+Boolean GS_CALLBACK GS_RemoveTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID)
+Boolean GS_CALLBACK GS_GetTreeControlSelectedItem(CallBackPtr cbp, long nDialogID, long nComponentID, int& nItemID)
+Boolean GS_CALLBACK GS_SetItemToolTipText(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strToolTip, ConstStr255Param strSubToolTip, int nIndex, int nSubIndex)
+Boolean GS_CALLBACK GS_SetIconPushButtonState(CallBackPtr cbp, long nDialogID, long nComponentID, Boolean bPressed)
+Boolean GS_CALLBACK GS_GetIconPushButtonState(CallBackPtr cbp, long nDialogID, long nComponentID, Boolean& bPressed)
+Boolean GS_CALLBACK GS_GetComponentRect(CallBackPtr cbp, long nDialogID, long nComponentID, int& nLeft, int& nTop, int& nRight, int& nBottom)
+Boolean GS_CALLBACK GS_SetComponentSize(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthPixels, int nHeightPixels)
+Boolean GS_CALLBACK GS_AdjustComponentPixelPos(CallBackPtr cbp, long nDialogID, long nComponentID, int nHorizontalPixels, int nVerticalPixels)
+Boolean GS_CALLBACK GS_SetComponentIndeterminate(CallBackPtr cbp, long nDialogID, long nComponentID, Boolean bIndeterminateState)
+void GS_CALLBACK GS_GetWkSheetSubrowCellActualString(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, CBSignedShort subrow, Str255 cellString)
+Boolean GS_CALLBACK GS_DisplayContextualHelp(CallBackPtr cbp, const char* inIdentifier)
+void GS_CALLBACK GS_ModelVecToScreenVec(CallBackPtr cbp, WorldPt& vertex)
+void GS_CALLBACK GS_ScreenVecToModelVec(CallBackPtr cbp, WorldPt& vertex)
+MCObjectHandle GS_CALLBACK GS_CreateRectangleN(CallBackPtr cbp, const WorldPt& origin, const Vector2 &orientation, CBWorldCoord_param width, CBWorldCoord_param height)
+MCObjectHandle GS_CALLBACK GS_CreateRRectangleN(CallBackPtr cbp, const WorldPt& origin, const Vector2 &orientation, CBWorldCoord_param width, CBWorldCoord_param height, CBWorldCoord_param xDiam, CBWorldCoord_param yDiam, CBBoolean isProportional)
+MCObjectHandle GS_CALLBACK GS_CreateOvalN(CallBackPtr cbp, const WorldPt& origin, const Vector2 &orientation, CBWorldCoord_param width, CBWorldCoord_param height)
+Boolean GS_CALLBACK GS_IsItemEnabled(CallBackPtr cbp, long nDialogID, long nComponentID)
+Boolean GS_CALLBACK GS_IsItemVisible(CallBackPtr cbp, long nDialogID, long nComponentID)
+Boolean GS_CALLBACK GS_SetListBrowserItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemIndex, int nSubItemIndex, long nUserData)
+Boolean GS_CALLBACK GS_GetListBrowserItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemIndex, int nSubItemIndex, long& nUserData)
+Boolean GS_CALLBACK GS_SetTreeControlItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID, long nItemData)
+Boolean GS_CALLBACK GS_GetTreeControlItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID, long& nItemData)
+Boolean GS_CALLBACK GS_SelectTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID)
+Boolean GS_CALLBACK GS_ExpandTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID, Boolean bExpand)
+int GS_CALLBACK GS_GetDataBarCursorVisState(CallBackPtr cbp)
+OpacityRef GS_CALLBACK GS_GetOpacity(CallBackPtr cbp, MCObjectHandle h)
+CBBoolean GS_CALLBACK GS_GetOpacityByClass(CallBackPtr cbp, MCObjectHandle h)
+void GS_CALLBACK GS_SetOpacity(CallBackPtr cbp, MCObjectHandle h, OpacityRef  inNewOpacity)
+void GS_CALLBACK GS_SetOpacityByClass(CallBackPtr cbp, MCObjectHandle h)
+void GS_CALLBACK GS_SetDefaultOpacityByClass(CallBackPtr cbp)
+OpacityRef GS_CALLBACK GS_GetDefaultOpacity(CallBackPtr cbp)
+CBBoolean GS_CALLBACK GS_GetDefaultOpacityByClass(CallBackPtr cbp)
+CBBoolean GS_CALLBACK GS_GetComponentName(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, InternalName &componentName)
+CBBoolean GS_CALLBACK GS_SetComponentName(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, InternalName componentName)
+CBBoolean GS_CALLBACK GS_GetComponentClass(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long &componentClass)
+CBBoolean GS_CALLBACK GS_SetComponentClass(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long componentClass)
+CBBoolean GS_CALLBACK GS_GetComponentFillColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, ColorRef &fillForeColor, ColorRef &fillBackColor)
+CBBoolean GS_CALLBACK GS_SetComponentFillColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, ColorRef fillForeColor, ColorRef fillBackColor)
+CBBoolean GS_CALLBACK GS_GetComponentPenColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, ColorRef &leftPenForeColor, ColorRef &leftPenBackColor, ColorRef &rightPenForeColor, ColorRef &rightPenBackColor)
+CBBoolean GS_CALLBACK GS_SetComponentPenColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, ColorRef leftPenForeColor, ColorRef leftPenBackColor, ColorRef rightPenForeColor, ColorRef rightPenBackColor)
+CBBoolean GS_CALLBACK GS_GetDLComponentName(CallBackPtr cbp, CBSignedShort index, InternalName &componentName)
+CBBoolean GS_CALLBACK GS_SetDLComponentName(CallBackPtr cbp, CBSignedShort index, InternalName componentName)
+CBBoolean GS_CALLBACK GS_GetDLComponentClass(CallBackPtr cbp, CBSignedShort index, long &componentClass)
+CBBoolean GS_CALLBACK GS_SetDLComponentClass(CallBackPtr cbp, CBSignedShort index, long componentClass)
+CBBoolean GS_CALLBACK GS_GetDLComponentFillColors(CallBackPtr cbp, CBSignedShort index, ColorRef &fillForeColor, ColorRef &fillBackColor)
+CBBoolean GS_CALLBACK GS_SetDLComponentFillColors(CallBackPtr cbp, CBSignedShort index, ColorRef fillForeColor, ColorRef fillBackColor)
+CBBoolean GS_CALLBACK GS_GetDLComponentPenColors(CallBackPtr cbp, CBSignedShort index, ColorRef &leftPenForeColor, ColorRef &leftPenBackColor, ColorRef &rightPenForeColor, ColorRef &rightPenBackColor)
+CBBoolean GS_CALLBACK GS_SetDLComponentPenColors(CallBackPtr cbp, CBSignedShort index, ColorRef leftPenForeColor, ColorRef leftPenBackColor, ColorRef rightPenForeColor, ColorRef rightPenBackColor)
+CBBoolean GS_CALLBACK GS_GetComponentUseFillClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean &useClassAttr)
+CBBoolean GS_CALLBACK GS_SetComponentUseFillClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean useClassAttr)
+CBBoolean GS_CALLBACK GS_SetComponentUsePenClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean leftPenUseClassAttr, CBBoolean rightPenUseClassAttr)
+CBBoolean GS_CALLBACK GS_GetComponentUsePenClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean &leftPenUseClassAttr, CBBoolean &rightPenUseClassAttr)
+CBBoolean GS_CALLBACK GS_GetDLComponentUseFillClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean &useClassAttr)
+CBBoolean GS_CALLBACK GS_SetDLComponentUseFillClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean useClassAttr)
+CBBoolean GS_CALLBACK GS_GetDLComponentUsePenClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean &leftPenUseClassAttr, CBBoolean &rightPenUseClassAttr)
+CBBoolean GS_CALLBACK GS_SetDLComponentUsePenClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean leftPenUseClassAttr, CBBoolean rightPenUseClassAttr)
+void GS_CALLBACK GS_SetDefaultOpacity(CallBackPtr cbp, OpacityRef inOpacity)
+void GS_CALLBACK GS_CreateCMYKColorSwatch(CallBackPtr cbp, long dialogID, long itemID)
+void GS_CALLBACK GS_GetCMYKColor(CallBackPtr cbp, long dialogID, long itemID, TGSColorV2 &outColor)
+void GS_CALLBACK GS_SetCMYKColor(CallBackPtr cbp, long dialogID, long itemID, TGSColorV2 &inColor)
+MCObjectHandle GS_CALLBACK GS_CreateMultipleExtrude(CallBackPtr cbp, CBWorldCoord_param bottom, CBWorldCoord_param top)
+Boolean GS_CALLBACK GS_NotifyPullDownClicked(CallBackPtr cbp, long nDialogID, long nComponentID)
+short GS_CALLBACK GS_GetCurrentView(CallBackPtr cbp)
+
+ 
+Changed APIs: Byte Index is now a ColorRef
+-----------------------
+void GS_ColorIndexToRGB(CallBackPtr cbp, Byte colorIndex, RGBColor& rgb);
+MCObjectHandle GS_CreateHatch(CallBackPtr cbp, const InternalName inName, CBBoolean inUsePageUnits, CBBoolean inRotateInWalls, CBBoolean inRotateInSymbols, CBBoolean inTransparent, Byte inFillColorIndex);
+CBBoolean GS_GetHatchLevel(CallBackPtr cbp, MCObjectHandle inHatchDef, CBSignedShort inLevel, WorldPt& outStartPt, WorldPt& outRepeatVec, double& outDashFactor, WorldPt& outOffsetVec, Byte& outColorIndex, short& outMilsLineWeight);
+void GS_RGBToColorIndex(CallBackPtr cbp, const RGBColor& rgb, Byte& colorIndex);
+CBBoolean GS_SetHatchLevel(CallBackPtr cbp, MCObjectHandle inHatchDef, CBSignedShort inLevel, const WorldPt& inStartPt, const WorldPt& inRepeatVec, CBDouble_param inDashFactor, const WorldPt& inOffsetVec, Byte inColorIndex, CBSignedShort inMilsLineWeight);
+void GS_GetTextColor(CallBackPtr cbp, MCObjectHandle textBlock, long charNum, Byte& charColor);
+void GS_SetTextColor(CallBackPtr cbp, MCObjectHandle textBlock, long firstChar, long numChars, Byte charColor);
+void GS_GetWorksheetCellFill(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, short& style, Byte& bgcolor, Byte& fgcolor, short& fillpattern);
+void GS_GetWorksheetCellTextColor(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, Byte& color);
+void GS_SetWorksheetCellFill(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedShort style, Byte bgcolor, Byte fgcolor, CBSignedShort fillpattern);
+void GS_SetWorksheetCellTextColor(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, Byte color);
+void GS_SetWSCellBottomBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+void GS_SetWSCellInsideHorizBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+void GS_SetWSCellInsideVertBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+void GS_SetWSCellInsideVertBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+void GS_SetWSCellOutlineBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+void GS_SetWSCellRightBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+void GS_SetWSCellTopBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color);
+
+
+
+
+SDK 13.0.0a (69461)
+April 2007
+This is the second "alpha" release of SDK for VW 2008.
+ 
+Highlights for SDK 13.0.0a (69461):
+SDK manual has new documentation describing PNG tool icons and modern cursors.
+ 
+
+New APIs:
+-----------------------
+int GS_CALLBACK GS_GetDataBarCursorVisState(CallBackPtr cbp)
+OpacityRef GS_CALLBACK GS_GetOpacity(CallBackPtr cbp, MCObjectHandle h)
+CBBoolean GS_CALLBACK GS_GetOpacityByClass(CallBackPtr cbp, MCObjectHandle h)
+void GS_CALLBACK GS_SetOpacity(CallBackPtr cbp, MCObjectHandle h, OpacityRef  inNewOpacity)
+void GS_CALLBACK GS_SetOpacityByClass(CallBackPtr cbp, MCObjectHandle h)
+void GS_CALLBACK GS_SetDefaultOpacityByClass(CallBackPtr cbp, OpacityRef inOpacity)
+OpacityRef GS_CALLBACK GS_GetDefaultOpacity(CallBackPtr cbp, OpacityRef& outOpacity)
+CBBoolean GS_CALLBACK GS_GetDefaultOpacityByClass(CallBackPtr cbp)
+CBBoolean GS_CALLBACK GS_GetComponentName(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, InternalName &componentName)
+CBBoolean GS_CALLBACK GS_SetComponentName(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, InternalName componentName)
+CBBoolean GS_CALLBACK GS_GetComponentClass(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long &componentClass)
+CBBoolean GS_CALLBACK GS_SetComponentClass(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long componentClass)
+CBBoolean GS_CALLBACK GS_GetComponentFillColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedShort &fillForeColor, CBUnsignedShort &fillBackColor)
+CBBoolean GS_CALLBACK GS_SetComponentFillColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedShort fillForeColor, CBUnsignedShort fillBackColor)
+CBBoolean GS_CALLBACK GS_GetComponentPenColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedShort &leftPenForeColor, CBUnsignedShort &leftPenBackColor, CBUnsignedShort &rightPenForeColor, CBUnsignedShort &rightPenBackColor)
+CBBoolean GS_CALLBACK GS_SetComponentPenColors(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedShort leftPenForeColor, CBUnsignedShort leftPenBackColor, CBUnsignedShort rightPenForeColor, CBUnsignedShort rightPenBackColor)
+CBBoolean GS_CALLBACK GS_GetDLComponentName(CallBackPtr cbp, CBSignedShort index, InternalName &componentName)
+CBBoolean GS_CALLBACK GS_SetDLComponentName(CallBackPtr cbp, CBSignedShort index, InternalName componentName)
+CBBoolean GS_CALLBACK GS_GetDLComponentClass(CallBackPtr cbp, CBSignedShort index, long &componentClass)
+CBBoolean GS_CALLBACK GS_SetDLComponentClass(CallBackPtr cbp, CBSignedShort index, long componentClass)
+CBBoolean GS_CALLBACK GS_GetDLComponentFillColors(CallBackPtr cbp, CBSignedShort index, CBUnsignedShort &fillForeColor, CBUnsignedShort &fillBackColor)
+CBBoolean GS_CALLBACK GS_SetDLComponentFillColors(CallBackPtr cbp, CBSignedShort index, CBUnsignedShort fillForeColor, CBUnsignedShort fillBackColor)
+CBBoolean GS_CALLBACK GS_GetDLComponentPenColors(CallBackPtr cbp, CBSignedShort index, CBUnsignedShort &leftPenForeColor, CBUnsignedShort &leftPenBackColor, CBUnsignedShort &rightPenForeColor, CBUnsignedShort &rightPenBackColor)
+CBBoolean GS_CALLBACK GS_SetDLComponentPenColors(CallBackPtr cbp, CBSignedShort index, CBUnsignedShort leftPenForeColor, CBUnsignedShort leftPenBackColor, CBUnsignedShort rightPenForeColor, CBUnsignedShort rightPenBackColor)
+CBBoolean GS_CALLBACK GS_GetComponentUseFillClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean &useClassAttr)
+CBBoolean GS_CALLBACK GS_SetComponentUseFillClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean useClassAttr)
+CBBoolean GS_CALLBACK GS_SetComponentUsePenClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean leftPenUseClassAttr, CBBoolean rightPenUseClassAttr)
+CBBoolean GS_CALLBACK GS_GetComponentUsePenClassAttr(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBBoolean &leftPenUseClassAttr, CBBoolean &rightPenUseClassAttr)
+CBBoolean GS_CALLBACK GS_GetDLComponentUseFillClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean &useClassAttr)
+CBBoolean GS_CALLBACK GS_SetDLComponentUseFillClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean useClassAttr)
+CBBoolean GS_CALLBACK GS_GetDLComponentUsePenClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean &leftPenUseClassAttr, CBBoolean &rightPenUseClassAttr)
+CBBoolean GS_CALLBACK GS_SetDLComponentUsePenClassAttr(CallBackPtr cbp, CBSignedShort index, CBBoolean leftPenUseClassAttr, CBBoolean rightPenUseClassAttr)
+void GS_CALLBACK GS_SetDefaultOpacity(CallBackPtr cbp, OpacityRef inOpacity)
+void GS_CALLBACK GS_SetWorksheetCellTextColorN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, ColorRef color)
+void GS_CALLBACK GS_SetWorksheetCellFillN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, short style, ColorRef bgcolor, ColorRef  fgcolor, short fillpattern)
+void GS_CALLBACK GS_GetWorksheetCellFillN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, short& style, ColorRef & bgcolor, ColorRef & fgcolor, short& fillpattern)
+void GS_CALLBACK GS_GetWorksheetCellTextColorN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, ColorRef & color)
+void GS_CALLBACK GS_SetWSCellTopBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_SetWSCellLeftBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_SetWSCellBottomBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_SetWSCellRightBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_SetWSCellInsideHorizBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_SetWSCellInsideVertBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_SetWSCellOutlineBorderN(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, ColorRef  color)
+void GS_CALLBACK GS_CreateCMYKColorSwatch(CallBackPtr cbp, long dialogID, long itemID)
+void GS_CALLBACK GS_GetCMYKColor(CallBackPtr cbp, long dialogID, long itemID, TGSColorV2 &outColor)
+void GS_CALLBACK GS_SetCMYKColor(CallBackPtr cbp, long dialogID, long itemID, TGSColorV2 &inColor)
+MCObjectHandle GS_CALLBACK GS_CreateMultipleExtrude(CallBackPtr cbp, CBWorldCoord_param bottom, CBWorldCoord_param top)
+Boolean GS_CALLBACK GS_NotifyPullDownClicked(CallBackPtr cbp, long nDialogID, long nComponentID)
+
+
+
+SDK 13.0.0a (66296)
+March 2007
+This is the initial "alpha" release of SDK for VW 2008.
+ 
+Highlights:
+This SDK release contains the set of new APIs listed below.  Within this set of APIs are three subsets that deserve special mention as 
+developers prepare to transition to the release of VW 2008.  
+
+1. Plugins will need to be updated to work in the Rotated Plan context available in VW 2008.  The Document enters this new context by invoking the new 
+"Rotate Plan" menu command.  In this context there now exists TWO planar coordinate systems, Screen and Model2D.  The 2D objects in the drawing are defined in Model space as always but there is a separate,NEW, screen space when the drawing is in Rotated plan.  This "Screen" coordinate space is always aligned to the screen. The significant APIs for working in the new "Rotated Plan" context are
+ProgramVariables: varPlanRotated, varPlanRotationAngle
+APIs: GS_ModelPt2DToScreenPt, GS_ScreenPtToModelPt2D, 
+
+2. The Layout Manager has a new Control called and "Overridden" Control. Layout manager dialogs can now embed custom behavior inside a layout manager dialog.  See GS_OverrideControl.
+
+3. Rectangles, Ovals and Rounded Rectangles can now be rotated. See GS_CreateRectangleN, GS_CreateRRectangleN, GS_CreateOvalN.
+
+
+New APIs:
+-----------------------
+CBBoolean GS_CALLBACK GS_GetDefaultBeginningMarker(CallBackPtr cbp, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetDefaultBeginningMarker(CallBackPtr cbp, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_GetDefaultEndMarker(CallBackPtr cbp, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetDefaultEndMarker(CallBackPtr cbp, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_GetObjBeginningMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetObjBeginningMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_GetObjEndMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle& mstyle, CBBoolean& visibility)
+CBBoolean GS_CALLBACK GS_SetObjEndMarker(CallBackPtr cbp, MCObjectHandle h, SMarkerStyle mstyle, CBBoolean visibility)
+CBBoolean GS_CALLBACK GS_SetClassBeginningMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle mstyle)
+CBBoolean GS_CALLBACK GS_SetClassEndMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle mstyle)
+CBBoolean GS_CALLBACK GS_GetClassBeginningMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle& mstyle)
+CBBoolean GS_CALLBACK GS_GetClassEndMarker(CallBackPtr cbp, InternalIndex index, SMarkerStyle& mstyle)
+VoidPtr GS_CALLBACK GS_OverrideControl(CallBackPtr cbp, long dlogID, long controlID, VoidPtr vp)
+EForEachFileResult GS_CALLBACK GS_ForEachFileInStandardFolder(CallBackPtr cbp, GS_ForEachFilePathProcPtr processFile, long folderSpec, void* env)
+Boolean GS_CALLBACK GS_GetFilePathInStandardFolder(CallBackPtr cbp, long folderClass, const char fileName[255], char outFilePath[255], Boolean& exists)
+Boolean GS_CALLBACK GS_GetFilePathInUserRoot(CallBackPtr cbp, FolderSpecifier folderClass, const char fileName[255], char outFilePath[255])
+Boolean GS_CALLBACK GS_IsInStandardFolder(CallBackPtr cbp, FolderSpecifier folderClass, const char filePath[255], char outFolderPath[255])
+Boolean GS_CALLBACK GS_GetNumFilesInStandardFolder(CallBackPtr cbp, FolderSpecifier folderClass, unsigned long& numFiles)
+Boolean GS_CALLBACK GS_SetImageControlPath(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strPath)
+Boolean GS_CALLBACK GS_GetComponentTextWidth(CallBackPtr cbp, long nDialogID, long nComponentID, int& nWidthInLMUnits)
+Boolean GS_CALLBACK GS_SetListBrowserColumnImage(CallBackPtr cbp, long nDialogID, long nComponentID, int nColumnIndex, int nImageIndex)
+Boolean GS_CALLBACK GS_CreateClassPullDownMenu(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars)
+Boolean GS_CALLBACK GS_CreateDesignLayerPullDownMenu(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars)
+Boolean GS_CALLBACK GS_CreateSheetLayerPullDownMenu(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars)
+Boolean GS_CALLBACK GS_InsertProposedClassOrLayerItem(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strLabel, int nIconIndex)
+Boolean GS_CALLBACK GS_CreateTreeControl(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidthInChars, int nHeightInChars)
+int GS_CALLBACK GS_InsertTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strItemLabel, int nParentID, int nAfterID)
+Boolean GS_CALLBACK GS_RemoveTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID)
+Boolean GS_CALLBACK GS_GetTreeControlSelectedItem(CallBackPtr cbp, long nDialogID, long nComponentID, int& nItemID)
+Boolean GS_CALLBACK GS_SetItemToolTipText(CallBackPtr cbp, long nDialogID, long nComponentID, ConstStr255Param strToolTip, ConstStr255Param strSubToolTip, int nIndex, int nSubIndex)
+Boolean GS_CALLBACK GS_SetIconPushButtonState(CallBackPtr cbp, long nDialogID, long nComponentID, Boolean bPressed)
+Boolean GS_CALLBACK GS_GetIconPushButtonState(CallBackPtr cbp, long nDialogID, long nComponentID, Boolean& bPressed)
+Boolean GS_CALLBACK GS_GetComponentRect(CallBackPtr cbp, long nDialogID, long nComponentID, int& nLeft, int& nTop, int& nRight, int& nBottom)
+Boolean GS_CALLBACK GS_SetComponentSize(CallBackPtr cbp, long nDialogID, long nComponentID, int nWidth, int nHeight)
+Boolean GS_CALLBACK GS_AdjustComponentPixelPos(CallBackPtr cbp, long nDialogID, long nComponentID, int nHorizontal, int nVertical)
+Boolean GS_CALLBACK GS_SetComponentIndeterminate(CallBackPtr cbp, long nDialogID, long nComponentID, Boolean bIndeterminateState)
+void GS_CALLBACK GS_GetWkSheetSubrowCellActualString(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, CBSignedShort subrow, Str255 cellString)
+Boolean GS_CALLBACK GS_DisplayContextualHelp(CallBackPtr cbp, const char* inIdentifier)
+void GS_CALLBACK GS_ModelPt2DToScreenPt(CallBackPtr, WorldPt& pt)
+void GS_CALLBACK GS_ScreenPtToModelPt2D(CallBackPtr, WorldPt& pt)
+void GS_CALLBACK GS_ModelVecToScreenVec(CallBackPtr cbp, WorldPt& vector)
+void GS_CALLBACK GS_ScreenVecToModelVec(CallBackPtr cbp, WorldPt& vector)
+MCObjectHandle GS_CALLBACK GS_CreateRectangleN(CallBackPtr cbp, const WorldPt& origin, const Vector2 &orientation, CBWorldCoord_param width, CBWorldCoord_param height)
+MCObjectHandle GS_CALLBACK GS_CreateRRectangleN(CallBackPtr cbp, const WorldPt& origin, const Vector2 &orientation, CBWorldCoord_param width, CBWorldCoord_param height, CBWorldCoord_param xDiam, CBWorldCoord_param yDiam, CBBoolean isProportional)
+MCObjectHandle GS_CALLBACK GS_CreateOvalN(CallBackPtr cbp, const WorldPt& origin, const Vector2 &orientation, CBWorldCoord_param width, CBWorldCoord_param height)
+Boolean GS_CALLBACK GS_IsItemEnabled(CallBackPtr cbp, long nDialogID, long nComponentID)
+Boolean GS_CALLBACK GS_IsItemVisible(CallBackPtr cbp, long nDialogID, long nComponentID)
+Boolean GS_CALLBACK GS_SetListBrowserItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemIndex, int nSubItemIndex, long nUserData)
+Boolean GS_CALLBACK GS_GetListBrowserItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemIndex, int nSubItemIndex, long& nUserData)
+Boolean GS_CALLBACK GS_SetTreeControlItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID, long nItemData)
+Boolean GS_CALLBACK GS_GetTreeControlItemData(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID, long& nItemData)
+Boolean GS_CALLBACK GS_SelectTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID)
+Boolean GS_CALLBACK GS_ExpandTreeControlItem(CallBackPtr cbp, long nDialogID, long nComponentID, int nItemID, Boolean bExpand)
+
+
+SDK 12.5.0b (59648)
+July 2006
+-----------------------
+- This is the sixth beta SDK for VectorWorks 12.5, and corresponds to build 57488 of the application.
+  This SDK allows developers to create Mac OS X Mach-O plugins for the VectorWorks Universal Binary
+  application.  Macintosh developers should see the documents "Install Notes.txt" and "Transitioning
+  Mac CFM plugins to Mach-O.pdf".
+
+// Dimensions
+MCObjectHandle GS_CALLBACK GS_CreateChainDimension(CallBackPtr cbp, MCObjectHandle h1, MCObjectHandle h2)
+void GS_CALLBACK GS_AssociateLinearDimension(CallBackPtr cbp, MCObjectHandle h, CBBoolean selectedObjectsMode)
+
+// Walls
+MCObjectHandle GS_CALLBACK GS_CreateWall(CallBackPtr cbp, const WorldPt& startPt, const WorldPt& endPt, WorldCoord thickness = 0)
+CBBoolean GS_CALLBACK GS_SetLayerDeltaZOffset(CallBackPtr cbp, MCObjectHandle theWall, WorldCoord layerDeltaZOffset)
+void GS_CALLBACK GS_GetWallCapsOffsets(CallBackPtr cbp, MCObjectHandle theWall, WorldCoord &leftCapLeftOffset, WorldCoord &leftCapRightOffset, WorldCoord &rightCapLeftOffset, WorldCoord &rightCapRightOffset)
+CBBoolean GS_CALLBACK GS_SetWallCapsOffsets(CallBackPtr cbp, MCObjectHandle theWall, WorldCoord leftCapLeftOffset, WorldCoord leftCapRightOffset, WorldCoord rightCapLeftOffset, WorldCoord rightCapRightOffset)
+CBBoolean GS_CALLBACK GS_GetLinkHeightToLayerDeltaZ(CallBackPtr cbp, MCObjectHandle theWall)
+CBBoolean GS_CALLBACK GS_SetLinkHeightToLayerDeltaZ(CallBackPtr cbp, MCObjectHandle theWall, CBBoolean linkToLayerDeltaZ)
+WorldCoord GS_CALLBACK GS_GetLayerDeltaZOffset(CallBackPtr cbp, MCObjectHandle theWall)
+void GS_CALLBACK GS_GetWallCaps(CallBackPtr cbp, MCObjectHandle theWall, Boolean &leftCap, Boolean &rightCap, Boolean &round)
+CBBoolean GS_CALLBACK GS_SetWallCaps(CallBackPtr cbp, MCObjectHandle theWall, const Boolean &leftCap, const Boolean &rightCap, const Boolean &round)
+
+// Wall Styles
+CBBoolean GS_CALLBACK GS_SetWallStyle(CallBackPtr cbp, MCObjectHandle theWall, InternalIndex wallStyle, WorldCoord selectedOffset, WorldCoord replacingOffset)
+CBBoolean GS_CALLBACK GS_GetComponentFill(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long &fill)
+CBBoolean GS_CALLBACK GS_GetComponentPenWeights(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedByte &penWeightLeft, CBUnsignedByte &penWeightRight)
+CBBoolean GS_CALLBACK GS_GetComponentPenStyles(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBSignedByte &penStyleLeft, CBSignedByte &penStyleRight)
+CBBoolean GS_CALLBACK GS_DeleteAllComponents(CallBackPtr cbp, MCObjectHandle wall)
+MCObjectHandle GS_CALLBACK GS_CreateWallStyle(CallBackPtr cbp, const InternalName wallStyleName)
+
+// Double Line Prefrences
+void GS_CALLBACK GS_SetDLControlOffset(CallBackPtr cbp, WorldCoord controlOffset)
+void GS_CALLBACK GS_SetDLSeparation(CallBackPtr cbp, WorldCoord separation)
+CBBoolean GS_CALLBACK GS_InsertNewDLComponent(CallBackPtr cbp, CBSignedShort beforeIndex, WorldCoord width, long fill, CBUnsignedByte penWeightLeft, CBUnsignedByte penWeightRight, CBSignedByte penStyleLeft, CBSignedByte penStyleRight)
+CBBoolean GS_CALLBACK GS_DeleteDLComponent(CallBackPtr cbp, CBSignedShort index)
+CBBoolean GS_CALLBACK GS_GetDLComponentWidth(CallBackPtr cbp, CBSignedShort index, WorldCoord &width)
+CBBoolean GS_CALLBACK GS_SetDLComponentWidth(CallBackPtr cbp, CBSignedShort index, WorldCoord width)
+CBBoolean GS_CALLBACK GS_GetDLComponentPenWeights(CallBackPtr cbp, CBSignedShort index, CBUnsignedByte &penWeightLeft, CBUnsignedByte &penWeightRight)
+CBBoolean GS_CALLBACK GS_SetDLComponentPenWeights(CallBackPtr cbp, CBSignedShort index, CBUnsignedByte penWeightLeft, CBUnsignedByte penWeightRight)
+CBBoolean GS_CALLBACK GS_GetDLComponentPenStyles(CallBackPtr cbp, CBSignedShort index, CBSignedByte &penStyleLeft, CBSignedByte &penStyleRight)
+CBBoolean GS_CALLBACK GS_SetDLComponentPenStyles(CallBackPtr cbp, CBSignedShort index, CBSignedByte penStyleLeft, CBSignedByte penStyleRight)
+CBBoolean GS_CALLBACK GS_GetDLComponentFill(CallBackPtr cbp, CBSignedShort index, long &fill)
+CBBoolean GS_CALLBACK GS_SetDLComponentFill(CallBackPtr cbp, CBSignedShort index, long fill)
+CBBoolean GS_CALLBACK GS_GetNumberOfDLComponents(CallBackPtr cbp, short& numComponents)
+CBBoolean GS_CALLBACK GS_DeleteAllDLComponents(CallBackPtr cbp)
+WorldCoord GS_CALLBACK GS_GetDLControlOffset(CallBackPtr cbp)
+WorldCoord GS_CALLBACK GS_GetDLSeparation(CallBackPtr cbp)
+CBSignedShort GS_CALLBACK GS_GetDLOptions(CallBackPtr cbp)
+void GS_CALLBACK GS_SetDLOptions(CallBackPtr cbp, CBSignedShort options)
+
+//Worksheet
+Boolean GS_CALLBACK GS_WorksheetMergeCells(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell)
+Boolean GS_CALLBACK GS_WorksheetSplitCells(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell)
+Boolean GS_CALLBACK GS_GetWorksheetMergedCellRange(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, Point& topLeftCell, Point& bottomRightCell)
+void GS_CALLBACK GS_SetWSCellTopBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellLeftBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellBottomBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellRightBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellInsideHorizBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellInsideVertBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellOutlineBorder(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, CBSignedByte style, CBUnsignedByte weight, Byte color)
+void GS_CALLBACK GS_SetWSCellAllBorders(CallBackPtr cbp, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, TCellBorder top,TCellBorder left,TCellBorder bottom,TCellBorder right,TCellBorder insideVert,TCellBorder insideHorz)
+void GS_CALLBACK GS_GetWSCellAllBorders(CallBackPtr cbp, MCObjectHandle worksheet, const Point& cell, TCellBorder& top,TCellBorder& left,TCellBorder& bottom,TCellBorder& right)
+
+
+//Others
+Boolean GS_CALLBACK GS_SetCustomObjectControlPointVisibility(CallBackPtr cbp, MCObjectHandle objectHand, short controlPtIndex, Boolean setVisible)
+Boolean GS_CALLBACK GS_SetFocusOnItem(CallBackPtr cbp, long liDialogID, long liComponentID)
+Boolean GS_CALLBACK GS_RefreshItem(CallBackPtr cbp, long liDialogID, long liComponentID)
+void GS_CALLBACK GS_Split2DObjectByLine(CallBackPtr cbp, MCObjectHandle h, const WorldPt& p1, const WorldPt& p2, MCObjectHandle& listHandles)
+Boolean GS_CALLBACK GS_TaggedDataGetNumElements(CallBackPtr cbp, MCObjectHandle inOwnerObj,OSType dataContainer,int dataType,int dataTag,long* getData)
+
+
+SDK 12.5.0b (57488)
+May 2006
+-----------------------
+- This is the second beta SDK for VectorWorks 12.5, and corresponds to build 57488 of the application.
+  This SDK allows developers to create Mac OS X Mach-O plugins for the VectorWorks Universal Binary
+  application.  Macintosh developers should see the documents "Install Notes.txt" and "Transitioning
+  Mac CFM plugins to Mach-O.pdf".
+
+New SDK Functions:	(see "MiniCadCallBacks.Defs.h", "VW12.5 SDK Library.html" or "VW12.5 SDK Library.fp5" for descriptions.)
+
+
+InternalIndex GS_GetObjectInternalIndex(CallBackPtr cbp, MCObjectHandle h);
+Boolean GS_ShowEnhancedPullDownMenuGroupIcon(CallBackPtr cbp, long liDialogID, long liComponentID, Boolean bShowGroupIcon);
+Boolean GS_EnableListBrowserUpdates(CallBackPtr cbp, long liDialogID, long liComponentID, Boolean bEnableUpdates);
+
+
+
+SDK 12.5.0b (56095)
+March 2006
+-----------------------
+- This is the first beta SDK for VectorWorks 12.5, and corresponds to build 56095 of the application.
+  This SDK allows developers to create Mac OS X Mach-O plugins for the VectorWorks Universal Binary
+  application.  Macintosh developers should see the documents "Install Notes.txt" and "Transitioning
+  Mac CFM plugins to Mach-O.pdf".
+
+
+New SDK Functions:	(see "MiniCadCallBacks.Defs.h", "VW12.5 SDK Library.html" or "VW12.5 SDK Library.fp5" for descriptions.)
+
+// Utility
+CBBoolean GS_PlaySoundResource(CallBackPtr cbp, Handle soundResource, CBBoolean async, CBBoolean forcePlay);
+
+// PDF document manipulation
+Boolean GS_AcquireExportPDFSettingsAndLocation(CallBackPtr cbp, Boolean inbSeparateDocuments);
+Boolean GS_OpenPDFDocument(CallBackPtr cbp, ConstStr255Param inFileNameStr);
+short GS_ExportPDFPages(CallBackPtr cbp, ConstStr255Param inSavedViewNameStr);
+void GS_ClosePDFDocument(CallBackPtr cbp);
+
+// Viewports
+InternalIndex GS_GetVPClassGenTexture(CallBackPtr cbp, MCObjectHandle viewport, InternalIndex classIndex);
+void GS_GetVPClassRoofTextures(CallBackPtr cbp, MCObjectHandle viewport, InternalIndex classIndex, InternalIndex& top, InternalIndex& edge, InternalIndex& dormer);
+void GS_GetVPClassWallTextures(CallBackPtr cbp, MCObjectHandle viewport, InternalIndex classIndex, InternalIndex& right, InternalIndex& left, InternalIndex& center);
+Boolean GS_VPClassHasOverride(CallBackPtr cbp, MCObjectHandle viewport, InternalIndex classIndex);
+InternalIndex GS_GetVPClassFillStyle(CallBackPtr cbp, MCObjectHandle viewport, InternalIndex classIndex);
+
+// Plug-in Objects
+Boolean GS_CustomObjectControlPtsCreate(CallBackPtr cbp, MCObjectHandle inOwnerObj, int numDataElements, GS_CustomObjectControlPtsInitProcPtr initProc,void* env);
+Boolean GS_CustomObjectControlPtsRemove(CallBackPtr cbp, MCObjectHandle inOwnerObj);
+Boolean GS_CustomObjectControlPtSet(CallBackPtr cbp, MCObjectHandle inOwnerObj,int dataIndex, const WorldPt3& pt,Boolean is2DOnly,Boolean isHidden,int inClientID);
+MCObjectHandle GS_CustomObjectGetSurfaceProxy(CallBackPtr cbp, MCObjectHandle inPathObject);
+Boolean GS_CustomObjectReplacePath(CallBackPtr cbp, MCObjectHandle inPathObject, MCObjectHandle pathPolyline);
+Boolean GS_GetLocalizedPluginName(CallBackPtr cbp, const InternalName pluginName, InternalName localizedName);
+Boolean GS_GetLocalizedPluginChoice(CallBackPtr cbp, const InternalName pluginName, ConstStr255Param parameterName, int choiceIndex, Str255 localizedChoice);
+Boolean GS_GetLocalizedPluginParameter(CallBackPtr cbp, const InternalName pluginName, ConstStr255Param parameterName, Str255 localizedParameterName);
+
+// Tagged Data
+Boolean GS_TaggedDataCreate(CallBackPtr cbp, MCObjectHandle inOwnerObj,OSType dataContainer,int dataType,int dataTag,int numDataElements);
+Boolean GS_TaggedDataSet(CallBackPtr cbp, MCObjectHandle inOwnerObj,OSType dataContainer,int dataType,int dataTag,int dataIndex, const void* data);
+Boolean GS_TaggedDataRemove(CallBackPtr cbp, MCObjectHandle inOwnerObj,OSType dataContainer,int dataType,int dataTag);
+Boolean GS_TaggedDataGet(CallBackPtr cbp, MCObjectHandle inOwnerObj,OSType dataContainer,int dataType,int dataTag,int dataIndex, void* getData);
+
+// Geometry
+Boolean GS_SetPolyVertexLoopDirection(CallBackPtr cbp, MCObjectHandle ioPolyToSet, PolyDirectionSpecType inPolyDirectionSpec);
+short GS_GetPolyDirection(CallBackPtr cbp, MCObjectHandle polyToCheck);
+double_gs GS_ObjArea(CallBackPtr cbp, MCObjectHandle h);
+double_gs GS_ObjSurfaceArea(CallBackPtr cbp, MCObjectHandle h);
+double_gs GS_ObjVolume(CallBackPtr cbp, MCObjectHandle h);
+Boolean GS_GetObjectBoundingBoxVerts(CallBackPtr cbp, MCObjectHandle h, WorldRectVerts &outBoxVerts);
+void GS_Split2DObjectByLine(CallBackPtr cbp, MCObjectHandle h, const WorldPt& p1, const WorldPt& p2, MCObjectHandle& listHandles);
+
+// Mode Bar
+void GS_AddPullDownMenuMode(CallBackPtr cbp, ConstStr31Param label);
+void GS_AddPullDownMenuItem(CallBackPtr cbp, short group, ConstStr255Param item);
+void GS_SetPullDownMenuSelection(CallBackPtr cbp, short group, short selectedItem);
+
+// Layout Manager
+Boolean GS_CreateOwnerDrawnControl(CallBackPtr cbp, long liDialogID, long liComponentID, int iWidth, int iHeight);
+Boolean GS_GetOwnerDrawnControlEventInfo(CallBackPtr cbp, long liDialogID, long liComponentID,  int& iDrawPadEventType, int& iSelectedObjectID, int& iXMousePosition, int& iYMousePosition, int& iDraggedXDistance, int& iDraggedYDistance);
+Boolean GS_SetOwnerDrawnControlEventInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iDrawPadEventType, int iSelectedObjectID, int iXMousePosition, int iYMousePosition, int iDraggedXDistance, int iDraggedYDistance);
+Boolean GS_GetOwnerDrawnControlObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iDrawPadObjectType, Boolean& bDraggable, Boolean& bDragging, Boolean& bSelectable, Boolean& bSelected, Boolean& bHasFill);
+Boolean GS_SetOwnerDrawnControlObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iDrawPadObjectType, Boolean bDraggable, Boolean bDragging, Boolean bSelectable, Boolean bSelected, Boolean bHasFill);
+Boolean GS_GetOwnerDrawnControlObjectPenFgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iColorRedIndex, int& iColorGreenIndex, int& iColorBlueIndex);
+Boolean GS_SetOwnerDrawnControlObjectPenFgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iColorRedIndex, int iColorGreenIndex, int iColorBlueIndex);
+Boolean GS_GetOwnerDrawnControlObjectPenBgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iColorRedIndex, int& iColorGreenIndex, int& iColorBlueIndex);
+Boolean GS_SetOwnerDrawnControlObjectPenBgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iColorRedIndex, int iColorGreenIndex, int iColorBlueIndex);
+Boolean GS_GetOwnerDrawnControlObjectType(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iDrawPadObjectType);
+Boolean GS_SetOwnerDrawnControlObjectType(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iDrawPadObjectType);
+Boolean GS_GetOwnerDrawnControlPointObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iXCoord, int& iYCoord);
+Boolean GS_SetOwnerDrawnControlPointObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iXCoord, int iYCoord);
+Boolean GS_GetOwnerDrawnControlLineObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iStartXCoord, int& iStartYCoord, int& iEndXCoord, int& iEndYCoord);
+Boolean GS_SetOwnerDrawnControlLineObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iStartXCoord, int iStartYCoord, int iEndXCoord, int iEndYCoord);
+Boolean GS_GetOwnerDrawnControlRectangleObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iTopLeftXCoord, int& iTopLeftYCoord, int& iBottomRightXCoord, int& iBottomRightYCoord, int& iOvalWidth, int& iOvalHeight);
+Boolean GS_SetOwnerDrawnControlRectangleObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoord, int iTopLeftYCoord, int iBottomRightXCoord, int iBottomRightYCoord, int iOvalWidth, int iOvalHeight);
+Boolean GS_GetOwnerDrawnControlEllipseObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iTopLeftXCoordBoundary, int& iTopLeftYCoordBoundary, int& iBottomRightXCoordBoundary, int& iBottomRightYCoordBoundary);
+Boolean GS_SetOwnerDrawnControlEllipseObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoordBoundary, int iTopLeftYCoordBoundary, int iBottomRightXCoordBoundary, int iBottomRightYCoordBoundary);
+Boolean GS_GetOwnerDrawnControlPolygonObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iNumPoints);
+Boolean GS_SetOwnerDrawnControlPolygonObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iNumPoints);
+Boolean GS_GetOwnerDrawnControlArcObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iTopLeftXCoordBoundary, int& iTopLeftYCoordBoundary, int& iBottomRightXCoordBoundary, int& iBottomRightYCoordBoundary, int& iStartXCoord, int& iStartYCoord, int& iEndXCoord, int& iEndYCoord);
+Boolean GS_SetOwnerDrawnControlArcObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoordBoundary, int iTopLeftYCoordBoundary, int iBottomRightXCoordBoundary, int iBottomRightYCoordBoundary, int iStartXCoord, int iStartYCoord, int iEndXCoord, int iEndYCoord);
+Boolean GS_GetOwnerDrawnControlTextObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, ConstStr255Param& strText, int& iTopLeftXCoord, int& iTopLeftYCoord);
+Boolean GS_SetOwnerDrawnControlTextObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, ConstStr255Param strText, int iTopLeftXCoord, int iTopLeftYCoord);
+Boolean GS_GetOwnerDrawnControlIconObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iResourceType, int& iResourceID, int& iTopLeftXCoord, int& iTopLeftYCoord);
+Boolean GS_SetOwnerDrawnControlIconObjectInfo(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iResourceType, int iResourceID, int iTopLeftXCoord, int iTopLeftYCoord);
+Boolean GS_AddOwnerDrawnControlPolygonObjectPoint(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iXCoord, int iYCoord);
+Boolean GS_GetOwnerDrawnControlPolygonPoint(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iPointIndex, int& iXCoord, int& iYCoord);
+Boolean GS_SetOwnerDrawnControlPolygonPoint(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iPointIndex, int iXCoord, int iYCoord);
+Boolean GS_GetOwnerDrawnControlObjectDraggable(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean& bDraggable);
+Boolean GS_GetOwnerDrawnControlObjectDragging(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean& bDragging);
+Boolean GS_SetOwnerDrawnControlObjectDragging(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean bDragging);
+Boolean GS_GetOwnerDrawnControlObjectSelectable(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean& bSelectable);
+Boolean GS_SetOwnerDrawnControlObjectSelectable(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean bSelectable);
+Boolean GS_GetOwnerDrawnControlObjectSelected(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean& bSelected);
+Boolean GS_SetOwnerDrawnControlObjectSelected(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean bSelected);
+Boolean GS_GetOwnerDrawnControlObjectHasFill(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean& bHasFill);
+Boolean GS_SetOwnerDrawnControlObjectHasFill(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean bHasFill);
+Boolean GS_GetOwnerDrawnControlObjectBoundary(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int& iTopLeftXCoordBoundary, int& iTopLeftYCoordBoundary, int& iBottomRightXCoordBoundary, int& iBottomRightYCoordBoundary);
+Boolean GS_SetOwnerDrawnControlObjectBoundary(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoordBoundary, int iTopLeftYCoordBoundary, int iBottomRightXCoordBoundary, int iBottomRightYCoordBoundary);
+Boolean GS_RefreshOwnerDrawnControlWindow(CallBackPtr cbp, long liDialogID, long liComponentID );
+Boolean GS_GetOwnerDrawnControlRect(CallBackPtr cbp, long liDialogID, long liComponentID, int& iLeftBound, int& iTopBound, int& iRightBound, int& iBottomBound);
+Boolean GS_SetOwnerDrawnControlBackgroundColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iColorRedIndex, int iColorGreenIndex, int iColorBlueIndex);
+Boolean GS_AddOwnerDrawnControlPointObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iXPos, int iYPos);
+Boolean GS_AddOwnerDrawnControlLineObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iStartXCoord, int iStartYCoord, int iEndXCoord, int iEndYCoord);
+Boolean GS_AddOwnerDrawnControlRectangleObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoord, int iTopLeftYCoord, int iBottomRightXCoord, int iBottomRightYCoord, int iOvalWidth = 0, int iOvalHeight = 0);
+Boolean GS_AddOwnerDrawnControlEllipseObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoordBoundary, int iTopLeftYCoordBoundary, int iBottomRightXCoordBoundary, int iBottomRightYCoordBoundary);
+Boolean GS_AddOwnerDrawnControlPolygonObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iNumPoints);
+Boolean GS_AddOwnerDrawnControlArcObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoordBoundary, int iTopLeftYCoordBoundary, int iBottomRightXCoordBoundary, int iBottomRightYCoordBoundary, int iStartXCoord, int iStartYCoord, int iEndXCoord, int iEndYCoord);
+Boolean GS_AddOwnerDrawnControlTextObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iTopLeftXCoord, int iTopLeftYCoord, ConstStr255Param strText);
+Boolean GS_AddOwnerDrawnControlIconObject(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, int iResourceType, int iResourceID, int iTopLeftXCoord, int iTopLeftYCoord);
+Boolean GS_SetOwnerDrawnControlObjectDraggable(CallBackPtr cbp, long liDialogID, long liComponentID, int iObjectID, Boolean bDraggable);
+Boolean GS_GetOwnerDrawnControlPenFgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int& iRedIndex, int& iGreenIndex, int& iBlueIndex);
+Boolean GS_SetOwnerDrawnControlPenFgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iRedIndex, int iGreenIndex, int iBlueIndex);
+Boolean GS_GetOwnerDrawnControlPenBgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int& iRedIndex, int& iGreenIndex, int& iBlueIndex);
+Boolean GS_SetOwnerDrawnControlPenBgColor(CallBackPtr cbp, long liDialogID, long liComponentID, int iRedIndex, int iGreenIndex, int iBlueIndex);
+Boolean GS_CreateIconPushButton(CallBackPtr cbp, long liDialogID, long liComponentID, ConstStr255Param strName, int iIconID1, int iIconID2, int iIconID3);
+Boolean GS_AddIconToIconPushButton(CallBackPtr cbp, long liDialogID, long liComponentID, int iIconID);
+Boolean GS_CreateThreeStateCheckBox(CallBackPtr cbp, long liDialogID, long liComponentID, ConstStr255Param strName);
+Boolean GS_SetThreeStateCheckBoxState(CallBackPtr cbp, long liDialogID, long liComponentID, int iState);
+Boolean GS_GetThreeStateCheckBoxState(CallBackPtr cbp, long liDialogID, long liComponentID, int& iState);
+Boolean GS_CreateEnhancedPullDownMenu(CallBackPtr cbp, long liDialogID, long liComponentID, int iWidthInCharacters, Boolean bShowIconInMainWindow);
+int GS_InsertEnhancedPullDownMenuItem(CallBackPtr cbp, long liDialogID, long liComponentID, ConstStr255Param strName, int iIconID);
+Boolean GS_RemoveEnhancedPullDownMenuItemRange(CallBackPtr cbp, long liDialogID, long liComponentID, int iStartItemIndexToRemove, int iEndItemIndexToRemove);
+Boolean GS_EnableListBrowserDropOnIndices(CallBackPtr cbp, long liDialogID, long liComponentID, int iStartIndex, int iEndIndex, Boolean bEnable);
+Boolean GS_CreateSeparator(CallBackPtr cbp, long liDialogID, long liComponentID, int iLength);
+Boolean GS_CreateImageControl(CallBackPtr cbp, long liDialogID, long liComponentID, int iWidth, int iHeight, MCObjectHandle hImage);
+Boolean GS_SetImageControlHandle(CallBackPtr cbp, long liDialogID, long liComponentID, MCObjectHandle hImage);
+Boolean GS_CreatePullDownMenuGroupBox(CallBackPtr cbp, long liDialogID, long liComponentID, ConstStr255Param strLabel, Boolean bHasFrame);
+int GS_InsertImagePopupSeparator(CallBackPtr cbp, long liDialogID, long liComponentID, ConstStr255Param strLabel);
+
+// Markers
+CBBoolean GS_GetObjBeginningMarker(CallBackPtr cbp, MCObjectHandle h, MarkerType& style, CBSignedByte& angle, double& size, CBUnsignedByte& thicknessBasis, CBUnsignedByte& thickness, CBBoolean& visibility);
+CBBoolean GS_SetObjBeginningMarker(CallBackPtr cbp, MCObjectHandle h, MarkerType style, CBSignedByte angle, double size, CBUnsignedByte thicknessBasis, CBUnsignedByte thickness, CBBoolean visibility);
+CBBoolean GS_GetObjEndMarker(CallBackPtr cbp, MCObjectHandle h, MarkerType& style, CBSignedByte& angle, double& size, CBUnsignedByte& thicknessBasis, CBUnsignedByte& thickness, CBBoolean& visibility);
+CBBoolean GS_SetObjEndMarker(CallBackPtr cbp, MCObjectHandle h, MarkerType style, CBSignedByte angle, double size, CBUnsignedByte thicknessBasis, CBUnsignedByte thickness, CBBoolean visibility);
+CBBoolean GS_GetDefaultBeginningMarker(CallBackPtr cbp, MarkerType& style, CBSignedByte& angle, double& size, CBUnsignedByte& thicknessBasis, CBUnsignedByte& thickness, CBBoolean& visibility);
+CBBoolean GS_SetDefaultBeginningMarker(CallBackPtr cbp, MarkerType style, CBSignedByte angle, double size, CBUnsignedByte thicknessBasis, CBUnsignedByte thickness, CBBoolean visibility);
+CBBoolean GS_GetDefaultEndMarker(CallBackPtr cbp, MarkerType& style, CBSignedByte& angle, double& size, CBUnsignedByte& thicknessBasis, CBUnsignedByte& thickness, CBBoolean& visibility);
+CBBoolean GS_SetDefaultEndMarker(CallBackPtr cbp, MarkerType style, CBSignedByte angle, double size, CBUnsignedByte thicknessBasis, CBUnsignedByte thickness, CBBoolean visibility);
+CBBoolean GS_SetClassBeginningMarker(CallBackPtr cbp, InternalIndex index, MarkerType style, CBSignedByte angle, double size, CBUnsignedByte thicknessBasis, CBUnsignedByte thickness);
+CBBoolean GS_SetClassEndMarker(CallBackPtr cbp, InternalIndex index, MarkerType style, CBSignedByte angle, double size, CBUnsignedByte thicknessBasis, CBUnsignedByte thickness);
+CBBoolean GS_GetClassBeginningMarker(CallBackPtr cbp, InternalIndex index, MarkerType& style, CBSignedByte& angle, double& size, CBUnsignedByte& thicknessBasis, CBUnsignedByte& thickness);
+CBBoolean GS_GetClassEndMarker(CallBackPtr cbp, InternalIndex index, MarkerType& style, CBSignedByte& angle, double& size, CBUnsignedByte& thicknessBasis, CBUnsignedByte& thickness);
+
+
+
+SDK 12.0.1b (52912)
+January 2006
+-----------------------
+- This is the first beta SDK for VectorWorks 12.0.1, and corresponds to build 52912 of the
+  application.
+
+- On Windows, the library, USP10.lib, must now be linked with your plug-ins.  Add USP10.lib to
+  the "Additional Dependencies" line in the Input page of the Linker tab for the properties page
+  for your plug-in project in Developer Studio .NET.
+
+
+New SDK Functions:	(see "MiniCadCallBacks.Defs.h", "VW12 SDK Library.html" or "VW12 SDK Library.fp5" for descriptions.)
+
+// Layout Manager:
+long GS_GetActiveEditItem(CallBackPtr, long dialogID);
+void GS_GetSelectionRange(CallBackPtr, long dialogID, long controlID, int& startPos, int& endPos);
+void GS_SetSelectionRange(CallBackPtr, long dialogID, long controlID, int startPos, int endPos);
+void GS_DeselectEditText(CallBackPtr, long dialogID, long controlID);
+void GS_CreateRightStaticText(CallBackPtr, long dialogID, long itemID, ConstStr255Param text, short widthInCharacters);
+void GS_CreateCenteredStaticText(CallBackPtr, long dialogID, long itemID, ConstStr255Param text, short widthInCharacters);
+
+
+
+SDK 12.0b (47632)
+September 2005
+-----------------------
+- This is the second beta SDK for VectorWorks 12, and corresponds to build 47632 of the application.
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW12 SDK Library.html" or "VW12 SDK Library.fp5" for descriptions.)
+
+// Wall styles
+Boolean GS_ConvertToUnstyledWall(CallBackPtr cbp, MCObjectHandle theWall);
+
+
+// Export 3DS
+
+TTesselator GS_CreateTessellator(CallBackPtr cbp, short convertRes3D);
+void GS_DeleteTessellator(CallBackPtr cbp, TTesselator pTess);
+bool GS_TesselateObject(CallBackPtr cbp, TTesselator pTess, MCObjectHandle h, GS_TessellateIteratorProcPtr proc, void* pEnv);
+bool GS_WriteMaterialImageFile(CallBackPtr cbp, const char* szFullPathName, MCObjectHandle hMaterial, long type);
+
+
+
+SDK 12.0b (44917)
+July 2005
+-----------------------
+- This is the first beta SDK for VectorWorks 12, and corresponds to build 44917 of the application. 
+
+
+- List browser
+The list browser has been greatly enhanced, particularly in the area of handling graphical attributes.
+Many new SDK functions have been added.  See the SDK function reference for details.
+
+
+- Layout Manager improvements
+Layout Manager dialogs can now be resizable.  New controls have been added to support the selection of graphical attributes.
+
+
+- New location for files generated at runtime.
+VectorWorks 12 introduces a new directory structure for files which are generated at runtime.  In keeping with Macintosh
+and Windows OS guidelines, files generated by VectorWorks will be placed in the user's data directory.  On Windows, this
+location is:
+C:\Documents and Settings\<user name>\Application Data\Nemetschek\VectorWorks\12
+
+On the Mac, this location is:
+
+/Users/<user name>/Library/Application Support/VectorWorks/12
+
+Additionally, VectorScript plug-ins created through the Plug-in Editor are placed in these locations under a directory
+called Plug-ins.  New SDK functions have been added to facilitate searching plug-in folders.  See the SDK function reference
+for details.
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW12 SDK Library.html" or "VW12 SDK Library.fp5" for descriptions.)
+
+// List browser
+
+Boolean  GS_EnableListBrowserSingleLineSelection(CallBackPtr cbp, long dialogID, long componentID, Boolean enable);
+Boolean  GS_EnableListBrowser(CallBackPtr cbp, long dialogID, long componentID, Boolean enable);
+int      GS_GetNumSelectedListBrowserItems(CallBackPtr cbp, long dialogID, long componentID);
+Boolean  GS_DeleteAllListBrowserItems(CallBackPtr cbp, long dialogID, long componentID);
+Boolean  GS_EnableListBrowserClickAllDataChange(CallBackPtr cbp, long dialogID, long componentID, Boolean enable);
+Boolean  GS_EnableListBrowserDragAndDrop(CallBackPtr cbp, long dialogID, long componentID, Boolean bEnable);
+Boolean  GS_SetListBrowserMultImageIndexes(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iImageIndex0, int iImageIndex1, int iImageIndex2);
+Boolean  GS_GetListBrowserMultImageIndexes(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int& iImageIndex0, int& iImageIndex1, int& iImageIndex2);
+Boolean  GS_SetFocusOnListBrowser(CallBackPtr cbp, long dialogID, long componentID);
+Boolean  GS_RefreshListBrowser(CallBackPtr cbp, long dialogID, long componentID);
+Boolean  GS_EnsureListBrowserItemIsVisible(CallBackPtr cbp, long dialogID, long componentID, int iIndex);
+Boolean  GS_SetListBrowserColumnHeaderJust(CallBackPtr cbp, long dialogID, long componentID, int iColumnIndex, int iJustification);
+Boolean  GS_GetListBrowserColumnHeaderJust(CallBackPtr cbp, long dialogID, long componentID, int iColumnIndex, int &iJustification);
+Boolean  GS_SetListBrowserColumnHeaderToolTip(CallBackPtr cbp, long dialogID, long componentID, int iColumnIndex, ConstStr255Param strToolTipPrimaryText, ConstStr255Param strToolTipSubText);
+Boolean  GS_GetListBrowserColumnHeaderToolTip(CallBackPtr cbp, long dialogID, long componentID, int iColumnIndex, ConstStr255Param &strToolTipPrimaryText, ConstStr255Param &strToolTipSubText);
+Boolean  GS_GetListBrowserItemGradientOrImageGWorldPtr(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, GWorldPtr &gwPtr);
+Boolean  GS_SetListBrowserItemGradientOrImageGWorldPtr(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, GWorldPtr gwPtr);
+Boolean  GS_SetListBrowserItemPattern(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, Pattern* pPattern);
+Boolean  GS_GetListBrowserItemPattern(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, Pattern* &pPattern);
+Boolean  GS_SetListBrowserItemPatternIndex(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iPatternIndex);
+Boolean  GS_GetListBrowserItemPatternIndex(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int &iPatternIndex);
+Boolean  GS_SetListBrowserItemDashStyle(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iStyleIndex, int iLineWeight);
+Boolean  GS_GetListBrowserItemDashStyle(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int &iStyleIndex, int &iLineWeight);
+Boolean  GS_SetListBrowserColumnOwnerDrawnType(CallBackPtr cbp, long dialogID, long componentID, int iIndex, int iSubIndex, int iOwnerDrawnType);
+Boolean  GS_GetListBrowserColumnOwnerDrawnType(CallBackPtr cbp, long dialogID, long componentID, int iIndex, int iSubIndex, int &iOwnerDrawnType);
+Boolean  GS_SetListBrowserItemFillForeColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iRedIndex, int iGreenIndex, int iBlueIndex);
+Boolean  GS_GetListBrowserItemFillForeColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int &iRedIndex, int &iGreenIndex, int &iBlueIndex);
+Boolean  GS_SetListBrowserItemFillBackColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iRedIndex, int iGreenIndex, int iBlueIndex);
+Boolean  GS_GetListBrowserItemFillBackColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int &iRedIndex, int &iGreenIndex, int &iBlueIndex);
+Boolean  GS_SetListBrowserItemPenForeColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iRedIndex, int iGreenIndex, int iBlueIndex);
+Boolean  GS_GetListBrowserItemPenForeColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int &iRedIndex, int &iGreenIndex, int &iBlueIndex);
+Boolean  GS_SetListBrowserItemPenBackColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int iRedIndex, int iGreenIndex, int iBlueIndex);
+Boolean  GS_GetListBrowserItemPenBackColor(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, int &iRedIndex, int &iGreenIndex, int &iBlueIndex);
+Boolean  GS_SetListBrowserItemGradientOrImageRefNumber(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int iSubItemIndex, long liRefNumber);
+Boolean  GS_GetListBrowserItemGradientOrImageRefNumber(CallBackPtr cbp, long dialogID, long componentID, int iItemIndex, int iSubItemIndex, long &liRefNumber);
+int      GS_GetListBrowserColumnSortState(CallBackPtr cbp, long dialogID, long componentID, int columnIndex);
+void     GS_SetListBrowserSortColumn(CallBackPtr cbp, long dialogID, long componentID, int columnIndex, Boolean isAscending);
+int      GS_GetListBrowserSortColumn(CallBackPtr cbp, long dialogID, long componentID);
+Boolean  GS_SetListBrowserItemTextJust(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, int justification);
+Boolean  GS_SetListBrowserItemTextStyle(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, unsigned char textStyle);
+Boolean  GS_SetListBrowserItemTextColor(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, int redIndex, int greenIndex, int blueIndex);
+Boolean  GS_GetListBrowserItemTextJust(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, int &justification);
+Boolean  GS_GetListBrowserItemTextStyle(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, unsigned char &textStyle);
+Boolean  GS_GetListBrowserItemTextColor(CallBackPtr cbp, long dialogID, long componentID, int itemIndex, int subItemIndex, int &redIndex, int &greenIndex, int &blueIndex);
+void     GS_ListBrowserIsInOrganizationDialog(CallBackPtr cbp, long dialogID, long componentID, Boolean bIsListBrowserInOrganizationDialog, int iAdditionalData = 0);
+
+
+// Wall styles
+
+CBBoolean  GS_GetWallPrefStyle(CallBackPtr cbp, InternalIndex& wallStyleNum);
+CBBoolean  GS_GetWallStyle(CallBackPtr cbp, MCObjectHandle theWall, InternalIndex& wallStyle);
+CBBoolean  GS_InsertNewComponent(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort beforeIndex, WorldCoord width, long fill,
+					CBUnsignedByte penWeightLeft, CBUnsignedByte penWeightRight, CBSignedByte penStyleLeft,
+					CBSignedByte penStyleRight);
+CBBoolean  GS_SetComponentWidth(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, WorldCoord width);
+CBBoolean  GS_DeleteComponent(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index);
+CBBoolean  GS_GetNumberOfComponents(CallBackPtr cbp, MCObjectHandle wall, long& numComponents);
+CBBoolean  GS_SetComponentFill(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long fill);
+CBBoolean  GS_SetComponentPenWeights(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedByte penWeightLeft, CBUnsignedByte penWeightRight);
+CBBoolean  GS_SetComponentPenStyles(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBSignedByte penStyleLeft, CBSignedByte penStyleRight);
+CBBoolean  GS_GetComponentWidth(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, WorldCoord &width);
+CBBoolean  GS_GetComponentFill(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, long &fill);
+CBBoolean  GS_GetComponentPenWeights(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBUnsignedByte &penWeightLeft, CBUnsignedByte &penWeightRight);
+CBBoolean  GS_GetComponentPenStyles(CallBackPtr cbp, MCObjectHandle wall, CBSignedShort index, CBSignedByte &penStyleLeft, CBSignedByte &penStyleRight);
+CBBoolean  GS_SetWallPrefStyle(CallBackPtr cbp, InternalIndex wallStyleNum);
+
+
+// Layout Manager
+
+void     GS_CreateMarkerPopup(CallBackPtr cbp, long dialogID, long itemID);
+void     GS_SetMarkerChoice(CallBackPtr cbp, long dialogID, long itemID, short  index, short style, char angle, short size);
+void     GS_GetMarkerChoice(CallBackPtr cbp, long dialogID, long itemID, short& index, short& style, char& angle, short& size);
+void     GS_GetLineWeightChoice(CallBackPtr cbp, long dialogID, long itemID, short& lineWeight);
+void     GS_CreateLineStylePopup(CallBackPtr cbp, long dialogID, long itemID);
+void     GS_SetLineStyleChoice(CallBackPtr cbp, long dialogID, long itemID, short lineStyle);
+void     GS_GetLineStyleChoice(CallBackPtr cbp, long dialogID, long itemID, short& lineStyle);
+void     GS_CreateLineWeightPopup(CallBackPtr cbp, long dialogID, long itemID);
+void     GS_SetLineWeightChoice(CallBackPtr cbp, long dialogID, long itemID, short lineWeight);
+void     GS_CreateLineAttributePopup(CallBackPtr cbp, long dialogID, long itemID);
+void     GS_SetLineAttributeData(CallBackPtr cbp, long dialogID, long itemID, short lineStyle, short lineWeight);
+void     GS_GetLineAttributeData(CallBackPtr cbp, long dialogID, long itemID, short& lineStyle, short& lineWeight);
+void     GS_CreatePatternPopup(CallBackPtr cbp, long dialogID, long itemID);
+void     GS_SetPatternData(CallBackPtr cbp, long dialogID, long itemID, short patternIndex, short foreColor, short backColor);
+void     GS_GetPatternData(CallBackPtr cbp, long dialogID, long itemID, short& patternIndex, short& foreColor, short& backColor);
+void     GS_CreateColorPopup(CallBackPtr cbp, long dialogID, long itemID, short widthInCharacters = -1);
+void     GS_SetColorChoice(CallBackPtr cbp, long dialogID, long itemID, short colorIndex);
+void     GS_GetColorChoice(CallBackPtr cbp, long dialogID, long itemID, short& colorIndex);
+void     GS_DisplayTabPane(CallBackPtr cbp, long dialogID, long controlID, long groupNumber);
+long     GS_GetActivePane(CallBackPtr cbp, long dialogID, long controlID);
+void     GS_CreateSymbolDisplayControl(CallBackPtr cbp, long dialogIDIn, long itemIDIn, const InternalName symbolRefIn,
+						short heightIn, short widthIn, short marginIn, short renderModeIn, short standardViewIn);
+void     GS_UpdateSymbolDisplayControl(CallBackPtr cbp, long dialogIDIn, long itemIDIn, const InternalName symbolRefIn,
+						short renderModeIn, short standardViewIn);
+long     GS_CreateResizableLayout(CallBackPtr cbp, ConstStr255Param dialogTitle, Boolean hasHelp, ConstStr255Param defaultButtonName,
+					ConstStr255Param cancelButtonName, CBBoolean widthResizable, CBBoolean heightResizable);
+void     GS_SetEdgeBinding(CallBackPtr cbp, long dialogID, long itemID, CBBoolean boundToLeft, CBBoolean boundToRight,
+					CBBoolean boundToTop, CBBoolean boundToBottom);
+void     GS_SetProportionalBinding(CallBackPtr cbp, long dialogID, long itemID, CBBoolean leftProportional, CBBoolean rightProportional,
+					CBBoolean topProportional, CBBoolean bottomProportional);
+void     GS_GetLayoutDialogSize(CallBackPtr cbp, long dialogID, short& width, short& height);
+void     GS_SetLayoutDialogSize(CallBackPtr cbp, long dialogID, short width, short height);
+Boolean  GS_SetLayoutOption(CallBackPtr cbp, long dialogID, short option, long value);
+
+
+// New Alerts
+
+void   GS_AlertCritical(CallBackPtr cbp, ConstStr255Param text, ConstStr255Param advice = "\0");
+void   GS_AlertInform(CallBackPtr cbp, ConstStr255Param text, ConstStr255Param advice = "\0", CBBoolean minorAlert = false);
+short  GS_AlertQuestion(CallBackPtr cbp, ConstStr255Param question, ConstStr255Param advice = "\0", short defaultButton = 0,
+				ConstStr255Param OKOverrideText = "\0", ConstStr255Param CancelOverrideText = "\0",
+				ConstStr255Param customButtonAText = "\0", ConstStr255Param customButtonBText = "\0");
+
+
+// Resource management
+
+long            GS_AddResourceToList(CallBackPtr cbp, long listID, MCObjectHandle resource);
+long            GS_BuildResourceList(CallBackPtr cbp, short objectType, FolderSpecifier folderIndex, ConstStr255Param subFolderName, long& numItems);
+MCObjectHandle  GS_GetResourceFromList(CallBackPtr cbp, long listID, long index);
+void            GS_DeleteResourceFromList(CallBackPtr cbp, long listID, long index);
+void            GS_DisposeResourceList(CallBackPtr cbp, long listID);
+long            GS_ResourceListSize(CallBackPtr cbp, long listID);
+void            GS_GetNameFromResourceList(CallBackPtr cbp, long listID, long index, Str255 name);
+long            GS_InsertImagePopupResource(CallBackPtr cbp, long dialogID, long componentID, long listID, long index);
+MCObjectHandle  GS_ImportResourceToCurrentFile(CallBackPtr cbp, long listID, long index);
+
+
+// File access
+
+EForEachFileResult  GS_ForEachFileInFolderN(CallBackPtr cbp, GS_ForEachFileNProcPtr processFile, short vRefNum, long dirID, Boolean doRecursive, void* env);
+EForEachFileResult  GS_ForEachFilePathInFolderN(CallBackPtr cbp, GS_ForEachFilePathNProcPtr processFile, char* inStartDirectory, Boolean doRecursive, void* env);
+CBBoolean           GS_FindFileInPluginFolder(CallBackPtr cbp, ConstStr255Param fileName, short& vRefNum, long& dirID);
+CBBoolean           GS_FindFilePathInPluginFolder(CallBackPtr cbp, char fileName[260], char filePath[260]);
+EForEachFileResult  GS_ForEachFileInPluginFolder(CallBackPtr cbp, GS_ForEachFileNProcPtr processFile, void* env);
+EForEachFileResult  GS_ForEachFilePathInPluginFolder(CallBackPtr cbp, GS_ForEachFilePathNProcPtr processFile, void* env);
+
+
+// Miscellaneous
+
+void     GS_DisplayOrganizationDialog(CallBackPtr cbp, short tabToSelect);
+void     GS_NotifyLayerChange(CallBackPtr cbp, long liAdditionalData = 0);
+void     GS_SetRoofAccessoriesParameters(CallBackPtr cbp, MCObjectHandle roof, Boolean insertAttic, Boolean insertSoffit,
+						Boolean insertFascia, WorldCoord fasciaWidth, WorldCoord fasciaHeight,
+						WorldCoord atticHeight, WorldCoord recess, WorldCoord rakeThick, WorldCoord trimDepth);
+void     GS_SetSavedSetting(CallBackPtr cbp, ConstStr255Param category, ConstStr255Param setting, ConstStr255Param value);
+Boolean  GS_GetSavedSetting(CallBackPtr cbp, ConstStr255Param category, ConstStr255Param setting, Str255 value);
+
+
+
+SDK 11.5.0
+March 2005
+-----------------------
+
+This is the final release SDK for VectorWorks 11.5.0.  Please see the release notes below for information 
+on what has changed since the previous release version of VectorWorks.  
+
+
+
+SDK 11.5.0b (35275)
+December 2004
+-----------------------
+- This SDK is identical to the previous one except for the following minor changes:
+	"SDKLib/Include/EncodingSupport.X.h" was missing.
+	"READ ME/Install Notes.txt" updated for new sample and MasterCLibs info.
+	"READ ME/Release Notes.txt" updated to include accurate history of previous SDKs.
+
+
+
+
+
+SDK 11.5.0b (35274)
+November 2004
+-----------------------
+- This is the first beta SDK for VectorWorks 11.5 and corresponds to build 35274 of the application.
+
+
+- Developer Tools
+We now recommend Microsoft "Visual Studio .NET 2003 Professional" for developing VectorWorks SDK Plug-ins. 
+The sample plug-in projects have been updated to build with the new tools.
+
+
+- Altura
+The Windows version of VectorWorks 11.5 does not use the Altura Mac2Win emulation library.  VectorWorks
+is now using QuickTime for Windows to read resource files.  This requires that the flattened resource files
+on Windows use a filename extension of .qtr instead of .rsr.  The format of these files is unchanged. 
+
+
+- Flattener
+The SDK includes a utility program called "Flattener" that will convert a Mac resource file to a 
+flattened file for use on Windows.  Simply drag-n-drop the Mac .rsrc file onto Flattener and it 
+will create a flattened .qtr file.  The utility is located at "VW1150bSDK/SDKLib/ToolsMac/Flattener".
+
+
+- Batch Encryption
+The BatchEncryption plug-in has been moved to: "VW1150bSDK/SDKLib/ToolsMac" and "VW1150bSDK/SDKLib/ToolsWin".
+
+
+- Context Sensitive Help (Online Help)
+The CreateElementList plug-in has been moved to: "VW1150bSDK/SDKLib/ToolsMac" and "VW1150bSDK/SDKLib/ToolsWin". 
+
+
+- Project Stationery and Wizard
+In an attempt to make it easier for new developers to begin using the SDK, we have added project stationery for 
+use by CodeWarrior and a project wizard for Visual Studio.  These utilities will enable developers to quickly 
+create and set up a minimal project file for an SDK plug-in.  
+
+To aid cross-platform development, the projects created by these utilities will use a new scheme for many of
+the required resources.  Many resources will be specified in cross-platform text resource files (.r files)
+rather than Macintosh binary resource files (.rsrc files).  The .r file can be created and edited on either 
+platform, and copied directly to the other without any "flattening" process.  (Or course the line endings
+are different on Mac and Windows but most editors handle this seemlessly now.)
+
+Installation instructions for the stationery and wizard are in "VW1150bSDK/READ ME/Using SDK Stationery.pdf".
+		
+	
+- New SDK Functions: 		
+(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+	void GS_ShowItem(CallBackPtr, long dialogID, long itemID, Boolean bShow);
+	void GS_CreateSwapControl(CallBackPtr, long dialogID, long itemID);
+	void GS_CreateSwapPane(CallBackPtr, long dialogID, long swapControlID, long newGroupID);
+	void GS_DisplaySwapPane(CallBackPtr, long dialogID, long swapControlID, long groupNumber);
+	void GS_SetTextEditable(CallBackPtr, long dialogID, long itemID, Boolean editable);
+	void GS_CreateStandardIconControl(CallBackPtr, long dialogID, long iconControlID, int iconNumber);
+	MCObjectHandle GS_GenerateBezierApproximationFromPolygon(CallBackPtr, MCObjectHandle hPolygonHandle, const WorldCoord approximationTolerance, const double discontinuityAngleTolerance, const unsigned short quadraticsPerCubic);
+	MCObjectHandle GS_CreateImageProp(CallBackPtr, Str255 propName, InternalIndex textureRef, WorldCoord height, WorldCoord width, Boolean enforceImageAspectRatio, Boolean crossedPlanes, Boolean createPlugin, Boolean autoRotate, Boolean createSymbol);
+	InternalIndex GS_GetDocumentDefaultSketchStyle(CallBackPtr);
+	Boolean GS_SetDocumentDefaultSketchStyle(CallBackPtr, InternalIndex sketchIndex);
+	CBBoolean GS_CStringEqual(CallBackPtr, ConstGSCStrPtr cStr1, ConstGSCStrPtr cStr2, const short compareFlags);
+	CBSignedShort GS_CStringCompare(CallBackPtr, ConstGSCStrPtr cStr1, ConstGSCStrPtr cStr2, const short compareFlags);
+
+
+
+
+SDK 11.0.0 (29707)
+April 2004
+-----------------------
+- This is the final release SDK for VectorWorks 11 and corresponds to build 29707
+of the application.  Please see all the release notes below for information on 
+what has changed since the previous release of VectorWorks. 
+
+
+- Context Sensitive Help (Online Help)
+The CreateElementList plug-in has been fixed to handle DOS line endings properly.
+It is available in this SDK.  Copy it from the following path into your Plug-ins 
+folder:
+	VW110SDK/Source/Shipping/CreateElementList
+
+
+- Batch Encryption
+The BatchEncryption library enables developers to encrypt all of their VectorScript
+Plug-ins in a batch operation.  It helps automate this time-consuming task. 
+This is an SDK Plug-in Library that implements two VectorScript functions:	
+	EncryptAllPlugins();
+	EncryptPlugin(fullPath: STRING) : BOOLEAN;
+It can be called from a VectorScript, or initiated via the DoScript interface 
+from an AppleScript or Python script.  
+
+
+- Data Store 
+The files that contain the wrapper functions for XML access have been moved.  
+They are now available here:
+	VW110SDK/SDKLib/Include/Kernel/XMLLibStub.h
+	VW110SDK/SDKLib/Kernel/XMLLibStub.cpp
+
+
+
+New SDK Functions:
+	See the release notes below for previous beta versions of SDK 11. 
+
+
+
+
+SDK 11.0b (27280)
+February 2004
+-----------------------
+- This is the second beta SDK for VectorWorks 11 and corresponds to build 27280 of the application.
+
+
+- Extended Properties
+The API for this feature has changed slightly since the last SDK Beta.  
+Two new functions were added to append and insert existing parameters for display on 
+the object info palette.  One argument to the AppendWidget function was renamed.
+The "3D Reshape Example" plug-in has been updated to use these new functions.  
+For an event handling plug-in object,
+
+	To display a parameter on the object info palette:
+		InsertParameterWidget( )
+		AppendParameterWidget( )
+		
+	To display a new Button or Static Text widget on the Object Info palette:
+		InsertWidget( )
+		AppendWidget( )		
+
+NOTE: A bug was fixed in the "Extended Properties" plug-in after the Beta 6 (27280) application was posted.
+The fixed plug-in is included in this SDK download.  Copy the following files to your Plug-ins folder:
+	VW11b27280SDK/Source/Shipping/ExtendedProperties
+	VW11b27280SDK/Source/Shipping/ExtendedProperties.vlb
+
+	
+- Context Sensitive Help (Online Help)
+As described in the SDK Manual, use the "CreateElementList" menu command to add 
+online help for new plug-ins.  CreateElementList is available in this SDK and should be
+copied to your Plug-ins folder:
+	VW11b27280SDK/Source/Shipping/CreateElementList
+
+
+Modified SDK Functions: 	(Modified since last SDK beta.)
+	Boolean GS_AppendWidget(CallBackPtr, long ObjectID, int widgetType, int eventID, ConstStr255Param text, long data);
+	Boolean GS_InsertAllParametersAsWidgets(CallBackPtr, long inObjectID);
+
+
+New SDK Functions: 		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+	Boolean GS_AppendParameterWidget(CallBackPtr, long ObjectID, int parameterID, ConstStr255Param text, long data);
+	Boolean GS_InsertParameterWidget(CallBackPtr, long ObjectID, int position, int parameterID, ConstStr255Param text, long data);
+	short GS_GetClVisibility(CallBackPtr, InternalIndex index);
+	void GS_SetClVisibility(CallBackPtr, InternalIndex index, short vis);
+	MCObjectHandle GS_GetNamedLayer(CallBackPtr, const InternalName layerName);
+	Boolean GS_IsViewportGroupContainedObject(CallBackPtr, MCObjectHandle objectHandle,  short groupType);
+	Boolean GS_SetListBrowserSelection(CallBackPtr, long dialogID, long componentID, short firstItemIndex, short lastItemIndex, Boolean select);
+	Boolean GS_GetLayoutDialogPosition(CallBackPtr, long dialogID, short& left, short& top, short& right, short& bottom);
+	Boolean GS_SetLayoutDialogPosition(CallBackPtr, long dialogID, short left, short top);
+	Boolean GS_UpdateThumbnailPreview(CallBackPtr, InternalIndex inIndex);
+	MCObjectHandle GS_GetViewportGroupParent(CallBackPtr, MCObjectHandle groupHandle);
+
+
+
+
+SDK 11.0b (24870)
+December 2003
+-----------------------
+- This is the first beta SDK for VectorWorks 11, and corresponds to build 24870 of the application. 
+
+
+- Context Sensitive Help (Online Help) 
+This version of VectorWorks features an online help system.  SDK developers can take advantage
+of this new help system also.  For more information see the SDK Manual, page 41.
+
+
+- Custom Data Bar 
+SDK Plug-ins can now provide custom data bars.  There is a new tool action 
+constant, kToolOnCustomBarEvent, and a new function: GS_CustomBarInstall().  
+This new feature is demonstrated in the new sample plug-in: "3D Reshape Example". 
+See the SDK Manual, page 18, and the file MiniCadHookIntf.h for details.
+
+
+- Extended Properties
+The Extended Properties feature of VW 11 enables more user interaction with SDK Plug-ins.  
+There is a new action constant, kToolOnInitXProperties, and several new functions.
+Plug-in Objects have a new resource 'PXpr'. 
+This is demonstrated in the new sample plug-in: "3D Reshape Example".
+See the SDK Manual page 18, 23, and 26 and the file MiniCadHookIntf.h for details.
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+
+
+	// Extended Properties
+	
+	long GS_AddToolSnapGeometry(CallBackPtr, MCObjectHandle inSnapGeometry);
+	void GS_RemoveToolSnapGeometry(CallBackPtr, long inSnapGeometryID);
+	void GS_InstallConstraintAlong3DLine(CallBackPtr, const Ray& inConstraintDescription);
+	Boolean GS_AppendWidget(CallBackPtr, long ObjectID, int widgetType, int mappingID, ConstStr255Param text, long data);
+	Boolean GS_CustomBarCreate(CallBackPtr, short inNumFields, long& outCustomBarRefID);
+	Boolean GS_CustomBarRelease(CallBackPtr, long inCustomBarRefID);
+	Boolean GS_CustomBarInstall(CallBackPtr, long inCustomBarID);
+	Boolean GS_CustomBarSetFieldInfo(CallBackPtr, long inCustomBarID, short inFieldIndex, const CustomBarFieldInfo& inFieldInfo);
+	Boolean GS_CustomBarGetFieldInfo(CallBackPtr, long inCustomBarID, short inFieldIndex, CustomBarFieldInfo& inFieldInfo);
+	Boolean GS_CustomBarSetFieldWorldCoord(CallBackPtr, long inCustomBarID, short inFieldIndex, const WorldCoord& inCoordVal);
+	Boolean GS_CustomBarSetFieldAngle(CallBackPtr, long inCustomBarID, short inFieldIndex, const double& inDegrees);
+	Boolean GS_InsertAllParametersAsWidgets(CallBackPtr, long ObjectID, MCObjectHandle hFormat);
+	Boolean GS_InsertWidget(CallBackPtr, long ObjectID, int paramID, int widgetType, int mappingID, ConstStr255Param text, long data);
+	Boolean GS_GetObjectProperty(CallBackPtr, MCObjectHandle hObject, long inPropID, Boolean& outValue);
+	Boolean GS_GetObjectPropertyChar(CallBackPtr, MCObjectHandle hObject, long inPropID, unsigned char& outValue);
+
+
+	// Viewports
+
+	void GS_UpdateViewport(CallBackPtr, MCObjectHandle viewportHandle);
+	Boolean GS_GetViewportLayerVisibility(CallBackPtr, MCObjectHandle viewportHandle, MCObjectHandle layerHandle, short& visibilityType);
+	Boolean GS_SetViewportLayerVisibility(CallBackPtr, MCObjectHandle viewportHandle, MCObjectHandle layerHandle, short visibilityType);
+	Boolean GS_GetViewportClassVisibility(CallBackPtr, MCObjectHandle viewportHandle, InternalIndex classIndex, short& visibilityType);
+	Boolean GS_SetViewportClassVisibility(CallBackPtr, MCObjectHandle viewportHandle, InternalIndex classIndex, short visibilityType);
+	MCObjectHandle GS_GetViewportGroup(CallBackPtr, MCObjectHandle viewportHandle, short groupType);
+	Boolean GS_AddViewportAnnotationObject(CallBackPtr, MCObjectHandle viewportHandle, MCObjectHandle annotationHandle);
+	MCObjectHandle GS_GetViewportCropObject(CallBackPtr, MCObjectHandle viewportHandle);
+	Boolean GS_SetViewportCropObject(CallBackPtr, MCObjectHandle viewportHandle, MCObjectHandle cropHandle);
+	Boolean GS_ViewportHasCropObject(CallBackPtr, MCObjectHandle viewportHandle);
+	MCObjectHandle GS_CreateLayer(CallBackPtr, const InternalName layerName, short layerType);
+	Boolean GS_GetSheetLayerUserOrigin(CallBackPtr, MCObjectHandle layerHandle, WorldPt& origin);
+	Boolean GS_SetSheetLayerUserOrigin(CallBackPtr, MCObjectHandle layerHandle, const WorldPt& origin);
+
+
+	// List Browser dialog item
+
+	void GS_CreateListBrowser(CallBackPtr, long dialogID, long componentID, CBSignedShort widthInCharacters, CBSignedShort heightInCharacters);
+	short GS_GetListBrowserItemDisplayType(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	short GS_GetListBrowserEditDisplayType(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	Boolean GS_SetListBrowserItemDisplayType(CallBackPtr, long dialogID, long componentID, short columnIndex, short displayType);
+	Boolean GS_SetListBrowserEditDisplayType(CallBackPtr, long dialogID, long componentID, short columnIndex, short displayType);
+	Boolean GS_GetListBrowserItemInfo(CallBackPtr, long dialogID, long componentID, short itemIndex, short subItemIndex, Str255 itemString, short& imageIndex);
+	Boolean GS_GetListBrowserColumnDataItemInfo(CallBackPtr, long dialogID, long componentID, short columnIndex, short columnDataItemIndex, Str255 itemString, short &imageOn, short &imageOff, long &itemData);
+	short GS_InsertListBrowserItem(CallBackPtr, long dialogID, long componentID, short itemIndex, ConstStr255Param itemString);
+	Boolean GS_DeleteListBrowserItem(CallBackPtr, long dialogID, long componentID, short itemIndex);
+	short GS_GetNumListBrowserItems(CallBackPtr, long dialogID, long componentID);
+	Boolean GS_SetListBrowserItemInfo(CallBackPtr, long dialogID, long componentID, short itemIndex, short subItemIndex, ConstStr255Param itemString, short imageIndex);
+	short GS_InsertListBrowserColumnDataItem(CallBackPtr, long dialogID, long componentID, short columnIndex, ConstStr255Param itemString, short imageOn, short imageOff, long itemData);
+	Boolean GS_SetListBrowserItemUsingColumnDataItem(CallBackPtr, long dialogID, long componentID, short itemIndex, short subItemIndex, short columnDataItemIndex);
+	short GS_GetNumListBrowserColumnDataItems(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	Boolean GS_RemoveListBrowserColumnDataItem(CallBackPtr, long dialogID, long componentID, short columnIndex, short columnDataItemIndex);
+	void GS_RemoveAllListBrowserColumnDataItems(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	Boolean GS_FindListBrowserColumnDataItem(CallBackPtr, long dialogID, long componentID, short columnIndex, ConstStr255Param itemString, short& columnDataItemIndex);
+	Boolean GS_FindListBrowserColumnItem(CallBackPtr, long dialogID, long componentID, short columnIndex, ConstStr255Param itemString, short& itemIndex);
+	Boolean GS_SetListBrowserControlType(CallBackPtr, long dialogID, long componentID, short columnIndex, short controlType);
+	short GS_GetListBrowserControlType(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	short GS_AddListBrowserImage(CallBackPtr, long dialogID, long componentID, short resourceType, short resourceID);
+	void GS_EnableListBrowserSorting(CallBackPtr, long dialogID, long componentID, Boolean enableSorting);
+	Boolean GS_IsListBrowserSortingEnabled(CallBackPtr, long dialogID, long componentID);
+	Boolean GS_AreListBrowserRadioColumnLinesEnabled(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	void GS_EnableListBrowserRadioColumnLines(CallBackPtr, long dialogID, long componentID, short columnIndex, Boolean enableRadioColumnLines);
+	Boolean GS_AreListBrowserColumnLinesEnabled(CallBackPtr, long dialogID, long componentID);
+	void GS_EnableListBrowserColumnLines(CallBackPtr, long dialogID, long componentID, Boolean enableColumnLines);
+	Boolean GS_IsListBrowserItemSelected(CallBackPtr, long dialogID, long componentID, short itemIndex);
+	Boolean GS_IsListBrowserColumnTrackingEnabled(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	void GS_EnableListBrowserColumnTracking(CallBackPtr, long dialogID, long componentID, short columnIndex, Boolean enableColumnTracking);
+	short GS_InsertListBrowserColumn(CallBackPtr, long dialogID, long componentID, short columnIndex, ConstStr255Param headerString, short width);
+	Boolean GS_DeleteListBrowserColumn(CallBackPtr, long dialogID, long componentID, short columnIndex);
+	Boolean GS_SetListBrowserColumnWidth(CallBackPtr, long dialogID, long componentID, short fromColumn, short toColumn, short width);
+	Boolean GS_GetListBrowserColumnWidth(CallBackPtr, long dialogID, long componentID, short columnIndex, short& width);
+	short GS_GetNumListBrowserColumns(CallBackPtr, long dialogID, long componentID);
+
+
+	// Other dialog items
+	
+	void GS_CreateCheckBoxGroupBox(CallBackPtr, long dialogID, short itemID, ConstStr255Param name, bool hasFrame);
+	void GS_CreateRadioButtonGroupBox(CallBackPtr, long dialogID, short itemID, ConstStr255Param name, bool hasFrame);
+	void GS_CreateTabControl(CallBackPtr, long dialogID, short itemID);
+	void GS_CreateTabPane(CallBackPtr, long dialogID, short itemID, short groupID);
+	short GS_GetMarkerPopupSelectedItem(CallBackPtr, long dialogID, long componentID, char& style, char& angle, short& size);
+
+
+	// Geometry
+	
+	MCObjectHandle GS_RevolveWithRail(CallBackPtr, MCObjectHandle profileH, MCObjectHandle railH, MCObjectHandle axisH);
+	MCObjectHandle GS_CreateInterpolatedSurface(CallBackPtr, MCObjectHandle surfaceHandle, long numUPts, long numVPts, short uDegree, short vDegree);
+	MCObjectHandle GS_ExtendNurbsCurve(CallBackPtr, MCObjectHandle curveHandle, double_param distance, Boolean bStart, Boolean bLinear);
+	MCObjectHandle GS_ExtendNurbsSurface(CallBackPtr, MCObjectHandle surfaceHandle, double_param distance, Boolean bStart, Boolean bLinear, Boolean bUDir);
+	Boolean GS_EvaluateNurbsSurfacePointAndNormal(CallBackPtr, MCObjectHandle surfaceHandle, double u, double v, WorldPt3& point,  WorldPt3& normal);
+
+
+	// Other
+
+	Boolean GS_ScaleObject3D(CallBackPtr, MCObjectHandle ioObject, const WorldPt3& scaleCen, const Vector& scaleVector);
+	long GS_GetCharNumFromPoint(CallBackPtr, MCObjectHandle textBlock, const WorldPt& pt);
+	Boolean GS_ScaleObject3D(CallBackPtr, MCObjectHandle ioObject, const WorldPt3& scaleCen, const Vector& scaleVector);
+	long GS_GetCharNumFromPoint(CallBackPtr, MCObjectHandle textBlock, const WorldPt& pt);
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+SDK 10.5 (20929)
+August 2003
+-----------------------
+- This SDK addresses problems with the previous SDK on the Windows platform.
+The correct project settings are:
+
+	"Use MFC in a Static Library" in the General tab.
+	Use Runtime Library: "Multithreaded" in the C/C++ Code Generation tab.
+	
+All libraries used by plug-ins must be built with these same settings. 
+The sample projects have been updated with these project settings also.
+
+
+- The XML parsing functions introduced in the previous beta SDK have been modified to improve error 
+handling.  All functions now return an error code.  See the preliminary documentation in the 
+"READ ME:Data Store:" folder.
+
+
+New SDK Functions:
+	None.
+
+
+
+
+SDK 10.5b (18991)
+June 2003
+-----------------------
+- This is the first beta SDK for VectorWorks 10.5, and it corresponds to build 18991 of the application.
+
+
+[NOTE- Version 18991 of the SDK recommended project settings on Windows that were subsequently determined to be incorrect.
+Those recommendations have been removed from these release notes to avoid confusion.  JAK 8-18-03 ]
+
+
+- XML Support
+This version of VectorWorks includes support for parsing XML text files. 
+A VectorScript or SDK plug-in can read and write XML documents which can be used to store settings, preferences or other data.
+
+The feature is implemented as an SDK Plug-in Library named "XMLLib".  As with any SDK Plug-in Library, you use 
+the GS_CallPluginLibrary() to call its functions.  However, wrapper functions are available in the files XMLLibStub.cpp 
+and XMLLibStub.h.  See the preliminary documentation in the "READ ME:Data Store" folder.
+
+	long InitXML();
+	void CreateNewXMLDocument(long XMLHandle, Str255 rootElementName);
+	short ReadXMLFile(long XMLHandle, short whichPath, Str255 filename);
+	short WriteXMLFile(long XMLHandle, short whichPath, Str255 filename);
+	Boolean GetElementValue(long XMLHandle, Str255 elementPath, Str255& value);
+	void SetElementValue(long XMLHandle, Str255 elementPath, Str255 value);
+	void DeleteElement(long XMLHandle, Str255 elementPath);
+	Boolean GetAttributeValue(long XMLHandle, Str255 elementPath, Str255 attribute, Str255& value);
+	void SetAttributeValue(long XMLHandle, Str255 elementPath, Str255 attribute, Str255 value);
+	void DeleteAttribute(long XMLHandle, Str255 elementPath, Str255 attribute);
+	GSHandle GetCDATA(long XMLHandle, Str255 elementPath);
+	void SetCDATA(long XMLHandle, Str255 elementPath, void* data);
+	void DeleteCDATA(long XMLHandle, Str255 elementPath);
+	void ReleaseXML(long XMLHandle);
+
+This new feature is still in beta form, and may change slightly before final release.  For example, the API may change 
+to accomodate better error handling and reporting.
+
+
+- Extended Properties and Events
+This version of VectorWorks introduces extended properties and events for objects and tools. 
+Objects and tools will be able to have additional properties and respond to additional events.  The interface between the application
+and the object or tool will be expanded and will allow plug-in to respond more intelligently to different situations.  
+For example, in previous versions of VectorWorks a Plug-in Object was only called by the application when it needed to be reset.  This feature
+will allow more communication between the application and plug-in.  When the user selects a plug-in object and chooses "Edit Group" the application
+can ask the plug-in what to do next: edit the path, edit the profile, or ask the user with a dialog.
+See the preliminary documentation in the "READ ME:Extended Properties" folder.
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+
+	void GS_DrawCoordLine3D(CallBackPtr, const WorldPt3& p1, const WorldPt3& p2);
+	MCObjectHandle GS_CreateStaticHatchFromObject(CallBackPtr, MCObjectHandle inObj, const InternalName name, const WorldPt& inOriginPoint, double_param inRotationAngle);
+	long GS_AddToolPersistentDraw(CallBackPtr, GS_PersistentDrawProcPtr drawProcPtr, void *drawEnv);
+	void GS_RemoveToolPersistentDraw(CallBackPtr, long persistentDrawRefID);
+	long GS_AddHotSpot(CallBackPtr, short inHotSpotType, const WorldPt3& inLocation, long inCursorID, ConstStr255Param inTip);
+	long GS_TrackHotSpot(CallBackPtr, Boolean& outIs3d, WorldPt3& outLocation);
+	void GS_RemoveHotSpot(CallBackPtr, long inHotSpotID);
+	Boolean GS_SetToolProperty(CallBackPtr, long inCodeRefID, long inToolPropID, Boolean inValue);
+	Boolean GS_SetToolPropertyChar(CallBackPtr, long inCodeRefID, long inToolPropID, char inValue);
+	Boolean GS_SetObjectProperty(CallBackPtr, long inCodeRefID, long inPropID, Boolean inValue);
+	Boolean GS_SetObjectPropertyChar(CallBackPtr, long inCodeRefID, long inPropID, unsigned char inValue);
+	void GS_CreateListBoxN(CallBackPtr, long dialogID, long itemID, short widthInCharacters, short heightInCharacters, Boolean isMultiSel);
+	MCObjectHandle GS_ConvertToPolygonN(CallBackPtr, MCObjectHandle h, Boolean preserveOriginal , short conversionResolution);
+	void GS_GetSelChoiceIndex(CallBackPtr, long dialogID, long itemID, short inStartIndex, short& outSelectedIndex);
+	void GS_ClipSurface(CallBackPtr, MCObjectHandle h1, MCObjectHandle h2);
+	MCObjectHandle GS_CreateShaderRecord(CallBackPtr, MCObjectHandle texture, long family, long prototype);
+	MCObjectHandle GS_GetShaderRecord(CallBackPtr, MCObjectHandle parentNode, long family);
+	Boolean GS_EditShaderRecord(CallBackPtr, MCObjectHandle shaderRecord);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+SDK 10.1	(15716)
+January 2003
+-----------------------
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+
+	MCObjectHandle GS_CreateContourCurves(CallBackPtr, MCObjectHandle h, double_param delta, WorldPt3 pointOnPlane, WorldPt3 planeNormal);
+	Boolean GS_Products3D(CallBackPtr, MCObjectHandle h, double_gs &Ixy, double_gs &Iyz, double_gs &Izx);
+	Boolean GS_Moments3D(CallBackPtr, MCObjectHandle h, double_gs &Ixx, double_gs &Iyy, double_gs &Izz);
+	Boolean GS_Centroid3D(CallBackPtr, MCObjectHandle h, double_gs &xCG, double_gs &yCG, double_gs &zCG);
+	MCObjectHandle GS_CreateStaticHatch(CallBackPtr, const InternalName name, const WorldPt& inOriginPoint, double_param inRotationAngle);
+	MCObjectHandle GS_CreateCombineIntoSurface(CallBackPtr, const WorldPt& inPoint);
+	Boolean GS_GetPointAndParameterOnNurbsCurveAtGivenLength(CallBackPtr, MCObjectHandle inNurbCurve, double_param inPercentOfLength, WorldPt3& outPointOnCurve,  double_gs& outParametricParameter, long& outPiecewiseCurveIndex);
+	Boolean GS_EncryptVSPluginFilePath(CallBackPtr, char inFullPath[255], Boolean doObfuscation = true);
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+SDK 10.0.0
+October 2002
+-----------------------
+- This is the SDK for VectorWorks 10.0.0 release.  Please see all the release notes below for information on what has changed 
+since the previous release of VectorWorks. 
+
+
+- For international support, there are new functions to access universal and localized strings.  These strings include the
+Plug-in Object name, parameter name, and choice strings for popup and radio button parameters.  See the files CustomObjects.cpp
+and CustomObjects.h for data structures that correspond to the new custom resources introduced with VectorWorks 10.0.0, and
+functions to access the resources.
+
+	Boolean GetCustomObjectName(Str63 universalName, Str63 displayName, short &version);
+	Boolean GetParameterChoice(short parameterIndex, short choiceIndex, Str255 univChoiceStr, Str255 localChoiceStr);
+	Boolean GetNumParameterChoices(short parameterIndex, short &numChoices);
+
+
+New SDK Functions:
+	See the release notes below for previous beta versions of the SDK. 
+
+
+
+
+SDK 10.0.0b	(12264)
+August 2002
+-----------------------
+
+- The new resource templates have been changed since the previous beta SDK (10256).  The file "GSTMPL.rsrc" contains revised 
+versions of the new 'Prm#' and 'Chc#' resource templates.  The length of the choice strings in 'Chc#' have been changed 
+from 63 characters to 255 characters.  The default value string in 'Prm#' was also changed to accomdate 255 characters so that 
+it can hold a default popup choice string.
+
+If you updated your plug-ins using the 'Prm#' and 'Chc#' resources from the prevoius SDK, then you will have to replace those 
+resources using the new templates that are available in this SDK.  
+
+You may use these resources to begin localizing (translating) your plug-ins, however the current beta application (build 12059) 
+contains a bug that truncates certain long strings.  This will fixed in the next beta application, which will be available soon.
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+
+	void GS_SetMultilineText(CallBackPtr, long dialogID, long itemID, GSHandle text);
+	void GS_GetActiveSerialNumber(CallBackPtr, char* serialNumber);
+	short GS_GetCurrentMode(CallBackPtr);
+	long GS_GetEnabledModules(CallBackPtr);
+	void GS_DisableModules(CallBackPtr, long modules);
+	GSHandle GS_GetMultilineText(CallBackPtr, long dialogID, long itemID);
+
+	
+	
+	
+SDK 10.0.0b (11284)
+July 2002
+-----------------------
+This is the second beta of the SDK for VectorWorks 10.0.0, and it cooresponds to build 11284 of the application.
+
+The recommended development tools for Mac have been updated to Codewarrior 7.2.  We have found improved debugging support 
+under MacOS X with this release. 
+
+The file "GSTMPL.rsrc" has been updated to correct a problem in the new 'PDEf' resource template.
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+
+	Boolean GS_CopySymbol(CallBackPtr, ConstStr255Param inFilePath, const InternalName symName);
+	void GS_DeleteAllItems(CallBackPtr, long dialogID, long itemID);
+	Boolean GS_WorldRect2ViewRect(CallBackPtr, const WorldRect& wRect, ViewRect& vRect);
+	MCObjectHandle GS_AuxOwner(CallBackPtr, MCObjectHandle h);
+	MCObjectHandle GS_SearchForAncestorType(CallBackPtr, CBSignedShort objectType, MCObjectHandle h);
+
+	
+
+
+SDK 10.0.0b (10256)
+May 2002
+-----------------------
+This is the first SDK for VectorWorks 10.0.0, and it corresponds to the beta version (build 10256) of the application.
+Note: Starting with VectorWorks 10, betas will be designated by their build number rather than a sequential number (1, 2, 3, ...).
+This build number will appear in parentheses after the product version number.  
+
+-  Existing Plug-ins need to be recompiled with this SDK to enable them to work with the VectorWorks 10 application.
+(Actually, some existing plug-ins may work in VW 10 without being recompiled:  Plug-in Menus and Tools that do not 
+use RecordHandler.cpp to access FormatType nodes and Plug-in Objects that do not have parameters. )
+
+
+-  International support for Plug-in Objects has been improved with VectorWorks 10. 
+Users with different localized versions can now exchange drawings that contain Plug-in Objects.  The objects will remain active
+and will display the correct localized text.  To accomplish this, each plug-in file contains both a universal name and a 
+localizable name.  The drawing file will also contain both names for each Plug-in Object it contains.  These names will
+allow VectorWorks to match an object in the drawing with its appropriate plug-in file. 
+
+To take advantage of this feature, developers will need to modify existing plug-in objects to replace certain resources with new ones. 
+The new resources contain both universal names and localizable (display) names for the following: object names, parameter names, 
+popup and radio parameter item names.  
+
+	old resource		new resource
+	------------		------------
+		PDef				PDEf
+		PARM				Prm#
+		STR#				Chc#
+	
+
+-  For our international distributors and developers, VectorWorks 10 introduces a new method for localizing VectorScript Plug-ins.  
+The process is now similar to the method used to localize SDK Plug-ins: comparing and editing Mac resources.
+
+	
+
+
+
+New SDK Functions:		(see "MiniCadCallBacks.Defs.h", "VW10 SDK Library.html" or "VW10 SDK Library.fp5" for descriptions.)
+
+	Boolean GS_GetParameterOnNurbsCurve(CallBackPtr, MCObjectHandle h, const WorldPt3&  point,  double& parameter, long& index);
+	void GS_DrawNurbsObject(CallBackPtr, MCObjectHandle h);
+	void GS_GetColorButton(CallBackPtr, long dialogID, long itemID, RGBColor& rgb);
+	void GS_SetColorButton(CallBackPtr, long dialogID, long itemID, const RGBColor& rgb);
+	Boolean GS_GetNurbsObjectDistanceFromPoint(CallBackPtr, MCObjectHandle h, const WorldPt&  point,  double& distance);
+	MCObjectHandle GS_CreateOffsetNurbsObjectHandle(CallBackPtr, MCObjectHandle h,   double offset);
+	void GS_GetPolyBreakGeometry(CallBackPtr, MCObjectHandle theWall, short breakIndex, MCObjectHandle& polyline);
+	void GS_SetAsPolyBreak(CallBackPtr, MCObjectHandle& thePolyline, MCObjectHandle theWall, short breakIndex);
+	void GS_MoveWallByOffset(CallBackPtr, MCObjectHandle theWall, WorldCoord& offset);
+	void GS_JoinWalls(CallBackPtr, MCObjectHandle firstWall, MCObjectHandle secondWall,  const WorldPt& firstWallPt, const WorldPt& secondWallPt, JoinModifierType joinModifier, Boolean capped);
+	void GS_ReverseWallSides(CallBackPtr, MCObjectHandle theWall);
+	MCObjectHandle  GS_ConvertToNURBS(CallBackPtr, MCObjectHandle h, Boolean keepOrig = false);
+	Boolean GS_CreateSurfacefromCurvesNetwork(CallBackPtr);
+	MCObjectHandle GS_CreateLoftSurfaces(CallBackPtr, MCObjectHandle groupCurvesH, Boolean bRule, Boolean  bClose, Boolean bSolid);
+	MCObjectHandle GS_CreateGradient(CallBackPtr, const InternalName name);
+	Boolean GS_ShowGradientEditorDialog(CallBackPtr, MCObjectHandle& gradient);
+	short GS_GetNumGradientSegments(CallBackPtr, MCObjectHandle gradient);
+	short GS_InsertGradientSegment(CallBackPtr, MCObjectHandle gradient, double_param spotPosition, double_param midpointPosition, const WorldPt3& color);
+	Boolean GS_RemoveGradientSegment(CallBackPtr, MCObjectHandle gradient, short segmentIndex);
+	Boolean GS_GetGradientData(CallBackPtr, MCObjectHandle gradient, short segmentIndex, double& spotPosition, double& midpointPosition, WorldPt3& color);
+	Boolean GS_SetGradientData(CallBackPtr, MCObjectHandle gradient, short& segmentIndex, double_param spotPosition, double_param midpointPosition, const WorldPt3& color);
+	Boolean GS_GetGradientSpotPosition(CallBackPtr, MCObjectHandle gradient, short segmentIndex, double& position);
+	Boolean GS_SetGradientSpotPosition(CallBackPtr, MCObjectHandle gradient, short& segmentIndex, double_param position);
+	void GS_GetGradientSpotColor(CallBackPtr, MCObjectHandle gradient, short segmentIndex, WorldPt3& color);
+	Boolean GS_SetGradientSpotColor(CallBackPtr, MCObjectHandle gradient, short segmentIndex, const WorldPt3& color);
+	Boolean GS_GetGradientMidpointPosition(CallBackPtr, MCObjectHandle gradient, short segmentIndex, double& position);
+	Boolean GS_SetGradientMidpointPosition(CallBackPtr, MCObjectHandle gradient, short segmentIndex, double_param position);
+	MCObjectHandle GS_CreateImageFromPaint(CallBackPtr, MCObjectHandle paint, const InternalName imageName);
+	MCObjectHandle GS_CreatePaintFromImage(CallBackPtr, MCObjectHandle image);
+	MCObjectHandle GS_ShowCreateImageDialog(CallBackPtr);
+	Boolean GS_GetFillPoints(CallBackPtr, MCObjectHandle objectHandle, WorldPt& originPoint, WorldPt& iAxisEndPoint, WorldPt& jAxisEndPoint);
+	Boolean GS_GetFillOriginPoint(CallBackPtr, MCObjectHandle objectHandle, WorldPt& originPoint);
+	Boolean GS_GetFillIAxisEndPoint(CallBackPtr, MCObjectHandle objectHandle, WorldPt& iAxisEndPoint);
+	Boolean GS_GetFillJAxisEndPoint(CallBackPtr, MCObjectHandle objectHandle, WorldPt& jAxisEndPoint);
+	Boolean GS_SetFillOriginPoint(CallBackPtr, MCObjectHandle objectHandle, const WorldPt& originPoint);
+	Boolean GS_SetFillIAxisEndPoint(CallBackPtr, MCObjectHandle objectHandle, const WorldPt& iAxisEndPoint);
+	Boolean GS_SetFillJAxisEndPoint(CallBackPtr, MCObjectHandle objectHandle, const WorldPt& jAxisEndPoint);
+	Boolean GS_GetGradientSliderData(CallBackPtr, long dialogID, long componentID, short segmentIndex, double& spotPosition, double& midpointPosition, WorldPt3& color);
+	short GS_InsertGradientSliderSegment(CallBackPtr, long dialogID, long componentID, double_param spotPosition, const WorldPt3& color);
+	Boolean GS_RemoveGradientSliderSegment(CallBackPtr, long dialogID, long componentID, short segmentIndex);
+	Boolean GS_ClearGradientSliderSegments(CallBackPtr, long dialogID, long componentID);
+	short GS_GetNumGradientSliderSegments(CallBackPtr, long dialogID, long componentID);
+	Boolean GS_SetGradientSliderSelectedMarker(CallBackPtr, long dialogID, long componentID, short segmentIndex, short markerType);
+	Boolean GS_GetGradientSliderSelectedMarker(CallBackPtr, long dialogID, long componentID, short& segmentIndex, short& markerType);
+	short GS_InsertImagePopupObjectItem(CallBackPtr, long dialogID, long componentID, InternalIndex objectIndex);
+	Boolean GS_RemoveImagePopupItem(CallBackPtr, long dialogID, long componentID, short itemIndex);
+	InternalIndex GS_GetImagePopupObject(CallBackPtr, long dialogID, long componentID, short itemIndex);
+	Boolean GS_RemoveAllImagePopupItems(CallBackPtr, long dialogID, long componentID);
+	short GS_GetImagePopupObjectItemIndex(CallBackPtr, long dialogID, long componentID, InternalIndex objectIndex);
+	short GS_GetNumImagePopupItems(CallBackPtr, long dialogID, long componentID);
+	Boolean GS_SetImagePopupSelectedItem(CallBackPtr, long dialogID, long componentID, short itemIndex);
+	short GS_GetImagePopupSelectedItem(CallBackPtr, long dialogID, long componentID);
+	void GS_AddListBoxTabStop(CallBackPtr, long dialogID, long componentID, int tabStop);
+	void GS_RemoveListBoxTabStop(CallBackPtr, long dialogID, long componentID);
+	HBITMAP GS_CreateDIBFromPreview(CallBackPtr, InternalIndex &inIndex, short pixelWidth, short pixelHeight);
+	GWorldPtr GS_CreateGWorldFromPreview(CallBackPtr, InternalIndex &inIndex, short pixelWidth, short pixelHeight);
+	void GS_SetParameterVisibility(CallBackPtr, MCObjectHandle inCustomObject, short inParameterIndex, Boolean inSetVisible);
+	void GS_EnableParameter(CallBackPtr, MCObjectHandle inCustomObject, short inParameterIndex, Boolean inSetEnabled);
+
+
+
+
+
+SDK 9.5.0 b7
+November 2001
+-----------------------
+
+The recommended compiler for Mac is now CodeWarrior 7.  The sample projects have
+been updated.  We are also using the latest MSL and PowerPlant 2.2 framework that 
+ships with CodeWarrior 7.
+
+Several new sample plug-ins have been added to the SDK.  Most of the samples are
+cross-platform and provide a project file for CodeWarrior on Mac and Visual C++ on Widows.
+See the "SDK:Source:Sample:" directory.
+
+The SDK function reference is now available in HTML format in addition to the FileMaker
+database.  Currently it is just one big table, but we may improve it with links and better
+formatting in the future.  See the file "Calder SDK Library.html" in the Read Me directory.
+
+
+New Callbacks:		(see "MiniCadCallBacks.Defs.h" or "Calder SDK Library.fp5" database for descriptions.)
+
+	void GS_DrawScreen(CallBackPtr, const Rect& clipRect, Boolean isLastFrame = true);
+	MCObjectHandle GS_CreateHatch(CallBackPtr, const InternalName inName, CBBoolean inUsePageUnits, CBBoolean inRotateInWalls, CBBoolean inRotateInSymbols, CBBoolean inTransparent, Byte inFillColorIndex);
+	CBBoolean GS_SetHatchLevel(CallBackPtr, MCObjectHandle inHatchDef, short inLevel, const WorldPt& inStartPt, const WorldPt& inRepeatVec, double_param inDashFactor, const WorldPt& inOffsetVec, Byte inColorIndex, short inMilsLineWeight);
+	CBBoolean GS_GetHatchLevel(CallBackPtr, MCObjectHandle inHatchDef, short inLevel, WorldPt& outStartPt, WorldPt& outRepeatVec, double& outDashFactor, WorldPt& outOffsetVec, Byte& outColorIndex, short& outMilsLineWeight);
+	CBBoolean GS_SetDefaultHatch(CallBackPtr, MCObjectHandle inHatchDef);
+	CBBoolean GS_OpenDocument(CallBackPtr, const FSSpec& inFileSpec, CBBoolean inShowErrorMessages);
+	CBBoolean GS_OpenDocumentPath(CallBackPtr, char inPath[255], CBBoolean inShowErrorMessages);
+	CBBoolean GS_GetPatternBits(CallBackPtr, short inIndex, CBUnsignedByte outPattern[8]);
+	void GS_ForEachPolyEdge(CallBackPtr cbp, MCObjectHandle inPolyH, GS_ForEachPolyEdgeProcPtr inProc, void* inEnv);
+	MCObjectHandle GS_GetHatchListHeader(CallBackPtr);
+	MCObjectHandle GS_GetDefaultHatch(CallBackPtr);
+
+
+
+SDK 9.5.0 a6
+August 2001
+-----------------------
+The directory structure within the SDK has changed.
+On the Mac, you should change the "Access Paths" in the project settings dialog.
+On Windows, you should change the include paths in the "Project Options" field
+of the "Project Settings" dialog. 
+
+The "READ ME" directory is still there, and now it also contains the function reference database.
+The "ExternalSrc" directory has been renamed "Source".  It still contains a "Sample" directory, 
+but the other lower level directories have been removed.  All samples are in this "Sample" directory.
+The "SDKLib" directory contains everything else required to build plug-ins.  
+Many directories that were at the top level in previous SDKs have been moved inside SDKLib.
+Some of these directories have changed their names as noted below:
+
+Old Directory:					New Directory:
+---------						---------
+Include:GSLibraries:			SDKLib:Include:Kernel:
+LibraryBin:Mac:					SDKLib:LibMac:
+LibraryBin:Win:					SDKLib:LibWin:
+LibrarySrc:						SDKLib:
+LibrarySrc:GSLibraries:			SDKLib:Kernel:
+MacTools:						SDKLib:ToolsMac:
+WinTools:						SDKLib:ToolsWin:
+
+
+
+
+SDK 9.5.0 a5
+August 2001
+-----------------------
+This is the first version of the VectorWorks SDK for the VectorWorks 9.5.0 development cycle.
+It corresponds to the a5 version of the application.
+
+There have been many changes to the VectorWorks application on the Mac to support
+Apple's new operating system known as MacOS X.  VectorWorks is now a "Carbon" application
+and therefore it requires its plug-ins to be "Carbon" also.  Existing plug-ins will not
+work with VectorWorks 9.5, and will have to be modified and rebuilt.  
+
+See the document "SDK Plug-ins for VW9.5.0" for more details.
+
+
+
+
+SDK 9.0.0
+April 30, 2001
+-----------------------
+This is the release SDK for VectorWorks 9.0.0.  It is identical to the "FC1" version except for 
+minor changes to the "SDK Manual.pdf".  See the release notes below for all changes since last 
+public release.
+
+
+
+SDK 9.0.0 FC1
+March 1, 2001
+-----------------------
+This SDK corresponds to the FC1 version of the VectorWorks application.
+
+
+Changes:
+
+-	Constants for GetObjectVariable and SetObjectVariable routines for the Worksheet have been added to 
+	the header file "MiniCadCallBacks.h".  Constants for GS_ShowWorksheetDialog have been added to the header
+	file "MiniCadCallBacks.X.h".
+
+- 	Updated sample code for an SDK Plug-in Menu which displays a PowerPlant dialog:
+	"SDK:ExternalSrc:Sample:MFCPP:SamplePowerPlantDialog:"
+
+-	Several obsolete files have been removed from the SDK including:
+		Include:GCL:UDialog.h
+		Include:GCL:UDlgView.h
+		Include:GCL:UHelpView.h
+		Include:GCL:UList.h
+		Include:GCL:UMCDialog.h
+		Include:GCL:UPopUp.h
+		LibrarySrc:GCL:DialogClasses:UDialog.cpp
+		LibrarySrc:GCL:DialogClasses:UDlgView.cpp
+		LibrarySrc:GCL:DialogClasses:UHelpView.cpp
+		LibrarySrc:GCL:DialogClasses:UList.cpp
+		LibrarySrc:GCL:DialogClasses:UMCDialog.cpp
+		LibrarySrc:GCL:DialogClasses:UPopUp.cpp										
+
+
+
+SDK 9.0.0 b9
+January 19, 2001
+-----------------------
+This SDK corresponds to the beta 9 version of the VectorWorks application.
+
+
+Changes:
+
+-	The library "GSESDKInterface.lib" is now obsolete.  If your existing plug-ins depend on this library, 
+	then you should make some of the following changes.
+
+	If you link with this library because you need TList, TSimpleTable, TStream, or QDGlobals then you should
+	add the respective files directly to your plug-in's project file.  Compile them into your plug-in instead of
+	linking with the obsolete library.
+	
+	If you link with this library because you need the UDialog, UDialogView, UHelpView, UList, UMDialog, UPopup
+	then you have two chioces.  You may want to re-implement your dialog using MFC and PowerPlant.
+	Otherwise, you can copy the files that you require into your plug-in folder and add your copy of these files 
+	directly into your plug-in's project.  These source files will be removed from a future SDK, so copy them now 
+	if you need them.
+
+-	A bug was fixed in the file UDialog.cpp. The routine TDialog::DoDialog() now calls 
+	SendBehind after HideWindow so PowerPlant can reach and reactivate the document window.
+	Note that this file will be removed from the SDK with the next beta.
+
+-	Many new callbacks were added to better support the Worksheet features.
+
+- 	Note that on the Macintosh if your plug-in contains a global C++ object then its 
+	constructor does not get called.  Any static data members are also not initialized.
+	To fix this situation, make the following changes:
+	In CodeWarrior, project settings dialog/ Linker/ PPC Linker/ Entry Points...
+
+	    __initialize
+	    main
+	    __terminate
+
+	Adding the __initialize and __terminate entry points to this dialog will fix this problem.
+	You do not need to add anything to your source code.  
+	
+	(These settings are incorrectly documented in "SDK Plug-ins for VW9.html" and incorrect in some sample plug-in
+	projects.  They will be corrected in the next SDK.)	
+
+
+
+New Callbacks:		(see "MiniCadCallBacks.Defs.h" or "Bernini SDK Library.fp5" database for descriptions.)
+
+	Boolean GS_NurbsCurveEvaluatePoint(CallBackPtr, MCObjectHandle nurbsHandle, long index, double u, WorldPt3& pt);
+	Boolean GS_NurbsSurfaceEvaluatePoint(CallBackPtr, MCObjectHandle nurbsHandle, double u, double v, WorldPt3& pt);
+
+	void GS_FormatTextDialog(CallBackPtr, FormatTextType& formatTextRec);
+
+	void GS_GetWorksheetRowColumnCount(CallBackPtr, MCObjectHandle worksheet, short& numRows, short& numColumns);
+	void GS_GetWorksheetCellValue(CallBackPtr, MCObjectHandle worksheet, const Point& cell, double& cellValue);
+	MCObjectHandle GS_GetWorksheetFromImage(CallBackPtr, MCObjectHandle worksheetImage);
+	void GS_GetWorksheetSubrowCellValue(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short subrow, double& cellValue);
+	MCObjectHandle GS_GetWorksheetImage(CallBackPtr, MCObjectHandle worksheet);
+	void GS_ShowWorksheet(CallBackPtr, MCObjectHandle worksheet, Boolean show);
+	Boolean GS_IsWorksheetVisible(CallBackPtr, MCObjectHandle worksheet);
+	void GS_GetWorksheetPlacement(CallBackPtr, MCObjectHandle worksheet, Rect& windowPosition);
+	void GS_SetWorksheetPlacement(CallBackPtr, MCObjectHandle worksheet, const Rect& windowPosition);
+	MCObjectHandle GS_GetTopVisibleWorksheet(CallBackPtr);
+	void GS_SetTopVisibleWorksheet(CallBackPtr, MCObjectHandle worksheet);
+	Boolean GS_IsWorksheetCellNumber(CallBackPtr, MCObjectHandle worksheet, const Point& cell);
+	Boolean GS_IsWorksheetCellString(CallBackPtr, MCObjectHandle worksheet, const Point& cell);
+	void GS_GetWorksheetCellString(CallBackPtr, MCObjectHandle worksheet, const Point& cell, Str255 cellString);
+	void GS_GetWorksheetCellFormula(CallBackPtr, MCObjectHandle worksheet, const Point& cell, Str255 formula);
+	void GS_SetWorksheetCellFormula(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, ConstStr255Param formula);
+	void GS_GetWorksheetCellAlignment(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short& cellAlignment);
+	void GS_SetWorksheetCellAlignment(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, short cellAlignment);
+	void GS_GetWorksheetCellNumberFormat(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short& style, short& accuracy, Str7 leaderString, Str7 trailerString);
+	void GS_SetWorksheetCellNumberFormat(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, short style, short accuracy, ConstStr7Param leaderString, ConstStr7Param trailerString);
+	void GS_GetWorksheetRowHeight(CallBackPtr, MCObjectHandle worksheet, short row, short& height);
+	void GS_GetWorksheetColumnWidth(CallBackPtr, MCObjectHandle worksheet, short column, short& width);
+	void GS_SetWorksheetColumnWidth(CallBackPtr, MCObjectHandle worksheet, short fromColumn, short toColumn, short width);
+	void GS_GetWorksheetColumnOperators(CallBackPtr, MCObjectHandle worksheet, short databaseRow, short& sort1, short& sort2, short& sort3, short& sum1, short& sum2, short& sum3);
+	void GS_SetWorksheetColumnOperators(CallBackPtr, MCObjectHandle worksheet, short databaseRow, short sort1, short sort2, short sort3, short sum1, short sum2, short sum3);
+	void GS_GetWorksheetCellTextFormat(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short& fontIndex, short& size, short& style);
+	void GS_SetWorksheetCellTextFormat(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, short fontIndex, short size, short style);
+	void GS_GetWorksheetCellBorder(CallBackPtr, MCObjectHandle worksheet, const Point& cell, Boolean& top, Boolean& left, Boolean& bottom, Boolean& right);
+	void GS_SetWorksheetCellBorder(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell, Boolean top, Boolean left, Boolean bottom, Boolean right, Boolean outline);
+	void GS_DeleteWorksheetRows(CallBackPtr, MCObjectHandle worksheet, short startRow, short numRows);
+	void GS_InsertWorksheetRows(CallBackPtr, MCObjectHandle worksheet, short beforeRow, short numRows);
+	void GS_DeleteWorksheetColumns(CallBackPtr, MCObjectHandle worksheet, short startColumn, short numColumns);
+	void GS_InsertWorksheetColumns(CallBackPtr, MCObjectHandle worksheet, short beforeColumn, short numColumns);
+	void GS_GetWorksheetSelection(CallBackPtr, MCObjectHandle worksheet, Point& currentCell, Point& topLeftRangeCell, short& topRangeSubrow, Point& bottomRightRangeCell, short& bottomRangeSubrow);
+	void GS_SetWorksheetSelection(CallBackPtr, MCObjectHandle worksheet, const Point& currentCell, const Point& topLeftRangeCell, short topRangeSubrow, const Point& bottomRightRangeCell, short bottomRangeSubrow);
+	void GS_SetWorksheetCurrentCell(CallBackPtr, MCObjectHandle worksheet, const Point& currentCell);
+	Boolean GS_IsValidWorksheetCell(CallBackPtr, MCObjectHandle worksheet, const Point& cell);
+	Boolean GS_IsValidWorksheetRange(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell);
+	Boolean GS_IsWorksheetDatabaseRow(CallBackPtr, MCObjectHandle worksheet, short databaseRow);
+	Boolean GS_IsValidWorksheetSubrowCell(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short subrow);
+	void GS_GetWorksheetSubrowCount(CallBackPtr, MCObjectHandle worksheet, short databaseRow, short& numSubrows);
+	Boolean GS_IsWorksheetSubrowCellNumber(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short subrow);
+	Boolean GS_IsWorksheetSubrowCellString(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short subrow);
+	void GS_GetWorksheetSubrowCellString(CallBackPtr, MCObjectHandle worksheet, const Point& cell, short subrow, Str255 cellString);
+	void GS_ShowWorksheetDialog(CallBackPtr, short dialogType);
+	void GS_ClearWorksheetCells(CallBackPtr, MCObjectHandle worksheet, const Point& topLeftCell, const Point& bottomRightCell);
+
+
+
+SDK 9.0.0 b4
+December 6, 2000
+-----------------------
+This SDK corresponds to the beta 4 version of the VectorWorks application.
+
+
+Changes:
+
+- New sample code for an SDK Plug-in Menu which displays a Layout Manager dialog:
+"SDK:ExternalSrc:Sample:Classic:SampleLayout:"
+
+- New sample code for an SDK Point Plug-in Object is available in the folder:
+"SDK:ExternalSrc:Sample:Objects:SampleObject:"
+
+- New sample VectorScript Plug-ins have been included in the folder:
+"SDK:ExternalSrc:Sample:VectorScript:"  
+
+- Updates have been made to the "SDK Manual.pdf".
+
+
+New Callbacks:		(see "MiniCadCallBacks.Defs.h" or "Bernini SDK Library.fp5" database for descriptions.)
+
+	Boolean GS_EnableWorksheetPaletteDrawing(CallBackPtr, MCObjectHandle worksheet, Boolean enable);
+	// Note: the new callback GS_EnableWorksheetPaletteDrawing is not implemented in b4.
+	void GS_CreateEditInteger(CallBackPtr, long dialogID, long itemID, long defaultValue, short widthInCharacters);
+	void GS_CreateEditReal(CallBackPtr, long dialogID, long itemID, long editRealType, double value, short widthInCharacters);
+	bool GS_GetEditInteger(CallBackPtr, long dialogID, long componentID, long& value);
+	bool GS_GetEditReal(CallBackPtr, long dialogID, long componentID, short editRealType, double& value);
+	void GS_SetEditInteger(CallBackPtr, long dialogID, long componentID, long value);
+	void GS_SetEditReal(CallBackPtr, long dialogID, long componentID, short editRealType, double value);
+
+
+
+
+SDK 9.0.0 b1
+November 7, 2000
+-----------------------
+This SDK corresponds to the beta 1 version of the VectorWorks application.
+
+There have been many changes to the SDK.  Existing Plug-ins for VectorWorks 8.5.2 
+will not work with VectorWorks 9, and will have to be modified and re-built.  
+Plug-ins built for VectorWorks 9 will not work with previous versions of VectorWorks.  
+The required changes are described in the new document: "SDK Plug-ins for VW9.html" 
+which is in the README folder.
+
+
+Changes:
+
+- The "SDK Manual.pdf" has been updated to reflect new features of VectorWorks 9.
+
+- On the Mac, improved the performance of callbacks.  When a Plug-in calls a callback, 
+there is no longer a mode-switch since both the application and plug-in are using
+the same intruction set architecture: PowerPC. 
+
+- On Windows, the callbacks EnterMoveableWindow(HWND hDialog) and ExitMoveableWindow(HWND hDialog)
+have been changed to require that callers pass in an HWND argument or a NULL pointer.  These calls 
+are only necessary if the plug-in displays a non-MFC dialog or an MFC dialog that is not derived from
+our TGSDialog class.
+
+
+New Callbacks:		(see "MiniCadCallBacks.Defs.h" or "Bernini SDK Library.fp5" database for descriptions.)
+
+	WorldCoord GS_WorldCoordsPerDrawingUnit(CallBackPtr);
+	double_gs GS_CoordLengthToPagePoints(CallBackPtr, WorldCoord len);
+	WorldCoord GS_PagePointsToCoordLength(CallBackPtr, double_gs& points);
+	Boolean GS_HasConstraint(CallBackPtr, MCObjectHandle obj);
+	Boolean GS_RunTemporary2DTool(CallBackPtr cbp, long& ioUserData, ToolDefProcPtr inToolProc);
+	Boolean GS_RunTemporary3DTool(CallBackPtr cbp, long& ioUserData, ToolDefProcPtr inToolProc);
+	InternalIndex GS_GetNoneClassID(CallBackPtr);
+	InternalIndex GS_GetDimensionClassID(CallBackPtr);
+	MCObjectHandle GS_CreateNurbsSurface(CallBackPtr, long numUPts, long numVPts, short uDegree, short vDegree);
+	MCObjectHandle GS_CreateNurbsCurve(CallBackPtr, WorldPt3 firstPt, bool byCtrlPts, short degree);
+	long GS_NurbsCurveGetNumPieces(CallBackPtr, MCObjectHandle nHandle);
+	long GS_NurbsGetNumPts(CallBackPtr, MCObjectHandle nHandle, long index);
+	void GS_NurbsGetPt3D(CallBackPtr, MCObjectHandle nHandle, long index1, long index2, WorldPt3& pt);
+	void GS_NurbsSetPt3D(CallBackPtr, MCObjectHandle nHandle, long index1, long index2, WorldPt3 pt);
+	void GS_NurbsDelVertex(CallBackPtr, MCObjectHandle nHandle, long index1, long index2);
+	void GS_NurbsGetWeight(CallBackPtr, MCObjectHandle nHandle, long index1, long index2, double& weight);
+	void GS_NurbsSetWeight(CallBackPtr, MCObjectHandle nHandle, long index1, long index2, double weight);
+	void GS_NurbsCurveType(CallBackPtr, MCObjectHandle nHandle, long index, bool& isByWeight);
+	long GS_NurbsNumKnots(CallBackPtr, MCObjectHandle nHandle, long index);
+	void GS_NurbsKnot(CallBackPtr, MCObjectHandle nHandle, long index1, long index2, double& knot);
+	long GS_NurbsDegree(CallBackPtr, MCObjectHandle nHandle, long index);
+	void GS_NurbsSetKnot(CallBackPtr, MCObjectHandle nHandle, long index1, long index2, double knot);
+	MCObjectHandle GS_CreateTaperedExtrude(CallBackPtr, MCObjectHandle profileH, const double_param angle = 0.0, const double_param height = 1.0 );
+	Boolean GS_FindHandleDeep(CallBackPtr, MCObjectHandle handleToFind, MCObjectHandle firstObjectInSearchList, MCObjectHandle& auxParentOfObject);
+	void GS_ForEach3DPointInObject(CallBackPtr, MCObjectHandle h, GS_3DPointIteratorProcPtr proc, void* env);
+	Boolean GS_GetRoofElementType(CallBackPtr, MCObjectHandle object, const short dormerID, short& edgeIndex, Boolean& isDormer, short& dormerType);
+
+
+
+
+SDK 9.0.0 a6
+August 10, 2000
+-----------------------
+This is the first version of the SDK for the VectorWorks 9 development cycle.  
+It corresponds to the a6 version of the VectorWorks application.
+
+There have been many changes to the SDK.  Existing Plug-ins will not work with 
+VectorWorks 9, and will have to be modified and re-built.  The required changes 
+are described in the new document: "SDK Plug-ins for VW9.html" which is in the 
+README folder.
+
+Fixed GS_GetCellFormula to correct return of formula string.
+
+
+New Callbacks: (see "MiniCadCallBacks.Defs.h" for descriptions)
+
+	long GS_CALLBACK GS_GetNumToolPts(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetToolPt2D(CallBackPtr cbp, long inIndex, WorldPt& outToolPoint)
+	Boolean GS_CALLBACK GS_GetToolPtCurrent2D(CallBackPtr cbp, WorldPt& outToolPoint)
+	Boolean GS_CALLBACK GS_AddToolBehavior(CallBackPtr cbp, long inBehaviorID)
+	TToolHandler* GS_CALLBACK GS_GetToolInterface(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetToolPt3D(CallBackPtr cbp, long inIndex, WorldPt3& outToolPoint)
+	Boolean GS_CALLBACK GS_GetToolPtWorkingPlane(CallBackPtr cbp, long inIndex, WorldPt3& outToolPoint)
+	Boolean GS_CALLBACK GS_GetToolPtViewPoint(CallBackPtr cbp, long inIndex, ViewPt& outToolPoint)
+	Boolean GS_CALLBACK GS_PopLastToolPt(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_ClearAllToolPts(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetToolPtCurrent3D(CallBackPtr cbp, WorldPt3& outToolPt)
+	Boolean GS_CALLBACK GS_GetToolPtCurrentWorkingPlane(CallBackPtr cbp, WorldPt3& outToolPt)
+	Boolean GS_CALLBACK GS_GetToolPtCurrentViewPt(CallBackPtr cbp, ViewPt& outToolPt)
+	void GS_CALLBACK GS_Get2DPt(CallBackPtr cbp, MCObjectHandle obj, short index, WorldPt& loc)
+	long GS_CALLBACK GS_OnePointToolStatus(CallBackPtr cbp)
+	long GS_CALLBACK GS_TwoPointToolStatus(CallBackPtr cbp)
+	long GS_CALLBACK GS_ClickDragToolStatus(CallBackPtr cbp)
+	long GS_CALLBACK GS_ThreePointToolStatus(CallBackPtr cbp)
+	long GS_CALLBACK GS_PolyToolStatus(CallBackPtr cbp)
+	void GS_CALLBACK GS_Default2DToolDraw(CallBackPtr cbp)
+	void GS_CALLBACK GS_Default3DToolDraw(CallBackPtr cbp)
+	void GS_CALLBACK GS_BoxToolDraw(CallBackPtr cbp)
+
+	long GS_CALLBACK GS_CreateLayout(CallBackPtr cbp, ConstStr255Param name, Boolean hasHelp, ConstStr255Param defaultButtonName, ConstStr255Param cancelButtonName)
+	void GS_CALLBACK GS_CreateCheckBox(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param name)
+	void GS_CALLBACK GS_CreateEditText(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param defaultText, short widthInCharacters)
+	void GS_CALLBACK GS_CreateGroupBox(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param name, Boolean hasFrame)
+	void GS_CALLBACK GS_CreateListBox(CallBackPtr cbp, long dialogID, long itemID, short widthInCharacters, short heightInCharacters)
+	void GS_CALLBACK GS_CreatePullDownMenu(CallBackPtr cbp, long dialogID, long itemID, short widthInCharacters)
+	void GS_CALLBACK GS_CreatePushButton(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param buttonName)
+	void GS_CALLBACK GS_CreateRadioButton(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param buttonName)
+	void GS_CALLBACK GS_CreateStaticText(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param text, short widthInCharacters)
+	void GS_CALLBACK GS_SetHelpText(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param helpText)
+	bool GS_CALLBACK GS_VerifyLayout(CallBackPtr cbp, long dialogID)
+	bool GS_CALLBACK GS_SetFirstLayoutItem(CallBackPtr cbp, long dialogID, long firstItemID)
+	bool GS_CALLBACK GS_SetFirstGroupItem(CallBackPtr cbp, long dialogID, long groupID, long firstItemID)
+	bool GS_CALLBACK GS_SetRightItem(CallBackPtr cbp, long dialogID, long srcItemID, long rightItemID, short indent = 0, short lineSpacing = 0)
+	bool GS_CALLBACK GS_SetBelowItem(CallBackPtr cbp, long dialogID, long srcItemID, long  belowItemID, short indent = 0, short lineSpacing = 0)
+	bool GS_CALLBACK GS_AlignRightEdge(CallBackPtr cbp, long dialogID, long srcItemID, short rightID, short alignMode = 1)
+	bool GS_CALLBACK GS_AlignBottomEdge(CallBackPtr cbp, long dialogID, long srcItemID, short bottomID, short alignMode = 1)
+	bool GS_CALLBACK GS_AlignLeftEdge(CallBackPtr cbp, long dialogID, long srcItemID, short leftID, short alignMode = 1)
+	void GS_CALLBACK GS_CreateControl(CallBackPtr cbp, long dialogID, long itemID, long controlKind, ConstStr255Param name, long data)
+	void GS_CALLBACK GS_SetItemText(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param strNewText)
+	void GS_CALLBACK GS_GetItemText(CallBackPtr cbp, long dialogID, long itemID, StringPtr strCurrentText)
+	void GS_CALLBACK GS_SetBooleanItem(CallBackPtr cbp, long dialogID, long itemID, Boolean bSelect)
+	void GS_CALLBACK GS_EnableItem(CallBackPtr cbp, long dialogID, long itemID, Boolean bEnable)
+	void GS_CALLBACK GS_GetBooleanItem(CallBackPtr cbp, long dialogID, long itemID, Boolean& state)
+	void GS_CALLBACK GS_AddChoice(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param strItemText, short nItemIndex)
+	void GS_CALLBACK GS_RemoveChoice(CallBackPtr cbp, long dialogID, long itemID, short itemIndexToRemove)
+	void GS_CALLBACK GS_GetChoiceIndex(CallBackPtr cbp, long dialogID, long itemID, ConstStr255Param strItemText, short& nItemIndex)
+	void GS_CALLBACK GS_SelectChoice(CallBackPtr cbp, long dialogID, long itemID, short nItemIndex)
+	void GS_CALLBACK GS_GetSelectedChoiceIndex(CallBackPtr cbp, long dialogID, long itemID, short& nItemIndex)
+	void GS_CALLBACK GS_GetChoiceText(CallBackPtr cbp, long dialogID, long itemID, short nItemIndex, StringPtr strItemText)
+	void GS_CALLBACK GS_GetChoiceCount(CallBackPtr cbp, long dialogID, long itemID, short& numItems)
+	void GS_CALLBACK GS_SelectEditText(CallBackPtr cbp, long dialogID, long itemID)
+	long GS_CALLBACK GS_GetLayoutFromRsrc(CallBackPtr cbp, short textRsrcID)
+	void GS_CALLBACK GS_SetControlData(CallBackPtr cbp, long dialogID, long itemID, long data)
+	void GS_CALLBACK GS_GetControlData(CallBackPtr cbp, long dialogID, long itemID, long& data)
+	long GS_CALLBACK GS_RunDialog(CallBackPtr cbp, long dialogID)
+	long GS_CALLBACK GS_RunLayoutDialog(CallBackPtr cbp, long dialogID, GS_EventHandlerProcPtr handleEvent = NULL, void* env = NULL)
+
+	void GS_CALLBACK GS_AddToConstraintModel(CallBackPtr cbp, MCObjectHandle obj)
+	void GS_CALLBACK GS_CreateConstraintModel(CallBackPtr cbp, MCObjectHandle obj, Boolean useSelection)
+	Boolean GS_CALLBACK GS_UpdateConstraintModel(CallBackPtr cbp)
+	void GS_CALLBACK GS_DeleteConstraint(CallBackPtr cbp, MCObjectHandle obj, MCObjectHandle constraint)
+	MCObjectHandle GS_CALLBACK GS_GetSingularConstraint(CallBackPtr cbp, short type, MCObjectHandle obj, short vertexA, short vertexB)
+	MCObjectHandle GS_CALLBACK GS_GetBinaryConstraint(CallBackPtr cbp, short type, MCObjectHandle obj1, MCObjectHandle obj2, short obj1VertexA, short obj1VertexB, short obj2VertexA, short obj2VertexB)
+	Boolean GS_CALLBACK GS_SetSingularConstraint(CallBackPtr cbp, short type, MCObjectHandle obj, short vertexA, short vertexB)
+	Boolean GS_CALLBACK GS_SetBinaryConstraint(CallBackPtr cbp, short type, MCObjectHandle obj1, MCObjectHandle obj2, short obj1VertexA, short obj1VertexB, short obj2VertexA, short obj2VertexB)
+	void GS_CALLBACK GS_GetClosestSide(CallBackPtr cbp, MCObjectHandle obj, const WorldPt& pt, short& indexA, short& indexB)
+	void GS_CALLBACK GS_SupportUndoAndRemove(CallBackPtr cbp)
+	void GS_CALLBACK GS_UndoAndRemove(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetConstraintValue(CallBackPtr cbp, MCObjectHandle constraint, double_param value)
+	void GS_CALLBACK GS_ShowParametricConstraints(CallBackPtr cbp, Boolean showThem)
+
+	MCObjectHandle GS_CALLBACK GS_CreateCustomObjectPath(CallBackPtr cbp, const InternalName name, MCObjectHandle pathHand = NULL, MCObjectHandle profileGroupHand = NULL)
+	MCObjectHandle GS_CALLBACK GS_GetCustomObjectPath(CallBackPtr cbp, MCObjectHandle objectHand)
+	MCObjectHandle GS_CALLBACK GS_GetCustomObjectProfileGroup(CallBackPtr cbp, MCObjectHandle objectHand)
+	Boolean GS_CALLBACK GS_SetCustomObjectPath(CallBackPtr cbp, MCObjectHandle objectHand, MCObjectHandle pathHand)
+	Boolean GS_CALLBACK GS_SetCustomObjectProfileGroup(CallBackPtr cbp, MCObjectHandle objectHand, MCObjectHandle profileGroupHand)
+	MCObjectHandle GS_CALLBACK GS_CreateExtrudeAlongPath(CallBackPtr cbp, MCObjectHandle pathHandle, MCObjectHandle profileHandle)
+	MCObjectHandle GS_CALLBACK GS_CreateTaperedExtrude(CallBackPtr cbp, MCObjectHandle profileHandle, double_param angle, double_param height)
+
+	Boolean GS_CALLBACK GS_CallPluginLibrary(CallBackPtr cbp, ConstStr20Param routineName, void* argumentTable, long status)
+	Boolean GS_CALLBACK GS_VerifyPluginLibrary(CallBackPtr cbp, ConstStr20Param routineName)
+
+	short GS_CALLBACK GS_GetClosestPt(CallBackPtr cbp, MCObjectHandle obj, const WorldPt& pt)
+	const ICoreToolAccess* GS_CALLBACK GS_GetToolCoreInterface(CallBackPtr cbp)
+	long GS_CALLBACK GS_DoProgramAction(CallBackPtr cbp, short actionSelector, void* actionEnv)
+	void GS_CALLBACK GS_SetArrowHeadsN(CallBackPtr cbp, MCObjectHandle h, Boolean starting, Boolean ending, ArrowType style, double_param size)
+	void GS_CALLBACK GS_GetArrowHeadsN(CallBackPtr cbp, MCObjectHandle h, Boolean& starting, Boolean& ending, ArrowType& style, double_gs& size)
+	void GS_CALLBACK GS_GetDefaultArrowHeadsN(CallBackPtr cbp, Boolean& starting, Boolean& ending, ArrowType& style, double_gs& size)
+	void GS_CALLBACK GS_SetDefaultArrowHeadsN(CallBackPtr cbp, Boolean starting, Boolean ending, ArrowType style, double_param size)
+	void GS_CALLBACK GS_PostMinorNoteAlert(CallBackPtr cbp, short strListID, short index)
+	void GS_CALLBACK GS_PostMinorStopAlert(CallBackPtr cbp, short strListID, short index)
+	short GS_CALLBACK GS_GetSupplementalResFile(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_RegisterNotificationProcedure(CallBackPtr cbp, StatusProcPtr proc, OSType whichChange)
+	void GS_CALLBACK GS_UnregisterNotificationProcedure(CallBackPtr cbp, StatusProcPtr proc, OSType whichChange)
+	void GS_CALLBACK GS_SetPersistentHighlight(CallBackPtr cbp, MCObjectHandle theObject, Boolean highlightState)
+	void GS_CALLBACK GS_ToggleObjectHighlight(CallBackPtr cbp, MCObjectHandle theObject)
+	void GS_CALLBACK GS_SpellCheckTextBuffer(CallBackPtr cbp, GSHandle charsHandle, Boolean textChanged)
+	short GS_CALLBACK GS_NumPeaks(CallBackPtr cbp, MCObjectHandle wallHandle)
+
+
+
+
+SDK 8.5.1 FINAL
+October 14, 1999
+-----------------------
+
+Contains a fix for a bug which affected the proper re-generation of C++ based plug-in objects.
+
+SDK 8.5.0 FINAL
+August 30, 1999
+-----------------------
+
+Never released to the public.
+
+The 8.5.0 release of the SDK includes changes which support the new plug-in funcionality
+added during the 8.5 development cycle. 
+
+All project files included in this release of the SDK require Visual C++ 6.0 for Windows development
+and CodeWarrior Pro 4 for Mac development.
+
+
+New Callbacks - see header file for descriptions
+	extern "C" Boolean GS_CALLBACK GS_GetPluginType(CallBackPtr, ConstStr20Param name, EVSPluginType& type);
+	extern "C" Boolean GS_CALLBACK GS_IsPluginFormat(CallBackPtr, MCObjectHandle h);
+	extern "C" Boolean GS_CALLBACK GS_AddCoordMoveObject2D(CallBackPtr, MCObjectHandle h, Coord dx, Coord dy);
+	extern "C" Boolean GS_CALLBACK GS_AddCoordMoveObject3D(CallBackPtr, MCObjectHandle h, Coord dx, Coord dy, Coord dz);
+
+
+SDK 8.0.1 FINAL
+May 10, 1999
+-----------------------
+
+This release of the SDK contains a limited set of functionality to address
+gaps in the shipping product. Note that the new functions require the user to
+be running VectorWorks 8.0.1. Before using this functionality, you should
+establish that the current version of VectorWorks is 8.0.1 or higher using the
+GetHostInfo callback.
+
+
+New library function
+	RotateMatrix2D
+
+New selector for GetObjectVariable
+	ovDimTextPosCalculated
+
+New object constants
+	kRoofEdgeNode
+	kRoofContainerNode
+
+
+
+
+SDK 8.0.1b2
+April 1, 1999
+-----------------------
+
+
+Changed return type of GS_NameToInternalIndex from bool to Boolean to fix
+potential Windows compatibility problem.
+
+New Callbacks - see header file for descriptions
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateRoundWall(CallBackPtr, const CoordPt& startPt, const CoordPt& ptOnArc, const CoordPt& endPt, Coord wallThickness = 0);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateSymbolFolder(CallBackPtr, ConstStr255Param name);
+	extern "C" Boolean GS_CALLBACK GS_PointInsidePoly(CallBackPtr, const CoordPt& checkPt, MCObjectHandle h);
+	extern "C" Boolean GS_CALLBACK GS_PointOnPolyEdge(CallBackPtr, const CoordPt& checkPt, MCObjectHandle h, Coord checkRadius);
+	extern "C" MCObjectHandle GS_CALLBACK GS_InternalIndexToHandle(CallBackPtr, InternalIndex index);
+
+
+New selector for GetObjectVariable
+	ovRoundWallCounterClockwise :
+		This object variable returns true if the round wall object passed in is 
+		counter-clockwise, and false if it is clockwise.  The intent of this is to 
+		allow SDK developers to more appropriately use data returned from generic
+		functions which may handle round walls in a non-useful way, such as 
+		GS_GetArcInfoN and GS_GetEndPoints.
+
+
+
+SDK 8.0.0 FINAL
+December 23, 1998
+-----------------------
+
+The following identifiers which specify menu functionality available through
+the GS_DoMenuName call have been changed for VectorWorks 8.0.0B15.
+
+The changes are intended to achieve a higher level of platform independence
+by removing characters such as the ellipsis (…) and the degree sign (°)
+which are specific to the Macintosh operating system. References to the name
+of the application have also been made more generic to eliminate unnecessary
+dependencies.
+
+Be aware, however, that GS_DoMenuName is a fundamentally less robust and
+maintainable way to achieve desired functionality than implementing the
+same functionality using other SDK calls. Use GS_DoMenuName only when
+necessary
+
+
+Old Name														New Name
+-----------------------------------------------					---------------------------------------
+About MiniCAD… / About VectorWorks…								About Box
+Align Objects…													Align Objects
+MiniCAD Preferences… / VectorWorks Preferences…					Application Preferences
+Arrow Heads…													Arrow Heads
+Classes…														Classes
+Color Palette…													Color Palette
+Column…															Column
+Create Database Worksheet…										Create Report
+Create Layer Link…												Create Layer Link
+Create Plug-in…													Create Plug-in
+Create Symbol…													Create Symbol
+Custom Selection…												Custom Selection
+Custom Tool/Attribute…											Custom Tool/Attribute
+Custom Visibility…												Custom Visibility
+Dash Styles…													Dash Styles
+Document Preferences…											Document Preferences
+Drawing Size…													Set Print Area
+Duplicate Array…												Duplicate Array
+Extrude…														Extrude and Edit
+Floor…															Floor
+Hatch…															Hatch
+Layer Scale… / Scale…											Layer Scale
+Layers…															Layers
+Line Thickness…													Line Thickness
+Move 3D…														Move 3D
+Move Working Plane…												Move Working Plane
+Move…															Move
+Multiple Extrude…												Multiple Extrude
+New…															New
+Open…															Open
+Page Setup…														Page Setup
+Patterns…														Patterns
+Print…															Print
+Put Down Attributes…											Put Down Attributes
+Reshape…														Reshape
+Roof… / Roof Face…												Roof Face
+Rotate 3D View…													Rotate 3D View
+Rotate 3D…														Rotate 3D
+Rotate Left 90°													Rotate Left 90
+Rotate Right 90°												Rotate Right 90
+Rotate to Zero													Unrotate 3D Objects
+Rotate Working Plane…											Rotate Working Plane
+Rotate…															Rotate
+Save As Template…												Save As Template
+Save As…														Save As
+Save View…														Save View
+Scale Objects…													Scale Objects
+Set Grid…														Set Grid
+Set Layer Ambient…												Set Layer Ambient
+Set Origin…														Set Origin
+Set Print Area…													Set Print Area
+Set Size…														Set Size
+Sweep…															Sweep and Edit
+Trace Bitmap…													Trace Bitmap
+Units…															Units
+Workgroup References…											Workgroup References
+
+
+Debugging Only
+-----------------
+
+Debug Options…													Debug Options
+Translate Files…												Translate Files
+
+
+
+Removed
+------------------
+Export MiniCAD 6												see Export Previous File Version (chunk)
+Join															see Join Chunk (chunk)
+Join and Fillet													see Join Chunk (chunk)
+Reshape
+Shift Drawing													see Move Page (external)
+Tablet
+
+----------------------------------------------------------------------------------------------
+
+CB_ConvertTo3DPolygons has always been documented to convert the passed object
+to a group of 3D polygons. It has, however converted all objects
+in the list beyond the passed object as well. It has been changed for 8.0.0B16
+to behave as documented. If you relied on the former behavior, you must implement
+a loop to traverse the objects you want converted.
+
+If you want all objects converted to a single group of 3D polygons, you should
+group all objects you want processed & pass that group to CB_ConvertTo3DPolygons.
+
+New Callbacks
+	extern "C" short GS_CALLBACK GS_CreateSkylight(CallBackPtr, MCObjectHandle object);
+	extern "C" Boolean GS_CALLBACK GS_GetBatAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean& useHeight, Coord& heightDepthValue, Coord& bottomWidth, Coord& topWidth, Coord& baseHeight, double_gs& topSlope, Coord& controlPoint);
+	extern "C" Boolean GS_CALLBACK GS_GetDormerAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, short& edgeIndex, Coord& cornerOffset, Boolean& isPerpOffset, Coord& perpOrHeightOffset, InternalIndex& symName, Boolean& centerSymbol, Coord& symOffset);
+	extern "C" Boolean GS_CALLBACK GS_GetGableAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean& useHeight, Coord& heightDepthValue, Coord& bottomWidth, double_gs& leftSlope, double_gs& rightSlope, Coord& overhang);
+	extern "C" Boolean GS_CALLBACK GS_GetHipAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean& useHeight, Coord& heightDepthValue, Coord& bottomWidth, double_gs& leftSlope, double_gs& rightSlope, double_gs& frontSlope, Coord& overhang);
+	extern "C" short GS_CALLBACK GS_GetNumRoofElements(CallBackPtr, MCObjectHandle object);
+	extern "C" Boolean GS_CALLBACK GS_GetRoofAttributes(CallBackPtr, MCObjectHandle object, Boolean& genGableWall, Coord& bearingInset, Coord& roofThick, short& miterType, Coord& vertMiter);
+	extern "C" Boolean GS_CALLBACK GS_GetShedAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean& useHeight, Coord& heightDepthValue, Coord& bottomWidth, double_gs& topSlope, Coord& overhang);
+	extern "C" Boolean GS_CALLBACK GS_GetSkylight(CallBackPtr, MCObjectHandle object, const short skylightID, short& edgeIndex, Coord& cornerOffset, Coord& perpOffset, InternalIndex& symName);
+	extern "C" Boolean GS_CALLBACK GS_GetTrapeziumAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean& useHeight, Coord& heightDepthValue, Coord& bottomWidth, Boolean& useTopWidth, Coord& topWidth, double_gs& leftSlope, double_gs& rightSlope, double_gs& topSlope);
+	extern "C" void GS_CALLBACK GS_RemoveRoofElement(CallBackPtr, MCObjectHandle object, short id);
+	extern "C" Boolean GS_CALLBACK GS_SetBatAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean useHeight, Coord heightDepthValue, Coord bottomWidth, Coord topWidth, Coord baseHeight, double_param topSlope, Coord controlPoint);
+	extern "C" Boolean GS_CALLBACK GS_SetDormerAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, short edgeIndex, Coord cornerOffset, Boolean isPerpOffset, Coord perpOrHeightOffset, InternalIndex symName, Boolean centerSymbol, Coord symOffset);
+	extern "C" void GS_CALLBACK GS_SetDormerThick(CallBackPtr, MCObjectHandle object, Coord wallThick, Coord roofThick);
+	extern "C" Boolean GS_CALLBACK GS_SetGableAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean useHeight, Coord heightDepthValue, Coord bottomWidth, double_param leftSlope, double_param rightSlope, Coord overhang);
+	extern "C" Boolean GS_CALLBACK GS_SetHipAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean useHeight, Coord heightDepthValue, Coord bottomWidth, double_param leftSlope, double_param rightSlope, double_param frontSlope, Coord overhang);
+	extern "C" void GS_CALLBACK GS_SetRoofAttributes(CallBackPtr, MCObjectHandle object, Boolean genGableWall, Coord bearingInset, Coord roofThick, short miterType, Coord vertMiter);
+	extern "C" Boolean GS_CALLBACK GS_SetShedAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean useHeight, Coord heightDepthValue, Coord bottomWidth, double_param topSlope, Coord overhang);
+	extern "C" Boolean GS_CALLBACK GS_SetSkylight(CallBackPtr, MCObjectHandle object, const short skylightID, short edgeIndex, Coord cornerOffset, Coord perpOffset, InternalIndex symName);
+	extern "C" Boolean GS_CALLBACK GS_SetTrapeziumAttributes(CallBackPtr, MCObjectHandle object, const short dormerID, Boolean useHeight, Coord heightDepthValue, Coord bottomWidth, Boolean useTopWidth, Coord topWidth, double_param leftSlope, double_param rightSlope, double_param topSlope);
+	extern "C" Boolean GS_CALLBACK GS_AppendRoofEdge(CallBackPtr, MCObjectHandle object, const CoordPt& edgePt, double_param slope, Coord projection, Coord eaveHeight);
+	extern "C" short GS_CALLBACK GS_CreateBatDormer(CallBackPtr, MCObjectHandle object);
+	extern "C" short GS_CALLBACK GS_CreateGableDormer(CallBackPtr, MCObjectHandle object);
+	extern "C" short GS_CALLBACK GS_CreateHipDormer(CallBackPtr, MCObjectHandle object);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateRoof(CallBackPtr, Boolean genGableWall, Coord bearingInset, Coord roofThick, short miterType, Coord vertMiter);
+	extern "C" short GS_CALLBACK GS_CreateShedDormer(CallBackPtr, MCObjectHandle object);
+	extern "C" short GS_CALLBACK GS_CreateTrapeziumDormer(CallBackPtr, MCObjectHandle object);
+	extern "C" Boolean GS_CALLBACK GS_GetRoofEdge(CallBackPtr, MCObjectHandle object, short index, CoordPt& vertexPt, double_gs& slope, Coord& projection, Coord& eaveHeight);
+	extern "C" Boolean GS_CALLBACK GS_RemoveRoofEdge(CallBackPtr, MCObjectHandle object, short index);
+	extern "C" void GS_CALLBACK GS_SetRoofEdge(CallBackPtr, MCObjectHandle object, short index, const CoordPt& vertexPt, double_param slope, Coord projection, Coord eaveHeight);
+
+	extern "C" short GS_CALLBACK GS_GetLineWeightDisplayMM(CallBackPtr, short mils);
+	extern "C" short GS_CALLBACK GS_GetLineWeightDisplayPt(CallBackPtr, short mils);
+	extern "C" Boolean GS_CALLBACK GS_SetLineWeightDisplayMM(CallBackPtr, short hundredths);
+	extern "C" Boolean GS_CALLBACK GS_SetLineWeightDisplayPt(CallBackPtr, short sixteenths);
+
+	extern "C" void GS_CALLBACK GS_FPCoordLengthToPageLength(CallBackPtr, double_param coordLen, double_gs& pageLen);
+	extern "C" void GS_CALLBACK GS_FPCoordLengthToUnitsLength(CallBackPtr, double_param coordLen, double_gs& unitsLen);
+	extern "C" void GS_CALLBACK GS_PageLengthToFPCoordLength(CallBackPtr, double_param pageLen, double_gs& coordLen);
+	extern "C" void GS_CALLBACK GS_UnitsLengthToFPCoordLength(CallBackPtr, double_param unitsLen, double_gs& coordLen);
+
+	extern "C" GSError GS_CALLBACK GS_SaveActiveDocumentPath(CallBackPtr, char activeDocumentPath[255]);
+
+	extern "C" Boolean GS_CALLBACK GS_IsObjectFromReferencedFile(CallBackPtr, MCObjectHandle h);
+
+	extern "C" Boolean GS_CALLBACK GS_GetTextWidth(CallBackPtr, MCObjectHandle textBlock, Coord& width);
+	extern "C" Boolean GS_CALLBACK GS_GetTextWrap(CallBackPtr, MCObjectHandle textBlock, Boolean& wrapped);
+	extern "C" void GS_CALLBACK GS_SetTextWidth(CallBackPtr, MCObjectHandle textBlock, Coord width);
+	extern "C" void GS_CALLBACK GS_SetTextWrap(CallBackPtr, MCObjectHandle textBlock, Boolean wrapped);
+
+New selector for GetProgramVariable/SetProgramVariable
+	varRenderWorksEnabled
+
+SDK 8.0.0b12
+October 23, 1998
+-----------------------
+
+Additional information and organization in the SDKInfo.txt document.
+
+The InternalIndex type should be used when referring to the static index of VectorScript
+objects. This clarifies some of the inconsistent types we were using before.
+
+The ObjectVariable Types system has been re-implemented. This should not affect your code
+unless you call it direcly, but be aware of it.
+
+New selector for GetProgramVariable/SetProgramVariable
+	varStopVSOnWarnings
+	varLeftPaletteMargin
+	varRightPaletteMargin
+	varSaveReminder
+	varSaveInterval
+	varDisplayLightObjs
+	varRetainQD3DModel
+	varRotTextDisplay
+	varDisplayBitMaps
+	varDimSlashThick
+	varHiddenLineDashStyle
+	varHiddenLineShade
+	varUnit1Style
+	varUnit2Style
+
+
+Modified Callbacks
+
+	extern "C" void GS_CALLBACK GS_InternalIndexToNameN(CallBackPtr, InternalIndex index, Str255 name);
+	extern "C" short GS_CALLBACK GS_GetTextureRef(CallBackPtr, MCObjectHandle object, short multiPartID, Boolean resolveByClass);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateTextBlock(CallBackPtr, ConstStr255Param textStr, const CoordPt& textOrigin, Boolean fixedSize, Coord width);
+	extern "C" Boolean GS_CALLBACK GS_NameToInternalIndexN(CallBackPtr, ConstStr255Param name, InternalIndex& index);
+	extern "C" void GS_CALLBACK GS_SetTextureRef(CallBackPtr, MCObjectHandle object, short textureRef, short multiPartID);
+
+Obsolete Callbacks
+
+	extern "C" MCObjectHandle GS_CALLBACK GS_GetObjectNearPt(CallBackPtr, const CoordPt& nearPt);
+
+SDK 8.0.0b8
+August 28, 1998
+-----------------------
+
+This SDK release marks a unification between the approach we take with
+the Mac SDK and the Windows SDK.
+
+Previously, our Windows externals linked to the GSESDK.DLL in the application
+directory. In this and future SDKs for Mac and Windows, all library code is
+hard-linked to each external. This causes about a 10% increase in size for the
+average external, but dramatically reduces the possibility that a subtle change in
+the GSESDK.DLL can cause 3rd party plug-ins (yours) to fail to resolve function
+references to the DLL at runtime. This would potentially require your externals to
+be rebuilt for every revision of VectorWorks for Windows (8.0.0, 8.0.1, 8.0.2,
+etc.) -- an unacceptable situation.
+
+We have split the SDK into four pieces:
+
+	GSESDK.lib				Core functionality - fully cross platform
+	GSESDKVWObjects.lib		Utilities for VW object manipulation - fully cross platform
+	GSESDKInterface.lib		GCL Interface code - Not Recommended - Limited Windows Support
+	GSESDKObsolete.lib		Obsolete
+
+Each external must also link to the Altura support DLL (GSEMUL.DLL) using the linking
+library provided (GSEMUL.LIB). This dependency may be eliminated in the future.
+
+On the Mac, the same libraries have been created. Additionally, a MasterCLibs.lib has
+been created which includes all of the Metrowerks libraries our plug-ins depend on. You
+can add this single library in place of 6 Metrowerks libraries.
+
+IMPORTANT - we are not allowed to ship Metrowerks libraries with our SDK. You must build
+	LibrarySrc:MasterCLibs.proj
+before any of our sample projects will build on the Mac.
+
+Using the libraries we supply reduces the number of ongoing changes you will have to
+make to your projects as the VectorWorks SDK develops in the future.
+
+For additional information about what your projects require, see the section 
+"Compiler issues in porting to SDK 8.0" in the SDKInfo.txt document.
+
+The entire SDKInfo.txt document has been updated for this release. Please review
+the changes.
+
+See the SDK 8.0.0b1 notes (updated for b8) later in this document for a comprehensive
+list of new SDK 8 callbacks as of beta 1. This document now has a complete history 
+of the new functionality in SDK 8.0.
+
+Other B8 SDK changes:
+
+	GS_DeleteText() has been implemented.
+	No other text improvements are in B8 - Coming soon.
+
+New selectors for GetObjectVariable/SetObjectVariable
+
+	ovMaterialIsExpanded
+	ovMaterialShininess
+	ovMaterialTransparency
+	ovMaterialTextureShader
+	ovMaterialTextureBitmap
+	ovTextureBitmapOrigin
+	ovTextureBitmapFeatureStart
+	ovTextureBitmapFeatureEnd
+	ovTextureBitmapFeatureSize
+	ovTextureBitmapRepeatHoriz
+	ovTextureBitmapRepeatVert
+	ovTextureBitmapPaintNode
+	ovTextureSpaceKind
+	ovTextureSpaceOriginOrientation
+	ovTextureSpace2DOffset
+	ovTextureSpace2DScale
+	ovTextureSpace2DRotation
+	ovTextureSpaceRadius
+	ovTextureSpaceStartCap
+	ovTextureSpaceEndCap
+	ovTextureSpaceMultiPartID
+
+New selector for GetProgramVariable/SetProgramVariable
+
+	varOpaqueHints 
+
+New Callbacks
+
+	extern "C" short GS_CALLBACK GS_AddGuidesClass(CallBackPtr);
+
+
+SDK 8.0.0b7
+August 7, 1998
+-----------------------
+
+Accessors for multiple undo preferences have been added.
+
+Round wall support has been added to GetEndPoints, GetArcInfoN, 
+SetWallWidth, GetWallWidth, GetWallHeights, SetWallHeights, SetBreak,
+AddBreak, DeleteBreak, ResetObject, & TrackTool.
+
+A number of changes have been made to resolve cross-platform memory
+allocation issues. See SDKInfo.txt.
+
+Changes have been made to VectorWorks' treatment of Mac font IDs to
+resolve cross-platform issues. See SDKInfo.txt.
+
+ovDimFontIndex is a new object variable for dimensions.
+
+New compatibility functions were added to MiniCadCallBacks.h/.cpp for
+callbacks which were ill-defined or have changed.
+
+New constants were added for all text call selectors
+(justification/spacing).
+
+AddTextFromBuffer and AddText are implemented.
+
+SetTextColor, SetTextFont, SetTextSize, SetTextStyle, and DeleteText
+remain non-functional in B7, but a future beta applicatrion will enable
+these callbacks.
+
+New callbacks for images
+
+	extern "C" GWorldPtr GS_CALLBACK GS_CreateGWorldFromPaintNode(CallBackPtr, MCObjectHandle h);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreatePaintNodeFromGWorld(CallBackPtr, GWorldPtr pGW);
+	extern "C" void GS_CALLBACK GS_DisposeGWorld(CallBackPtr, GWorldPtr pGW);
+
+	extern "C" HBITMAP GS_CALLBACK GS_CreateDIBFromPaintNode(CallBackPtr, MCObjectHandle h);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreatePaintNodeFromDIB(CallBackPtr, HBITMAP hBitmap);
+	extern "C" void GS_CALLBACK GS_DisposeDIB(CallBackPtr, HBITMAP hBitmap);
+
+New memory calls
+
+	extern "C" void GS_CALLBACK GS_DisposePtr(CallBackPtr, void* p);
+	extern "C" VoidPtr GS_CALLBACK GS_NewPtr(CallBackPtr, size_t size);
+	extern "C" VoidPtr GS_CALLBACK GS_SetPtrSize(CallBackPtr, void* p, size_t size);
+
+New or changed text calls
+
+	extern "C" void GS_CALLBACK GS_GetTextFontIndex(CallBackPtr, MCObjectHandle textBlock, long charNum, short& fontIndex);
+	extern "C" long GS_CALLBACK GS_GetTextLength(CallBackPtr, MCObjectHandle textBlock);
+	extern "C" void GS_CALLBACK GS_GetTextLineHeight(CallBackPtr, MCObjectHandle textBlock, long charNum, Coord& height);
+	extern "C" void GS_CALLBACK GS_GetTextVerticalAlignment(CallBackPtr, MCObjectHandle textBlock, short& verticalAlignment);
+	extern "C" void GS_CALLBACK GS_GetTextVerticalSpacing(CallBackPtr, MCObjectHandle textBlock, short& spacing, Coord& height);
+	extern "C" void GS_CALLBACK GS_SetTextFontIndex(CallBackPtr, MCObjectHandle textBlock, long firstChar, long numChars, short fontIndex);
+	extern "C" void GS_CALLBACK GS_SetTextVerticalAlignment(CallBackPtr, MCObjectHandle textBlock, short verticalAlignment);
+	extern "C" void GS_CALLBACK GS_SetTextVerticalSpacing(CallBackPtr, MCObjectHandle textBlock, short spacing, Coord height);
+	extern "C" short GS_CALLBACK GS_FontIndexFromName(CallBackPtr, ConstStr255Param fontName);
+	extern "C" void GS_CALLBACK GS_FontNameFromIndex(CallBackPtr, short fontIndex, Str255 fontName, Boolean useMappingTable);
+	extern "C" void GS_CALLBACK GS_GetCellTextFormatN(CallBackPtr, MCObjectHandle worksheet, Point cell, short& fontIndex, short& cellSize, short& cellStyle);
+	extern "C" void GS_CALLBACK GS_SetCellTextFormatN(CallBackPtr, MCObjectHandle worksheet, Point cell, short fontIndex, short cellSize, short cellStyle);
+
+New or renamed texture calls
+	(many of these were available in the last SDK
+	but have been renamed from "Material" to "Texture")
+
+	extern "C" void GS_CALLBACK GS_AttachDefaultTextureSpace(CallBackPtr, MCObjectHandle object, short multiPartID);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateTexture(CallBackPtr);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateTextureBitmap(CallBackPtr);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateTextureBitmapFromPaintNode(CallBackPtr, MCObjectHandle paintNodeObject);
+	extern "C" void GS_CALLBACK GS_DeleteTextureSpace(CallBackPtr, MCObjectHandle object, short multiPartID);
+	extern "C" Boolean GS_CALLBACK GS_EditTexture(CallBackPtr, MCObjectHandle texture);
+	extern "C" Boolean GS_CALLBACK GS_EditTextureBitmap(CallBackPtr, MCObjectHandle textureBitmap);
+	extern "C" Boolean GS_CALLBACK GS_EditTextureSpace(CallBackPtr, MCObjectHandle texturedObject, short multiPartID);
+	extern "C" short GS_CALLBACK GS_GetClGenTexture(CallBackPtr, short index);
+	extern "C" void GS_CALLBACK GS_GetClRoofTextures(CallBackPtr, short index, short& top, short& edge, short& dormer);
+	extern "C" Boolean GS_CALLBACK GS_GetClUseTexture(CallBackPtr, short index);
+	extern "C" void GS_CALLBACK GS_GetClWallTextures(CallBackPtr, short index, short& right, short& left, short& center);
+	extern "C" unsigned long GS_CALLBACK GS_GetTextureRef(CallBackPtr, MCObjectHandle object, short multiPartID, Boolean resolveByClass);
+	extern "C" void GS_CALLBACK GS_GetTextures(CallBackPtr, MCObjectHandle h, short& primaryTexture, short& secondaryTexture, short& tertiaryTexture);
+	extern "C" MCObjectHandle GS_CALLBACK GS_GetTextureSpace(CallBackPtr, MCObjectHandle object, short multiPartID);
+	extern "C" void GS_CALLBACK GS_SetClGenTexture(CallBackPtr, short index, short texture);
+	extern "C" void GS_CALLBACK GS_SetClRoofTextures(CallBackPtr, short index, short top, short edge, short dormer);
+	extern "C" void GS_CALLBACK GS_SetClUseTexture(CallBackPtr, short index, Boolean use);
+	extern "C" void GS_CALLBACK GS_SetClWallTextures(CallBackPtr, short index, short right, short left, short center);
+	extern "C" void GS_CALLBACK GS_SetDefaultTextureSpace(CallBackPtr, MCObjectHandle object, MCObjectHandle space, short multiPartID);
+	extern "C" void GS_CALLBACK GS_SetTextureRef(CallBackPtr, MCObjectHandle object, unsigned long textureRef, short multiPartID);
+
+Undo related changes
+
+	extern "C" void GS_CALLBACK GS_DeleteObject(CallBackPtr, MCObjectHandle h, Boolean useUndo = true);
+
+
+
+SDK 8.0.0b6
+July 25, 1998 - NOT PUBLICLY DISTRIBUTED
+-----------------------
+
+	The callback pointer is saved and restored around each callback to
+	prevent a reentrancy crash on Windows. We depend on globals being set
+	up & correct throughout the execution of all externals, but we still
+	require the CallBackPtr parameter to be passed to each callback to
+	assure flexibility in the future. At some point, however, this will no
+	longer be a requirement.
+
+	Byte swapping routines for long, short, floating point, and most core
+	data types have been added to the SDK in MCFloat.h, GSUtil.h, &
+	MCCoordTypes.h. 64 <--> 80 bit floating point conversion routines have
+	been made more robust & easier to use.
+
+	If you define your own byte-swapping routines, you should replace them
+	with calls to the SDK equivalents.
+
+	If you call x80told or ldtox80 directly under Windows, you will have to
+	replace those calls with the preferred ConvertFP or alternatively
+	FP80toFP64 or FP64toFP80.
+	
+
+SDK 8.0.0b4
+July 2, 1998
+-----------------------
+
+	8.0.0b4 is the first cross-platform 8.0 SDK. All future SDK releases will
+	be cross-platform.
+
+	Custom object samples have been included for both platforms. Custom
+	object plug-ins were weaned from Altura dependence.
+
+	Some changes to the MC7 compatibility system allow more old syntax to 
+	compile successfully.
+
+	New Callbacks:
+
+	extern "C" double_gs GS_CALLBACK GS_CalcSurfaceArea(CallBackPtr, MCObjectHandle h);
+	extern "C" double_gs GS_CALLBACK GS_CalcVolume(CallBackPtr, MCObjectHandle h);
+	extern "C" MCObjectHandle GS_CALLBACK GS_CreateCustomDimensionStandard(CallBackPtr, ConstStr20Param name);
+	extern "C" Boolean GS_CALLBACK GS_GetActiveDocument(CallBackPtr, short& vRefNum, long& dirID, Str255 activeDocumentName, Boolean& saved);
+	extern "C" Boolean GS_CALLBACK GS_GetActiveDocumentPath(CallBackPtr, char activeDocumentPath[255], Boolean& saved);
+	extern "C" Boolean GS_CALLBACK GS_GetDimensionStandardVariable(CallBackPtr, short dimensionIndex, short fieldSelector, TVariableBlock& value);
+	extern "C" Boolean GS_CALLBACK GS_SetCustomDimensionStandardVariable(CallBackPtr, short dimensionIndex, short fieldSelector, const TVariableBlock& value);
+
+	Main entry point for custom objects has been included
+	(ParametricMain.cpp) to complement those for tools and menus
+	(ToolMain.cpp & ManuMain.cpp)
+	
+	Main tool, menu and custom object entry points are now compatible with
+	Menu Chunks on the Mac and MFC & Windows native externals under Windows
+
+
+SDK 8.0.0b1
+June 4, 1998
+---------------------
+	This is the initial release of the MiniCAD 8 SDK. See the description of
+	Major changes in the SDK in the SDKInfo.txt document.
+
+	SDK 8.0.0b1 is Mac Only.
+
+New callbacks as of SDK 8.0.0B1 (list updated for B8)
+
+	void GS_CALLBACK GS_DoubleToString(CallBackPtr cbp, TNumStyleClass inNumStyle,  Byte inAccuracy, Byte inFormat, double_param inDouble, Str255 outString)
+	Boolean GS_CALLBACK GS_PointOnPolyEdge(CallBackPtr cbp, const CoordPt& checkPt, MCObjectHandle h, Coord checkRadius)
+	Boolean GS_CALLBACK GS_StringToDouble(CallBackPtr cbp, TNumStyleClass inNumStyle, ConstStr255Param inString, double_gs& outDouble)
+	short GS_CALLBACK GS_GetScreenDPI(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetUserOriginFP(CallBackPtr cbp, XCoordPt& outOrigin)
+	Boolean GS_CALLBACK GS_SetUserOriginFP(CallBackPtr cbp, const XCoordPt& inOrigin)
+	MCObjectHandle GS_CALLBACK GS_CreateCustomObject(CallBackPtr cbp, ConstStr20Param name, const CoordPt& location, double_param angle = 0.0)
+	MCObjectHandle GS_CALLBACK GS_DefineCustomObject(CallBackPtr cbp, ConstStr20Param name, Byte prefWhen = kCustomObjectPrefAlways)
+	Boolean GS_CALLBACK GS_AddTextFromBuffer(CallBackPtr cbp, MCObjectHandle textBlock, long beforeChar, void* buffer, long bufferSize)
+	Boolean GS_CALLBACK GS_GetTextCharsToBuffer(CallBackPtr cbp, MCObjectHandle textBlock, void* buffer, long& bufferSize)
+	GSHandle GS_CALLBACK GS_NewHandle(CallBackPtr cbp, size_t size)
+	void GS_CALLBACK GS_DisposeHandle(CallBackPtr cbp, GSHandle handle)
+	void GS_CALLBACK GS_HLock(GSHandle handle)
+	void GS_CALLBACK GS_HUnlock(GSHandle handle)
+	Boolean GS_CALLBACK GS_SetHandleSize(CallBackPtr cbp, GSHandle handle, size_t size)
+	void GS_CALLBACK GS_ReduceHandleSize(CallBackPtr cbp, GSHandle handle, size_t size)
+	void GS_CALLBACK GS_GetHandleState(CallBackPtr cbp, GSHandle handle, Boolean& isLocked)
+	void GS_CALLBACK GS_SetHandleState(CallBackPtr cbp, GSHandle handle, Boolean isLocked)
+	void GS_CALLBACK GS_GetHandleSize(CallBackPtr cbp, GSHandle handle, size_t& size)
+	MCObjectHandle GS_CALLBACK GS_CreateCustomObjectByMatrix(CallBackPtr cbp, ConstStr20Param name, const TransformMatrix& matrix)
+	GSHandle GS_CALLBACK GS_GetResource(CallBackPtr cbp, OSType type, short id, Boolean lookOnlyInCurrentFile = true)
+	void GS_CALLBACK GS_ReleaseResource(CallBackPtr cbp, GSHandle theResource)
+	void GS_CALLBACK GS_GetResourceString(CallBackPtr cbp, short id, short index, Str255 theString, Boolean lookOnlyInCurrentFile = true)
+	Boolean GS_CALLBACK GS_GetDefaultArrowByClass(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetDefaultFColorsByClass(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetDefaultFPatByClass(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetDefaultLWByClass(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetDefaultPColorsByClass(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_GetDefaultPPatByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetDefaultArrowByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetDefaultFColorsByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetDefaultFPatByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetDefaultLWByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetDefaultPColorsByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_SetDefaultPPatByClass(CallBackPtr cbp)
+	void GS_CALLBACK GS_GetClColor(CallBackPtr cbp, short index, ObjectColorType& color)
+	short GS_CALLBACK GS_GetClFillPat(CallBackPtr cbp, short index)
+	short GS_CALLBACK GS_GetClGenTexture(CallBackPtr cbp, short index)
+	short GS_CALLBACK GS_GetClLineWeight(CallBackPtr cbp, short index)
+	void GS_CALLBACK GS_GetClMarker(CallBackPtr cbp, short index, MarkerType& style, short& size, short& angle)
+	short GS_CALLBACK GS_GetClPenPat(CallBackPtr cbp, short index)
+	void GS_CALLBACK GS_GetClRoofTextures(CallBackPtr cbp, short index, short& top, short& edge, short& dormer)
+	void GS_CALLBACK GS_GetClWallTextures(CallBackPtr cbp, short index, short& right, short& left, short& center)
+	Boolean GS_CALLBACK GS_GetClUseGraphic(CallBackPtr cbp, short index)
+	Boolean GS_CALLBACK GS_GetClUseTexture(CallBackPtr cbp, short index)
+	void GS_CALLBACK GS_SetClColor(CallBackPtr cbp, short index, ObjectColorType color)
+	void GS_CALLBACK GS_SetClFillPat(CallBackPtr cbp, short index, short fill)
+	void GS_CALLBACK GS_SetClGenTexture(CallBackPtr cbp, short index, short texture)
+	void GS_CALLBACK GS_SetClLineWeight(CallBackPtr cbp, short index, short mils)
+	void GS_CALLBACK GS_SetClMarker(CallBackPtr cbp, short index, MarkerType style, short size, short angle)
+	void GS_CALLBACK GS_SetClPenPat(CallBackPtr cbp, short index, short penPat)
+	void GS_CALLBACK GS_SetClRoofTextures(CallBackPtr cbp, short index, short top, short edge, short dormer)
+	void GS_CALLBACK GS_SetClWallTextures(CallBackPtr cbp, short index, short right, short left, short center)
+	void GS_CALLBACK GS_SetClUseGraphic(CallBackPtr cbp, short index, Boolean use)
+	void GS_CALLBACK GS_SetClUseTexture(CallBackPtr cbp, short index, Boolean use)
+	Boolean GS_CALLBACK GS_GetArrowByClass(CallBackPtr cbp, MCObjectHandle h)
+	Boolean GS_CALLBACK GS_GetFColorsByClass(CallBackPtr cbp, MCObjectHandle h)
+	Boolean GS_CALLBACK GS_GetFPatByClass(CallBackPtr cbp, MCObjectHandle h)
+	Boolean GS_CALLBACK GS_GetLWByClass(CallBackPtr cbp, MCObjectHandle h)
+	Boolean GS_CALLBACK GS_GetPColorsByClass(CallBackPtr cbp, MCObjectHandle h)
+	Boolean GS_CALLBACK GS_GetPPatByClass(CallBackPtr cbp, MCObjectHandle h)
+	void GS_CALLBACK GS_SetArrowByClass(CallBackPtr cbp, MCObjectHandle h)
+	void GS_CALLBACK GS_SetFColorsByClass(CallBackPtr cbp, MCObjectHandle h)
+	void GS_CALLBACK GS_SetFPatByClass(CallBackPtr cbp, MCObjectHandle h)
+	void GS_CALLBACK GS_SetLWByClass(CallBackPtr cbp, MCObjectHandle h)
+	void GS_CALLBACK GS_SetPColorsByClass(CallBackPtr cbp, MCObjectHandle h)
+	void GS_CALLBACK GS_SetPPatByClass(CallBackPtr cbp, MCObjectHandle h)
+	MCObjectHandle GS_CALLBACK GS_CreateSphere(CallBackPtr cbp, const CoordPt3& center, Coord radius)
+	MCObjectHandle GS_CALLBACK GS_CreateCone(CallBackPtr cbp, const CoordPt3& center, const CoordPt3 &tip, Coord radius)
+	MCObjectHandle GS_CALLBACK GS_CreateHemisphere(CallBackPtr cbp, const CoordPt3& center, const CoordPt3 &topPoint)
+	Boolean GS_CALLBACK GS_WriteResource(CallBackPtr cbp, GSHandle inResource, OSType inType, short inID)
+	void GS_CALLBACK GS_RemoveResource(CallBackPtr cbp, OSType inType, short inID)
+	short GS_CALLBACK GS_CountResources(CallBackPtr cbp, OSType inType, Boolean lookOnlyInCurrentFile = true)
+	GSHandle GS_CALLBACK GS_GetIndResource(CallBackPtr cbp, OSType inType, short inIndex, short& outID, Boolean lookOnlyInCurrentFile = true)
+	void GS_CALLBACK GS_GetResourceName(CallBackPtr cbp, OSType inType, short inID, Str255 outName, Boolean lookOnlyInCurrentFile = true)
+	short GS_CALLBACK GS_GetApplicationResFile(CallBackPtr cbp)
+	short GS_CALLBACK GS_GetCurrentResFile(CallBackPtr cbp)
+	void GS_CALLBACK GS_UseResFile(CallBackPtr cbp, short inFileID)
+	void GS_CALLBACK GS_SetWorkspaceFileToReload(CallBackPtr cbp, ConstStr255Param inFileName)
+	void GS_CALLBACK GS_GetCurrentWorkspaceFile(CallBackPtr cbp, Str255 outFileName)
+	short GS_CALLBACK GS_OpenWorkspaceResFile(CallBackPtr cbp, ConstStr255Param inFileName, Boolean createNewFile = false)
+	void GS_CALLBACK GS_CloseResFile(CallBackPtr cbp, short inFileID)
+	void GS_CALLBACK GS_SetResourceName(CallBackPtr cbp, OSType inType, short inID, ConstStr255Param inName, Boolean lookOnlyInCurrentFile = true)
+	short GS_CALLBACK GS_OpenExternalResFile(CallBackPtr cbp, ConstStr255Param inFileName)
+	OSErr GS_CALLBACK GS_GetFolder(CallBackPtr cbp, FolderSpecifier inWhichFolder, short& vRefNum, long& dirID)
+	GSError GS_CALLBACK GS_GetFolderPath(CallBackPtr cbp, FolderSpecifier inWhichFolder, char outPath[255])
+	double_gs GS_CALLBACK GS_CoordLengthToPageLengthN(Coord len)
+	double_gs GS_CALLBACK GS_CoordLengthToUnitsLengthN(Coord len)
+	GSError GS_CALLBACK GS_ForEachFilePathInFolder(CallBackPtr cbp, GS_ForEachFilePathProcPtr processFile, char* inStartDirectory, Boolean doRecursive, void* env)
+	Boolean GS_CALLBACK GS_ReadVSExternalFile(CallBackPtr cbp, const FSSpec& inFileSpec, TMPExternalDataForWorkspace& outData)
+	Boolean GS_CALLBACK GS_ReadVSExternalFilePath(CallBackPtr cbp, char inFilePath[255], TMPExternalDataForWorkspace& outData)
+	void GS_CALLBACK GS_NameUndoEvent(CallBackPtr cbp, ConstStr31Param name)
+	void GS_CALLBACK GS_EndUndoEvent(CallBackPtr cbp)
+	MCObjectHandle GS_CALLBACK GS_CreateTexture(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_EditTexture(CallBackPtr cbp, MCObjectHandle texture)
+	unsigned long GS_CALLBACK GS_GetTextureRef(CallBackPtr cbp, MCObjectHandle object, short multiPartID, Boolean resolveByClass)
+	void GS_CALLBACK GS_SetTextureRef(CallBackPtr cbp, MCObjectHandle object, unsigned long textureRef, short multiPartID)
+	unsigned long GS_CALLBACK GS_ResolveByClassTextureRef(CallBackPtr cbp, MCObjectHandle object, short multiPartID)
+	MCObjectHandle GS_CALLBACK GS_CreateTextureBitmap(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_EditTextureBitmap(CallBackPtr cbp, MCObjectHandle textureBitmap)
+	MCObjectHandle GS_CALLBACK GS_GetTextureSpace(CallBackPtr cbp, MCObjectHandle object, short multiPartID)
+	void GS_CALLBACK GS_DeleteTextureSpace(CallBackPtr cbp, MCObjectHandle object, short multiPartID)
+	void GS_CALLBACK GS_SetDefaultTextureSpace(CallBackPtr cbp, MCObjectHandle object, MCObjectHandle space, short multiPartID)
+	void GS_CALLBACK GS_AttachDefaultTextureSpace(CallBackPtr cbp, MCObjectHandle object, short multiPartID)
+	Boolean GS_CALLBACK GS_EditTextureSpace(CallBackPtr cbp, MCObjectHandle texturedObject, short multiPartID)
+	Boolean GS_CALLBACK GS_NonUndoableActionOK(CallBackPtr cbp)
+	Boolean GS_CALLBACK GS_AddBeforeMoveObject(CallBackPtr cbp, MCObjectHandle h)
+	Boolean GS_CALLBACK GS_AddAfterMoveObject(CallBackPtr cbp, MCObjectHandle h)
+	MCObjectHandle GS_CALLBACK GS_CreateCustomObjectDoubleClick(CallBackPtr cbp, ConstStr20Param name)
+
+
+=========================================================================
+=========================================================================
+
+New features in SDK 3.0b2:
+---------------------
+
+- added ovSweepZOffset object variable selector to fully define sweep position.
+  Here is more info:
+	Sweep Location
+
+	A sweep's location is determined by three factors:
+		
+		The sweep's matrix
+		The location within the sweep of the defining geometry
+		The z value stored in the sweep
+
+	For the purpose of this discussion, sweep space is defined by (i, j, k)
+	and the sweep's parent space is defined by (x, y, z)
+
+	The sweep's matrix orients the sweep in the xyz space. The matrix is
+	constructed such that PointTransformN will transform an ijk space point
+	to xyz space and InversePointTransformN will transfrorm an xyz space
+	point to ijk space.
+
+	The defining geometry inside a sweep is 2D, and therefore has no
+	associated k coordinate. The 'z' field in the SweepType supplies that
+	missing information. 'z' defines the k=z plane in sweep space in which
+	the defining geometry resides.
+
+	The sweep's rotation axis is defined either implicitly by the left edge
+	of the defining geometry in ijk space (that edge with the minimum i
+	value) or explicitly via the i coordinate of a 2D locus contained in
+	the sweep. The implicit k value of the rotation axis is also defined by
+	the 'z' field of the sweep.
+
+	To actually place the sweep in its parent's coordinate space, the
+	defining geometry is offset by the sweep z value, rotated about the
+	sweep axis, and transformed through the sweep matrix.
+	
+- passing nil as the handle for cavity selectors will allow you to get and set cavity defaults
+
+- added GS_ConvertTo3DPolygons.  Unfortunately the call was added but there was not time
+	to finish implementing this function for 7.0.1b4.  This will be completed for 7.0.1.
+
+- added GS_InternalIndexToName 
+	This function converts a MiniCAD internal index to a matching string
+	name if one exists. Currently the only access to this internal index
+	comes when getting the fill value of an object with an associated hatch.
+	If the fill is negative, pass the absolute value of the fill to this function
+	to get the name of the associated hatch.  A nullstr is returned if there is no
+	named entity with that index.
+
+- added GS_NameToInternalIndex
+	This function converts a string name to a MiniCAD internal index if
+	one exists.  Currently the only access to this internal index comes
+	when getting the fill value of an object with an associated hatch.  
+	Pass the name of a hatch and this returns an index which refers to 
+	the hatch.  Set the fill of the object to the negative of this index 
+	to associate that hatch with the object.
+
+
+SDK 3.0
+---------------------
+
+This section is for archival purposes. It describes the changes made for the
+3.0 version of the SDK which was intended for MiniCAD 7.0.0.
+
+WHAT'S NEW
+There are many new functions in the SDK which support new features for MiniCad 7
+and to support features from MiniCad 6 which were not previously accessible.  The
+Filemaker database, Procedure Library, has a description of the new functions and
+the version of MiniCad which first supports the callback.
+
+Two callbacks deserve special mention, SetObjectVariable and GetObjectVariable. 
+All future object properties will be accessed through these functions since they
+give us a much more fluid environment to extend SDK support.  By passing in a
+handle and a selector from MiniCadCallbacks.h (such as
+ovLightDirectionHorizAngle), you can get specific properties of an object.  We
+will use this convention instead of adding a Set and Get callback for each
+property.
+
+All callbacks now have the prefix "GS_" to eliminate name space conflicts with
+other header files you may include.  The file "Oldnames.h" defines names
+compatible with older SDK for backwards compatibility, but we recommend that you
+migrate to the new naming convention (you must for Windows development).
+
+SDK 3 also introduces a new organizational structure for files and projects. 
+Each of the shipping versions of our externals ":ExternalSRC:Shipping:Classic:"
+has make and project files for both platforms.  The Windows versions rely on the
+use of the Altura emulator, however, so for most developers they will be of
+little use.
+

@@ -36,11 +36,11 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
+    <Import Project="..\..\VectorworksSDK\SDK2021\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
+    <Import Project="..\..\VectorworksSDK\SDK2021\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -65,7 +65,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;..\..\ThirdPartySource\jsoncpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;..\..\ThirdPartySource\jsoncpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <SmallerTypeCheck>false</SmallerTypeCheck>
@@ -88,7 +88,7 @@
       <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;lib_json.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;..\..\ThirdPartySource\jsoncpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;..\..\ThirdPartySource\jsoncpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
@@ -104,8 +104,8 @@
 set VWR_INPUT=$(ProjectDir)$(TargetName).vwr
 set VWR_OUTPUT=$(TargetDir)$(TargetName).vwr
 set VWR_MODE=$(Configuration)
-set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsWin\BuildVWR\7z
-"$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
+set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\ToolsWin\BuildVWR\7z
+"$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
       <Message>Creating VWR file.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -115,7 +115,7 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsW
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;..\..\ThirdPartySource\jsoncpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;..\..\ThirdPartySource\jsoncpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -139,7 +139,7 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsW
       <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;lib_json.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;..\..\ThirdPartySource\jsoncpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;..\..\ThirdPartySource\jsoncpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -158,8 +158,8 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsW
 set VWR_INPUT=$(ProjectDir)$(TargetName).vwr
 set VWR_OUTPUT=$(TargetDir)$(TargetName).vwr
 set VWR_MODE=$(Configuration)
-set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsWin\BuildVWR\7z
-"$(ProjectDir)..\..\VectorworksSDK\SDK2021\WindowsSDK\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
+set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\ToolsWin\BuildVWR\7z
+"$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
       <Message>Creating VWR file.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>

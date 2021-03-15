@@ -2900,10 +2900,9 @@ class TVariableBlock {
 			MCObjectHandle	uMCObjectHandle; //-V117
 
 
+			TXChar          uStr[256] ;
 		} fData ;
 
-		TXString          uStr;
-		
 		EVariableBlockType	eType ;
 
 #undef DEFINE_TYPE

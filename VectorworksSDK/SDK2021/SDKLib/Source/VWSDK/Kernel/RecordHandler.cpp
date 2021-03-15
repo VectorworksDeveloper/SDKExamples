@@ -442,6 +442,11 @@ Boolean TRecordHandler::SetFieldObject(short fieldIndex, TRecordItem& value, boo
 	return fInstance->SetFieldObject( fieldIndex, value, isUpdatingOfOIPSkipped );
 }
 
+Boolean TRecordHandler::SetFieldObjectOptions(short fieldIndex, TRecordItem& value, bool isUpdatingOfOIPSkipped /*= false*/)
+{
+	return fInstance->SetFieldObjectOptions( fieldIndex, value, isUpdatingOfOIPSkipped );
+}
+
 Boolean TRecordHandler::RecordsEqual(MCObjectHandle rec, Boolean thisRecNeedsByteSwap)
 {
 	return fInstance->RecordsEqual( rec, thisRecNeedsByteSwap );

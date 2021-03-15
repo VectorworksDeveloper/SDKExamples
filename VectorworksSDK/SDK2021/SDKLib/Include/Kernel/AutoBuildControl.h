@@ -1,4 +1,4 @@
 //This file is written for each autobuild
-//It was last written for change 581879
-#define GS_BETA_PROGRAM_SUPPORT 1
+//It was last written for change 587753
+#define GS_BETA_PROGRAM_SUPPORT 0
 

@@ -1301,22 +1301,6 @@ Sint32 VWParametric_EventSink::Execute(ParametricMessage* message)
 				}
 			} break;
 
-		case ParametricGetCustomBounds::kAction:
-			{
-				ParametricGetCustomBounds * theMessage = dynamic_cast<ParametricGetCustomBounds*>( message );
-				if ( VERIFYN( kKIvanov, theMessage ) )
-				{
-					if ( this->OnGetCustomBounds( theMessage->fBounds ) )
-					{
-						reply = kObjectEventHandled;
-					}
-					else
-					{
-						reply = kObjectEventNotHandled;
-					}
-				}
-			} break;
-
 		default:
 			reply = this->OnDefaultEvent( message );
 			break;

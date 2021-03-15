@@ -38,6 +38,8 @@ namespace VectorWorks
 			virtual bool VCOM_CALLTYPE	GetAssociatedDataTags(MCObjectHandle hObj, TMCObjectHandlesSTLArray& outArrDataTags) = 0;
 
 			virtual bool VCOM_CALLTYPE	AssociateWithObject(MCObjectHandle hDataTag, MCObjectHandle hAssociated) = 0;
+
+			virtual void VCOM_CALLTYPE	UpdateParametricRecords() = 0;
 		};
 
 		// ---------------------------------------------------------------------------

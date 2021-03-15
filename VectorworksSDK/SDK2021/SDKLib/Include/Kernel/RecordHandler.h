@@ -148,7 +148,8 @@ public:
 	//  Otherwise it gives you a TRecordItem object for editing record data
 	Boolean		GetFieldObject(short fieldIndex, TRecordItem& value, Boolean needsByteSwap = false);	
 	Boolean		SetFieldObject(short fieldIndex, TRecordItem& value, bool isUpdatingOfOIPSkipped = false); 
-
+	Boolean		SetFieldObjectOptions(short fieldIndex, TRecordItem& value, bool isUpdatingOfOIPSkipped = false);
+	
 	// Returns true if the fields are identical between the objects's record and the passed in record
 	Boolean		RecordsEqual(MCObjectHandle rec, Boolean thisRecNeedsByteSwap);
 	

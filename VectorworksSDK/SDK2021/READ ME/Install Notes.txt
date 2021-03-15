@@ -1,0 +1,76 @@
+====================================
+INSTALL NOTES
+for VectorWorks SDK 21.0.0
+September, 2015
+====================================
+
+
+1) Download the VectorWorks SDK and decompress it onto your harddrive.
+----------------------------------------------------------
+We distribute the SDK ZIP files for both Macintosh Windows. The files
+contained in the Mac and Windows distribution are identical with two exceptions:
+
+	The Windows text files use CR/LF as the line terminator to conform
+	to Windows standards, whereas the Mac text files use CR.
+
+	The Windows ZIP archives do not contain the Macintosh resource
+	files that are used to generate the *.qtr files.  The sample plug-ins
+	will build and run on Windows using only the Windows ZIP download.  
+	However, in order to modify the resources or develop new plug-ins, 
+	Windows developers must download the Mac SDK in addition to the Windows SDK.
+
+
+
+2) Install the development environment.
+----------------------------------------
+To develop Plug-ins with the VectorWorks SDK, you must purchase development
+tools for Windows and install the free development tools for the Macintosh.
+
+
+MACINTOSH:
+----------
+
+The minimum version of Mac OS X that you can develop on is Mac OS X 10.9.
+
+a.) Run the Xcode Tools 6.1.1 installer from the DVD.
+
+b.) A dialog will come up welcoming you. Click the Continue button.
+
+c.) Select your Language (English is recommended). You will be asked to agree with the
+    software license agreement, click Agree if you do.
+
+d.) The installer program will automatically select your start up disk as the location
+    to install the Xcode Tools. This is fine. Click Continue.
+
+e.) In the following dialog, the following items should have their checkboxes checked:
+	- Developer Tools Essentials
+	- System Tools
+	- UNIX Development Support
+
+f.) Click the Install button. You will be asked for the password used to
+    log into your Macintosh.
+
+
+
+WINDOWS:
+--------
+Install Microsoft "Visual Studio 2012".
+
+
+3) Build the sample code
+--------------------------
+The SDK consists of all the library, source, and header files required to build
+Plug-Ins on a single platform, as well as a few sample projects. These sample
+projects demonstrate the preferred method to set up a tool, menu, or custom
+object plug-in. Any sample in the SDK should contain a Xcode project file (.xcodeproj) 
+or a Visual Studio (.vcproj) file only if we expect it to build correctly on that
+platform.
+
+The SDK contains samples located inside the SDK folder at: \Source\Samples
+
+
+
+Each sample plug-in file will be built in its own sample directory.  Copy these
+plug-in files into your "VectorWorks/Plug-ins" folder to use them.  You will
+also need to add them to a Workspace before they are available within
+VectorWorks.

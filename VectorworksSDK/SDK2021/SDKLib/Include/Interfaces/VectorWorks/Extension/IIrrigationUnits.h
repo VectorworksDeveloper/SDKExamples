@@ -106,7 +106,6 @@ namespace VectorWorks
 			virtual double		VCOM_CALLTYPE ConvertX2Metric	(EIrrigationUnitDimSize x, double value) = 0;
 			virtual double		VCOM_CALLTYPE ConvertStr2Metric	(EIrrigationUnitDimSize x, const TXString& value) = 0;
 			virtual void		VCOM_CALLTYPE ConvertMetric2X	(EIrrigationUnitDimSize x, double value, TXString& outValue, bool incUnitMark = true) = 0;
-			virtual bool		VCOM_CALLTYPE IsDimSizeExactFraction(double value) = 0;
 
 		// Dimension Distance
 		public:
@@ -139,6 +138,9 @@ namespace VectorWorks
 			virtual double		VCOM_CALLTYPE ConvertX2Metric	(EIrrigationUnitVelocity x, double value) = 0;
 			virtual double		VCOM_CALLTYPE ConvertStr2Metric	(EIrrigationUnitVelocity x, const TXString& value) = 0;
 			virtual void		VCOM_CALLTYPE ConvertMetric2X	(EIrrigationUnitVelocity x, double value, TXString& outValue, bool incUnitMark = true) = 0;
+
+		// Dimension Size, moved here to prevent third-party plug-ins from crashing
+			virtual bool		VCOM_CALLTYPE IsDimSizeExactFraction(double value) = 0;
 		};
 
 		// ----------------------------------------------------------------------------------------------------

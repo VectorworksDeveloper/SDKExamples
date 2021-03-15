@@ -501,24 +501,28 @@ void VWRecordObj::SetParamValue(size_t paramIndex, const TXString& value)
 		short			itemIndex	= DemoteTo<short>( kVStanev, paramIndex+1 );
 		EFieldStyle		style		= (EFieldStyle) rh.GetFieldStyle( itemIndex );
 		TRecordItem		recItem( style );
+		TXString 		currFieldValue;
 		if ( VWFC_VERIFY( rh.GetFieldObject( itemIndex, recItem ) ) )
 		{
-			if ( style == kFieldText )
-			{
-				const UCChar* szText	= value;
-				size_t		textLen		= value.GetLength();
+			// Check if the current value is the same as the new value. If it is, we can skip SetFieldObject below.
+			if ( !recItem.GetFieldValue( currFieldValue ) || !currFieldValue.Equal( value ) ) {
+				if ( style == kFieldText )
+				{
+					const UCChar* szText	= value;
+					size_t		textLen		= value.GetLength();
 
-				if ( VWFC_VERIFY( recItem.SetFieldValue( szText, textLen ) ) )
-				{
-					VWFC_VERIFY( rh.SetFieldObject( itemIndex, recItem ) );
+					if ( VWFC_VERIFY( recItem.SetFieldValue( szText, textLen ) ) )
+					{
+						VWFC_VERIFY( rh.SetFieldObject( itemIndex, recItem ) );
+					}
 				}
-			}
-			else
-			{
-				
-				if ( VWFC_VERIFY( recItem.SetFieldValueAsString( value ) ) )
+				else
 				{
-					VWFC_VERIFY( rh.SetFieldObject( itemIndex, recItem ) );
+					
+					if ( VWFC_VERIFY( recItem.SetFieldValueAsString( value ) ) )
+					{
+						VWFC_VERIFY( rh.SetFieldObject( itemIndex, recItem ) );
+					}
 				}
 			}
 		}
@@ -1696,7 +1700,7 @@ void VWRecordObj::SetIsEmpty(size_t paramIndex, bool value)
 		if ( VWFC_VERIFY( rh.GetFieldObject( itemIndex, recItem ) ) )
 		{
 			recItem.SetIsEmpty( value );
-			VWFC_VERIFY( rh.SetFieldObject( itemIndex, recItem ) );
+			VWFC_VERIFY( rh.SetFieldObjectOptions( itemIndex, recItem ) );
 		}
 	}
 }
@@ -1738,7 +1742,7 @@ void VWRecordObj::SetIsDataLinked(size_t paramIndex, bool value)
 		if ( VWFC_VERIFY( rh.GetFieldObject( itemIndex, recItem ) ) )
 		{
 			recItem.SetIsDataLinked( value );
-			VWFC_VERIFY( rh.SetFieldObject( itemIndex, recItem ) );
+			VWFC_VERIFY( rh.SetFieldObjectOptions( itemIndex, recItem ) );
 		}
 	}
 }
