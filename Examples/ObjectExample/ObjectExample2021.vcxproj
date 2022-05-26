@@ -65,7 +65,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;..\..\ThirdPartySource\jsoncpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <SmallerTypeCheck>false</SmallerTypeCheck>
@@ -85,10 +85,10 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;lib_json.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;..\..\ThirdPartySource\jsoncpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
@@ -115,7 +115,7 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\ToolsWin\BuildVWR
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;..\..\ThirdPartySource\jsoncpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -136,10 +136,10 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\ToolsWin\BuildVWR
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;lib_json.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;..\..\ThirdPartySource\jsoncpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2021\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>

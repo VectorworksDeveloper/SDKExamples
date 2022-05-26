@@ -294,12 +294,10 @@
 					../../VectorworksSDK/SDK2021/SDKLib/Include,
 					./Source,
 					./Resources,
-					../../ThirdPartySource/jsoncpp/include,
 					../../ThirdPartySource/libcurl/include/curl,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					../../VectorworksSDK/SDK2021/SDKLib/LibMac/Release,
-					../../ThirdPartySource/jsoncpp,
 					../../ThirdPartySource/libcurl,
 				);
 				OBJROOT = ../../Output/2021/_Output/IntermediateBuildFiles;
@@ -318,7 +316,6 @@
 					"-framework",
 					Carbon,
 					"-lVWSDK",
-					"-lJsonCpp",
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
@@ -372,12 +369,10 @@
 					../../VectorworksSDK/SDK2021/SDKLib/Include,
 					./Source,
 					./Resources,
-					../../ThirdPartySource/jsoncpp/include,
 					../../ThirdPartySource/libcurl/include/curl,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					../../VectorworksSDK/SDK2021/SDKLib/LibMac/Release,
-					../../ThirdPartySource/jsoncpp,
 					../../ThirdPartySource/libcurl,
 				);
 				OBJROOT = ../../Output/2021/_Output/IntermediateBuildFiles;
@@ -396,7 +391,6 @@
 					"-framework",
 					Carbon,
 					"-lVWSDK",
-					"-lJsonCpp",
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
