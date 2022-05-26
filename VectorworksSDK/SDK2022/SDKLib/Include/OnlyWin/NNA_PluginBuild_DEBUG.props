@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <UE4>$(ProjectDir)..\..\..\..\ThirdPartySource\UE427</UE4>
+    <UE427>$(ProjectDir)..\..\..\..\ThirdPartySource\UE427</UE427>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- This prevents MSBuild from copying the .pdb file from the intermediate folder to the output folder.
+       -->
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(ProjectDir)..\..\..\..\Output\Build\D\$(ProjectName)\</IntDir>
+    <TargetExt>.vlb</TargetExt>
+    <OutDir>$(ProjectDir)..\..\..\..\Output\Plug-Ins\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="UE4">
+      <Value>$(UE4)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="UE427">
+      <Value>$(UE427)</Value>
+    </BuildMacro>
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;DEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;DEV_BLD;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\SDKLib\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(IntDir)$(TargetName).lib</ImportLibrary>
+      <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\Output\LibWin\$(Configuration);$(ProjectDir)..\..\..\..\Output\SDK\$(Configuration);$(ProjectDir)..\..\..\..\Output\LibWinThirdParty\$(Configuration);$(ProjectDir)..\..\..\..\Output\LibWinThirdParty;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>VWMM.lib;USP10.lib;Rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreLinkEvent />
+  </ItemDefinitionGroup>
+</Project>

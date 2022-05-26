@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8fbaf1a3-d844-477c-9a18-ebf6b4612403}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{54103ef0-2cad-4ab8-af71-a361f0429ab0}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Extensions">
+      <UniqueIdentifier>{fa4e62f9-6ca8-4d6e-990d-9a8be9518754}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Extensions\ExtTool.cpp">
+      <Filter>Source Files\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Extensions\ExtObj.cpp">
+      <Filter>Source Files\Extensions</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Extensions\ExtObj.h">
+      <Filter>Source Files\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Extensions\ExtTool.h">
+      <Filter>Source Files\Extensions</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
