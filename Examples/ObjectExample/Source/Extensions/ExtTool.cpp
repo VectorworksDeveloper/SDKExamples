@@ -31,7 +31,7 @@ namespace Extensions
 		/*VersoinModified*/				0,
 		/*VersoinRetired*/				0,
 		/*OverrideHelpID*/				" ",
-		/*Icon Specifier*/				"TesterModule/Images/CExtTool.png",
+		/*Icon Specifier*/				"ObjectExample/Images/CExtTool.png",
 		/*Cursor Specifier*/			""
 	};
 }
