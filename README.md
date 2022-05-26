@@ -1,4 +1,4 @@
-# Vectorworks 2021 SDK WebExample
+# Vectorworks SDK Examples
 
 This folder contains an example for the Vectorworks 2021 SDK.
 
