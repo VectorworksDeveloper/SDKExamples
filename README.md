@@ -4,7 +4,10 @@ This folder contains an example for the Vectorworks 2021 SDK.
 
 # Build instructions
 
-### If you downloaded the repo directly on MacOS, you should de-quarantine the .zip before you unpack it. To do so, open the terminal and type: xattr -d com.apple.quarantine FILE_LOCATION_HERE. 
+### If you downloaded the repo directly on MacOS, you should de-quarantine the .zip before you unpack it. To do so, open the terminal and type:
+```
+xattr -d com.apple.quarantine FILE_LOCATION_HERE.
+```
 
 ## Source requirements
 
