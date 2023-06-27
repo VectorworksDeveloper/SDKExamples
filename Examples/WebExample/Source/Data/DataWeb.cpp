@@ -647,28 +647,30 @@ bool CWebContext::LogIn(const TXString& username, const TXString& password)
 
 	if (execResult.fResult)
 	{
-		Json::Reader jsonReader;
-		Json::Value jsonResponse;
-		if (jsonReader.parse(resultBody, jsonResponse))
+		try
 		{
+			nlohmann::json jsonResponse = nlohmann::json::parse( resultBody.c_str() );
+
 			bool success = true;
-			if (jsonResponse.isMember("error"))
+			if (jsonResponse.contains("error"))
 			{
-				TXString errorStr = jsonResponse["error"].asCString();
+				TXString errorStr = jsonResponse["error"].get<std::string>();
 				errorStr;
 				success = false;
 			}
 
 			if (success)
 			{
-				if (jsonResponse.isMember("token"))
+				if (jsonResponse.contains("token"))
 				{
-					fUserToken = jsonResponse["token"].asCString();
+					fUserToken = jsonResponse["token"].get<std::string>();
 					result = !fUserToken.IsEmpty();
 				}
 			}
 		}
-
+		catch (nlohmann::json::parse_error&)
+		{
+		}
 	}
 
 	return result;
@@ -709,15 +711,18 @@ bool CWebContext::QueryOAuth(bool force)
 		result = false;
 		if ( execResult.fResult )
 		{
-			Json::Reader jsonReader;
-			Json::Value jsonResponse;
-			if ( jsonReader.parse( resultBody, jsonResponse ) )
+			try
 			{
-				if ( jsonResponse.isMember( "access_token" ) )
+				nlohmann::json jsonResponse = nlohmann::json::parse( resultBody.c_str() );
+
+				if ( jsonResponse.contains( "access_token" ) )
 				{
-					fOAuthToken = jsonResponse["access_token"].asCString();
+					fOAuthToken = jsonResponse["access_token"].get<std::string>();
 					result = ! fOAuthToken.IsEmpty();
 				}
+			}
+			catch (nlohmann::json::parse_error&)
+			{
 			}
 		}
 	}
@@ -758,8 +763,13 @@ void CExampleRequest::DoWork()
 
 	if ( execResult.fResult )
 	{
-		Json::Reader jsonReader;
-		Json::Value jsonResponse;
-		jsonReader.parse( resultBody, jsonResponse );
+		try
+		{
+			nlohmann::json jsonResponse = nlohmann::json::parse( resultBody.c_str() );
+			jsonResponse; //...
+		}
+		catch (nlohmann::json::parse_error&)
+		{
+		}
 	}
 }

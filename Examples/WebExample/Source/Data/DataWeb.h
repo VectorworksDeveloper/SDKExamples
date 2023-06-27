@@ -1,6 +1,5 @@
 #pragma once
 
-#include "json/json.h"
 #include "curl.h"
 
 using namespace VectorWorks::Filing;
