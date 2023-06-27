@@ -1,0 +1,20 @@
+// The Base SDK is highest SDK version supported by the application.
+// SDK classes/methods, constants, etc. cannot be used within the
+// application if they are defined in a higher SDK version.
+// This constant is defined as the SDK directory name (without the
+// "sdk" extension) within the
+// Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
+// directory that is present within the Xcode application
+// bundle.
+SDKROOT = macosx
+
+// The MacOS X deployment target is the earliest MacOS X version
+// supported by the application. SDK classes/methods, constants, etc.
+// defined within the associated SDK version are guaranteed to be
+// available. Other elements defined in SDK versions up to that
+// associated with the Base SDK (SDKROOT) may be used; however,
+// these elements are not guaranteed to be available if the MacOS
+// version on the host machine does not support them (elements
+// defined within SDK versions higher than that which are defined
+// within the deployment target are weakly linked).
+MACOSX_DEPLOYMENT_TARGET = 10.13

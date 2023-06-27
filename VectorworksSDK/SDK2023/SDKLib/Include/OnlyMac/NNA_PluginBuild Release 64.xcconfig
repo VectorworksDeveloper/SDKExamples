@@ -1,0 +1,20 @@
+#include "NNA_PluginBuild Release.xcconfig"
+
+
+//VALID_ARCHS = $(ARCHS_STANDARD)
+//ARCHS = $(ARCHS_STANDARD)
+//ONLY_ACTIVE_ARCH = NO
+OBJROOT=../../../../Out64/XcodeIntermediateFiles
+SYMROOT=../../../../Out64/Plug-Ins
+SHORT_CONFIG=Release
+OUTPUT_NAME=Out64
+
+
+
+
+
+
+
+
+
+

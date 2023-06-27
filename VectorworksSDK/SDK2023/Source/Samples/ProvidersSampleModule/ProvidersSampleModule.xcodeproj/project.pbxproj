@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		86007EC0121D98EE00431E03 /* ExtObjClassName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86007EB9121D98EE00431E03 /* ExtObjClassName.cpp */; };
+		86007EC1121D98EE00431E03 /* ProviderShapePane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86007EBB121D98EE00431E03 /* ProviderShapePane.cpp */; };
+		86007EC2121D98EE00431E03 /* UpdateSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86007EBD121D98EE00431E03 /* UpdateSupport.cpp */; };
+		86007EC4121D98F300431E03 /* ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86007EC3121D98F300431E03 /* ModuleMain.cpp */; };
+		86B858841379C66E00FF3169 /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B8587F1379C52C00FF3169 /* VWMM.framework */; };
+		9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92347A560992C4AA00FCBD91 /* SafeMemory.cpp */; };
+		928E895115795E720021D3C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928E895015795E720021D3C7 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		6595D7761802AAB800DC6575 /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
+		6595D7771802AAB800DC6575 /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = "<group>"; };
+		6595D7781802AAB800DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
+		6595D7791802AAB800DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
+		81494D9109DA57F4006864FB /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "QuickTime Resources/Module-Info.plist"; sourceTree = "<group>"; };
+		81494D9309DA5867006864FB /* CommonPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CommonPrefix.h; path = Source/Prefix/CommonPrefix.h; sourceTree = "<group>"; };
+		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
+		81494D9609DA5867006864FB /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = Source/Prefix/StdAfx.h; sourceTree = "<group>"; };
+		81494D9909DA5880006864FB /* DebugPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DebugPrefix.h; path = Source/Prefix/DebugPrefix.h; sourceTree = "<group>"; };
+		81494D9E09DA5892006864FB /* PluginResource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PluginResource.h; path = "QuickTime Resources/PluginResource.h"; sourceTree = "<group>"; };
+		86007EB9121D98EE00431E03 /* ExtObjClassName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjClassName.cpp; sourceTree = "<group>"; };
+		86007EBA121D98EE00431E03 /* ExtObjClassName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjClassName.h; sourceTree = "<group>"; };
+		86007EBB121D98EE00431E03 /* ProviderShapePane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProviderShapePane.cpp; sourceTree = "<group>"; };
+		86007EBC121D98EE00431E03 /* ProviderShapePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderShapePane.h; sourceTree = "<group>"; };
+		86007EBD121D98EE00431E03 /* UpdateSupport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateSupport.cpp; sourceTree = "<group>"; };
+		86007EBE121D98EE00431E03 /* UpdateSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateSupport.h; sourceTree = "<group>"; };
+		86007EC3121D98F300431E03 /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = "<group>"; };
+		86B8587F1379C52C00FF3169 /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../../SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
+		9216EA3E09D88959007B8710 /* ProvidersSampleModule.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProvidersSampleModule.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
+		92347A560992C4AA00FCBD91 /* SafeMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SafeMemory.cpp; path = ../../../SDKLib/Include/OnlyMac/Memory/SafeMemory.cpp; sourceTree = SOURCE_ROOT; };
+		928E895015795E720021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86B858831379C66A00FF3169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B858841379C66E00FF3169 /* VWMM.framework in Frameworks */,
+				928E895115795E720021D3C7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9216EA3E09D88959007B8710 /* ProvidersSampleModule.vwlibrary */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				6595D7761802AAB800DC6575 /* NNA_PluginBuild Debug 64.xcconfig */,
+				6595D7771802AAB800DC6575 /* NNA_PluginBuild Debug.xcconfig */,
+				6595D7781802AAB800DC6575 /* NNA_PluginBuild Release 64.xcconfig */,
+				6595D7791802AAB800DC6575 /* NNA_PluginBuild Release.xcconfig */,
+				08FB77ACFE841707C02AAC07 /* Source */,
+				92AE00D21333F39200DFB264 /* QuickTime Resources */,
+				81494D9D09DA5892006864FB /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+			);
+			name = SampleObject;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				928E895015795E720021D3C7 /* Cocoa.framework */,
+				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
+				86B8587F1379C52C00FF3169 /* VWMM.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ACFE841707C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9209DA5867006864FB /* Prefix */,
+				86007EB6121D98EE00431E03 /* TesterModule */,
+				92347A560992C4AA00FCBD91 /* SafeMemory.cpp */,
+				86007EC3121D98F300431E03 /* ModuleMain.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		81494D9209DA5867006864FB /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9309DA5867006864FB /* CommonPrefix.h */,
+				81494D9909DA5880006864FB /* DebugPrefix.h */,
+				81494D9509DA5867006864FB /* ReleasePrefix.h */,
+				81494D9609DA5867006864FB /* StdAfx.h */,
+			);
+			name = Prefix;
+			sourceTree = "<group>";
+		};
+		81494D9D09DA5892006864FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		86007EB6121D98EE00431E03 /* TesterModule */ = {
+			isa = PBXGroup;
+			children = (
+				86007EB9121D98EE00431E03 /* ExtObjClassName.cpp */,
+				86007EBA121D98EE00431E03 /* ExtObjClassName.h */,
+				86007EBB121D98EE00431E03 /* ProviderShapePane.cpp */,
+				86007EBC121D98EE00431E03 /* ProviderShapePane.h */,
+				86007EBD121D98EE00431E03 /* UpdateSupport.cpp */,
+				86007EBE121D98EE00431E03 /* UpdateSupport.h */,
+			);
+			name = TesterModule;
+			path = Source/TesterModule;
+			sourceTree = "<group>";
+		};
+		92AE00D21333F39200DFB264 /* QuickTime Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9E09DA5892006864FB /* PluginResource.h */,
+				81494D9109DA57F4006864FB /* Module-Info.plist */,
+			);
+			name = "QuickTime Resources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9216EA3D09D88959007B8710 /* ProvidersSampleModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "ProvidersSampleModule" */;
+			buildPhases = (
+				9216EA3B09D88959007B8710 /* Sources */,
+				86B858831379C66A00FF3169 /* Frameworks */,
+				9216EA4C09D889C0007B8710 /* Rez */,
+				86619AC10A3A1618002FCD39 /* Validate and copy VWR */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProvidersSampleModule;
+			productName = Untitled;
+			productReference = 9216EA3E09D88959007B8710 /* ProvidersSampleModule.vwlibrary */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "ProvidersSampleModule" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* SampleObject */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9216EA3D09D88959007B8710 /* ProvidersSampleModule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXRezBuildPhase section */
+		9216EA4C09D889C0007B8710 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86619AC10A3A1618002FCD39 /* Validate and copy VWR */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Validate and copy VWR";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../../SDKLib/ToolsMac/BuildVWR/BuildVWR";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9216EA3B09D88959007B8710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */,
+				86007EC0121D98EE00431E03 /* ExtObjClassName.cpp in Sources */,
+				86007EC1121D98EE00431E03 /* ProviderShapePane.cpp in Sources */,
+				86007EC2121D98EE00431E03 /* UpdateSupport.cpp in Sources */,
+				86007EC4121D98F300431E03 /* ModuleMain.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6595D77A1802AAC300DC6575 /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D7761802AAB800DC6575 /* NNA_PluginBuild Debug 64.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include/Kernel,
+					../../../SDKLib/Include/OnlyMac,
+					../../../SDKLib/Include/Interfaces,
+					../../../SDKLib/Include/VWMM,
+					../../../SDKLib/Include,
+					./Source,
+					./Resources,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+			};
+			name = "Debug 64";
+		};
+		6595D77B1802AAC300DC6575 /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = ProvidersSampleModule;
+				REZ_SEARCH_PATHS = ../../../Core/Resources;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Debug 64";
+		};
+		6595D77C1802AAC800DC6575 /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D7781802AAB800DC6575 /* NNA_PluginBuild Release 64.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include/Kernel,
+					../../../SDKLib/Include/OnlyMac,
+					../../../SDKLib/Include/Interfaces,
+					../../../SDKLib/Include/VWMM,
+					../../../SDKLib/Include,
+					./Source,
+					./Resources,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+			};
+			name = "Release 64";
+		};
+		6595D77D1802AAC800DC6575 /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = ProvidersSampleModule;
+				REZ_SEARCH_PATHS = ../../../Core/Resources;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Release 64";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "ProvidersSampleModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D77A1802AAC300DC6575 /* Debug 64 */,
+				6595D77C1802AAC800DC6575 /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 64";
+		};
+		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "ProvidersSampleModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D77B1802AAC300DC6575 /* Debug 64 */,
+				6595D77D1802AAC800DC6575 /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 64";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

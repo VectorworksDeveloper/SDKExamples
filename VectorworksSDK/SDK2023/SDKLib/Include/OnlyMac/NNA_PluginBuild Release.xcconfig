@@ -1,0 +1,41 @@
+#include "NNA_StdBuild_Native.xcconfig"
+
+INSTALL_PATH = @executable_path/../../../Plug-Ins/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/MacOS
+
+VW_MENU_EXTENSION = vwplugin
+VW_TOOL_EXTENSION = vwplugin
+VW_OBJECT_EXTENSION = vwobject
+VW_LIBRARY_EXTENSION = vwlibrary
+GCC_SYMBOLS_PRIVATE_EXTERN = NO
+GCC_INLINES_ARE_PRIVATE_EXTERN = NO
+
+GCC_GENERATE_DEBUGGING_SYMBOLS = YES
+DEPLOYMENT_POSTPROCESSING=YES
+STRIP_LINKED_PRODUCT=YES
+DEBUG_INFORMATION_FORMAT=dwarf-with-dsym
+STANDARD_PLUGIN_HEADER_SEARCH_PATHS = ../../../SDKLib/Include
+CLANG_CXX_LANGUAGE_STANDARD=c++14
+
+
+
+//VALID_ARCHS = i386
+//ARCHS = i386
+OBJROOT=../../../../Out32/XcodeIntermediateFiles
+SYMROOT=../../../../Out32/Plug-Ins
+SHORT_CONFIG=Release
+OUTPUT_NAME=Out32
+
+// SDK Path relative to AppSource for internal builds
+NVW_SDK_PATH = ../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)
+NVW_LIBMAC_PATH = ../../../../$(OUTPUT_NAME)/LibMac/$(SHORT_CONFIG)
+
+// SDK Path for external builds
+EXTERNAL_SDK_PATH = ../../../SDKLib/LibMac/$(SHORT_CONFIG)
+
+STANDARD_PLUGIN_LIBRARY_SEARCH_PATHS = $(NVW_SDK_PATH) $(NVW_LIBMAC_PATH) ../../../../$(OUTPUT_NAME)/LibMacThirdParty/Common ../../../../$(OUTPUT_NAME)/LibMacThirdParty/Release
+STANDARD_PLUGIN_FRAMEWORK_SEARCH_PATHS = ../../../../$(OUTPUT_NAME)/LibMacThirdParty/Common/Frameworks $(NVW_SDK_PATH)
+
+// Some settings for standard plug-ins so we hopefully don't have to define it in every project...
+CONFIGURATION_BUILD_DIR = $(BUILD_DIR)/$(SHORT_CONFIG)
+CONFIGURATION_TEMP_DIR = $(PROJECT_TEMP_DIR)/$(SHORT_CONFIG)
+GCC_PREFIX_HEADER = ./Source/Prefix/$(SHORT_CONFIG)Prefix.h
