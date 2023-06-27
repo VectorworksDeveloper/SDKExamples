@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8623A19B223AEB0F00DA24D8 /* Data.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8623A191223AEB0F00DA24D8 /* Data.mm */; };
+		8623A19C223AEB0F00DA24D8 /* Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A192223AEB0F00DA24D8 /* Data.cpp */; };
+		8623A19D223AEB0F00DA24D8 /* DataWeb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A194223AEB0F00DA24D8 /* DataWeb.cpp */; };
+		8623A19E223AEB0F00DA24D8 /* ExtMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A196223AEB0F00DA24D8 /* ExtMenu.cpp */; };
+		8623A19F223AEB0F00DA24D8 /* DlgLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */; };
+		862E15BA121D866C00DE5D4F /* ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E15B9121D866C00DE5D4F /* ModuleMain.cpp */; };
+		8665B5931379C44A00C5CB5F /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8665B58E1379C43700C5CB5F /* VWMM.framework */; };
+		9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92347A560992C4AA00FCBD91 /* SafeMemory.cpp */; };
+		928E894715795E5F0021D3C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928E894615795E5F0021D3C7 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		6595D76A1802A8EB00DC6575 /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
+		6595D76B1802A8EB00DC6575 /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../../../../../../../Users/Shared/Vectorworks SDK/VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = SDKROOT; };
+		6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
+		6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
+		81494D9109DA57F4006864FB /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "Source/Module-Info.plist"; sourceTree = "<group>"; };
+		81494D9309DA5867006864FB /* CommonPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CommonPrefix.h; path = Source/Prefix/CommonPrefix.h; sourceTree = "<group>"; };
+		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
+		81494D9609DA5867006864FB /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = Source/Prefix/StdAfx.h; sourceTree = "<group>"; };
+		81494D9909DA5880006864FB /* DebugPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DebugPrefix.h; path = Source/Prefix/DebugPrefix.h; sourceTree = "<group>"; };
+		8623A190223AEB0F00DA24D8 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		8623A191223AEB0F00DA24D8 /* Data.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Data.mm; sourceTree = "<group>"; };
+		8623A192223AEB0F00DA24D8 /* Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Data.cpp; sourceTree = "<group>"; };
+		8623A193223AEB0F00DA24D8 /* DataWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWeb.h; sourceTree = "<group>"; };
+		8623A194223AEB0F00DA24D8 /* DataWeb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataWeb.cpp; sourceTree = "<group>"; };
+		8623A196223AEB0F00DA24D8 /* ExtMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtMenu.cpp; sourceTree = "<group>"; };
+		8623A197223AEB0F00DA24D8 /* ExtMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtMenu.h; sourceTree = "<group>"; };
+		8623A199223AEB0F00DA24D8 /* DlgLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DlgLogin.h; sourceTree = "<group>"; };
+		8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DlgLogin.cpp; sourceTree = "<group>"; };
+		862E15B9121D866C00DE5D4F /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = SOURCE_ROOT; };
+		8665B58E1379C43700C5CB5F /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../VectorworksSDK/SDK2022/SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
+		9216EA3E09D88959007B8710 /* WebExample.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebExample.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
+		92347A560992C4AA00FCBD91 /* SafeMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SafeMemory.cpp; path = ../../VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac/Memory/SafeMemory.cpp; sourceTree = SOURCE_ROOT; };
+		928E894615795E5F0021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8665B5921379C44500C5CB5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8665B5931379C44A00C5CB5F /* VWMM.framework in Frameworks */,
+				928E894715795E5F0021D3C7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9216EA3E09D88959007B8710 /* WebExample.vwlibrary */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				6595D76A1802A8EB00DC6575 /* NNA_PluginBuild Debug 64.xcconfig */,
+				6595D76B1802A8EB00DC6575 /* NNA_PluginBuild Debug.xcconfig */,
+				6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */,
+				6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */,
+				08FB77ACFE841707C02AAC07 /* Source */,
+				81494D9D09DA5892006864FB /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+			);
+			name = SampleObject;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				928E894615795E5F0021D3C7 /* Cocoa.framework */,
+				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
+				8665B58E1379C43700C5CB5F /* VWMM.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ACFE841707C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9209DA5867006864FB /* Prefix */,
+				8623A18F223AEB0F00DA24D8 /* Data */,
+				8623A195223AEB0F00DA24D8 /* Extensions */,
+				8623A198223AEB0F00DA24D8 /* UI */,
+				92347A560992C4AA00FCBD91 /* SafeMemory.cpp */,
+				862E15B9121D866C00DE5D4F /* ModuleMain.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		81494D9209DA5867006864FB /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9309DA5867006864FB /* CommonPrefix.h */,
+				81494D9909DA5880006864FB /* DebugPrefix.h */,
+				81494D9509DA5867006864FB /* ReleasePrefix.h */,
+				81494D9609DA5867006864FB /* StdAfx.h */,
+			);
+			name = Prefix;
+			sourceTree = "<group>";
+		};
+		81494D9D09DA5892006864FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9109DA57F4006864FB /* Module-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8623A18F223AEB0F00DA24D8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8623A190223AEB0F00DA24D8 /* Data.h */,
+				8623A191223AEB0F00DA24D8 /* Data.mm */,
+				8623A192223AEB0F00DA24D8 /* Data.cpp */,
+				8623A193223AEB0F00DA24D8 /* DataWeb.h */,
+				8623A194223AEB0F00DA24D8 /* DataWeb.cpp */,
+			);
+			name = Data;
+			path = Source/Data;
+			sourceTree = "<group>";
+		};
+		8623A195223AEB0F00DA24D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8623A196223AEB0F00DA24D8 /* ExtMenu.cpp */,
+				8623A197223AEB0F00DA24D8 /* ExtMenu.h */,
+			);
+			name = Extensions;
+			path = Source/Extensions;
+			sourceTree = "<group>";
+		};
+		8623A198223AEB0F00DA24D8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8623A199223AEB0F00DA24D8 /* DlgLogin.h */,
+				8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */,
+			);
+			name = UI;
+			path = Source/UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9216EA3D09D88959007B8710 /* WebExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "WebExample" */;
+			buildPhases = (
+				9216EA3B09D88959007B8710 /* Sources */,
+				8665B5921379C44500C5CB5F /* Frameworks */,
+				9216EA4C09D889C0007B8710 /* Rez */,
+				86619AC10A3A1618002FCD39 /* Validate and copy VWR */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WebExample;
+			productName = Untitled;
+			productReference = 9216EA3E09D88959007B8710 /* WebExample.vwlibrary */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+			};
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2022" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				Base,
+				en,
+				ja,
+				fr,
+				de,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* SampleObject */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9216EA3D09D88959007B8710 /* WebExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXRezBuildPhase section */
+		9216EA4C09D889C0007B8710 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86619AC10A3A1618002FCD39 /* Validate and copy VWR */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Validate and copy VWR";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../VectorworksSDK/SDK2022/SDKLib/ToolsMac/BuildVWR/BuildVWR\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9216EA3B09D88959007B8710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8623A19B223AEB0F00DA24D8 /* Data.mm in Sources */,
+				9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */,
+				862E15BA121D866C00DE5D4F /* ModuleMain.cpp in Sources */,
+				8623A19C223AEB0F00DA24D8 /* Data.cpp in Sources */,
+				8623A19E223AEB0F00DA24D8 /* ExtMenu.cpp in Sources */,
+				8623A19F223AEB0F00DA24D8 /* DlgLogin.cpp in Sources */,
+				8623A19D223AEB0F00DA24D8 /* DataWeb.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6595D7681802A8CF00DC6575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					../../VectorworksSDK/SDK2022/SDKLib/LibMac/Release,
+					"../../../../$(OUTPUT_NAME)/SDK/Release",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					../../VectorworksSDK/SDK2022/SDKLib/Include/Kernel,
+					../../VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac,
+					../../VectorworksSDK/SDK2022/SDKLib/Include/Interfaces,
+					../../VectorworksSDK/SDK2022/SDKLib/Include/VWMM,
+					../../VectorworksSDK/SDK2022/SDKLib/Include,
+					./Source,
+					./Resources,
+					../../ThirdPartySource/jsoncpp/include,
+					../../ThirdPartySource/libcurl/include/curl,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../../VectorworksSDK/SDK2022/SDKLib/LibMac/Release,
+					../../ThirdPartySource/jsoncpp,
+					../../ThirdPartySource/libcurl,
+				);
+				OBJROOT = ../../Output/2022/_Output/IntermediateBuildFiles;
+				SDKROOT = macosx;
+				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/Release/PrecompiledHeader";
+				SYMROOT = ../../Output/2022/_Output;
+			};
+			name = Release;
+		};
+		6595D7691802A8CF00DC6575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+					"-lJsonCpp",
+					"-lcurl",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
+				PRODUCT_NAME = WebExample;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = Release;
+		};
+		8698E167223B2F220090A521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					../../VectorworksSDK/SDK2022/SDKLib/LibMac/Release,
+					"../../../../$(OUTPUT_NAME)/SDK/Release",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					../../VectorworksSDK/SDK2022/SDKLib/Include/Kernel,
+					../../VectorworksSDK/SDK2022/SDKLib/Include/OnlyMac,
+					../../VectorworksSDK/SDK2022/SDKLib/Include/Interfaces,
+					../../VectorworksSDK/SDK2022/SDKLib/Include/VWMM,
+					../../VectorworksSDK/SDK2022/SDKLib/Include,
+					./Source,
+					./Resources,
+					../../ThirdPartySource/jsoncpp/include,
+					../../ThirdPartySource/libcurl/include/curl,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../../VectorworksSDK/SDK2022/SDKLib/LibMac/Release,
+					../../ThirdPartySource/jsoncpp,
+					../../ThirdPartySource/libcurl,
+				);
+				OBJROOT = ../../Output/2022/_Output/IntermediateBuildFiles;
+				SDKROOT = macosx;
+				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/Debug/PrecompiledHeader";
+				SYMROOT = ../../Output/2022/_Output;
+			};
+			name = Debug;
+		};
+		8698E168223B2F220090A521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+					"-lJsonCpp",
+					"-lcurl",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
+				PRODUCT_NAME = WebExample;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2022" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D7681802A8CF00DC6575 /* Release */,
+				8698E167223B2F220090A521 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "WebExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D7691802A8CF00DC6575 /* Release */,
+				8698E168223B2F220090A521 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
