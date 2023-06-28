@@ -260,7 +260,7 @@ TXString CExtWebPaletteExample::GetInitialURL()
 
 	// use this block when internal (in the vwr file) site will be used
 	{
-#if !defined(DEV_BLD) && !defined(_DEBUG_FAST)
+#if !defined(REF_HTML) && !defined(DEV_BLD) && !defined(_DEBUG_FAST)
 		// make a copy of the site off of the bundled resources for release
 		TXString resRoot = TXString(DefaultPluginVWRIdentifier()) + "/html/";
 		VectorWorks::Filing::IFolderIdentifierPtr	rootFolder( VectorWorks::Filing::IID_FolderIdentifier );
@@ -284,21 +284,20 @@ TXString CExtWebPaletteExample::GetInitialURL()
 #else
 		using namespace VectorWorks::Filing;
 	
+		IApplicationFoldersPtr appFolders( IID_ApplicationFolders );
+
 		// the debug versions use schortcut for the resource
 		// we want to use that so we can use the site we are developing to make direct changes, instead of a copy
-		IFileIdentifierPtr	outputFileID( IID_FileIdentifier );
-		#ifdef _WINDOWS
-			outputFileID->Set( kApplicationFolder, false, "Plug-Ins/" + TXString(DefaultPluginVWRIdentifier())+".vwr/html/index.html" );
-		#else
-			outputFileID->Set( kApplicationFolder, false, "Plug-Ins/WebPaletteExample.vwlibrary/Contents/Resources/" + TXString(DefaultPluginVWRIdentifier())+".vwr/html/index.html" );
-		#endif
-	
+		IFileIdentifierPtr outputFileID;
+		appFolders->FindFileInPluginFolder( DefaultPluginVWRIdentifier(), & outputFileID );
+
+		IFolderIdentifierPtr folderID;
+		outputFileID->GetFolder( & folderID );
+
+		outputFileID->Set( folderID, TXString(DefaultPluginVWRIdentifier())+".vwr/html/index.html" );
 
 		IPathResolverPtr resolver( IID_PathResolver );
 		resolver->Resolve( outputFileID );
-
-		TXString path;
-		outputFileID->GetFileFullPath(path);
 
 		bool exist = false;
 		outputFileID->ExistsOnDisk( exist );
@@ -312,7 +311,7 @@ TXString CExtWebPaletteExample::GetInitialURL()
 
 	// use this block when external site will be used with the palette
 	{
-		TXString url = TXResource( "WebPaletteExample/Strings/Palette.vwstrings", "url", eAllowEmptyResult );
+		TXString url = TXResource( "WebPaletteExampleSettings/Strings/Palette.vwstrings", "url", eAllowEmptyResult );
 		return url.IsEmpty() ? TXResStr("ExtWebPaletteExample", "paletteURL") : url;
 		//return "E:\\_Test Files\\test1.html";
 	}
