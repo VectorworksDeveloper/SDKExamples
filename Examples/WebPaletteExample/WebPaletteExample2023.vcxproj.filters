@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d99646b0-f23a-424c-b7c8-b1d2e44195c3}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{10949d6c-e8e0-4358-900e-aed2b2e8646f}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\WebPalette">
+      <UniqueIdentifier>{58a4aa4e-f9bb-476c-a023-b5203a0c4249}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WebPaletteExample_ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WebPalette\ExtExampleWebPalette.cpp">
+      <Filter>Source Files\WebPalette</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WebPalette\ExtExampleWebPalette.h">
+      <Filter>Source Files\WebPalette</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

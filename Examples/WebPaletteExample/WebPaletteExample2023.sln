@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1433
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WebPaletteExample", "WebPaletteExample2023.vcxproj", "{1A86A61F-4894-4CF0-8EB5-5F57B0515FB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A86A61F-4894-4CF0-8EB5-5F57B0515FB6}.Debug|x64.ActiveCfg = Debug|x64
+		{1A86A61F-4894-4CF0-8EB5-5F57B0515FB6}.Debug|x64.Build.0 = Debug|x64
+		{1A86A61F-4894-4CF0-8EB5-5F57B0515FB6}.Release|x64.ActiveCfg = Release|x64
+		{1A86A61F-4894-4CF0-8EB5-5F57B0515FB6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F43EB47-550A-4EB6-ACE3-59113963A23D}
+	EndGlobalSection
+EndGlobal
