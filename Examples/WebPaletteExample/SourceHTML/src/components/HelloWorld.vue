@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div>{{msg}}_suffix_extra</div>
-		<button type="button" @click="onButtonClick" class="btn btn-blue">{{this.trans('fetch_button')}}</button>
+		<div>{{msg}}</div>
+		<button type="button" @click="onButtonClick" class="vw-btn vw-btn--standard">{{this.trans('fetch_button')}}</button>
 		<div>
 			<div
 				v-for="item in arrItems" :key="item"
