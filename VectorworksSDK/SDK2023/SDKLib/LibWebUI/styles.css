@@ -994,9 +994,10 @@ html [data-color-scheme=dark] {
   color: var(--color-on-surface);
 }
 .vw-btn--standard::before {
-  box-shadow: inset 0 0 0 1px rgba(var(--color-on-surface-rgb), 0.3);
-  width: 100%;
-  height: 100%;
+  box-shadow: inset 0 0 0 1px rgba(var(--color-on-surface-rgb), 0.3);top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 .vw-btn--standard.vw-btn__error {
   color: var(--color-error);
