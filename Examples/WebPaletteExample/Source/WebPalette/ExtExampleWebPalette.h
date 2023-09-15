@@ -30,8 +30,8 @@ namespace WebPalette
 	};
 
 	// --------------------------------------------------------------------------------------------------------
-	// {1F64C562-D45E-4B5D-8587-A99A31FE3B2F}
-	static const VWIID IID_UpdateSupport = { 0x1f64c562, 0xd45e, 0x4b5d, { 0x85, 0x87, 0xa9, 0x9a, 0x31, 0xfe, 0x3b, 0x2f } };
+	// /*YOU MUST CHANGE THIS UUID if you copy this code*/	{1F64C562-D45E-4B5D-8587-A99A31FE3B2F}
+	static const VWIID IID_UpdateSupport = /*YOU MUST CHANGE THIS UUID if you copy this code*/	{ 0x1f64c562, 0xd45e, 0x4b5d, { 0x85, 0x87, 0xa9, 0x9a, 0x31, 0xfe, 0x3b, 0x2f } };
 
 	// --------------------------------------------------------------------------------------------------------
 	class CUpdateSupport : public VCOMImmediateImpl<IObjUpdateSupport>

@@ -37,13 +37,13 @@ namespace Extensions
 }
 
 // --------------------------------------------------------------------------------------------------------
-// {DF0D9D08-1704-4c9c-B2BF-18CA526267BA}
+// /*YOU MUST CHANGE THIS UUID if you copy this code*/	{DF0D9D08-1704-4c9c-B2BF-18CA526267BA}
 IMPLEMENT_VWToolExtension(
 	/*Extension class*/	CExtTool,
 	/*Event sink*/		CTool_EventSink,
 	/*Universal name*/	"CExtTool",
 	/*Version*/			1,
-	/*UUID*/			0xdf0d9d08, 0x1704, 0x4c9c, 0xb2, 0xbf, 0x18, 0xca, 0x52, 0x62, 0x67, 0xba );
+	/*UUID*/			/*YOU MUST CHANGE THIS UUID if you copy this code*/	0xdf0d9d08, 0x1704, 0x4c9c, 0xb2, 0xbf, 0x18, 0xca, 0x52, 0x62, 0x67, 0xba );
 
 // --------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------

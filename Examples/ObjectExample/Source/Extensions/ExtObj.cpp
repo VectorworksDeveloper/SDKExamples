@@ -64,13 +64,13 @@ namespace Extensions
 }
 
 // --------------------------------------------------------------------------------------------------------
-// {3BA4CC4B-B330-4F61-9594-64D8E5BC803E}
+// /*YOU MUST CHANGE THIS UUID if you copy this code*/	{3BA4CC4B-B330-4F61-9594-64D8E5BC803E}
 IMPLEMENT_VWParametricExtension(
 	/*Extension class*/	CExtObj,
 	/*Event sink*/		CObj_EventSink,
 	/*Universal name*/	"CExtObj",
 	/*Version*/			1,
-	/*UUID*/			0x3ba4cc4b, 0xb330, 0x4f61, 0x95, 0x94, 0x64, 0xd8, 0xe5, 0xbc, 0x80, 0x3e );
+	/*UUID*/			/*YOU MUST CHANGE THIS UUID if you copy this code*/	0x3ba4cc4b, 0xb330, 0x4f61, 0x95, 0x94, 0x64, 0xd8, 0xe5, 0xbc, 0x80, 0x3e );
 // Test:
 // SetSelect(CreateCustomObject('CExtObj',0,0,0));
 

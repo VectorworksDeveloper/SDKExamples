@@ -318,12 +318,12 @@ TXString CExtWebPaletteExample::GetInitialURL()
 }
 
 // --------------------------------------------------------------------------------------------------------
-// {291F9D08-E795-45E9-A2B0-FDE34A8A0DDE}
+// /*YOU MUST CHANGE THIS UUID if you copy this code*/	{291F9D08-E795-45E9-A2B0-FDE34A8A0DDE}
 IMPLEMENT_VWPaletteExtension(
 	/*Extension class*/	CExtWebPaletteExample,
 	/*Universal name*/	"WebPaletteExample",
 	/*Version*/			1,
-	/*UUID*/			0x291f9d08, 0xe795, 0x45e9, 0xa2, 0xb0, 0xfd, 0xe3, 0x4a, 0x8a, 0xd, 0xde );
+	/*UUID*/			/*YOU MUST CHANGE THIS UUID if you copy this code*/	0x291f9d08, 0xe795, 0x45e9, 0xa2, 0xb0, 0xfd, 0xe3, 0x4a, 0x8a, 0xd, 0xde );
 
 // --------------------------------------------------------------------------------------------------------
 
