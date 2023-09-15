@@ -14,14 +14,11 @@
 		8623A19F223AEB0F00DA24D8 /* DlgLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */; };
 		862E15BA121D866C00DE5D4F /* ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E15B9121D866C00DE5D4F /* ModuleMain.cpp */; };
 		8665B5931379C44A00C5CB5F /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8665B58E1379C43700C5CB5F /* VWMM.framework */; };
-		9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92347A560992C4AA00FCBD91 /* SafeMemory.cpp */; };
 		928E894715795E5F0021D3C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928E894615795E5F0021D3C7 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		6595D76A1802A8EB00DC6575 /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
-		6595D76B1802A8EB00DC6575 /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../../../../../../../Users/Shared/Vectorworks SDK/VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = SDKROOT; };
 		6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
 		6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
 		81494D9109DA57F4006864FB /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "Source/Module-Info.plist"; sourceTree = "<group>"; };
@@ -41,7 +38,6 @@
 		862E15B9121D866C00DE5D4F /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = SOURCE_ROOT; };
 		8665B58E1379C43700C5CB5F /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../VectorworksSDK/SDK2024/SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
 		9216EA3E09D88959007B8710 /* WebExample.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebExample.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
-		92347A560992C4AA00FCBD91 /* SafeMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SafeMemory.cpp; path = ../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/Memory/SafeMemory.cpp; sourceTree = SOURCE_ROOT; };
 		928E894615795E5F0021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -69,8 +65,6 @@
 		0867D691FE84028FC02AAC07 /* SampleObject */ = {
 			isa = PBXGroup;
 			children = (
-				6595D76A1802A8EB00DC6575 /* NNA_PluginBuild Debug 64.xcconfig */,
-				6595D76B1802A8EB00DC6575 /* NNA_PluginBuild Debug.xcconfig */,
 				6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */,
 				6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */,
 				08FB77ACFE841707C02AAC07 /* Source */,
@@ -98,7 +92,6 @@
 				8623A18F223AEB0F00DA24D8 /* Data */,
 				8623A195223AEB0F00DA24D8 /* Extensions */,
 				8623A198223AEB0F00DA24D8 /* UI */,
-				92347A560992C4AA00FCBD91 /* SafeMemory.cpp */,
 				862E15B9121D866C00DE5D4F /* ModuleMain.cpp */,
 			);
 			name = Source;
@@ -185,7 +178,7 @@
 			attributes = {
 				LastUpgradeCheck = 1230;
 			};
-			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample202" */;
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2024" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
@@ -239,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8623A19B223AEB0F00DA24D8 /* Data.mm in Sources */,
-				9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */,
 				862E15BA121D866C00DE5D4F /* ModuleMain.cpp in Sources */,
 				8623A19C223AEB0F00DA24D8 /* Data.cpp in Sources */,
 				8623A19E223AEB0F00DA24D8 /* ExtMenu.cpp in Sources */,
@@ -318,7 +310,6 @@
 					"-framework",
 					Carbon,
 					"-lVWSDK",
-					"-lJsonCpp",
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
@@ -383,6 +374,7 @@
 				OBJROOT = ../../Output/2024/_Output/IntermediateBuildFiles;
 				SDKROOT = macosx;
 				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/Debug/PrecompiledHeader";
+				SHORT_CONFIG = Debug;
 				SYMROOT = ../../Output/2024/_Output;
 			};
 			name = Debug;
@@ -396,7 +388,6 @@
 					"-framework",
 					Carbon,
 					"-lVWSDK",
-					"-lJsonCpp",
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
