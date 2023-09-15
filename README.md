@@ -26,8 +26,21 @@ Failure to do so will result in plugin conflicts between source that have duplic
 **Note:** The Debug builds for win and mac are actually based on the release SDK with the difference that symbol generation is turned on and optimizations are turned off. The Debug SDK doesn't actually work with the release Vectorworks and I kept the mac version the same, as git doesn't allow the large debug library files to be added to the repository.
 
 ## Build tools requirements
-- Windows - Visual Studio 2017, toolset version 14.12
-- MacOS Big Sur  - Xcode 12.3
+- Vectorworks 2024
+	* Windows: Visual Studio 2022 version 17.6.3 (toolset v143)
+	* MacOS: Xcode version 14.1
+
+- Vectorworks 2023
+	* Windows: Visual Studio 2017 version 15.3.7 (toolset v141)
+	* MacOS: Xcode version 13.1
+
+- Vectorworks 2022
+	* Windows: Visual Studio 2017 version 15.3.7 (toolset v141)
+	* MacOS: Xcode version 12.4
+
+- Vectorworks 2021
+	* Windows: Visual Studio 2017 version 15.3.7 (toolset v141)
+	* MacOS: Xcode version 12.3
 
 # Running & Debugging instructions
 
