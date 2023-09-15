@@ -2,6 +2,10 @@
 
 This folder contains an example for the Vectorworks 2021 SDK.
 
+Developer information available at https://developer.vectorworks.net/
+
+Please contact us to get included in the Partner Install feature. See https://developer.vectorworks.net/index.php/Partner_Product_Install_Package
+
 # Build instructions
 
 ### If you downloaded the repo directly on MacOS, you should de-quarantine the .zip before you unpack it. To do so, open the terminal and type:
