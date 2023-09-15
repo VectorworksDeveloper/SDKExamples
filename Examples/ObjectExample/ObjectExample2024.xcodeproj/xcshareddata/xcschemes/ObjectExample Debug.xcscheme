@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9216EA3D09D88959007B8710"
-               BuildableName = "ObjectExample2024.vwlibrary"
+               BuildableName = "ObjectExample.vwlibrary"
                BlueprintName = "ObjectExample"
                ReferencedContainer = "container:ObjectExample2024.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9216EA3D09D88959007B8710"
-            BuildableName = "ObjectExample2024.vwlibrary"
+            BuildableName = "ObjectExample.vwlibrary"
             BlueprintName = "ObjectExample"
             ReferencedContainer = "container:ObjectExample2024.xcodeproj">
          </BuildableReference>
