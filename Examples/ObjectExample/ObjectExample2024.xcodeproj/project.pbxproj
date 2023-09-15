@@ -31,7 +31,7 @@
 		86000B852AB4F940006C8545 /* ExtTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtTool.cpp; sourceTree = "<group>"; };
 		862E15B9121D866C00DE5D4F /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = SOURCE_ROOT; };
 		8665B58E1379C43700C5CB5F /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../VectorworksSDK/SDK2024/SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
-		9216EA3E09D88959007B8710 /* ObjectExample2024.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectExample2024.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
+		9216EA3E09D88959007B8710 /* ObjectExample.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectExample.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
 		928E894615795E5F0021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 		034768DDFF38A45A11DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9216EA3E09D88959007B8710 /* ObjectExample2024.vwlibrary */,
+				9216EA3E09D88959007B8710 /* ObjectExample.vwlibrary */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9216EA3D09D88959007B8710 /* ObjectExample2024 */ = {
+		9216EA3D09D88959007B8710 /* ObjectExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "ObjectExample2024" */;
+			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "ObjectExample" */;
 			buildPhases = (
 				9216EA3B09D88959007B8710 /* Sources */,
 				8665B5921379C44500C5CB5F /* Frameworks */,
@@ -138,9 +138,9 @@
 			);
 			dependencies = (
 			);
-			name = ObjectExample2024;
+			name = ObjectExample;
 			productName = Untitled;
-			productReference = 9216EA3E09D88959007B8710 /* ObjectExample2024.vwlibrary */;
+			productReference = 9216EA3E09D88959007B8710 /* ObjectExample.vwlibrary */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -167,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9216EA3D09D88959007B8710 /* ObjectExample2024 */,
+				9216EA3D09D88959007B8710 /* ObjectExample */,
 			);
 		};
 /* End PBXProject section */
@@ -278,7 +278,7 @@
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = ObjectExample2024;
+				PRODUCT_NAME = ObjectExample;
 				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
 			};
 			name = Release;
@@ -351,7 +351,7 @@
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = ObjectExample2024;
+				PRODUCT_NAME = ObjectExample;
 				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
 			};
 			name = Debug;
@@ -368,7 +368,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "ObjectExample2024" */ = {
+		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "ObjectExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6595D7691802A8CF00DC6575 /* Release */,
