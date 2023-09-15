@@ -1,0 +1,9 @@
+.DS_Store
+READ ME/VectorScript Reference.xml
+SDKLib/LibWin/Debug/*
+SDKLib/LibWin/Debug_MT/*
+SDKLib/LibWin/Release/VWMM.dll
+SDKLib/ToolsWin/BatchEncryption/*
+SDKLib/ToolsWin/SDK Plug-in Wizard/*
+SDKLib/ToolsWin/rezwack.exe
+SDKLib/LibMac/Debug/*
