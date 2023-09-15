@@ -4,10 +4,9 @@
 //	http://developer.vectorworks.net/index.php?title=Vectorworks_SDK_License
 //
 //
-// Mac precompile header for DEBUG
+// Mac precompile header for DEBUG that is using the RELEASE version of the SDK
 
-#define DEV_BLD
-#define REAL_STL
+#define RELEASE_BLD
 
 #include "CommonPrefix.h"
 
