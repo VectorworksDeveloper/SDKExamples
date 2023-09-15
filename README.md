@@ -4,7 +4,7 @@ This folder contains an example for the Vectorworks 2021 SDK.
 
 Developer information available at https://developer.vectorworks.net/
 
-Please contact us to get included in the Partner Install feature. See https://developer.vectorworks.net/index.php/Partner_Product_Install_Package
+Please contact us [devsupport@vectorworks.net] to get included in the Partner Install if you have a user facing feature. See https://developer.vectorworks.net/index.php/Partner_Product_Install_Package
 
 # Build instructions
 
