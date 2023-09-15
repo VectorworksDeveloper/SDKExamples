@@ -7,21 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8623A19B223AEB0F00DA24D8 /* Data.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8623A191223AEB0F00DA24D8 /* Data.mm */; };
-		8623A19C223AEB0F00DA24D8 /* Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A192223AEB0F00DA24D8 /* Data.cpp */; };
-		8623A19D223AEB0F00DA24D8 /* DataWeb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A194223AEB0F00DA24D8 /* DataWeb.cpp */; };
-		8623A19E223AEB0F00DA24D8 /* ExtMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A196223AEB0F00DA24D8 /* ExtMenu.cpp */; };
-		8623A19F223AEB0F00DA24D8 /* DlgLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */; };
-		862E15BA121D866C00DE5D4F /* ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E15B9121D866C00DE5D4F /* ModuleMain.cpp */; };
+		86000E022AB5057B006C8545 /* ExtExampleWebPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86000E012AB5057B006C8545 /* ExtExampleWebPalette.cpp */; };
+		86000E042AB50584006C8545 /* WebPaletteExample_ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86000E032AB50584006C8545 /* WebPaletteExample_ModuleMain.cpp */; };
 		8665B5931379C44A00C5CB5F /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8665B58E1379C43700C5CB5F /* VWMM.framework */; };
-		9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92347A560992C4AA00FCBD91 /* SafeMemory.cpp */; };
 		928E894715795E5F0021D3C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928E894615795E5F0021D3C7 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		6595D76A1802A8EB00DC6575 /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
-		6595D76B1802A8EB00DC6575 /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../../../../../../../Users/Shared/Vectorworks SDK/VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = SDKROOT; };
 		6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
 		6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
 		81494D9109DA57F4006864FB /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "Source/Module-Info.plist"; sourceTree = "<group>"; };
@@ -29,19 +22,11 @@
 		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
 		81494D9609DA5867006864FB /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = Source/Prefix/StdAfx.h; sourceTree = "<group>"; };
 		81494D9909DA5880006864FB /* DebugPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DebugPrefix.h; path = Source/Prefix/DebugPrefix.h; sourceTree = "<group>"; };
-		8623A190223AEB0F00DA24D8 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
-		8623A191223AEB0F00DA24D8 /* Data.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Data.mm; sourceTree = "<group>"; };
-		8623A192223AEB0F00DA24D8 /* Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Data.cpp; sourceTree = "<group>"; };
-		8623A193223AEB0F00DA24D8 /* DataWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWeb.h; sourceTree = "<group>"; };
-		8623A194223AEB0F00DA24D8 /* DataWeb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataWeb.cpp; sourceTree = "<group>"; };
-		8623A196223AEB0F00DA24D8 /* ExtMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtMenu.cpp; sourceTree = "<group>"; };
-		8623A197223AEB0F00DA24D8 /* ExtMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtMenu.h; sourceTree = "<group>"; };
-		8623A199223AEB0F00DA24D8 /* DlgLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DlgLogin.h; sourceTree = "<group>"; };
-		8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DlgLogin.cpp; sourceTree = "<group>"; };
-		862E15B9121D866C00DE5D4F /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = SOURCE_ROOT; };
+		86000E002AB5057B006C8545 /* ExtExampleWebPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtExampleWebPalette.h; sourceTree = "<group>"; };
+		86000E012AB5057B006C8545 /* ExtExampleWebPalette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtExampleWebPalette.cpp; sourceTree = "<group>"; };
+		86000E032AB50584006C8545 /* WebPaletteExample_ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WebPaletteExample_ModuleMain.cpp; path = Source/WebPaletteExample_ModuleMain.cpp; sourceTree = "<group>"; };
 		8665B58E1379C43700C5CB5F /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../VectorworksSDK/SDK2024/SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
 		9216EA3E09D88959007B8710 /* WebPaletteExample.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebPaletteExample.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
-		92347A560992C4AA00FCBD91 /* SafeMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SafeMemory.cpp; path = ../../VectorworksSDK/SDK2024/SDKLib/Include/OnlyMac/Memory/SafeMemory.cpp; sourceTree = SOURCE_ROOT; };
 		928E894615795E5F0021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -69,8 +54,6 @@
 		0867D691FE84028FC02AAC07 /* SampleObject */ = {
 			isa = PBXGroup;
 			children = (
-				6595D76A1802A8EB00DC6575 /* NNA_PluginBuild Debug 64.xcconfig */,
-				6595D76B1802A8EB00DC6575 /* NNA_PluginBuild Debug.xcconfig */,
 				6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */,
 				6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */,
 				08FB77ACFE841707C02AAC07 /* Source */,
@@ -95,11 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				81494D9209DA5867006864FB /* Prefix */,
-				8623A18F223AEB0F00DA24D8 /* Data */,
-				8623A195223AEB0F00DA24D8 /* Extensions */,
-				8623A198223AEB0F00DA24D8 /* UI */,
-				92347A560992C4AA00FCBD91 /* SafeMemory.cpp */,
-				862E15B9121D866C00DE5D4F /* ModuleMain.cpp */,
+				86000E032AB50584006C8545 /* WebPaletteExample_ModuleMain.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -107,6 +86,7 @@
 		81494D9209DA5867006864FB /* Prefix */ = {
 			isa = PBXGroup;
 			children = (
+				86000DFF2AB5057B006C8545 /* WebPalette */,
 				81494D9309DA5867006864FB /* CommonPrefix.h */,
 				81494D9909DA5880006864FB /* DebugPrefix.h */,
 				81494D9509DA5867006864FB /* ReleasePrefix.h */,
@@ -123,37 +103,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		8623A18F223AEB0F00DA24D8 /* Data */ = {
+		86000DFF2AB5057B006C8545 /* WebPalette */ = {
 			isa = PBXGroup;
 			children = (
-				8623A190223AEB0F00DA24D8 /* Data.h */,
-				8623A191223AEB0F00DA24D8 /* Data.mm */,
-				8623A192223AEB0F00DA24D8 /* Data.cpp */,
-				8623A193223AEB0F00DA24D8 /* DataWeb.h */,
-				8623A194223AEB0F00DA24D8 /* DataWeb.cpp */,
+				86000E002AB5057B006C8545 /* ExtExampleWebPalette.h */,
+				86000E012AB5057B006C8545 /* ExtExampleWebPalette.cpp */,
 			);
-			name = Data;
-			path = Source/Data;
-			sourceTree = "<group>";
-		};
-		8623A195223AEB0F00DA24D8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8623A196223AEB0F00DA24D8 /* ExtMenu.cpp */,
-				8623A197223AEB0F00DA24D8 /* ExtMenu.h */,
-			);
-			name = Extensions;
-			path = Source/Extensions;
-			sourceTree = "<group>";
-		};
-		8623A198223AEB0F00DA24D8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				8623A199223AEB0F00DA24D8 /* DlgLogin.h */,
-				8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */,
-			);
-			name = UI;
-			path = Source/UI;
+			name = WebPalette;
+			path = Source/WebPalette;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +142,7 @@
 			attributes = {
 				LastUpgradeCheck = 1230;
 			};
-			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample202" */;
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebPaletteExample2024" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
@@ -238,13 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8623A19B223AEB0F00DA24D8 /* Data.mm in Sources */,
-				9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */,
-				862E15BA121D866C00DE5D4F /* ModuleMain.cpp in Sources */,
-				8623A19C223AEB0F00DA24D8 /* Data.cpp in Sources */,
-				8623A19E223AEB0F00DA24D8 /* ExtMenu.cpp in Sources */,
-				8623A19F223AEB0F00DA24D8 /* DlgLogin.cpp in Sources */,
-				8623A19D223AEB0F00DA24D8 /* DataWeb.cpp in Sources */,
+				86000E042AB50584006C8545 /* WebPaletteExample_ModuleMain.cpp in Sources */,
+				86000E022AB5057B006C8545 /* ExtExampleWebPalette.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +270,6 @@
 					"-framework",
 					Carbon,
 					"-lVWSDK",
-					"-lJsonCpp",
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
@@ -383,6 +334,7 @@
 				OBJROOT = ../../Output/2024/_Output/IntermediateBuildFiles;
 				SDKROOT = macosx;
 				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/Debug/PrecompiledHeader";
+				SHORT_CONFIG = Debug;
 				SYMROOT = ../../Output/2024/_Output;
 			};
 			name = Debug;
@@ -396,7 +348,6 @@
 					"-framework",
 					Carbon,
 					"-lVWSDK",
-					"-lJsonCpp",
 					"-lcurl",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BASE_APP_IDENTIFIER}.${PRODUCT_NAME:identifier}";
@@ -408,7 +359,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2024" */ = {
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebPaletteExample2024" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6595D7681802A8CF00DC6575 /* Release */,
