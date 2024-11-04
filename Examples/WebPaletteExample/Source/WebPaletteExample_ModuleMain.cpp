@@ -29,6 +29,7 @@ extern "C" Sint32 GS_EXTERNAL_ENTRY plugin_module_main(Sint32 action, void* modu
 	using namespace VWFC::PluginSupport;
 
 	REGISTER_Extension<WebPalette::CExtWebPaletteExample>( GROUPID_ExtensionWebPalettes, action, moduleInfo, iid, inOutInterface, cbp, reply );
+	REGISTER_Extension<WebPalette::CExtMenuShowWebPaletteExample>( GROUPID_ExtensionMenu, action, moduleInfo, iid, inOutInterface, cbp, reply );
 	//REGISTER_Interface<WebPalette::CUpdateSupport>( GROUPID_ObjUpdateSupport, WebPalette::IID_UpdateSupport, action, moduleInfo, iid, inOutInterface, cbp, reply );
 
 	return reply;

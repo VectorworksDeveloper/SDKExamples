@@ -415,6 +415,94 @@ bool CExtWebPaletteExample::GetMinimalSize(ViewCoord& outCX, ViewCoord& outCY)
 	return true;
 }
 
+// This is practically the same implementation as "VWFC::PluginSupport::GetStandardURL"
+// But we must do it because we use RELEASE SDK which doesn't give us URL to the local index.html in the resources in DEBUG
+TXString CExtWebPaletteExample::GetInitialURL()
+{
+	// Change those if your front-end is in a different folder and file
+	const TXString	htmlFolderName	= "html";
+	const TXString	htmlFile		= "index.html";
+
+	TXString	fileFullPath;
+
+#if !defined(REF_HTML)
+	// make a copy of the site off of the bundled resources for release
+	TXString resRoot = TXString(DefaultPluginVWRIdentifier()) + "/" + htmlFolderName + "/";
+	VectorWorks::Filing::IFolderIdentifierPtr	rootFolder( VectorWorks::Filing::IID_FolderIdentifier );
+	rootFolder->Set( kExternalDataFolder, true, resRoot );
+	rootFolder->CreateOnDisk();
+
+	VectorWorks::Filing::IFolderIdentifierPtr outputFolderID;
+	VectorWorks::Filing::IFileIdentifierPtr	outputFileID( VectorWorks::Filing::IID_FileIdentifier );
+	VectorWorks::Filing::IRawOSFilePtr outputRawFile( VectorWorks::Filing::IID_RawOSFile );
+
+	gSDK->EnumerateVWResources( resRoot, true, [&](const TXString& resourceIdentifier) {
+		TXResource	res( resourceIdentifier );
+
+		TXString fileName = resourceIdentifier.Mid( resRoot.GetLength() );
+		outputFileID->Set( rootFolder, fileName );
+
+		outputFileID->GetFolder( & outputFolderID );
+		outputFolderID->CreateOnDisk();
+
+		outputRawFile->Open( outputFileID, false, true, false, true );
+		outputRawFile->Write( 0, res.Size(), res.Buffer() );
+		outputRawFile->Close();
+
+		if ( fileName.Right(htmlFile.GetLength()) == htmlFile )
+			outputFileID->GetFileFullPath( fileFullPath );
+	});
+
+	bool exist = false;
+	outputFileID->ExistsOnDisk( exist );
+	DSTOPIF(!exist, (kVStanev, "Web-palette required web-file cannot be found for the patched up Debug build. Make sure the list is correct if you use the non-default VWExtensionWebPalette, or consult with Vlado!"));
+#else
+	using namespace VectorWorks::Filing;
+	
+	IApplicationFoldersPtr appFolders( IID_ApplicationFolders );
+
+	// the debug versions use schortcut for the resource
+	// we want to use that so we can use the site we are developing to make direct changes, instead of a copy
+	IFileIdentifierPtr outputFileID;
+	appFolders->FindFileInPluginFolder( DefaultPluginVWRIdentifier(), & outputFileID );
+
+	IFolderIdentifierPtr folderID;
+	outputFileID->GetFolder( & folderID );
+
+	// the debug versions use schortcut for the resource
+	// we want to use that so we can use the site we are developing to make direct changes, instead of a copy
+	outputFileID->Set( folderID, TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
+
+	IPathResolverPtr resolver( IID_PathResolver );
+	resolver->Resolve( outputFileID );
+
+	outputFileID->GetFileFullPath( fileFullPath );
+
+	bool exist = false;
+	outputFileID->ExistsOnDisk( exist );
+	DSTOPIF(!exist, (kVStanev, "Web-palette required web-file cannot be found for the patched up Debug build. Make sure the list is correct if you use the non-default VWExtensionWebPalette, or consult with Vlado!"));
+#endif
+
+	// For development purposes, you can provide an override URL in DevSettings_<VWR Identifier>.vwr placed in the user's folder
+	TXString urlOverride = TXResource( TXString("DevSettings_") + TXString(DefaultPluginVWRIdentifier()) + "/Strings/settings.vwstrings", "url", eAllowEmptyResult );
+
+	TXString url;
+	if ( urlOverride.IsEmpty() )
+	{
+		url = TXString("file://") + fileFullPath;
+	}
+	else
+	{
+		// URL provided by override for development purposes
+		if ( urlOverride.Left(7) != "http://" && urlOverride.Left(7) != "file://" && urlOverride.Left(8) != "https://" )
+			url = TXString("file://") + urlOverride;
+		else
+			url = urlOverride; 
+	}
+
+	return url;
+}
+
 #endif
 
 // --------------------------------------------------------------------------------------------------------
@@ -426,5 +514,52 @@ IMPLEMENT_VWPaletteExtension(
 	/*UUID*/			/*YOU MUST CHANGE THIS UUID if you copy this code*/	0x291f9d08, 0xe795, 0x45e9, 0xa2, 0xb0, 0xfd, 0xe3, 0x4a, 0x8a, 0xd, 0xde );
 
 // --------------------------------------------------------------------------------------------------------
+static SMenuDef		gMenuDef = {
+	/*Needs*/				EMenuEnableFlags::DocIsActive,
+	/*NeedsNot*/			EMenuEnableFlags::None,
+	/*Title*/				{"ExtMenuShowWebPaletteExample", "menu_title"}, 
+	/*Category*/			{"ExtMenuShowWebPaletteExample", "menu_category"},
+	/*HelpText*/			{"ExtMenuShowWebPaletteExample", "menu_helptext"},
+	/*VersionCreated*/		30,
+	/*VersoinModified*/		0,
+	/*VersoinRetired*/		0,
+	/*OverrideHelpID*/		" "
+};
 
+// --------------------------------------------------------------------------------------------------------
+// {65D73787-53E9-4E11-BFE5-3E2F41A204A0}
+IMPLEMENT_VWMenuExtension(
+	/*Extension class*/	CExtMenuShowWebPaletteExample,
+	/*Event sink*/		CExtMenuShowWebPaletteExample_EventSink,
+	/*Universal name*/	"ExtMenuShowWebPaletteExample",
+	/*Version*/			1,
+	/*UUID*/			0x65d73787, 0x53e9, 0x4e11, 0xbf, 0xe5, 0x3e, 0x2f, 0x41, 0xa2, 0x4, 0xa0 );
 
+// --------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------
+CExtMenuShowWebPaletteExample::CExtMenuShowWebPaletteExample(CallBackPtr cbp)
+	: VWExtensionMenu( cbp, gMenuDef )
+{
+}
+
+CExtMenuShowWebPaletteExample::~CExtMenuShowWebPaletteExample()
+{
+}
+
+// --------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------
+CExtMenuShowWebPaletteExample_EventSink::CExtMenuShowWebPaletteExample_EventSink(IVWUnknown* parent)
+	: VWMenu_EventSink( parent )
+{
+}
+
+CExtMenuShowWebPaletteExample_EventSink::~CExtMenuShowWebPaletteExample_EventSink()
+{
+}
+
+void CExtMenuShowWebPaletteExample_EventSink::DoInterface()
+{
+	gSDK->SetWebPaletteVisibility( CExtWebPaletteExample::_GetIID(), true );
+}
+
+// --------------------------------------------------------------------------------------------------------

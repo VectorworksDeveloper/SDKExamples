@@ -95,9 +95,6 @@ namespace WebPalette
 	};
 #else
 	// After Vectorworks SDK 2025:
-	//	- it will automatically load the page from the resources html/index.html
-	//	  this can be overriden, see the constructors of VWExtensionWebPalette
-	//	  also see the comment for the "VWFC::PluginSupport::GetStandardURL" function
 	//
 	class CExtWebPaletteExample : public VWExtensionWebPalette
 	{
@@ -111,7 +108,38 @@ namespace WebPalette
 		virtual TXString	GetTitle() override;
 		virtual bool		GetInitialSize(ViewCoord& outCX, ViewCoord& outCY) override;
 		virtual bool		GetMinimalSize(ViewCoord& outCX, ViewCoord& outCY) override;
+
+		// Normally, it will automatically load the page from the resources html/index.html
+		// using the constructors of VWExtensionWebPalette (see the comment for the "VWFC::PluginSupport::GetStandardURL" function)
+		// However we must override it here because the DEBUG mode uses Release SDK, and we want the URL to be directly to the index.html
+		// so we can update the front-end without having to restart Vectorworks (recompile the plugin resources)
+		virtual TXString	VCOM_CALLTYPE	GetInitialURL() override;
 	};
 #endif
+
+	// Vectorworks SDK 2025 will no longer add web-palettes under Window menu.
+	// That's why we need a menu command, that can be added to the Workspace which will show our web-palette.
+	// ------------------------------------------------------------------------------------------------------
+	class CExtMenuShowWebPaletteExample_EventSink : public VWMenu_EventSink
+	{
+	public:
+							CExtMenuShowWebPaletteExample_EventSink(IVWUnknown* parent);
+		virtual				~CExtMenuShowWebPaletteExample_EventSink();
+
+	public:
+		virtual void		DoInterface();
+
+	private:
+	};
+
+	// ------------------------------------------------------------------------------------------------------
+	class CExtMenuShowWebPaletteExample : public VWExtensionMenu
+	{
+		DEFINE_VWMenuExtension;
+	public:
+										CExtMenuShowWebPaletteExample(CallBackPtr cbp);
+		virtual							~CExtMenuShowWebPaletteExample();
+
+	};
 }
 
