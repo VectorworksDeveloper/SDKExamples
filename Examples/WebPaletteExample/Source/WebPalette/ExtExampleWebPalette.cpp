@@ -8,6 +8,10 @@ using namespace WebPalette;
 const CBSignedShort kKludgeRunOnMainThreadSync = 6015;
 
 // --------------------------------------------------------------------------------------------------------
+#if 0
+//
+// This code is prior Vectorworks SDK 2025. See the header of this file for more info.
+//
 CPaletteJSProvider::CPaletteJSProvider()
 	: fWebFrame( nullptr )
 {
@@ -163,6 +167,61 @@ void CPaletteJSProvider::OnUpdatePlantAssociations(const std::vector<VWVariant>&
 
 	gSDK->Kludge( kKludgeRunOnMainThreadSync, & runOnMainThreadCallback, nullptr );
 }
+#else
+//
+// This code is after Vectorworks 2025 SDK. See the header of this file for more info.
+//
+BEGIN_WebPalette_DISPATCH_MAP(CPaletteJSProvider)
+ADD_WebPalette_FUNCTION( "getAllPlantStyles", OnGetAllPlantStyles )
+ADD_WebPalette_FUNCTION( "getAllPlantData", OnGetAllPlantData )
+ADD_WebPalette_FUNCTION( "updatePlantAssociations", OnUpdatePlantAssociations )
+END_WebPalette_DISPATCH_MAP
+
+CPaletteJSProvider::CPaletteJSProvider( IVWUnknown* parent )
+	: VWExtensionPaletteJSProvider( parent )
+{
+}
+
+CPaletteJSProvider::~CPaletteJSProvider()
+{
+}
+void CPaletteJSProvider::OnInit(IInitContext* context)
+{
+	fWebFrame = context->GetWebFrame();
+
+	// add the integrator object plus access to all recourses to the front-end
+	context->AddReourceAccessFunction( "exampleIntegrator", DefaultPluginVWRIdentifier() );
+
+	// Note: Use *Sync or no-sync function depending if you need to access the SDK in the function or not
+	// *Sunc functions will be executed on the main thread, and thus will have to wait to be executed, where non-sync ones will be executed immediately, but you cannot use the SDK
+	context->AddFunctionPromiseSync( "exampleIntegrator.getAllPlantStyles" );
+	context->AddFunctionPromiseSync( "exampleIntegrator.getAllPlantData" );
+	context->AddFunctionSync( "exampleIntegrator.updatePlantAssociations" );
+}
+
+void CPaletteJSProvider::OnGetAllPlantStyles(const TXString& objName, const TXString& functionName, const std::vector<nlohmann::json>& args, VectorWorks::UI::IJSFunctionCallbackContext* context)
+{
+	nlohmann::json jsonResult = nlohmann::json::array();
+	// ...
+
+	context->Resolve( jsonResult );
+}
+
+void CPaletteJSProvider::OnGetAllPlantData(const TXString& objName, const TXString& functionName, const std::vector<nlohmann::json>& args, VectorWorks::UI::IJSFunctionCallbackContext* context)
+{
+	nlohmann::json data;
+	data["one"] = "dfds";
+	data["two"] = 34;
+
+	context->Resolve( data );
+}
+
+void CPaletteJSProvider::OnUpdatePlantAssociations(const TXString& objName, const TXString& functionName, const std::vector<nlohmann::json>& args, VectorWorks::UI::IJSFunctionCallbackContext* context)
+{
+	// ...
+}
+
+#endif
 
 // --------------------------------------------------------------------------------------------------------
 CUpdateSupport::CUpdateSupport(CallBackPtr)
@@ -216,6 +275,10 @@ void CUpdateSupport::OnNotification(IObjUpdateSupportContext* context)
 }
 
 // --------------------------------------------------------------------------------------------------------
+#if 0
+//
+// This code is prior Vectorworks SDK 2025. See the header of this file for more info.
+//
 CExtWebPaletteExample::CExtWebPaletteExample(CallBackPtr)
 {
 }
@@ -316,6 +379,43 @@ TXString CExtWebPaletteExample::GetInitialURL()
 		//return "E:\\_Test Files\\test1.html";
 	}
 }
+#else
+//
+// This code is after Vectorworks 2025 SDK. See the header of this file for more info.
+//
+CExtWebPaletteExample::CExtWebPaletteExample(CallBackPtr)
+{
+}
+
+CExtWebPaletteExample::~CExtWebPaletteExample()
+{
+}
+
+void CExtWebPaletteExample::DefineSinks()
+{
+	this->DefineSink<CPaletteJSProvider>( IID_WebJavaScriptProvider );
+}
+
+TXString CExtWebPaletteExample::GetTitle()
+{
+	return TXResStr("ExtWebPaletteExample", "paletteName");
+}
+
+bool CExtWebPaletteExample::GetInitialSize(ViewCoord& outCX, ViewCoord& outCY)
+{
+	outCX = 1000;
+	outCY = 700;
+	return true;
+}
+
+bool CExtWebPaletteExample::GetMinimalSize(ViewCoord& outCX, ViewCoord& outCY)
+{
+	outCX = 680;
+	outCY = 500;
+	return true;
+}
+
+#endif
 
 // --------------------------------------------------------------------------------------------------------
 // /*YOU MUST CHANGE THIS UUID if you copy this code*/	{291F9D08-E795-45E9-A2B0-FDE34A8A0DDE}
