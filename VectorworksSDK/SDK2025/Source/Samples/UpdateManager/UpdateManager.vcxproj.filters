@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{aaad3990-c8e8-4602-a0ff-4c5c8574d404}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{44db7f3b-e1b2-454b-8e13-358e8fe749a1}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Updater">
+      <UniqueIdentifier>{70803891-6017-4a4a-8e2a-df6d912d4d0a}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="UpdateManager.vwr">
+      <UniqueIdentifier>{5038ed79-de38-4b8a-ab2e-4060592a8925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateManager.vwr\Images">
+      <UniqueIdentifier>{cda83a2f-f077-4eb9-893b-409f0cd430cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateManager.vwr\Strings">
+      <UniqueIdentifier>{b87ed0d7-24d9-45a7-a971-6173b158b1eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Updater\ExtObjUpdater.cpp">
+      <Filter>Source Files\Updater</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Updater\UpdateSupport.cpp">
+      <Filter>Source Files\Updater</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Updater\DataPaneProvider_UpdateSupportSampleFormat.cpp">
+      <Filter>Source Files\Updater</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Updater\ExtObjUpdater.h">
+      <Filter>Source Files\Updater</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Updater\UpdateSupport.h">
+      <Filter>Source Files\Updater</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Updater\DataPaneProvider_UpdateSupportSampleFormat.h">
+      <Filter>Source Files\Updater</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UpdateManager.vwr\Strings\ExtObjClassName.vwstrings">
+      <Filter>UpdateManager.vwr\Strings</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="UpdateManager.vwr\Images\ExtObjUpdaterDefTool.png">
+      <Filter>UpdateManager.vwr\Images</Filter>
+    </Image>
+    <Image Include="UpdateManager.vwr\Images\ExtObjUpdaterDefTool%402x.png">
+      <Filter>UpdateManager.vwr\Images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
