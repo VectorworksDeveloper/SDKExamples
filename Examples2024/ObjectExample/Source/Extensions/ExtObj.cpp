@@ -30,10 +30,6 @@ namespace Extensions
 		{ 0, "", {0,0} }
 	};
 
-#if 0
-	// NOTE:
-	//	This code is only valid before Vectorworks SDK 2025
-	//
 	static SParametricParam2Def gArrParameters[] = {
 		{ "p1",			{"CExtObj", "param1"},		"False",	"False",	kFieldBoolean,		0	, false, nullptr },
 		{ "p2",			{"CExtObj", "param2"},		"False",	"False",	kFieldBoolean,		0	, false, nullptr },
@@ -65,43 +61,6 @@ namespace Extensions
 		// TERMINATE
 		{ "", {0,0}, "", "", EFieldStyle(0), 0, false, nullptr }
 	};
-#else
-	// This parameter definition is after Vectorworks SDK 2025
-	// The change is that defaults are not provided via a json file in the resources
-	// See the the .VWR file, inside "Defaults" folder.
-	// The name of the .json file should match the "Universal name" of the parametric that applies to
-	static SParametricParam2Def gArrParameters[] = {
-		{ "p1",			{"CExtObj", "param1"},		kFieldBoolean		},
-		{ "p2",			{"CExtObj", "param2"},		kFieldBoolean		},
-		{ "p3",			{"CExtObj", "param3"},		kFieldText			},
-		{ "p4",			{"CExtObj", "param4"},		kFieldText			},
-		{ "p5",			{"CExtObj", "param5"},		kFieldCoordDisp	},
-		{ "p6",			{"CExtObj", "param6"},		kFieldPopUp,		128 },
-		{ "p7",			{"CExtObj", "param7"},		kFieldPopUp,		129 },
-		{ "pAngle",		{"CExtObj", "param8"},		kFieldAngle			 },
-		{ "pArea",		{"CExtObj", "param9"},		kFieldArea			 },
-		{ "pVolume",	{"CExtObj", "param10"},		kFieldVolume		 },
-		{ "pClass",		{"CExtObj", "param11"},		kFieldClassesPopup	 },
-		{ "pLayer",		{"CExtObj", "param12"},		kFieldLayersPopup	 },
-
-		{ "pFieldClass",			{"CExtObj", "param_FieldClass"},	kFieldClass	, 0,
-			[](bool metric, const TXString& initialValue, const TXString& univParamName, IRecordItem* outValue)
-			{
-				outValue->SetFieldClass( gSDK->GetNoneClassID() );
-			}},
-
-		{ "pFieldBuildingMaterial",	{"CExtObj", "param_FieldBuildingMaterial"},		kFieldBuildingMaterial	},
-		{ "pFieldFill",				{"CExtObj", "param_FieldFill"},					kFieldFill				},
-		{ "pFieldPenStyle",			{"CExtObj", "param_FieldPenStyle"},				kFieldPenStyle			},
-		{ "pFieldPenWeight",		{"CExtObj", "param_FieldPenWeight"},			kFieldPenWeight			},
-		{ "pFieldColor",			{"CExtObj", "param_FieldColor"},				kFieldColor				},
-		{ "pFieldTexture",			{"CExtObj", "param_FieldTexture"},				kFieldTexture			},
-		{ "pFieldSymDef",			{"CExtObj", "param_FieldSymDef"},				kFieldSymDef			},
-
-		// TERMINATE
-		{  }
-	};
-#endif
 }
 
 // --------------------------------------------------------------------------------------------------------
