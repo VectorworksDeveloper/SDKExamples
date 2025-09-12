@@ -4,11 +4,11 @@ This folder contains an example for the Vectorworks 2021 SDK.
 
 Developer information available at https://developer.vectorworks.net/
 
-Please contact us [devsupport@vectorworks.net] to get included in the Partner Install if you have a user facing feature. See https://developer.vectorworks.net/index.php/Partner_Product_Install_Package
+Please contact us at [devsupport@vectorworks.net](mailto:devsupport@vectorworks.net) to get included in the Partner Install if you have a user facing feature. See https://developer.vectorworks.net/index.php/Partner_Product_Install_Package
 
-## Plugin Credential files
+## Plugin Credential files 
 
-Vectorworks 2026 introduces the requirement for script plugins that are encrypted/obfuscated and SDK plugins to have a satellite credentials file that defines who is the developer of the plugins is.
+<span style='color:red'>Vectorworks 2026 introduces the requirement</span> for script plugins that are encrypted/obfuscated and SDK plugins to have a satellite credentials file that defines who is the developer of the plugins is.
 
 More information can be found here: [Plugin Credentials](https://github.com/Vectorworks/developer-scripting/blob/main/Common/Tasks/Info/PluginCredentials.md)
 
@@ -32,6 +32,14 @@ Failure to do so will result in plugin conflicts between source that have duplic
 **Note:** The Debug builds for win and mac are actually based on the release SDK with the difference that symbol generation is turned on and optimizations are turned off. The Debug SDK doesn't actually work with the release Vectorworks and I kept the mac version the same, as git doesn't allow the large debug library files to be added to the repository.
 
 ## Build tools requirements
+- Vectorworks 2026
+	* Windows: Visual Studio 2022 version 17.12 (toolset v143)
+	* MacOS: Xcode version 16.2
+
+- Vectorworks 2025
+	* Windows: Visual Studio 2022 version 17.8 (toolset v143)
+	* MacOS: Xcode version 15.1
+
 - Vectorworks 2024
 	* Windows: Visual Studio 2022 version 17.6.3 (toolset v143)
 	* MacOS: Xcode version 14.1
