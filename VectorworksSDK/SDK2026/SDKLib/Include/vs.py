@@ -1975,6 +1975,114 @@ def CC_DeviceFromShape(
 	return 'HANDLE' # 
 
 
+def CC_GetCableTypeData(
+		cable_type, # STRING  -  
+		col_index   # INTEGER -  
+		):
+	'''
+		Python: STRING = vs.CC_GetCableTypeData(cable_type, col_index)
+		VectorScript: FUNCTION CC_GetCableTypeData(cable_type:STRING; col_index:INTEGER) : STRING;
+		
+		Category: ConnectCAD
+		Returns the entry in the cable types table for a given cable type. Column 1 = Description, 2 = Outside Diameter
+	'''
+	pass
+	return 'STRING' # 
+
+
+def CC_GetCircuitDest(
+		hCircuit  # HANDLE -  
+		):
+	'''
+		Python: (hDevice, hDevSkt, hAdapter, hSocket) = vs.CC_GetCircuitDest(hCircuit)
+		VectorScript: PROCEDURE CC_GetCircuitDest(hCircuit:HANDLE; VAR hDevice:HANDLE; VAR hDevSkt:HANDLE; VAR hAdapter:HANDLE; VAR hSocket:HANDLE);
+		
+		Category: ConnectCAD
+		Gets handles for the destination device and socket of a circuit.
+	'''
+	pass
+	return ( 0, 
+	         0, 
+	         0, 
+	         0 )
+
+
+def CC_GetCircuitSource(
+		hCircuit  # HANDLE -  
+		):
+	'''
+		Python: (hDevice, hDevSkt, hAdapter, hSocket) = vs.CC_GetCircuitSource(hCircuit)
+		VectorScript: PROCEDURE CC_GetCircuitSource(hCircuit:HANDLE; VAR hDevice:HANDLE; VAR hDevSkt:HANDLE; VAR hAdapter:HANDLE; VAR hSocket:HANDLE);
+		
+		Category: ConnectCAD
+		Gets handles for the source device and socket of a circuit.
+	'''
+	pass
+	return ( 0, 
+	         0, 
+	         0, 
+	         0 )
+
+
+def CC_GetConnectorData(
+		connector, # STRING  -  
+		col_index  # INTEGER -  
+		):
+	'''
+		Python: STRING = vs.CC_GetConnectorData(connector, col_index)
+		VectorScript: FUNCTION CC_GetConnectorData(connector:STRING; col_index:INTEGER) : STRING;
+		
+		Category: ConnectCAD
+		Returns the entry in the connector types table for a given connector. Column 1 = Description, 2 = Panel Connector symbol
+	'''
+	pass
+	return 'STRING' # 
+
+
+def CC_GetDevice(
+		hSocket      , # HANDLE  -  
+		skipadapters   # BOOLEAN -  
+		):
+	'''
+		Python: HANDLE = vs.CC_GetDevice(hSocket, skip adapters)
+		VectorScript: FUNCTION CC_GetDevice(hSocket:HANDLE; skip adapters:BOOLEAN) : HANDLE;
+		
+		Category: ConnectCAD
+		Gets the parent device handle from the given socket handle.
+	'''
+	pass
+	return 'HANDLE' # 
+
+
+def CC_GetEquipmentItem(
+		hDevice  # HANDLE -  
+		):
+	'''
+		Python: HANDLE = vs.CC_GetEquipmentItem(hDevice)
+		VectorScript: FUNCTION CC_GetEquipmentItem(hDevice:HANDLE) : HANDLE;
+		
+		Category: ConnectCAD
+		Gets the associated equipment item from the given device handle.
+	'''
+	pass
+	return 'HANDLE' # 
+
+
+def CC_GetSignalData(
+		signal   , # STRING  -  
+		col_index  # INTEGER -  
+		):
+	'''
+		Python: STRING = vs.CC_GetSignalData(signal, col_index)
+		VectorScript: FUNCTION CC_GetSignalData(signal:STRING; col_index:INTEGER) : STRING;
+		
+		Category: ConnectCAD
+		Returns the entry in the signal types table for a given signal. Column 1 = Prefix, 2 = Connector, 3 = Description
+	'''
+	pass
+	return 'STRING' # 
+
+
 def CC_OnFindAndReplace(
 		hObject   , # HANDLE -  
 		fieldName , # STRING -  
@@ -8546,6 +8654,20 @@ def Excel_Convert(
 	return 'STRING' # 
 
 
+def ExcludeFromDataVis(
+		objHandle, # HANDLE  - Object handle                                               
+		exclude    # BOOLEAN - If TRUE the object will be excluded from Data Visualizations
+		):
+	'''
+		Python: vs.ExcludeFromDataVis(objHandle, exclude)
+		VectorScript: PROCEDURE ExcludeFromDataVis(objHandle:HANDLE; exclude:BOOLEAN);
+		
+		Category: Object Attributes
+		Use this method to exclude the object from Data Visualizations. Graphical attributes of the object will not be overridden.
+	'''
+	pass
+
+
 def EXL_AddSheet(
 		sheetName  # STRING -  
 		):
@@ -10458,6 +10580,82 @@ def GetBooleanItem(
 	'''
 	pass
 	return ( False )
+
+
+def GetCableBreakData(
+		hObj        , # HANDLE  -  
+		DataSelector, # STRING  -  
+		BreakIndex    # INTEGER -  
+		):
+	'''
+		Python: STRING = vs.GetCableBreakData(hObj, DataSelector, BreakIndex)
+		VectorScript: FUNCTION GetCableBreakData(hObj:HANDLE; DataSelector:STRING; BreakIndex:INTEGER) : STRING;
+		
+		Category: Objects - Cables
+		Get cable break data. Data selectors - 'Name'. If the function is called on a cable break subpart the break index is ignored. If the function is called on a cable object you have to specify the break index.
+	'''
+	pass
+	return 'STRING' # 
+
+
+def GetCableBreaksCnt(
+		hObj  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.GetCableBreaksCnt(hObj)
+		VectorScript: FUNCTION GetCableBreaksCnt(hObj:HANDLE) : INTEGER;
+		
+		Category: Objects - Cables
+		Get the count of cable breaks in the cable.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def GetCablePartsCnt(
+		hObj        , # HANDLE  -  
+		SectionIndex  # INTEGER -  
+		):
+	'''
+		Python: INTEGER = vs.GetCablePartsCnt(hObj, SectionIndex)
+		VectorScript: FUNCTION GetCablePartsCnt(hObj:HANDLE; SectionIndex:INTEGER) : INTEGER;
+		
+		Category: Objects - Cables
+		Get the count of cable parts in the cable or cable section. If SectionIndex is set to 0 it will be ignored.
+	'''
+	pass
+	return 'INTEGER' # 
+
+
+def GetCableSectionData(
+		hObj        , # HANDLE  -  
+		DataSelector, # STRING  -  
+		SectionIndex, # INTEGER -  
+		PartIndex     # INTEGER -  
+		):
+	'''
+		Python: STRING = vs.GetCableSectionData(hObj, DataSelector, SectionIndex, PartIndex)
+		VectorScript: FUNCTION GetCableSectionData(hObj:HANDLE; DataSelector:STRING; SectionIndex:INTEGER; PartIndex:INTEGER) : STRING;
+		
+		Category: Objects - Cables
+		Get cable section data. Data selectors - 'Name', 'Parts Ordered', 'Length', 'Start Slack', 'End Slack', 'Swag', 'Total Vertical Drop', 'Break Name', 'Position', 'Box ID', 'Loom ID', 'Tape'. 'Parts Ordered', 'Length', and 'Total Vertical Drop' are read only. If the function is called on a cable section subpart the section index is ignored. If the function is called on a cable object you have to specify the section index. Optionally, for 'Parts Ordered' you can specify part index which to display, or 0 to ignore this argument.
+	'''
+	pass
+	return 'STRING' # 
+
+
+def GetCableSectionsCnt(
+		hObj  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.GetCableSectionsCnt(hObj)
+		VectorScript: FUNCTION GetCableSectionsCnt(hObj:HANDLE) : INTEGER;
+		
+		Category: Objects - Cables
+		Get the count of cable sections in the cable.
+	'''
+	pass
+	return 'INTEGER' # 
 
 
 def GetCAlign(
@@ -14346,6 +14544,23 @@ def GetLBHeaderTextWidth(
 	return 'INTEGER' # 
 
 
+def GetLBItemByClass(
+		dialogID    , # LONGINT - id of the dialog that contains the list browser
+		componentID , # LONGINT - id of the list browser control                 
+		itemIndex   , # INTEGER - the row index                                  
+		subItemIndex  # INTEGER - the column index                               
+		):
+	'''
+		Python: BOOLEAN = vs.GetLBItemByClass(dialogID, componentID, itemIndex, subItemIndex)
+		VectorScript: FUNCTION GetLBItemByClass(dialogID:LONGINT; componentID:LONGINT; itemIndex:INTEGER; subItemIndex:INTEGER) : BOOLEAN;
+		
+		Category: Dialogs - Modern - Browser
+		Gets if the specified list browser item's is by class.
+	'''
+	pass
+	return 'BOOLEAN' # Returns whether the specified list browser item is set, or not, to be by class.
+
+
 def GetLBItemDashStyle(
 		dialogID    , # LONGINT - id of the dialog that contains the list browser
 		componentID , # LONGINT - id of the list browser control                 
@@ -15428,6 +15643,21 @@ def GetMirrorEmpty2DComp(
 	'''
 	pass
 	return 'BOOLEAN' # TRUE if the opposite view graphics are mirrored for empty 2D components of a symbol definition or plug-in object.
+
+
+def GetModifierFlags(
+		):
+	'''
+		Python: (optionFlag, cmdFlag, shiftFlag) = vs.GetModifierFlags()
+		VectorScript: PROCEDURE GetModifierFlags(VAR optionFlag:BOOLEAN; VAR cmdFlag:BOOLEAN; VAR shiftFlag:BOOLEAN);
+		
+		Category: Utility
+		Returns the state of option/alt, cmd/ctrl, shift keys.
+	'''
+	pass
+	return ( False, 
+	         False, 
+	         False )
 
 
 def GetMouse(
@@ -21272,13 +21502,13 @@ def GroupToMesh(
 
 
 def GS_EdSh_ConstructLayout(
-		shaderNameCStr, # BOOLEAN -  
-		paramsPtr     , # BOOLEAN -  
-		libraryDataPtr  # BOOLEAN -  
+		shaderNameCStr, # ANY -  
+		paramsPtr     , # ANY -  
+		libraryDataPtr  # ANY -  
 		):
 	'''
 		Python: vs.GS_EdSh_ConstructLayout(shaderNameCStr, paramsPtr, libraryDataPtr)
-		VectorScript: PROCEDURE GS_EdSh_ConstructLayout(shaderNameCStr:BOOLEAN; paramsPtr:BOOLEAN; libraryDataPtr:BOOLEAN);
+		VectorScript: PROCEDURE GS_EdSh_ConstructLayout(shaderNameCStr1,shaderNameCStr2,...,shaderNameCStrN:ANY; paramsPtr1,paramsPtr2,...,paramsPtrN:ANY; libraryDataPtr1,libraryDataPtr2,...,libraryDataPtrN:ANY);
 		
 		Category: Textures
 		Creates a dialog layout for editing a shader's parameter values.
@@ -21769,7 +21999,7 @@ def HP_AutoAttachLoads(
 		VectorScript: PROCEDURE HP_AutoAttachLoads(positionHandle:HANDLE);
 		
 		Category: Truss Analysis
-		Using the given position handle, attaches all loads, that can be calculated as a part of the system.
+		Using the given position handle, attaches all loads, that can be calculated as a part of the system and loads attached to the geometry in the position.
 	'''
 	pass
 
@@ -22116,6 +22346,20 @@ def IFC_CreateZSG(
 		
 		Category: IFC
 		Creates Zone, System or Group based on the selector passed.
+	'''
+	pass
+	return 'BOOLEAN' # 
+
+
+def IFC_CustPsetFromRec(
+		hRecord  # HANDLE -  
+		):
+	'''
+		Python: BOOLEAN = vs.IFC_CustPsetFromRec(hRecord)
+		VectorScript: FUNCTION IFC_CustPsetFromRec(hRecord:HANDLE) : BOOLEAN;
+		
+		Category: IFC
+		Creates custom property set from a record
 	'''
 	pass
 	return 'BOOLEAN' # 
@@ -27797,6 +28041,20 @@ def OLDConstructMatsCnt():
 	return 'LONGINT' # 
 
 
+def OLDDeleteLoad(
+		handle   , # HANDLE  -  
+		loadIndex  # INTEGER -  
+		):
+	'''
+		Python: vs.OLDDeleteLoad(handle, loadIndex)
+		VectorScript: PROCEDURE OLDDeleteLoad(handle:HANDLE; loadIndex:INTEGER);
+		
+		Category: Truss Analysis
+		Deletes the load of the specified object, if load with such index exists.
+	'''
+	pass
+
+
 def OLDFindAttachHangPos(
 		handle   , # HANDLE  -  
 		loadIndex  # INTEGER -  
@@ -27854,6 +28112,20 @@ def OLDGetConstructMat(
 	pass
 	return ( 'string', 
 	         'string' )
+
+
+def OLDGetCountLoads(
+		handle  # HANDLE -  
+		):
+	'''
+		Python: INTEGER = vs.OLDGetCountLoads(handle)
+		VectorScript: FUNCTION OLDGetCountLoads(handle:HANDLE) : INTEGER;
+		
+		Category: Truss Analysis
+		Returns the loads count of the specified object.
+	'''
+	pass
+	return 'INTEGER' # 
 
 
 def OLDGetDragSnapPoint(
@@ -28957,6 +29229,19 @@ def Plant_GetToolSpacing():
 	return 'REAL' # 
 
 
+def Plant_LocateStyleMgr(
+		plant  # HANDLE -  
+		):
+	'''
+		Python: vs.Plant_LocateStyleMgr(plant)
+		VectorScript: PROCEDURE Plant_LocateStyleMgr(plant:HANDLE);
+		
+		Category: PlantObjectCoreTools
+		Locate the selected plant's style in the Plant Style Manager, and make the palette visible
+	'''
+	pass
+
+
 def Plant_ReplacePlant(
 		plantToReplace  # HANDLE -  
 		):
@@ -29477,6 +29762,18 @@ def Prot_DisableModule(
 	pass
 
 
+def Prot_GetAppMode():
+	'''
+		Python: LONGINT = vs.Prot_GetAppMode()
+		VectorScript: FUNCTION Prot_GetAppMode : LONGINT;
+		
+		Category: Protection
+		Returns the application mode Vectorworks is using.
+	'''
+	pass
+	return 'LONGINT' # 
+
+
 def Prot_GetDistribCode():
 	'''
 		Python: STRING = vs.Prot_GetDistribCode()
@@ -29499,18 +29796,6 @@ def Prot_GetLicenseID():
 	'''
 	pass
 	return 'STRING' # 
-
-
-def Prot_GetLicenseType():
-	'''
-		Python: LONGINT = vs.Prot_GetLicenseType()
-		VectorScript: FUNCTION Prot_GetLicenseType : LONGINT;
-		
-		Category: Protection
-		Returns the license type Vectorworks is using.
-	'''
-	pass
-	return 'LONGINT' # 
 
 
 def Prot_GetSeatsNum():
@@ -29693,6 +29978,22 @@ def PtPerpLine(
 		
 		Category: Graphic Calculation
 		Returns a point on the input line which is closest to the input point. Doesn't check to see that the point is ON the line.
+	'''
+	pass
+	return 'VECTOR' # 
+
+
+def PtPerpLine3D(
+		pt , # VECTOR -  
+		pt0, # VECTOR -  
+		pt1  # VECTOR -  
+		):
+	'''
+		Python: VECTOR = vs.PtPerpLine3D(pt, pt0, pt1)
+		VectorScript: FUNCTION PtPerpLine3D(pt:VECTOR; pt0:VECTOR; pt1:VECTOR) : VECTOR;
+		
+		Category: Graphic Calculation
+		Returns a 3D point on the input 3D vector that goes through pt0 and pt1 which is closest to the input point. Doesn't check to see that the point is ON the line.
 	'''
 	pass
 	return 'VECTOR' # 
@@ -30142,7 +30443,7 @@ def RectangleN(
 		VectorScript: PROCEDURE RectangleN(orginX, orginY:REAL; directionX, directionY:REAL; width:REAL; height:REAL);
 		
 		Category: Objects - 2D
-		Creates and returns a handle to a new rectangle object with the specified bounds.
+		Creates a new rectangle object with the specified bounds.
 	'''
 	pass
 
@@ -30207,6 +30508,23 @@ def RefreshLB(
 	'''
 	pass
 	return 'BOOLEAN' # 
+
+
+def RefreshResManager(
+		updateVWLibs    , # BOOLEAN - Update Vectorworks libraries.       
+		updateUserLibs  , # BOOLEAN - Update User libraries.              
+		updateWGLibs    , # BOOLEAN - Update Workgroups libraries.        
+		updateFavs      , # BOOLEAN - Update Favorites.                   
+		UpdateOnlineLibs  # BOOLEAN - Update Vectorworks online libraries.
+		):
+	'''
+		Python: REAL = vs.RefreshResManager(updateVWLibs, updateUserLibs, updateWGLibs, updateFavs, UpdateOnlineLibs)
+		VectorScript: PROCEDURE RefreshResManager(updateVWLibs:BOOLEAN; updateUserLibs:BOOLEAN; updateWGLibs:BOOLEAN; updateFavs:BOOLEAN; UpdateOnlineLibs:BOOLEAN);
+		
+		Category: Utility
+		Procedure RefreshResManager updates the Resource manager palette. It refreshes Libraries specified by the parameters.
+	'''
+	pass
 
 
 def RegisterDialogForTimerEvents(
@@ -30605,6 +30923,19 @@ def RemoveTreeControlItem(
 	'''
 	pass
 	return 'BOOLEAN' # 
+
+
+def RemoveTrussAssoc(
+		handle  # HANDLE -  
+		):
+	'''
+		Python: vs.RemoveTrussAssoc(handle)
+		VectorScript: PROCEDURE RemoveTrussAssoc(handle:HANDLE);
+		
+		Category: Spotlight
+		Removes the association between the side arm and it's rigging.
+	'''
+	pass
 
 
 def RemoveVPClOvrd(
@@ -31576,7 +31907,7 @@ def RRectangleN(
 		VectorScript: PROCEDURE RRectangleN(orginX, orginY:REAL; directionX, directionY:REAL; width:REAL; height:REAL; xDiam:REAL; yDiam:REAL);
 		
 		Category: Objects - 2D
-		Creates and returns a handle to a new rotated rectangle object with the specified bounds
+		Creates a new rounded  rectangle object with the specified bounds
 	'''
 	pass
 
@@ -32211,6 +32542,38 @@ def SetBooleanItem(
 		
 		Category: Dialogs - Modern
 		Selects or deselects the specified check box or radio button.
+	'''
+	pass
+
+
+def SetCableBreakData(
+		hObj        , # HANDLE  -  
+		DataSelector, # STRING  -  
+		BreakIndex  , # INTEGER -  
+		Value         # STRING  -  
+		):
+	'''
+		Python: vs.SetCableBreakData(hObj, DataSelector, BreakIndex, Value)
+		VectorScript: PROCEDURE SetCableBreakData(hObj:HANDLE; DataSelector:STRING; BreakIndex:INTEGER; Value:STRING);
+		
+		Category: Objects - Cables
+		Set cable break data. Data selectors - 'Name'. If the function is called on a cable break subpart the break index is ignored. If the function is called on a cable object you have to specify the break index.
+	'''
+	pass
+
+
+def SetCableSectionData(
+		hObj        , # HANDLE  -  
+		DataSelector, # STRING  -  
+		SectionIndex, # INTEGER -  
+		Value         # STRING  -  
+		):
+	'''
+		Python: vs.SetCableSectionData(hObj, DataSelector, SectionIndex, Value)
+		VectorScript: PROCEDURE SetCableSectionData(hObj:HANDLE; DataSelector:STRING; SectionIndex:INTEGER; Value:STRING);
+		
+		Category: Objects - Cables
+		Set cable section data. Data selectors - 'Name', 'Start Slack', 'End Slack', 'Swag', 'Break Name', 'Position', 'Box ID', 'Loom ID', 'Tape'. If the function is called on a cable section subpart the section index is ignored. If the function is called on a cable object you have to specify the section index.
 	'''
 	pass
 
@@ -35658,6 +36021,23 @@ def SetLBImageIndexes(
 	return 'BOOLEAN' # 
 
 
+def SetLBItemByClass(
+		dialogID    , # LONGINT - id of the dialog that contains the list browser
+		componentID , # LONGINT - id of the list browser control                 
+		itemIndex   , # INTEGER - the row index                                  
+		subItemIndex, # INTEGER - the column index                               
+		isByClass     # BOOLEAN - if the item is by class or not                 
+		):
+	'''
+		Python: BOOLEAN = vs.SetLBItemByClass(dialogID, componentID, itemIndex, subItemIndex, isByClass)
+		VectorScript: PROCEDURE SetLBItemByClass(dialogID:LONGINT; componentID:LONGINT; itemIndex:INTEGER; subItemIndex:INTEGER; isByClass:BOOLEAN);
+		
+		Category: Dialogs - Modern - Browser
+		Sets if the specified list browser item's is by class.
+	'''
+	pass
+
+
 def SetLBItemDashStyle(
 		dialogID    , # LONGINT - id of the dialog that contains the list browser
 		componentID , # LONGINT - id of the list browser control                 
@@ -36680,12 +37060,27 @@ def SetMirrorEmpty2DComp(
 
 
 def SetModeButtonText(
-		modeName, # STRING  - The name of the mode.
-		modeType  # INTEGER - The type of the mode.
+		modeName, # STRING  - The name of the mode.                                                                                                                                                                                     
+		modeType  # INTEGER - The type of the mode.        Types:            RadioMode = 0,            ButtonMode = 1,            PrefButtonMode = 2,            CheckMode = 3,            EditTextMode = 4,            PullDownMode = 5
 		):
 	'''
 		Python: vs.SetModeButtonText(modeName, modeType)
 		VectorScript: PROCEDURE SetModeButtonText(modeName:STRING; modeType:INTEGER);
+		
+		Category: User Interactive
+		Sets a mode bar button help text.
+	'''
+	pass
+
+
+def SetModeButtonTextN(
+		modeName, # STRING  - The name of the mode.                                                                                                                                                                                     
+		modeHelp, # STRING  - Help message of the mode                                                                                                                                                                                  
+		modeType  # INTEGER - The type of the mode.        Types:            RadioMode = 0,            ButtonMode = 1,            PrefButtonMode = 2,            CheckMode = 3,            EditTextMode = 4,            PullDownMode = 5
+		):
+	'''
+		Python: vs.SetModeButtonTextN(modeName, modeHelp, modeType)
+		VectorScript: PROCEDURE SetModeButtonTextN(modeName:STRING; modeHelp:STRING; modeType:INTEGER);
 		
 		Category: User Interactive
 		Sets a mode bar button help text.
@@ -41413,6 +41808,23 @@ def ShowLBHeader(
 	pass
 
 
+def ShowLBItemByClassOpt(
+		dialogID      , # LONGINT - id of the dialog that contains the list browser        
+		componentID   , # LONGINT - id of the list browser control                         
+		itemIndex     , # INTEGER - the row index                                          
+		subItemIndex  , # INTEGER - the column index                                       
+		isByClassShown  # BOOLEAN - if the item allows the user to pick the By Class option
+		):
+	'''
+		Python: vs.ShowLBItemByClassOpt(dialogID, componentID, itemIndex, subItemIndex, isByClassShown)
+		VectorScript: PROCEDURE ShowLBItemByClassOpt(dialogID:LONGINT; componentID:LONGINT; itemIndex:INTEGER; subItemIndex:INTEGER; isByClassShown:BOOLEAN);
+		
+		Category: Dialogs - Modern - Browser
+		Sets if the specified list browser item's can be edited by the user to select the By Class option.
+	'''
+	pass
+
+
 def ShowLBItemMkrByClass(
 		dialogID    , # LONGINT - id of the dialog that contains the list browser      
 		componentID , # LONGINT - id of the list browser control                       
@@ -43041,8 +43453,8 @@ def TrackObject(
 
 
 def TrackObjectN(
-		traverseType, # INTEGER   - Specify how to traverse the drawing.                                                                    
-		callback      # PROCEDURE - The callback that will be called to check if an object meets the requrements to be tracked. See remarks.
+		traverseType, # INTEGER   - Specify how to traverse the drawing.    0 - traverses only the high-level objects (the same as the TrakcObject function);    1 - traverses the objects deep (uses GetPickObjectInfo, the 'subH' parameter).    2 - traverses the objects shallow (uses GetPickObjectInfo
+		callback      # PROCEDURE - The callback that will be called to check if an object meets the requrements to be tracked. See remarks.                                                                                                                                                                
 		):
 	'''
 		Python: (outObj, p) = vs.TrackObjectN(traverseType, callback)
