@@ -6,6 +6,12 @@ Developer information available at https://developer.vectorworks.net/
 
 Please contact us [devsupport@vectorworks.net] to get included in the Partner Install if you have a user facing feature. See https://developer.vectorworks.net/index.php/Partner_Product_Install_Package
 
+## Plugin Credential files
+
+Vectorworks 2026 introduces the requirement for script plugins that are encrypted/obfuscated and SDK plugins to have a satellite credentials file that defines who is the developer of the plugins is.
+
+More information can be found here: [Plugin Credentials](https://github.com/Vectorworks/developer-scripting/blob/main/Common/Tasks/Info/PluginCredentials.md)
+
 # Build instructions
 
 ### If you downloaded the repo directly on MacOS, you should de-quarantine the .zip before you unpack it. To do so, open the terminal and type:
