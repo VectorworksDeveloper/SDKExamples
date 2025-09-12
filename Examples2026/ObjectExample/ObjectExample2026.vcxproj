@@ -36,11 +36,11 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\VectorworksSDK\SDK2025\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
+    <Import Project="..\..\VectorworksSDK\SDK2026\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\VectorworksSDK\SDK2025\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
+    <Import Project="..\..\VectorworksSDK\SDK2026\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -52,12 +52,12 @@
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.vlb</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(ProjectDir)..\..\Output\2025\_Output\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)..\..\Output\2025\_Output\IntermediateBuildFiles\D\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\Output\2026\_Output\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\Output\2026\_Output\IntermediateBuildFiles\D\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)..\..\Output\2025\_Output\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)..\..\Output\2025\_Output\IntermediateBuildFiles\R\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\Output\2026\_Output\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\Output\2026\_Output\IntermediateBuildFiles\R\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -65,7 +65,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <SmallerTypeCheck>false</SmallerTypeCheck>
@@ -88,7 +88,7 @@
       <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
@@ -104,8 +104,8 @@
 set VWR_INPUT=$(ProjectDir)$(TargetName).vwr
 set VWR_OUTPUT=$(TargetDir)$(TargetName).vwr
 set VWR_MODE=$(Configuration)
-set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR\7z
-"$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
+set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\ToolsWin\BuildVWR\7z
+"$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
       <Message>Creating VWR file.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -115,7 +115,7 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Source\Prefix;$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\Include;..\..\ThirdPartySource\libcurl\include\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -139,7 +139,7 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR
       <AdditionalDependencies>VWSDK.lib;USP10.lib;Rpcrt4.lib;libcurl.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\LibWin\Release;..\..\ThirdPartySource\libcurl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -158,8 +158,8 @@ set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR
 set VWR_INPUT=$(ProjectDir)$(TargetName).vwr
 set VWR_OUTPUT=$(TargetDir)$(TargetName).vwr
 set VWR_MODE=$(Configuration)
-set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR\7z
-"$(ProjectDir)..\..\VectorworksSDK\SDK2025\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
+set VWR_7ZCMD=$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\ToolsWin\BuildVWR\7z
+"$(ProjectDir)..\..\VectorworksSDK\SDK2026\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
       <Message>Creating VWR file.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>

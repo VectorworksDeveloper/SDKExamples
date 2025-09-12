@@ -19,8 +19,8 @@
 
 /* Begin PBXFileReference section */
 		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../VectorworksSDK/SDK2025/SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
-		6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../VectorworksSDK/SDK2025/SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
+		6595D76C1802A8EB00DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../VectorworksSDK/SDK2026/SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
+		6595D76D1802A8EB00DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../VectorworksSDK/SDK2026/SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
 		81494D9109DA57F4006864FB /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "Source/Module-Info.plist"; sourceTree = "<group>"; };
 		81494D9309DA5867006864FB /* CommonPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CommonPrefix.h; path = Source/Prefix/CommonPrefix.h; sourceTree = "<group>"; };
 		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
@@ -36,7 +36,7 @@
 		8623A199223AEB0F00DA24D8 /* DlgLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DlgLogin.h; sourceTree = "<group>"; };
 		8623A19A223AEB0F00DA24D8 /* DlgLogin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DlgLogin.cpp; sourceTree = "<group>"; };
 		862E15B9121D866C00DE5D4F /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = SOURCE_ROOT; };
-		8665B58E1379C43700C5CB5F /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../VectorworksSDK/SDK2025/SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
+		8665B58E1379C43700C5CB5F /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../VectorworksSDK/SDK2026/SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
 		9216EA3E09D88959007B8710 /* WebExample.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebExample.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
 		928E894615795E5F0021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -178,7 +178,7 @@
 			attributes = {
 				LastUpgradeCheck = 1230;
 			};
-			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2025" */;
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2026" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
@@ -222,7 +222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../VectorworksSDK/SDK2025/SDKLib/ToolsMac/BuildVWR/BuildVWR\n";
+			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../VectorworksSDK/SDK2026/SDKLib/ToolsMac/BuildVWR/BuildVWR\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -268,7 +268,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					../../VectorworksSDK/SDK2025/SDKLib/LibMac/Release,
+					../../VectorworksSDK/SDK2026/SDKLib/LibMac/Release,
 					"../../../../$(OUTPUT_NAME)/SDK/Release",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -279,25 +279,25 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = (
-					../../VectorworksSDK/SDK2025/SDKLib/Include/Kernel,
-					../../VectorworksSDK/SDK2025/SDKLib/Include/OnlyMac,
-					../../VectorworksSDK/SDK2025/SDKLib/Include/Interfaces,
-					../../VectorworksSDK/SDK2025/SDKLib/Include/VWMM,
-					../../VectorworksSDK/SDK2025/SDKLib/Include,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/Kernel,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/OnlyMac,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/Interfaces,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/VWMM,
+					../../VectorworksSDK/SDK2026/SDKLib/Include,
 					./Source,
 					./Resources,
 					../../ThirdPartySource/jsoncpp/include,
 					../../ThirdPartySource/libcurl/include/curl,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					../../VectorworksSDK/SDK2025/SDKLib/LibMac/Release,
+					../../VectorworksSDK/SDK2026/SDKLib/LibMac/Release,
 					../../ThirdPartySource/jsoncpp,
 					../../ThirdPartySource/libcurl,
 				);
-				OBJROOT = ../../Output/2025/_Output/IntermediateBuildFiles;
+				OBJROOT = ../../Output/2026/_Output/IntermediateBuildFiles;
 				SDKROOT = macosx;
 				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/Release/PrecompiledHeader";
-				SYMROOT = ../../Output/2025/_Output;
+				SYMROOT = ../../Output/2026/_Output;
 			};
 			name = Release;
 		};
@@ -344,7 +344,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					../../VectorworksSDK/SDK2025/SDKLib/LibMac/Release,
+					../../VectorworksSDK/SDK2026/SDKLib/LibMac/Release,
 					"../../../../$(OUTPUT_NAME)/SDK/Release",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -356,26 +356,26 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				HEADER_SEARCH_PATHS = (
-					../../VectorworksSDK/SDK2025/SDKLib/Include/Kernel,
-					../../VectorworksSDK/SDK2025/SDKLib/Include/OnlyMac,
-					../../VectorworksSDK/SDK2025/SDKLib/Include/Interfaces,
-					../../VectorworksSDK/SDK2025/SDKLib/Include/VWMM,
-					../../VectorworksSDK/SDK2025/SDKLib/Include,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/Kernel,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/OnlyMac,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/Interfaces,
+					../../VectorworksSDK/SDK2026/SDKLib/Include/VWMM,
+					../../VectorworksSDK/SDK2026/SDKLib/Include,
 					./Source,
 					./Resources,
 					../../ThirdPartySource/jsoncpp/include,
 					../../ThirdPartySource/libcurl/include/curl,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					../../VectorworksSDK/SDK2025/SDKLib/LibMac/Release,
+					../../VectorworksSDK/SDK2026/SDKLib/LibMac/Release,
 					../../ThirdPartySource/jsoncpp,
 					../../ThirdPartySource/libcurl,
 				);
-				OBJROOT = ../../Output/2025/_Output/IntermediateBuildFiles;
+				OBJROOT = ../../Output/2026/_Output/IntermediateBuildFiles;
 				SDKROOT = macosx;
 				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/Debug/PrecompiledHeader";
 				SHORT_CONFIG = Debug;
-				SYMROOT = ../../Output/2025/_Output;
+				SYMROOT = ../../Output/2026/_Output;
 			};
 			name = Debug;
 		};
@@ -399,7 +399,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2025" */ = {
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "WebExample2026" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6595D7681802A8CF00DC6575 /* Release */,
