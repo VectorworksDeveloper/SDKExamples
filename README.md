@@ -8,7 +8,7 @@ Please contact us at [devsupport@vectorworks.net](mailto:devsupport@vectorworks.
 
 ## Plugin Credential files 
 
-<span style='color:red'>Vectorworks 2026 introduces the requirement</span> for script plugins that are encrypted/obfuscated and SDK plugins to have a satellite credentials file that defines who is the developer of the plugins is.
+<span style="color:red">Vectorworks 2026 introduces the requirement</span> for script plugins that are encrypted/obfuscated and SDK plugins to have a satellite credentials file that defines who is the developer of the plugins is.
 
 More information can be found here: [Plugin Credentials](https://github.com/Vectorworks/developer-scripting/blob/main/Common/Tasks/Info/PluginCredentials.md)
 
