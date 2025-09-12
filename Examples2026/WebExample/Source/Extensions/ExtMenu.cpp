@@ -10,8 +10,8 @@ namespace Extensions
 {
 	// --------------------------------------------------------------------------------------------------------
 	static SMenuDef		gMenuDef = {
-		/*Needs*/			0x00,
-		/*NeedsNot*/		0x00,
+		/*Needs*/			EMenuEnableFlags::DocIsActive,
+		/*NeedsNot*/		EMenuEnableFlags::None,
 		/*Title*/			{"CMenuDownload", "title"},
 		/*Category*/		{"CMenuDownload", "category"},
 		/*HelpText*/		{"CMenuDownload", "help"},

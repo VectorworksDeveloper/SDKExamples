@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9216EA3D09D88959007B8710"
                BuildableName = "WebPaletteExample.vwlibrary"
                BlueprintName = "WebPaletteExample"
-               ReferencedContainer = "container:WebPaletteExample2024.xcodeproj">
+               ReferencedContainer = "container:WebPaletteExample2026.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,15 +47,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9216EA3D09D88959007B8710"
-            BuildableName = "WebPaletteExample.vwlibrary"
-            BlueprintName = "WebPaletteExample"
-            ReferencedContainer = "container:WebPaletteExample2024.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

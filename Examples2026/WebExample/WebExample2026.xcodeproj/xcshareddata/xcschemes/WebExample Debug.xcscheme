@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9216EA3D09D88959007B8710"
                BuildableName = "WebExample.vwlibrary"
                BlueprintName = "WebExample"
-               ReferencedContainer = "container:WebExample2024.xcodeproj">
+               ReferencedContainer = "container:WebExample2026.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,15 +47,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9216EA3D09D88959007B8710"
-            BuildableName = "WebExample.vwlibrary"
-            BlueprintName = "WebExample"
-            ReferencedContainer = "container:WebExample2024.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
