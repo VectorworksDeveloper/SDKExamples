@@ -1,0 +1,19 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="clean" DependsOnTargets="BuildVWResources_Clean"/>
+  <Target Name="rebuild" DependsOnTargets="BuildVWResources_Clean;BuildVWResources"/>
+  <Target Name="build" DependsOnTargets="BuildVWResources"/>
+  <Target Name="FinalizeBuildStatus" DependsOnTargets="BuildVWResources"/>
+
+  <Target Name="BuildVWResources_Clean">
+    <Message Text="Cleaning with BuildVWResources_Clean..."/>
+	<Exec Command="&quot;$(ExecutablePath)/build_resource.exe&quot; -i &quot;$(SourcePath)&quot; -o &quot;$(OutDir) &quot; -n &quot;$(TargetName)&quot; --clean --verbose -x &quot;$(IntDir) &quot;"/>
+  </Target>
+  
+  <Target Name="BuildVWResources">
+    <Message Text="Running BuildVWResources..."/>
+	<Exec Command="&quot;$(ExecutablePath)/build_resource.exe&quot; -i &quot;$(SourcePath)&quot; -o &quot;$(OutDir) &quot; -n &quot;$(TargetName)&quot; --build --verbose -x &quot;$(IntDir) &quot;"/>
+  </Target>
+
+
+</Project>
