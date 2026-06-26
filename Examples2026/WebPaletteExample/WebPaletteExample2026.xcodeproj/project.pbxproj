@@ -78,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				81494D9209DA5867006864FB /* Prefix */,
+				86000DFF2AB5057B006C8545 /* WebPalette */,
 				86000E032AB50584006C8545 /* WebPaletteExample_ModuleMain.cpp */,
 			);
 			name = Source;
@@ -86,7 +87,6 @@
 		81494D9209DA5867006864FB /* Prefix */ = {
 			isa = PBXGroup;
 			children = (
-				86000DFF2AB5057B006C8545 /* WebPalette */,
 				81494D9309DA5867006864FB /* CommonPrefix.h */,
 				81494D9909DA5880006864FB /* DebugPrefix.h */,
 				81494D9509DA5867006864FB /* ReleasePrefix.h */,

@@ -34,13 +34,13 @@ export default {
 		},
 
 		onButtonClick() {
-			if (typeof exampleIntegrator === 'undefined')
+			if (typeof vwAPI === 'undefined')
 			{
 				this.addResult( 'Vectorworks is not the host of this page. Cannot fetch the data.' );
 			}
 			else
 			{
-				exampleIntegrator.getAllPlantData()
+				vwAPI.getAllPlantData()
 							.then( (result)=> {
 								this.addResult( result );
 							})
