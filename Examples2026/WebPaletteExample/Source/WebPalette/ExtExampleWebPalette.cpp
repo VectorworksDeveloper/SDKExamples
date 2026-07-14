@@ -144,6 +144,82 @@ bool CExtWebPaletteExample::GetMinimalSize(ViewCoord& outCX, ViewCoord& outCY)
 	return true;
 }
 
+static TXString Custom_GetStandardURL(const TXString& htmlFolderName, const TXString& htmlFile)
+{
+	using namespace VectorWorks::Filing;
+	
+	TXString	fileFullPath;
+
+#if !defined(DEV_BLD) && !defined(_DEBUG_FAST) && !defined(DEBUG_EXTERNAL)
+	// make a copy of the site off of the bundled resources for release
+	TXString resRoot = TXString(DefaultPluginVWRIdentifier()) + "/" + htmlFolderName + "/";
+	VectorWorks::Filing::IFolderIdentifierPtr	rootFolder( VectorWorks::Filing::IID_FolderIdentifier );
+	rootFolder->Set( kExternalDataFolder, true, resRoot );
+	rootFolder->CreateOnDisk();
+
+	VectorWorks::Filing::IFolderIdentifierPtr outputFolderID;
+	VectorWorks::Filing::IFileIdentifierPtr	outputFileID( VectorWorks::Filing::IID_FileIdentifier );
+	VectorWorks::Filing::IRawOSFilePtr outputRawFile( VectorWorks::Filing::IID_RawOSFile );
+
+	gSDK->EnumerateVWResources( resRoot, true, [&](const TXString& resourceIdentifier) {
+		TXResource	res( resourceIdentifier );
+
+		TXString fileName = resourceIdentifier.Mid( resRoot.GetLength() );
+		outputFileID->Set( rootFolder, fileName );
+
+		outputFileID->GetFolder( & outputFolderID );
+		outputFolderID->CreateOnDisk();
+
+		outputRawFile->Open( outputFileID, false, true, false, true );
+		outputRawFile->Write( 0, res.Size(), res.Buffer() );
+		outputRawFile->Close();
+
+		if ( fileName.Right(htmlFile.GetLength()) == htmlFile )
+			outputFileID->GetFileFullPath( fileFullPath );
+	});
+
+	bool exist = false;
+	outputFileID->ExistsOnDisk( exist );
+	DSTOPIF(!exist, (kVStanev, "Web-palette required web-file cannot be found for the patched up Debug build. Make sure the list is correct if you use the non-default VWExtensionWebPalette, or consult with Vlado!"));
+#else
+	// the debug versions use schortcut for the resource
+	// we want to use that so we can use the site we are developing to make direct changes, instead of a copy
+	VectorWorks::Filing::IFileIdentifierPtr	outputFileID( VectorWorks::Filing::IID_FileIdentifier );
+#ifdef _WINDOWS
+	outputFileID->Set( kExternalsFolder, false, TXString("_WebPaletteExample/")+TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
+#else
+	outputFileID->Set( kExternalsFolder, false, TXString("_WebPaletteExample/")+TXString(DefaultPluginVWRIdentifier())+".vwlibrary/Contents/Resources/" + TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
+#endif
+	IPathResolverPtr resolver( IID_PathResolver );
+	VCOMError err = resolver->ResolveN( outputFileID );
+
+	outputFileID->GetFileFullPath( fileFullPath );
+
+	bool exist = false;
+	outputFileID->ExistsOnDisk( exist );
+	DSTOPIF(!exist, (kVStanev, "Web-palette required web-file cannot be found for the patched up Debug build. Make sure the list is correct if you use the non-default VWExtensionWebPalette, or consult with Vlado!"));
+#endif
+
+	// For development purposes, you can provide an override URL in DevSettings_<VWR Identifier>.vwr placed in the user's folder
+	TXString urlOverride = TXResource( TXString("DevSettings_") + TXString(DefaultPluginVWRIdentifier()) + "/Strings/settings.vwstrings", htmlFile, eAllowEmptyResult );
+
+	TXString url;
+	if ( urlOverride.IsEmpty() )
+	{
+		url = TXString("file://") + fileFullPath;
+	}
+	else
+	{
+		// URL provided by override for development purposes
+		if ( urlOverride.Left(7) != "http://" && urlOverride.Left(7) != "file://" && urlOverride.Left(8) != "https://" )
+			url = TXString("file://") + urlOverride;
+		else
+			url = urlOverride;
+	}
+
+	return url;
+}
+
 // This is practically the same implementation as "VWFC::PluginSupport::GetStandardURL"
 // But we must do it because we use RELEASE SDK which doesn't give us URL to the local index.html in the resources in DEBUG
 TXString CExtWebPaletteExample::GetInitialURL()
@@ -151,7 +227,7 @@ TXString CExtWebPaletteExample::GetInitialURL()
 	// Change those if your front-end is in a different folder and file
 	const TXString	htmlFolderName	= "html";
 	const TXString	htmlFile		= "index.html";
-	return VWFC::PluginSupport::GetStandardURL( htmlFolderName, htmlFile );
+	return Custom_GetStandardURL( htmlFolderName, htmlFile );
 }
 
 // --------------------------------------------------------------------------------------------------------

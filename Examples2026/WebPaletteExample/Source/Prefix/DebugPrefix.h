@@ -7,6 +7,7 @@
 // Mac precompile header for DEBUG that is using the RELEASE version of the SDK
 
 #define RELEASE_BLD
+#define DEBUG_EXTERNAL
 
 #include "CommonPrefix.h"
 

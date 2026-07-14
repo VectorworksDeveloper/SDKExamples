@@ -15,9 +15,8 @@ window.setVectorworksThemeCallback((isDark) => {
 // Vectorworks SDK 2025 we use IInitContext::AddReourceAccessFunction in our CPaletteJSProvider::OnInit
 // then we can access any resources from the .vwr file
 vwAPI.getResource('Strings/html.vwstrings')
-.then( (txt) =>
+.then( (arr) =>
 	{
-		let arr = JSON.parse(txt);
 		document.trans = (str) => {
 			return arr[str] ?? str + '_LOCALIZE';
 		}
