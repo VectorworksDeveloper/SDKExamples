@@ -101,6 +101,20 @@ This will instruct the VisualStudio to execute Vectorworks.exe for the debug set
 
 ## Xcode
 
+You will need to setup Vectorworks' entitlements for the Xcode to be able to debug it. Your plugin is loaded by Vectorworks app so Xcode is effectively debugging it via the app.
+
+Vectorworks doesn't ship with entitlements that allow this, but you can update them. You ad-hoc re-sign the Vectorworks app, with the "entitlements.xml" file saved next to the application.
+
+* Recommended is to do this work in a work folder under your user profile, with the Vectorworks build in it, as opposed to under /Applications.
+  * We'll assume it's in `/Users/$USER/work/Vectorworks\ 2026`, so you would have the app at: `/Users/$USER/work/Vectorworks\ 2026/Vectorworks\ 2026.app`
+  * Feel free to change the structure, but Apple does some weird things with folders such as the `Desktop`, `/Applications`, `Downloads`, etc that may interfere with debugging.
+* Put the [xcode_debug_entitlements.xml](VectorworksSDK/xcode_debug_entitlements.xml) file next to the app in  `/Users/$USER/work/Vectorworks\ 2026`
+* Open terminal, change directory to the Vectorworks root folder (e.g., `cd /Users/$USER/work/Vectorworks\ 2026`).
+* Run the following command which re-codesigns Vectorworks, applying the new entitlements (including :
+  ```
+  codesign --entitlements xcode_debug_entitlements.xml -f -s "-" --options runtime Vectorworks\ 2026.app
+  ```
+
 From the Xcode menu, select Product -> Scheme -> Edit Scheme... menu command. Then on the 'Run' pane, open up the 'Executable' popup  and choose 'Other...' which will allow selection of an application that will be used for debugging.
 
 
@@ -129,6 +143,8 @@ Some common issues which have been encountered are documented here.
 	
 6. File StdAfx.h not found after cleaning build files. 
 	* Solution: Ignore it! When you build and run the project, this error will disappear.
+
+7. Xcode cannot attach to the Vectorworks.app - make sure you have the entitlements correctly installed.
 
 ### Common Windows 10 Issues
 1. If you change any file paths around, please keep in mind that you may have to edit some of the file paths inside of the Properties pane. If you decide to edit file paths, ensure that if you make changes to the Debug configuration, make those same changes to the Release configuration. You can minimize the amount of individual changes you’ll have to make by making these changes under the All Configurations option in the Configuration drop-down menu by the top of the Properties pane. You may also have to manually edit the project file itself in a text editor.
