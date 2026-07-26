@@ -186,9 +186,11 @@ static TXString Custom_GetStandardURL(const TXString& htmlFolderName, const TXSt
 	// we want to use that so we can use the site we are developing to make direct changes, instead of a copy
 	VectorWorks::Filing::IFileIdentifierPtr	outputFileID( VectorWorks::Filing::IID_FileIdentifier );
 #ifdef _WINDOWS
-	outputFileID->Set( kExternalsFolder, false, TXString("_WebPaletteExample/")+TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
+	// Replace _WebPaletteExample with the name of your Shortcut
+	outputFileID->Set( kAppDataFolder, false, TXString("Plug-Ins/_WebPaletteExample/")+TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
 #else
-	outputFileID->Set( kExternalsFolder, false, TXString("_WebPaletteExample/")+TXString(DefaultPluginVWRIdentifier())+".vwlibrary/Contents/Resources/" + TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
+	// Replace _WebPaletteExample with the name of your Alias
+	outputFileID->Set( kAppDataFolder, false, TXString("Plug-Ins/_WebPaletteExample/")+TXString(DefaultPluginVWRIdentifier())+".vwlibrary/Contents/Resources/" + TXString(DefaultPluginVWRIdentifier())+".vwr/" + htmlFolderName + "/" + htmlFile );
 #endif
 	IPathResolverPtr resolver( IID_PathResolver );
 	VCOMError err = resolver->ResolveN( outputFileID );
