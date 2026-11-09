@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c794444c-5db5-475d-9131-5780fefb700c}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{7125fc9a-2a9a-4498-bcf5-98b60472b7b7}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="DefaultTools.vwr">
+      <UniqueIdentifier>{d7de226e-0717-4353-89d2-790b1e51e346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DefaultTools.vwr\Images">
+      <UniqueIdentifier>{43d15a7d-41e9-492c-97b2-4a4bcaa5cc7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DefaultTools.vwr\Strings">
+      <UniqueIdentifier>{7345b3f9-f1a5-4bb4-b7ab-5acdf0e98075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CustomDefaultTools">
+      <UniqueIdentifier>{442db97f-b048-42bb-b799-6c61c5ce52c3}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\DefaultTools">
+      <UniqueIdentifier>{585b7285-c5c8-447d-a0e5-8f0b4de80121}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DefaultTools\ExtObjThePoint.cpp">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DefaultTools\ExtObjThePoly2D.cpp">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DefaultTools\ExtObjThePoly3D.cpp">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DefaultTools\ExtObjTheRect.cpp">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DefaultTools\ExtObjTheLine.cpp">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CustomDefaultTools\ExtObjTheLineEx.cpp">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CustomDefaultTools\ExtObjThePointEx.cpp">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CustomDefaultTools\ExtObjThePoly2DEx.cpp">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CustomDefaultTools\ExtObjThePoly3DEx.cpp">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CustomDefaultTools\ExtObjTheRectEx.cpp">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DefaultTools\ExtObjTheLine.h">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DefaultTools\ExtObjThePoint.h">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DefaultTools\ExtObjThePoly2D.h">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DefaultTools\ExtObjThePoly3D.h">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DefaultTools\ExtObjTheRect.h">
+      <Filter>Source Files\DefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CustomDefaultTools\ExtObjTheLineEx.h">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CustomDefaultTools\ExtObjThePointEx.h">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CustomDefaultTools\ExtObjThePoly2DEx.h">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CustomDefaultTools\ExtObjThePoly3DEx.h">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CustomDefaultTools\ExtObjTheRectEx.h">
+      <Filter>Source Files\CustomDefaultTools</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DefaultTools.vwr\Images\ExtObjThePoly2DDefTool.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\ExtObjThePoly3DDefTool.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\ExtObjTheRectDefTool.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\SampleToolButtonA.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\SampleToolButtonB.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\SampleToolButtonC.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\ExtObjTheLineDefTool.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+    <Image Include="DefaultTools.vwr\Images\ExtObjThePointDefTool.png">
+      <Filter>DefaultTools.vwr\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DefaultTools.vwr\Strings\ExtObjTheLine.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjThePoint.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjThePoly2D.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjThePoly3D.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjTheRect.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjTheLineEx.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjThePointEx.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjThePoly2DEx.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjThePoly3DEx.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+    <None Include="DefaultTools.vwr\Strings\ExtObjTheRectEx.vwstrings">
+      <Filter>DefaultTools.vwr\Strings</Filter>
+    </None>
+  </ItemGroup>
+</Project>

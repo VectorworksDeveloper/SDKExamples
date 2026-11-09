@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Label="ToolsetLock">
+    <VCToolsVersion>14.16.27023</VCToolsVersion>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3996957B-AA5F-4F5E-A4E6-27B587F76DC4}</ProjectGuid>
+    <RootNamespace>SDKSamplesEnergy</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <BranchPath>.$(ProjectDir)\..\..\..\..\..</BranchPath>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\SDKLib\Include\OnlyWin\NNA_PluginBuild_DEBUG.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\SDKLib\Include\OnlyWin\NNA_PluginBuild_RELEASE.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\..\..\Output\Plug-Ins\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\..\..\Output\Build\D\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\..\..\Output\Plug-Ins\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\..\..\Output\Build\R\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PostBuildEvent>
+      <Command>REM VWR Resource build script
+set VWR_INPUT=$(ProjectDir)$(TargetName).vwr
+set VWR_OUTPUT=$(TargetDir)$(TargetName).vwr
+set VWR_MODE=$(Configuration)
+set VWR_7ZCMD=$(ProjectDir)..\..\..\SDKLib\ToolsWin\BuildVWR\7z
+"$(ProjectDir)..\..\..\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
+    </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\Source\Prefix;.\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;DEV_BLD;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SmallerTypeCheck>true</SmallerTypeCheck>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VWSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\Output\LibWin\$(Configuration);$(ProjectDir)..\..\..\..\Output\SDK\$(Configuration);$(ProjectDir)..\..\..\..\Output\LibWinThirdParty\$(Configuration);$(ProjectDir)..\..\..\..\Output\LibWinThirdParty;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PostBuildEvent>
+      <Command>REM VWR Resource build script
+set VWR_INPUT=$(ProjectDir)$(TargetName).vwr
+set VWR_OUTPUT=$(TargetDir)$(TargetName).vwr
+set VWR_MODE=$(Configuration)
+set VWR_7ZCMD=$(ProjectDir)..\..\..\SDKLib\ToolsWin\BuildVWR\7z
+"$(ProjectDir)..\..\..\SDKLib\ToolsWin\BuildVWR\buildvwr.exe"</Command>
+    </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\Source\Prefix;.\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_WIN_EXTERNAL_;RELEASE_BLD;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>$(IntDir)\StdAfx.h</PrecompiledHeaderOutputFile>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>VWSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\Output\LibWin\$(Configuration);$(ProjectDir)..\..\..\..\Output\SDK\$(Configuration);$(ProjectDir)..\..\..\..\Output\LibWinThirdParty\$(Configuration);$(ProjectDir)..\..\..\..\Output\LibWinThirdParty</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\DemoSpace\Data\SpaceEnergyData.cpp" />
+    <ClCompile Include="Source\DemoSpace\DemoSpaceObject.cpp" />
+    <ClCompile Include="Source\DemoSpace\ExtObjDemoSpace.cpp" />
+    <ClCompile Include="Source\DemoSpace\ExtObjDemoSpace_ShapePane.cpp" />
+    <ClCompile Include="Source\DemoSpace\UI\DlgSpaceSettings.cpp" />
+    <ClCompile Include="Source\DemoSystem\ExtObjDemoSystem.cpp" />
+    <ClCompile Include="Source\DemoSystem\ExtObjDemoSystem_ShapePane.cpp" />
+    <ClCompile Include="Source\DemoSystem\SystemObject.cpp" />
+    <ClCompile Include="Source\DemoSystem\UI\DlgSysObjEditParam.cpp" />
+    <ClCompile Include="Source\DemoSystem\UI\DlgSystemObjPrefs.cpp" />
+    <ClCompile Include="Source\DemoWindow\Data\WindowEnergyData.cpp" />
+    <ClCompile Include="Source\DemoWindow\ExtObjDemoWindow.cpp" />
+    <ClCompile Include="Source\DemoWindow\ExtObjDemoWindow_ShapePane.cpp" />
+    <ClCompile Include="Source\DemoWindow\UI\DlgWindowSettings.cpp" />
+    <ClCompile Include="Source\DemoWindow\WindowObject.cpp" />
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\SDKSamplesEnergy_ModuleMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\DemoSpace\Data\SpaceEnergyData.h" />
+    <ClInclude Include="Source\DemoSpace\DemoSpaceObject.h" />
+    <ClInclude Include="Source\DemoSpace\ExtObjDemoSpace.h" />
+    <ClInclude Include="Source\DemoSpace\ExtObjDemoSpace_ShapePane.h" />
+    <ClInclude Include="Source\DemoSpace\UI\DlgSpaceSettings.h" />
+    <ClInclude Include="Source\DemoSystem\ExtObjDemoSystem.h" />
+    <ClInclude Include="Source\DemoSystem\ExtObjDemoSystem_ShapePane.h" />
+    <ClInclude Include="Source\DemoSystem\SystemObject.h" />
+    <ClInclude Include="Source\DemoSystem\UI\DlgSysObjEditParam.h" />
+    <ClInclude Include="Source\DemoSystem\UI\DlgSystemObjPrefs.h" />
+    <ClInclude Include="Source\DemoWindow\Data\WindowEnergyData.h" />
+    <ClInclude Include="Source\DemoWindow\ExtObjDemoWindow.h" />
+    <ClInclude Include="Source\DemoWindow\ExtObjDemoWindow_ShapePane.h" />
+    <ClInclude Include="Source\DemoWindow\UI\DlgWindowSettings.h" />
+    <ClInclude Include="Source\DemoWindow\WindowObject.h" />
+    <ClInclude Include="Source\Prefix\CommonPrefix.h" />
+    <ClInclude Include="Source\Prefix\StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgSpaceSettings.vs" />
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgSysObjEditParam.vs" />
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgSystemObjPrefs.vs" />
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgWindowSettings.vs" />
+    <None Include="SDKSamplesEnergy.vwr\Strings\DlgSpaceSettings.vwstrings" />
+    <None Include="SDKSamplesEnergy.vwr\Strings\DlgWindowSettings.vwstrings" />
+    <None Include="SDKSamplesEnergy.vwr\Strings\ExtObjDemoSpace.vwstrings" />
+    <None Include="SDKSamplesEnergy.vwr\Strings\ExtObjDemoSystem.vwstrings" />
+    <None Include="SDKSamplesEnergy.vwr\Strings\ExtObjDemoWindow.vwstrings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="SDKSamplesEnergy.vwr\Images\ExtObjDemoSpaceDefTool.png" />
+    <Image Include="SDKSamplesEnergy.vwr\PNG\ExtObjDemoWindowDefTool.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\..\SDKLib\Include\OnlyWin\NNA_BuildInstrumentation_ALL.targets" />
+  </ImportGroup>
+</Project>

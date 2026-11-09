@@ -1,0 +1,62 @@
+GCC_TREAT_WARNINGS_AS_ERRORS                = NO
+GCC_WARN_TYPECHECK_CALLS_TO_PRINTF          = YES
+GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED    = YES
+GCC_WARN_MISSING_PARENTHESES                = YES
+GCC_WARN_ABOUT_RETURN_TYPE                  = YES
+GCC_WARN_CHECK_SWITCH_STATEMENTS            = YES
+GCC_WARN_UNUSED_VARIABLE                    = YES
+GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS         = YES
+GCC_WARN_SIGN_COMPARE                       = NO
+GCC_WARN_PROTOTYPE_CONVERSION               = NO
+
+GCC_WARN_NON_VIRTUAL_DESTRUCTOR             = YES
+GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS           = YES
+GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO       = NO
+
+GCC_WARN_UNUSED_PARAMETER                   = NO
+GCC_WARN_UNUSED_VALUE                       = NO
+GCC_WARN_UNKNOWN_PRAGMAS                    = NO
+GCC_WARN_UNUSED_FUNCTION                    = NO
+GCC_WARN_UNUSED_LABEL                       = NO
+GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS         = YES
+GCC_WARN_UNUSED_FUNCTION                    = YES
+CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION	= YES
+GCC_WARN_64_TO_32_BIT_CONVERSION			= YES
+
+WARNING_CFLAGS = -Wendif-labels -Wno-multichar -Wno-conversion -Wno-invalid-source-encoding -Wno-int-to-pointer-cast -Wno-unused-const-variable -Wno-inconsistent-missing-override -Wdelete-non-virtual-dtor -Wno-documentation
+WARNING_LDFLAGS = -multiply_defined suppress
+
+// This section is comprised of flags that govern the compilation
+// of the application, with respect to additional observed warnings
+// that are enforced for application stability. These flags are
+// intended to be observed globally. The flags may be overridden
+// on a per-project/per-file basis as necessary in order to permit
+// successful project compilation, but such modifications should
+// only be enacted in order to resolve compilation problems with
+// included third-party source code.
+//
+// -Wpartial-availability:
+//  A project deployment target can be specified to be a
+//  MacOS X version that is earlier than that of the Base
+//  SDK. Typically, when a method is invoked that originates
+//  in an SDK version higher than that of MacOS version being
+//  executed on the host machine, the application may crash.
+//  This flag instructs the compiler to emit a warning when
+//  a class/method, constant, etc. that is defined in an
+//  SDK version higher than the deployment target is present
+//  within the code. (Introduced in Xcode 7.3)
+//
+// -Werror=partial-availability:
+//  Results in partial availability warnings being treated as
+//  errors, ensuring that the code cannot be compiled in a
+//  manner that would result in an application crash if an
+//  SDK method is invoked that originates in an SDK version
+//  higher than that of the MacOS version being executed on
+//  the host machine.
+//
+// -Wno-unknown-warning-option:
+//  Suppress unknown warning option warnings (used to suppress
+//  partial availability warnings, until the standard Xcode
+//  development version becomes 7.3 or greater, at which time
+//  this option should be removed). [AAO, 4-26-2016]
+NNA_WARNING_CPLUSPLUSFLAGS = -Wpartial-availability -Werror=partial-availability -Wno-unknown-warning-option

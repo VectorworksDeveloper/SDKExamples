@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81494D9C09DA588C006864FB /* ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81494D9A09DA588C006864FB /* ModuleMain.cpp */; };
+		86183D7C1379B01900809D46 /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86183D761379AFEE00809D46 /* VWMM.framework */; };
+		8695EEA418C504B100CED049 /* ExtObjTheLineEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE8F18C504B100CED049 /* ExtObjTheLineEx.cpp */; };
+		8695EEA518C504B100CED049 /* ExtObjThePointEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9118C504B100CED049 /* ExtObjThePointEx.cpp */; };
+		8695EEA618C504B100CED049 /* ExtObjThePoly2DEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9318C504B100CED049 /* ExtObjThePoly2DEx.cpp */; };
+		8695EEA718C504B100CED049 /* ExtObjThePoly3DEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9518C504B100CED049 /* ExtObjThePoly3DEx.cpp */; };
+		8695EEA818C504B100CED049 /* ExtObjTheRectEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9718C504B100CED049 /* ExtObjTheRectEx.cpp */; };
+		8695EEA918C504B100CED049 /* ExtObjTheLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9A18C504B100CED049 /* ExtObjTheLine.cpp */; };
+		8695EEAA18C504B100CED049 /* ExtObjThePoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9C18C504B100CED049 /* ExtObjThePoint.cpp */; };
+		8695EEAB18C504B100CED049 /* ExtObjThePoly2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EE9E18C504B100CED049 /* ExtObjThePoly2D.cpp */; };
+		8695EEAC18C504B100CED049 /* ExtObjThePoly3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EEA018C504B100CED049 /* ExtObjThePoly3D.cpp */; };
+		8695EEAD18C504B100CED049 /* ExtObjTheRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8695EEA218C504B100CED049 /* ExtObjTheRect.cpp */; };
+		9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92347A560992C4AA00FCBD91 /* SafeMemory.cpp */; };
+		928E894215795E480021D3C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928E894115795E480021D3C7 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		6595D7591802A3B000DC6575 /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
+		6595D75A1802A3B000DC6575 /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = "<group>"; };
+		6595D75B1802A3B000DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
+		6595D75C1802A3B000DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
+		81494D9109DA57F4006864FB /* Module-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = "Module-Info.plist"; path = "QuickTime Resources/Module-Info.plist"; sourceTree = "<group>"; };
+		81494D9309DA5867006864FB /* CommonPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CommonPrefix.h; path = Source/Prefix/CommonPrefix.h; sourceTree = "<group>"; };
+		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
+		81494D9609DA5867006864FB /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = Source/Prefix/StdAfx.h; sourceTree = "<group>"; };
+		81494D9909DA5880006864FB /* DebugPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DebugPrefix.h; path = Source/Prefix/DebugPrefix.h; sourceTree = "<group>"; };
+		81494D9A09DA588C006864FB /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = "<group>"; };
+		81494D9E09DA5892006864FB /* PluginResource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PluginResource.h; path = "QuickTime Resources/PluginResource.h"; sourceTree = "<group>"; };
+		86183D761379AFEE00809D46 /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../../SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
+		8695EE8F18C504B100CED049 /* ExtObjTheLineEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjTheLineEx.cpp; sourceTree = "<group>"; };
+		8695EE9018C504B100CED049 /* ExtObjTheLineEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjTheLineEx.h; sourceTree = "<group>"; };
+		8695EE9118C504B100CED049 /* ExtObjThePointEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjThePointEx.cpp; sourceTree = "<group>"; };
+		8695EE9218C504B100CED049 /* ExtObjThePointEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjThePointEx.h; sourceTree = "<group>"; };
+		8695EE9318C504B100CED049 /* ExtObjThePoly2DEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjThePoly2DEx.cpp; sourceTree = "<group>"; };
+		8695EE9418C504B100CED049 /* ExtObjThePoly2DEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjThePoly2DEx.h; sourceTree = "<group>"; };
+		8695EE9518C504B100CED049 /* ExtObjThePoly3DEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjThePoly3DEx.cpp; sourceTree = "<group>"; };
+		8695EE9618C504B100CED049 /* ExtObjThePoly3DEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjThePoly3DEx.h; sourceTree = "<group>"; };
+		8695EE9718C504B100CED049 /* ExtObjTheRectEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjTheRectEx.cpp; sourceTree = "<group>"; };
+		8695EE9818C504B100CED049 /* ExtObjTheRectEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjTheRectEx.h; sourceTree = "<group>"; };
+		8695EE9A18C504B100CED049 /* ExtObjTheLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjTheLine.cpp; sourceTree = "<group>"; };
+		8695EE9B18C504B100CED049 /* ExtObjTheLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjTheLine.h; sourceTree = "<group>"; };
+		8695EE9C18C504B100CED049 /* ExtObjThePoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjThePoint.cpp; sourceTree = "<group>"; };
+		8695EE9D18C504B100CED049 /* ExtObjThePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjThePoint.h; sourceTree = "<group>"; };
+		8695EE9E18C504B100CED049 /* ExtObjThePoly2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjThePoly2D.cpp; sourceTree = "<group>"; };
+		8695EE9F18C504B100CED049 /* ExtObjThePoly2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjThePoly2D.h; sourceTree = "<group>"; };
+		8695EEA018C504B100CED049 /* ExtObjThePoly3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjThePoly3D.cpp; sourceTree = "<group>"; };
+		8695EEA118C504B100CED049 /* ExtObjThePoly3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjThePoly3D.h; sourceTree = "<group>"; };
+		8695EEA218C504B100CED049 /* ExtObjTheRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjTheRect.cpp; sourceTree = "<group>"; };
+		8695EEA318C504B100CED049 /* ExtObjTheRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjTheRect.h; sourceTree = "<group>"; };
+		9216EA3E09D88959007B8710 /* DefaultTools.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DefaultTools.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
+		92347A560992C4AA00FCBD91 /* SafeMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SafeMemory.cpp; path = ../../../SDKLib/Include/OnlyMac/Memory/SafeMemory.cpp; sourceTree = SOURCE_ROOT; };
+		928E894115795E480021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86183D7B1379B01400809D46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86183D7C1379B01900809D46 /* VWMM.framework in Frameworks */,
+				928E894215795E480021D3C7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9216EA3E09D88959007B8710 /* DefaultTools.vwlibrary */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				6595D7591802A3B000DC6575 /* NNA_PluginBuild Debug 64.xcconfig */,
+				6595D75A1802A3B000DC6575 /* NNA_PluginBuild Debug.xcconfig */,
+				6595D75B1802A3B000DC6575 /* NNA_PluginBuild Release 64.xcconfig */,
+				6595D75C1802A3B000DC6575 /* NNA_PluginBuild Release.xcconfig */,
+				08FB77ACFE841707C02AAC07 /* Source */,
+				81494D9D09DA5892006864FB /* Resources */,
+				92AE011C1333F7C800DFB264 /* QuickTime Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+			);
+			name = SampleObject;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				928E894115795E480021D3C7 /* Cocoa.framework */,
+				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
+				86183D761379AFEE00809D46 /* VWMM.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ACFE841707C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8695EE8E18C504B100CED049 /* CustomDefaultTools */,
+				8695EE9918C504B100CED049 /* DefaultTools */,
+				81494D9209DA5867006864FB /* Prefix */,
+				92347A560992C4AA00FCBD91 /* SafeMemory.cpp */,
+				81494D9A09DA588C006864FB /* ModuleMain.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		81494D9209DA5867006864FB /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9309DA5867006864FB /* CommonPrefix.h */,
+				81494D9909DA5880006864FB /* DebugPrefix.h */,
+				81494D9509DA5867006864FB /* ReleasePrefix.h */,
+				81494D9609DA5867006864FB /* StdAfx.h */,
+			);
+			name = Prefix;
+			sourceTree = "<group>";
+		};
+		81494D9D09DA5892006864FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8695EE8E18C504B100CED049 /* CustomDefaultTools */ = {
+			isa = PBXGroup;
+			children = (
+				8695EE8F18C504B100CED049 /* ExtObjTheLineEx.cpp */,
+				8695EE9018C504B100CED049 /* ExtObjTheLineEx.h */,
+				8695EE9118C504B100CED049 /* ExtObjThePointEx.cpp */,
+				8695EE9218C504B100CED049 /* ExtObjThePointEx.h */,
+				8695EE9318C504B100CED049 /* ExtObjThePoly2DEx.cpp */,
+				8695EE9418C504B100CED049 /* ExtObjThePoly2DEx.h */,
+				8695EE9518C504B100CED049 /* ExtObjThePoly3DEx.cpp */,
+				8695EE9618C504B100CED049 /* ExtObjThePoly3DEx.h */,
+				8695EE9718C504B100CED049 /* ExtObjTheRectEx.cpp */,
+				8695EE9818C504B100CED049 /* ExtObjTheRectEx.h */,
+			);
+			name = CustomDefaultTools;
+			path = Source/CustomDefaultTools;
+			sourceTree = "<group>";
+		};
+		8695EE9918C504B100CED049 /* DefaultTools */ = {
+			isa = PBXGroup;
+			children = (
+				8695EE9A18C504B100CED049 /* ExtObjTheLine.cpp */,
+				8695EE9B18C504B100CED049 /* ExtObjTheLine.h */,
+				8695EE9C18C504B100CED049 /* ExtObjThePoint.cpp */,
+				8695EE9D18C504B100CED049 /* ExtObjThePoint.h */,
+				8695EE9E18C504B100CED049 /* ExtObjThePoly2D.cpp */,
+				8695EE9F18C504B100CED049 /* ExtObjThePoly2D.h */,
+				8695EEA018C504B100CED049 /* ExtObjThePoly3D.cpp */,
+				8695EEA118C504B100CED049 /* ExtObjThePoly3D.h */,
+				8695EEA218C504B100CED049 /* ExtObjTheRect.cpp */,
+				8695EEA318C504B100CED049 /* ExtObjTheRect.h */,
+			);
+			name = DefaultTools;
+			path = Source/DefaultTools;
+			sourceTree = "<group>";
+		};
+		92AE011C1333F7C800DFB264 /* QuickTime Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9E09DA5892006864FB /* PluginResource.h */,
+				81494D9109DA57F4006864FB /* Module-Info.plist */,
+			);
+			name = "QuickTime Resources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9216EA3D09D88959007B8710 /* DefaultTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "DefaultTools" */;
+			buildPhases = (
+				9216EA3B09D88959007B8710 /* Sources */,
+				86183D7B1379B01400809D46 /* Frameworks */,
+				9216EA4C09D889C0007B8710 /* Rez */,
+				86619AC10A3A1618002FCD39 /* Validate and copy VWR */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DefaultTools;
+			productName = Untitled;
+			productReference = 9216EA3E09D88959007B8710 /* DefaultTools.vwlibrary */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "DefaultTools" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* SampleObject */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9216EA3D09D88959007B8710 /* DefaultTools */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXRezBuildPhase section */
+		9216EA4C09D889C0007B8710 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86619AC10A3A1618002FCD39 /* Validate and copy VWR */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Validate and copy VWR";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../../SDKLib/ToolsMac/BuildVWR/BuildVWR";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9216EA3B09D88959007B8710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8695EEA418C504B100CED049 /* ExtObjTheLineEx.cpp in Sources */,
+				8695EEAB18C504B100CED049 /* ExtObjThePoly2D.cpp in Sources */,
+				8695EEA518C504B100CED049 /* ExtObjThePointEx.cpp in Sources */,
+				8695EEAC18C504B100CED049 /* ExtObjThePoly3D.cpp in Sources */,
+				8695EEAA18C504B100CED049 /* ExtObjThePoint.cpp in Sources */,
+				8695EEA618C504B100CED049 /* ExtObjThePoly2DEx.cpp in Sources */,
+				8695EEA718C504B100CED049 /* ExtObjThePoly3DEx.cpp in Sources */,
+				9216EA5509D889F4007B8710 /* SafeMemory.cpp in Sources */,
+				8695EEA818C504B100CED049 /* ExtObjTheRectEx.cpp in Sources */,
+				8695EEAD18C504B100CED049 /* ExtObjTheRect.cpp in Sources */,
+				81494D9C09DA588C006864FB /* ModuleMain.cpp in Sources */,
+				8695EEA918C504B100CED049 /* ExtObjTheLine.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6595D75D1802A3CA00DC6575 /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D7591802A3B000DC6575 /* NNA_PluginBuild Debug 64.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include/Kernel,
+					../../../SDKLib/Include/OnlyMac,
+					../../../SDKLib/Include/Interfaces,
+					../../../SDKLib/Include/VWMM,
+					../../../SDKLib/Include,
+					./Source,
+					./Resources,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+			};
+			name = "Debug 64";
+		};
+		6595D75E1802A3CA00DC6575 /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = DefaultTools;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Debug 64";
+		};
+		6595D7601802A3D800DC6575 /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D75B1802A3B000DC6575 /* NNA_PluginBuild Release 64.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include/Kernel,
+					../../../SDKLib/Include/OnlyMac,
+					../../../SDKLib/Include/Interfaces,
+					../../../SDKLib/Include/VWMM,
+					../../../SDKLib/Include,
+					./Source,
+					./Resources,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+			};
+			name = "Release 64";
+		};
+		6595D7611802A3D800DC6575 /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = DefaultTools;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Release 64";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "DefaultTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D75D1802A3CA00DC6575 /* Debug 64 */,
+				6595D7601802A3D800DC6575 /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 64";
+		};
+		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "DefaultTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D75E1802A3CA00DC6575 /* Debug 64 */,
+				6595D7611802A3D800DC6575 /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 64";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

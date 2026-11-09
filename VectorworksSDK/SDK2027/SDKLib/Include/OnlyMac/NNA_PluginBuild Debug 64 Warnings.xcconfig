@@ -1,0 +1,18 @@
+//
+//  NNA_DWGBuild Debug 64 Warnings.xcconfig
+// 
+//
+//  Created by Tolu on 11/11/20.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "NNA_PluginBuild Debug 64.xcconfig"
+
+// This pulls in the WARNING_CFLAGS as defined in "NNA_PluginBuild Debug 64.xcconfig" and then 
+// appends -Wno-non-virtual-dtor to turn-off warnings about classes with virtual functions but 
+// no virtual dtor. Currently, this warnings config is only used by the Revit and DWG SDK 
+// projects in DEBUG
+//
+WARNING_CFLAGS = $(WARNING_CFLAGS) -Wno-non-virtual-dtor

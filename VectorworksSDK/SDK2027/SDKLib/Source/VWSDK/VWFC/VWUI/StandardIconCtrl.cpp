@@ -1,0 +1,29 @@
+//
+//	Copyright  Nemetschek Vectorworks, Inc.
+//	Use of this file is governed by the Nemetschek Vectorworks SDK License Agreement
+//	http://developer.vectorworks.net/index.php?title=Vectorworks_SDK_License
+//
+
+
+#include "StdHeaders.h"
+
+#include "VWFC/VWUI/StandardIconCtrl.h"
+
+
+using namespace VWFC::VWUI;
+using namespace VWFC::VWUI::VWControlType;
+
+VWStadanrdIconCtrl::VWStadanrdIconCtrl(TControlID id)
+: VWControl( id, {eCompIcon} )
+{
+}
+
+VWStadanrdIconCtrl::~VWStadanrdIconCtrl()
+{
+}
+
+bool VWStadanrdIconCtrl::CreateControl(VWDialog* pDlg, EStandardIconType icon)
+{
+	::GS_CreateStandardIconControl( gCBP, pDlg->GetControlID(), fControlID, (Sint32) icon );
+	return VWControl::CreateControl( pDlg );
+}

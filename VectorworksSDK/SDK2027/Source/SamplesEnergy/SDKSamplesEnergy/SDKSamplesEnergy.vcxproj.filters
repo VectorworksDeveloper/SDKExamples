@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SDKSamplesEnergy.vwr">
+      <UniqueIdentifier>{bf2689cf-3ed0-44bf-b105-370827706eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDKSamplesEnergy.vwr\Strings">
+      <UniqueIdentifier>{b1bcb89d-08fd-471f-bc8f-4e6ae7a0561e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2393a75a-883c-4d8d-ae5d-8bd03a766b9d}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{f31eda43-9c86-4d96-8c21-ceaac3fb81b1}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="SDKSamplesEnergy.vwr\DialogLayout">
+      <UniqueIdentifier>{5d2d92ee-313b-4bed-971f-c0d6de7a0cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoSpace">
+      <UniqueIdentifier>{cb60d702-1802-477f-a8bd-91fa3c57a7f5}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\DemoSpace\UI">
+      <UniqueIdentifier>{d7fa32ff-898d-46c5-be68-70c98535ea56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoSpace\Data">
+      <UniqueIdentifier>{2d371c21-afa7-4d24-b2d7-637723c6cc88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDKSamplesEnergy.vwr\Images">
+      <UniqueIdentifier>{6064d176-6e7b-47e4-827f-14cb4c026246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoWindow">
+      <UniqueIdentifier>{9f5b2187-fbe1-4f00-9d74-6b139cadcc24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoWindow\Data">
+      <UniqueIdentifier>{935995fe-573e-4db3-86b7-91422b96f9d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoWindow\UI">
+      <UniqueIdentifier>{9c71fd20-931b-4e8c-b1b4-123355bd6955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoSystem">
+      <UniqueIdentifier>{27ca5835-8bc6-4b30-a3c2-09d48de2f864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DemoSystem\UI">
+      <UniqueIdentifier>{cdae3991-0764-4f00-901d-63ae1d290d3d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\SDKSamplesEnergy_ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSpace\ExtObjDemoSpace_ShapePane.cpp">
+      <Filter>Source Files\DemoSpace</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSpace\ExtObjDemoSpace.cpp">
+      <Filter>Source Files\DemoSpace</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSpace\UI\DlgSpaceSettings.cpp">
+      <Filter>Source Files\DemoSpace\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSpace\Data\SpaceEnergyData.cpp">
+      <Filter>Source Files\DemoSpace\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSpace\DemoSpaceObject.cpp">
+      <Filter>Source Files\DemoSpace</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoWindow\ExtObjDemoWindow.cpp">
+      <Filter>Source Files\DemoWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoWindow\ExtObjDemoWindow_ShapePane.cpp">
+      <Filter>Source Files\DemoWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoWindow\UI\DlgWindowSettings.cpp">
+      <Filter>Source Files\DemoWindow\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoWindow\Data\WindowEnergyData.cpp">
+      <Filter>Source Files\DemoWindow\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoWindow\WindowObject.cpp">
+      <Filter>Source Files\DemoWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSystem\ExtObjDemoSystem.cpp">
+      <Filter>Source Files\DemoSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSystem\SystemObject.cpp">
+      <Filter>Source Files\DemoSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSystem\ExtObjDemoSystem_ShapePane.cpp">
+      <Filter>Source Files\DemoSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSystem\UI\DlgSysObjEditParam.cpp">
+      <Filter>Source Files\DemoSystem\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoSystem\UI\DlgSystemObjPrefs.cpp">
+      <Filter>Source Files\DemoSystem\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSpace\ExtObjDemoSpace.h">
+      <Filter>Source Files\DemoSpace</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSpace\ExtObjDemoSpace_ShapePane.h">
+      <Filter>Source Files\DemoSpace</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSpace\UI\DlgSpaceSettings.h">
+      <Filter>Source Files\DemoSpace\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSpace\Data\SpaceEnergyData.h">
+      <Filter>Source Files\DemoSpace\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSpace\DemoSpaceObject.h">
+      <Filter>Source Files\DemoSpace</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoWindow\ExtObjDemoWindow.h">
+      <Filter>Source Files\DemoWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoWindow\ExtObjDemoWindow_ShapePane.h">
+      <Filter>Source Files\DemoWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoWindow\UI\DlgWindowSettings.h">
+      <Filter>Source Files\DemoWindow\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoWindow\Data\WindowEnergyData.h">
+      <Filter>Source Files\DemoWindow\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoWindow\WindowObject.h">
+      <Filter>Source Files\DemoWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSystem\ExtObjDemoSystem.h">
+      <Filter>Source Files\DemoSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSystem\SystemObject.h">
+      <Filter>Source Files\DemoSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSystem\ExtObjDemoSystem_ShapePane.h">
+      <Filter>Source Files\DemoSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSystem\UI\DlgSysObjEditParam.h">
+      <Filter>Source Files\DemoSystem\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DemoSystem\UI\DlgSystemObjPrefs.h">
+      <Filter>Source Files\DemoSystem\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgSpaceSettings.vs">
+      <Filter>SDKSamplesEnergy.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\Strings\DlgSpaceSettings.vwstrings">
+      <Filter>SDKSamplesEnergy.vwr\Strings</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\Strings\ExtObjDemoSpace.vwstrings">
+      <Filter>SDKSamplesEnergy.vwr\Strings</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\Strings\ExtObjDemoWindow.vwstrings">
+      <Filter>SDKSamplesEnergy.vwr\Strings</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\Strings\DlgWindowSettings.vwstrings">
+      <Filter>SDKSamplesEnergy.vwr\Strings</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\Strings\ExtObjDemoSystem.vwstrings">
+      <Filter>SDKSamplesEnergy.vwr\Strings</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgSysObjEditParam.vs">
+      <Filter>SDKSamplesEnergy.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgSystemObjPrefs.vs">
+      <Filter>SDKSamplesEnergy.vwr\DialogLayout</Filter>
+    </None>
+    <None Include="SDKSamplesEnergy.vwr\DialogLayout\DlgWindowSettings.vs">
+      <Filter>SDKSamplesEnergy.vwr\DialogLayout</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="SDKSamplesEnergy.vwr\Images\ExtObjDemoSpaceDefTool.png">
+      <Filter>SDKSamplesEnergy.vwr\Images</Filter>
+    </Image>
+    <Image Include="SDKSamplesEnergy.vwr\PNG\ExtObjDemoWindowDefTool.png">
+      <Filter>SDKSamplesEnergy.vwr\Images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

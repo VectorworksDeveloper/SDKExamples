@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		567C9DBE1D215B0C009EF2C0 /* DlgResourcePopupComplex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567C9DB41D215B0C009EF2C0 /* DlgResourcePopupComplex.cpp */; };
+		567C9DBF1D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567C9DB61D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.cpp */; };
+		567C9DC01D215B0C009EF2C0 /* ExtObjResourcePopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567C9DB81D215B0C009EF2C0 /* ExtObjResourcePopup.cpp */; };
+		567C9DC11D215B0C009EF2C0 /* ExtToolResourcePopupComplex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567C9DBA1D215B0C009EF2C0 /* ExtToolResourcePopupComplex.cpp */; };
+		567C9DC21D215B0C009EF2C0 /* ExtToolResourcePopupSimple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567C9DBC1D215B0C009EF2C0 /* ExtToolResourcePopupSimple.cpp */; };
+		567C9DC51D215F3F009EF2C0 /* DlgResourcePopupSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 567C9DC31D215F3F009EF2C0 /* DlgResourcePopupSample.cpp */; };
+		655370041343858B00FE2D4A /* ExtMenuDyn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 655370021343858B00FE2D4A /* ExtMenuDyn.cpp */; };
+		862CCE791104CCC300B6CD02 /* ModuleMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862CCE701104CCC300B6CD02 /* ModuleMain.cpp */; };
+		8631FF011379C6F30027CA5C /* VWMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8631FEFC1379C6DB0027CA5C /* VWMM.framework */; };
+		864D9A1A20BEF44F00A0800F /* ExtMenuWebBrowser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 864D9A1820BEF44F00A0800F /* ExtMenuWebBrowser.cpp */; };
+		86D1E78D121D9A1900613626 /* ExtMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D1E785121D9A1900613626 /* ExtMenu.cpp */; };
+		86D1E78E121D9A1900613626 /* ExtObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D1E787121D9A1900613626 /* ExtObj.cpp */; };
+		86D1E78F121D9A1900613626 /* ExtTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D1E789121D9A1900613626 /* ExtTool.cpp */; };
+		86D1E790121D9A1900613626 /* ExtVSFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D1E78B121D9A1900613626 /* ExtVSFunc.cpp */; };
+		86DB504F13DDE9620097C1B0 /* AdvComplexReshape3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86DB504913DDE9620097C1B0 /* AdvComplexReshape3D.cpp */; };
+		86DB505013DDE9620097C1B0 /* AdvComplexShapePane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86DB504B13DDE9620097C1B0 /* AdvComplexShapePane.cpp */; };
+		86DB505113DDE9620097C1B0 /* ExtObjAdvComplex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86DB504D13DDE9620097C1B0 /* ExtObjAdvComplex.cpp */; };
+		928E895B15795E810021D3C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928E895A15795E810021D3C7 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		567C9DB41D215B0C009EF2C0 /* DlgResourcePopupComplex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DlgResourcePopupComplex.cpp; path = Source/ResourcePopup/DlgResourcePopupComplex.cpp; sourceTree = "<group>"; };
+		567C9DB51D215B0C009EF2C0 /* DlgResourcePopupComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgResourcePopupComplex.h; path = Source/ResourcePopup/DlgResourcePopupComplex.h; sourceTree = "<group>"; };
+		567C9DB61D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtObjResourcePopup_ShapePane.cpp; path = Source/ResourcePopup/ExtObjResourcePopup_ShapePane.cpp; sourceTree = "<group>"; };
+		567C9DB71D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtObjResourcePopup_ShapePane.h; path = Source/ResourcePopup/ExtObjResourcePopup_ShapePane.h; sourceTree = "<group>"; };
+		567C9DB81D215B0C009EF2C0 /* ExtObjResourcePopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtObjResourcePopup.cpp; path = Source/ResourcePopup/ExtObjResourcePopup.cpp; sourceTree = "<group>"; };
+		567C9DB91D215B0C009EF2C0 /* ExtObjResourcePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtObjResourcePopup.h; path = Source/ResourcePopup/ExtObjResourcePopup.h; sourceTree = "<group>"; };
+		567C9DBA1D215B0C009EF2C0 /* ExtToolResourcePopupComplex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtToolResourcePopupComplex.cpp; path = Source/ResourcePopup/ExtToolResourcePopupComplex.cpp; sourceTree = "<group>"; };
+		567C9DBB1D215B0C009EF2C0 /* ExtToolResourcePopupComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtToolResourcePopupComplex.h; path = Source/ResourcePopup/ExtToolResourcePopupComplex.h; sourceTree = "<group>"; };
+		567C9DBC1D215B0C009EF2C0 /* ExtToolResourcePopupSimple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtToolResourcePopupSimple.cpp; path = Source/ResourcePopup/ExtToolResourcePopupSimple.cpp; sourceTree = "<group>"; };
+		567C9DBD1D215B0C009EF2C0 /* ExtToolResourcePopupSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtToolResourcePopupSimple.h; path = Source/ResourcePopup/ExtToolResourcePopupSimple.h; sourceTree = "<group>"; };
+		567C9DC31D215F3F009EF2C0 /* DlgResourcePopupSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DlgResourcePopupSample.cpp; path = Source/ResourcePopup/DlgResourcePopupSample.cpp; sourceTree = "<group>"; };
+		567C9DC41D215F3F009EF2C0 /* DlgResourcePopupSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgResourcePopupSample.h; path = Source/ResourcePopup/DlgResourcePopupSample.h; sourceTree = "<group>"; };
+		655370021343858B00FE2D4A /* ExtMenuDyn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtMenuDyn.cpp; sourceTree = "<group>"; };
+		655370031343858B00FE2D4A /* ExtMenuDyn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtMenuDyn.h; sourceTree = "<group>"; };
+		6595D7961802ADB300DC6575 /* NNA_PluginBuild Debug 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug 64.xcconfig"; sourceTree = "<group>"; };
+		6595D7971802ADB300DC6575 /* NNA_PluginBuild Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Debug.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Debug.xcconfig"; sourceTree = "<group>"; };
+		6595D7981802ADB300DC6575 /* NNA_PluginBuild Release 64.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release 64.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release 64.xcconfig"; sourceTree = "<group>"; };
+		6595D7991802ADB300DC6575 /* NNA_PluginBuild Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "NNA_PluginBuild Release.xcconfig"; path = "../../../SDKLib/Include/OnlyMac/NNA_PluginBuild Release.xcconfig"; sourceTree = "<group>"; };
+		81494D9309DA5867006864FB /* CommonPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CommonPrefix.h; path = Source/Prefix/CommonPrefix.h; sourceTree = "<group>"; };
+		81494D9509DA5867006864FB /* ReleasePrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ReleasePrefix.h; path = Source/Prefix/ReleasePrefix.h; sourceTree = "<group>"; };
+		81494D9609DA5867006864FB /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = Source/Prefix/StdAfx.h; sourceTree = "<group>"; };
+		81494D9909DA5880006864FB /* DebugPrefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DebugPrefix.h; path = Source/Prefix/DebugPrefix.h; sourceTree = "<group>"; };
+		86213B831D21736B007BECFB /* TesterModule.vwr */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TesterModule.vwr; sourceTree = "<group>"; };
+		862CCE701104CCC300B6CD02 /* ModuleMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleMain.cpp; path = Source/ModuleMain.cpp; sourceTree = "<group>"; };
+		8631FEFC1379C6DB0027CA5C /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = ../../../SDKLib/LibMac/Release/VWMM.framework; sourceTree = SOURCE_ROOT; };
+		864D9A1820BEF44F00A0800F /* ExtMenuWebBrowser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtMenuWebBrowser.cpp; sourceTree = "<group>"; };
+		864D9A1920BEF44F00A0800F /* ExtMenuWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtMenuWebBrowser.h; sourceTree = "<group>"; };
+		86D1E785121D9A1900613626 /* ExtMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtMenu.cpp; sourceTree = "<group>"; };
+		86D1E786121D9A1900613626 /* ExtMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtMenu.h; sourceTree = "<group>"; };
+		86D1E787121D9A1900613626 /* ExtObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObj.cpp; sourceTree = "<group>"; };
+		86D1E788121D9A1900613626 /* ExtObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObj.h; sourceTree = "<group>"; };
+		86D1E789121D9A1900613626 /* ExtTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtTool.cpp; sourceTree = "<group>"; };
+		86D1E78A121D9A1900613626 /* ExtTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtTool.h; sourceTree = "<group>"; };
+		86D1E78B121D9A1900613626 /* ExtVSFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtVSFunc.cpp; sourceTree = "<group>"; };
+		86D1E78C121D9A1900613626 /* ExtVSFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtVSFunc.h; sourceTree = "<group>"; };
+		86DB504913DDE9620097C1B0 /* AdvComplexReshape3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdvComplexReshape3D.cpp; sourceTree = "<group>"; };
+		86DB504A13DDE9620097C1B0 /* AdvComplexReshape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvComplexReshape3D.h; sourceTree = "<group>"; };
+		86DB504B13DDE9620097C1B0 /* AdvComplexShapePane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdvComplexShapePane.cpp; sourceTree = "<group>"; };
+		86DB504C13DDE9620097C1B0 /* AdvComplexShapePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvComplexShapePane.h; sourceTree = "<group>"; };
+		86DB504D13DDE9620097C1B0 /* ExtObjAdvComplex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtObjAdvComplex.cpp; sourceTree = "<group>"; };
+		86DB504E13DDE9620097C1B0 /* ExtObjAdvComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtObjAdvComplex.h; sourceTree = "<group>"; };
+		9216EA3E09D88959007B8710 /* TesterModule.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TesterModule.vwlibrary; sourceTree = BUILT_PRODUCTS_DIR; };
+		928E895A15795E810021D3C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8631FF001379C6E40027CA5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8631FF011379C6F30027CA5C /* VWMM.framework in Frameworks */,
+				928E895B15795E810021D3C7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9216EA3E09D88959007B8710 /* TesterModule.vwlibrary */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				6595D7961802ADB300DC6575 /* NNA_PluginBuild Debug 64.xcconfig */,
+				6595D7971802ADB300DC6575 /* NNA_PluginBuild Debug.xcconfig */,
+				6595D7981802ADB300DC6575 /* NNA_PluginBuild Release 64.xcconfig */,
+				6595D7991802ADB300DC6575 /* NNA_PluginBuild Release.xcconfig */,
+				86213B831D21736B007BECFB /* TesterModule.vwr */,
+				08FB77ACFE841707C02AAC07 /* Source */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+			);
+			name = SampleObject;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				928E895A15795E810021D3C7 /* Cocoa.framework */,
+				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
+				8631FEFC1379C6DB0027CA5C /* VWMM.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ACFE841707C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				567C9DB31D215AEE009EF2C0 /* RecourcePopup */,
+				81494D9209DA5867006864FB /* Prefix */,
+				86DB504813DDE9620097C1B0 /* Advanced */,
+				86D1E784121D9A1900613626 /* TesterModule */,
+				862CCE701104CCC300B6CD02 /* ModuleMain.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		567C9DB31D215AEE009EF2C0 /* RecourcePopup */ = {
+			isa = PBXGroup;
+			children = (
+				567C9DB41D215B0C009EF2C0 /* DlgResourcePopupComplex.cpp */,
+				567C9DB51D215B0C009EF2C0 /* DlgResourcePopupComplex.h */,
+				567C9DC31D215F3F009EF2C0 /* DlgResourcePopupSample.cpp */,
+				567C9DC41D215F3F009EF2C0 /* DlgResourcePopupSample.h */,
+				567C9DB61D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.cpp */,
+				567C9DB71D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.h */,
+				567C9DB81D215B0C009EF2C0 /* ExtObjResourcePopup.cpp */,
+				567C9DB91D215B0C009EF2C0 /* ExtObjResourcePopup.h */,
+				567C9DBA1D215B0C009EF2C0 /* ExtToolResourcePopupComplex.cpp */,
+				567C9DBB1D215B0C009EF2C0 /* ExtToolResourcePopupComplex.h */,
+				567C9DBC1D215B0C009EF2C0 /* ExtToolResourcePopupSimple.cpp */,
+				567C9DBD1D215B0C009EF2C0 /* ExtToolResourcePopupSimple.h */,
+			);
+			name = RecourcePopup;
+			sourceTree = "<group>";
+		};
+		81494D9209DA5867006864FB /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				81494D9309DA5867006864FB /* CommonPrefix.h */,
+				81494D9909DA5880006864FB /* DebugPrefix.h */,
+				81494D9509DA5867006864FB /* ReleasePrefix.h */,
+				81494D9609DA5867006864FB /* StdAfx.h */,
+			);
+			name = Prefix;
+			sourceTree = "<group>";
+		};
+		86D1E784121D9A1900613626 /* TesterModule */ = {
+			isa = PBXGroup;
+			children = (
+				655370021343858B00FE2D4A /* ExtMenuDyn.cpp */,
+				655370031343858B00FE2D4A /* ExtMenuDyn.h */,
+				86D1E785121D9A1900613626 /* ExtMenu.cpp */,
+				86D1E786121D9A1900613626 /* ExtMenu.h */,
+				86D1E787121D9A1900613626 /* ExtObj.cpp */,
+				86D1E788121D9A1900613626 /* ExtObj.h */,
+				86D1E789121D9A1900613626 /* ExtTool.cpp */,
+				86D1E78A121D9A1900613626 /* ExtTool.h */,
+				86D1E78B121D9A1900613626 /* ExtVSFunc.cpp */,
+				86D1E78C121D9A1900613626 /* ExtVSFunc.h */,
+				864D9A1820BEF44F00A0800F /* ExtMenuWebBrowser.cpp */,
+				864D9A1920BEF44F00A0800F /* ExtMenuWebBrowser.h */,
+			);
+			name = TesterModule;
+			path = Source/TesterModule;
+			sourceTree = "<group>";
+		};
+		86DB504813DDE9620097C1B0 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				86DB504913DDE9620097C1B0 /* AdvComplexReshape3D.cpp */,
+				86DB504A13DDE9620097C1B0 /* AdvComplexReshape3D.h */,
+				86DB504B13DDE9620097C1B0 /* AdvComplexShapePane.cpp */,
+				86DB504C13DDE9620097C1B0 /* AdvComplexShapePane.h */,
+				86DB504D13DDE9620097C1B0 /* ExtObjAdvComplex.cpp */,
+				86DB504E13DDE9620097C1B0 /* ExtObjAdvComplex.h */,
+			);
+			name = Advanced;
+			path = Source/Advanced;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9216EA3D09D88959007B8710 /* TesterModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "TesterModule" */;
+			buildPhases = (
+				9216EA3B09D88959007B8710 /* Sources */,
+				8631FF001379C6E40027CA5C /* Frameworks */,
+				9216EA4C09D889C0007B8710 /* Rez */,
+				86619AC10A3A1618002FCD39 /* Validate and copy VWR */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TesterModule;
+			productName = Untitled;
+			productReference = 9216EA3E09D88959007B8710 /* TesterModule.vwlibrary */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "TesterModule" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* SampleObject */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9216EA3D09D88959007B8710 /* TesterModule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXRezBuildPhase section */
+		9216EA4C09D889C0007B8710 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86619AC10A3A1618002FCD39 /* Validate and copy VWR */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Validate and copy VWR";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo PROJECT_DIR = ${PROJECT_DIR}\nVWR_INPUT=${PROJECT_DIR}/${EXECUTABLE_NAME}.vwr\necho VWR_INPUT = ${VWR_INPUT}\nexport VWR_INPUT\nVWR_OUTPUT=${CODESIGNING_FOLDER_PATH}/Contents/Resources/${EXECUTABLE_NAME}.vwr\necho VWR_OUTPUT = ${VWR_OUTPUT}\nexport VWR_OUTPUT\nVWR_MODE=${CONFIGURATION}\necho VWR_MODE = ${VWR_MODE}\nexport VWR_MODE\n../../../SDKLib/ToolsMac/BuildVWR/BuildVWR";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9216EA3B09D88959007B8710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				567C9DC11D215B0C009EF2C0 /* ExtToolResourcePopupComplex.cpp in Sources */,
+				862CCE791104CCC300B6CD02 /* ModuleMain.cpp in Sources */,
+				86D1E78D121D9A1900613626 /* ExtMenu.cpp in Sources */,
+				86D1E78E121D9A1900613626 /* ExtObj.cpp in Sources */,
+				86D1E78F121D9A1900613626 /* ExtTool.cpp in Sources */,
+				567C9DC01D215B0C009EF2C0 /* ExtObjResourcePopup.cpp in Sources */,
+				567C9DC51D215F3F009EF2C0 /* DlgResourcePopupSample.cpp in Sources */,
+				86D1E790121D9A1900613626 /* ExtVSFunc.cpp in Sources */,
+				655370041343858B00FE2D4A /* ExtMenuDyn.cpp in Sources */,
+				86DB504F13DDE9620097C1B0 /* AdvComplexReshape3D.cpp in Sources */,
+				86DB505013DDE9620097C1B0 /* AdvComplexShapePane.cpp in Sources */,
+				567C9DC21D215B0C009EF2C0 /* ExtToolResourcePopupSimple.cpp in Sources */,
+				86DB505113DDE9620097C1B0 /* ExtObjAdvComplex.cpp in Sources */,
+				567C9DBF1D215B0C009EF2C0 /* ExtObjResourcePopup_ShapePane.cpp in Sources */,
+				864D9A1A20BEF44F00A0800F /* ExtMenuWebBrowser.cpp in Sources */,
+				567C9DBE1D215B0C009EF2C0 /* DlgResourcePopupComplex.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6595D7921802AD8200DC6575 /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D7961802ADB300DC6575 /* NNA_PluginBuild Debug 64.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include/Kernel,
+					../../../SDKLib/Include/OnlyMac,
+					../../../SDKLib/Include/Interfaces,
+					../../../SDKLib/Include/VWMM,
+					../../../SDKLib/Include,
+					./Source,
+					./Resources,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+			};
+			name = "Debug 64";
+		};
+		6595D7931802AD8200DC6575 /* Debug 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../SDKLib/LibMac/Release\"";
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = TesterModule;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Debug 64";
+		};
+		6595D7941802AD8700DC6575 /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6595D7981802ADB300DC6575 /* NNA_PluginBuild Release 64.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(SHORT_CONFIG)Prefix.h";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../SDKLib/Include/Kernel,
+					../../../SDKLib/Include/OnlyMac,
+					../../../SDKLib/Include/Interfaces,
+					../../../SDKLib/Include/VWMM,
+					../../../SDKLib/Include,
+					./Source,
+					./Resources,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../../../SDKLib/LibMac/$(SHORT_CONFIG)",
+					"../../../SDKLib/LibMac64/$(SHORT_CONFIG)",
+					"../../../../$(OUTPUT_NAME)/SDK/$(SHORT_CONFIG)",
+				);
+			};
+			name = "Release 64";
+		};
+		6595D7951802AD8700DC6575 /* Release 64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../SDKLib/LibMac/Release\"";
+				INFOPLIST_FILE = "./Source/Module-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+					"-lVWSDK",
+				);
+				PRODUCT_NAME = TesterModule;
+				WRAPPER_EXTENSION = "$(VW_LIBRARY_EXTENSION)";
+			};
+			name = "Release 64";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "TesterModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D7921802AD8200DC6575 /* Debug 64 */,
+				6595D7941802AD8700DC6575 /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 64";
+		};
+		9216EA4009D8895A007B8710 /* Build configuration list for PBXNativeTarget "TesterModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6595D7931802AD8200DC6575 /* Debug 64 */,
+				6595D7951802AD8700DC6575 /* Release 64 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug 64";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

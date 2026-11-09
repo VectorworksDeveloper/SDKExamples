@@ -1,0 +1,49 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <BIScriptDir>ToolsCommon\VectorWorksBuildScripts\build_timing</BIScriptDir>
+    <BIScriptName>build_timing_client.py</BIScriptName>
+    <BIScriptPath>$(BIScriptDir)\$(BIScriptName)</BIScriptPath>
+    <BIPythonPath>..\..\..\ToolsWin\Python27\python.exe</BIPythonPath>
+    <BIScriptCall>&quot;$(BIPythonPath)&quot; -B &quot;$(BIScriptName)&quot; &quot;$(ProjectName)&quot;</BIScriptCall>
+    <BI_LOCK_VAR Condition=" '$(BI_LOCK_VAR)' == '' ">0</BI_LOCK_VAR>
+  </PropertyGroup>
+
+  <Target Name="BuildInstrumentBegin" BeforeTargets="PreBuildEvent">
+    <Message Text="Build Instrumentation - Begin" Importance="High" />
+    <Exec Command="
+	cd &quot;$(BranchPath)&quot;
+	IF EXIST &quot;$(BIScriptPath)&quot; (
+		cd &quot;$(BIScriptDir)&quot;
+		IF NOT &quot;$(BI_LOCK_VAR)&quot; == &quot;0&quot; (
+			$(BIScriptCall) begin
+		)
+	)
+	cd &quot;$(MSBuildProjectDirectory)&quot;"/>
+  </Target>
+
+  <Target Name="BuildInstrumentPreLink" AfterTargets="ClCompile" BeforeTargets="Link">
+    <Message Text="Build Instrumentation - Prelink" Importance="High" />
+    <Exec Command="
+	cd &quot;$(BranchPath)&quot;
+	IF EXIST &quot;$(BIScriptPath)&quot; (
+		cd &quot;$(BIScriptDir)&quot;
+		IF NOT &quot;$(BI_LOCK_VAR)&quot; == &quot;0&quot; (
+			$(BIScriptCall) prelink
+		)
+	)
+	cd &quot;$(MSBuildProjectDirectory)&quot;"/>
+  </Target>
+
+  <Target Name="BuildInstrumentEnd" AfterTargets="PostBuildEvent">
+    <Message Text="Build Instrumentation - End" Importance="High" />
+    <Exec Command="
+	cd &quot;$(BranchPath)&quot;
+	IF EXIST &quot;$(BIScriptPath)&quot; (
+		cd &quot;$(BIScriptDir)&quot;
+		IF NOT &quot;$(BI_LOCK_VAR)&quot; == &quot;0&quot; (
+			$(BIScriptCall) end
+		)
+	)
+	cd &quot;$(MSBuildProjectDirectory)&quot;"/>
+  </Target>
+</Project>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{cde21ec0-e167-454e-b557-2c5a3706f3fc}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{ba1eb1c9-0723-482a-8e66-1e8a964fd54b}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\TesterModule">
+      <UniqueIdentifier>{c4636717-30e5-46a2-b688-bec670baa8d5}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="TempToolSample.vwr">
+      <UniqueIdentifier>{70a53b28-b54a-4c54-8744-3fef6f14f117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TempToolSample.vwr\Strings">
+      <UniqueIdentifier>{a1f20572-f87b-4498-b177-4b037c19bb82}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtTool.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\LineObjSelection.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtMenu.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtMenu.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtTool.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\LineObjSelection.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TempToolSample.vwr\Strings\ErrorsCollectorStrings.vwstrings">
+      <Filter>TempToolSample.vwr\Strings</Filter>
+    </None>
+    <None Include="TempToolSample.vwr\Strings\CExtMenu.vwstrings">
+      <Filter>TempToolSample.vwr\Strings</Filter>
+    </None>
+    <None Include="TempToolSample.vwr\Strings\CExtTool.vwstrings">
+      <Filter>TempToolSample.vwr\Strings</Filter>
+    </None>
+  </ItemGroup>
+</Project>

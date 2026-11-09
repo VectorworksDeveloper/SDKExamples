@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{38184f0e-0a56-4a7b-8404-2572ba12e5b0}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Prefix">
+      <UniqueIdentifier>{11872dd5-00d2-43f3-a979-7db8bd8d0566}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\TesterModule">
+      <UniqueIdentifier>{af358eca-afe3-4b20-a96c-17d9d45e55cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Advanced">
+      <UniqueIdentifier>{4b599d3f-38c0-4a2c-9e0b-586f33db6588}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+    <Filter Include="TesterModule.vwr">
+      <UniqueIdentifier>{349efa0c-6102-45b5-9c23-4a08204df0a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TesterModule.vwr\Strings">
+      <UniqueIdentifier>{d91f2d8b-f1c5-438e-8aae-dd54325bfd49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourcePopup">
+      <UniqueIdentifier>{4a302cd0-8e01-4c7c-a8cc-77a8ec18457e}</UniqueIdentifier>
+      <Extensions>c;cpp;cp;h;hpp</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ModuleMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Prefix\StdAfx.cpp">
+      <Filter>Source Files\Prefix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtMenu.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtObj.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtTool.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtVSFunc.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtMenuDyn.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Advanced\ExtObjAdvComplex.cpp">
+      <Filter>Source Files\Advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Advanced\AdvComplexShapePane.cpp">
+      <Filter>Source Files\Advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Advanced\AdvComplexReshape3D.cpp">
+      <Filter>Source Files\Advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourcePopup\ExtToolResourcePopupSimple.cpp">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourcePopup\ExtToolResourcePopupComplex.cpp">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourcePopup\ExtObjResourcePopup.cpp">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourcePopup\ExtObjResourcePopup_ShapePane.cpp">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourcePopup\DlgResourcePopupComplex.cpp">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourcePopup\DlgResourcePopupSample.cpp">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TesterModule\ExtMenuWebBrowser.cpp">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Prefix\CommonPrefix.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Prefix\StdAfx.h">
+      <Filter>Source Files\Prefix</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtMenu.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtObj.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtTool.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtVSFunc.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtMenuDyn.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Advanced\ExtObjAdvComplex.h">
+      <Filter>Source Files\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Advanced\AdvComplexShapePane.h">
+      <Filter>Source Files\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Advanced\AdvComplexReshape3D.h">
+      <Filter>Source Files\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResourcePopup\ExtToolResourcePopupSimple.h">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResourcePopup\ExtToolResourcePopupComplex.h">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResourcePopup\ExtObjResourcePopup.h">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResourcePopup\ExtObjResourcePopup_ShapePane.h">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResourcePopup\DlgResourcePopupComplex.h">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResourcePopup\DlgResourcePopupSample.h">
+      <Filter>Source Files\ResourcePopup</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TesterModule\ExtMenuWebBrowser.h">
+      <Filter>Source Files\TesterModule</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TesterModule.vwr\Strings\CExtObj.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\CExtTool.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\ExtMenuDyn.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\CExtMenu.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\CExtObjAdvComplex.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\ExtToolResourcePopupSimple.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\ExtToolResourcePopupComplex.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\ExtObjResourcePopup.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+    <None Include="TesterModule.vwr\Strings\CExtMenuWebBrowser.vwstrings">
+      <Filter>TesterModule.vwr\Strings</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+#include "NNA_StdBuild_Native.xcconfig"
+
+INSTALL_PATH = @executable_path/../../../Plug-Ins/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/MacOS
+
+VW_MENU_EXTENSION = vwplugin
+VW_TOOL_EXTENSION = vwplugin
+VW_OBJECT_EXTENSION = vwobject
+VW_LIBRARY_EXTENSION = vwlibrary
+GCC_SYMBOLS_PRIVATE_EXTERN = NO
+GCC_INLINES_ARE_PRIVATE_EXTERN = NO
