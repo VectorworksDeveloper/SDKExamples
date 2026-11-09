@@ -1,0 +1,30 @@
+{
+	"name": "webpaletteexample",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"dev": "webpack --config webpack.config.dev.js",
+		"watch": "webpack --watch --config webpack.config.dev.js",
+		"prod": "webpack --config webpack.config.prod.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"autoprefixer": "^10.4.13",
+		"copy-webpack-plugin": "^10.2.4",
+		"css-loader": "^6.5.1",
+		"postcss": "^8.4.20",
+		"postcss-cli": "^10.1.0",
+		"postcss-loader": "^6.2.1",
+		"style-loader": "^3.3.1",
+		"vue": "^3.2.29",
+		"vue-loader": "^17.0.0"
+	},
+	"devDependencies": {
+		"@vue/compiler-sfc": "^3.2.29",
+		"tailwindcss": "^3.0.18",
+		"webpack": "^5.68.0",
+		"webpack-cli": "^4.9.2"
+	}
+}

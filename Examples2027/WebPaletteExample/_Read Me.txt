@@ -1,0 +1,75 @@
+------------------------------------------------------------------------------------------
+Install Node.js from: https://nodejs.org/
+This will add the 'npm' package manager tool, needed to compile the front end (SourceHTML)
+
+
+------------------------------------------------------------------------------------------
+Install Vue.js from: https://vuejs.org/
+$ npm init
+$ npm install vue@next
+$ npm install -D @vue/compiler-sfc
+$ npm install -g @vue/cli
+$ vue upgrade --next
+$ npm update vue-loader
+$ npm install --save-dev webpack webpack-cli
+$ npm install vue-loader@next
+
+------------------------------------------------------------------------------------------
+Install tailwindcss from: https://tailwindcss.com/
+$ npm install -D tailwindcss
+$ npm install style-loader
+$ npm install css-loader
+
+$ npx tailwindcss init
+
+------------------------------------------------------------------------------------------
+VisualStudio Code: change theme to Dark+
+
+
+------------------------------------------------------------------------------------------
+| add to file: package.json
+"build": "webpack --config webpack.config.dev.js"
+
+------------------------------------------------------------------------------------------
+| File: webpack.config.dev.js
+
+'use strict'
+const { VueLoaderPlugin } = require('vue-loader')
+
+module.exports = {
+    mode: 'development',
+    entry: [
+      './src/app.js'
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.vue$/,
+          use: 'vue-loader'
+        }
+      ]
+    },
+    plugins: [
+      new VueLoaderPlugin()
+    ]
+  }
+
+
+
+
+
+// ======= ALTERNATIVE
+
+------------------------------------------------------------------------------------------
+Install laravel-mix from: https://laravel-mix.com/
+$ npm install laravel-mix --save-dev
+
+and enable windows notifications: Windows settings → Notifications & actions (on Windows 10)
+
+------------------------------------------------------------------------------------------
+Add to package.json
+	"scripts": {
+		"dev": "mix",
+		"watch": "mix watch",
+		"prod": "mix --production"
+	},

@@ -1,0 +1,23 @@
+{
+	"params": {
+		"p1":						{ "default": { "imperial": "False",	"metric": "False" } },
+		"p2":						{ "default": { "imperial": "False",	"metric": "False" } },
+		"p3":						{ "default": { "imperial": "",			"metric": "" } },
+		"p4":						{ "default": { "imperial": "",			"metric": "" } },
+		"p5":						{ "default": { "imperial": "2\"",		"metric": "2\"" } },
+		"p6":						{ "default": { "imperial": "Auto",		"metric": "Auto" } },
+		"p7":						{ "default": { "imperial": "Auto",		"metric": "Auto" } },
+		"pAngle":					{ "default": { "imperial": "15",		"metric": "15" } },
+		"pArea":					{ "default": { "imperial": "1",		"metric": "1" } },
+		"pVolume":					{ "default": { "imperial": "2",		"metric": "2" } },
+		"pClass":					{ "default": { "imperial": "None",		"metric": "Node" } },
+		"pLayer":					{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldBuildingMaterial":	{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldFill":				{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldPenStyle":			{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldPenWeight":			{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldColor":				{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldTexture":			{ "default": { "imperial": "",			"metric": "" } },
+		"pFieldSymDef":				{ "default": { "imperial": "",			"metric": "" } }
+	}
+}

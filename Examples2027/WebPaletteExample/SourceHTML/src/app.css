@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* include Vectorworks Web UI Styling available in the SDKLib */
+@import "../../../../VectorworksSDK/SDK2023/SDKLib/LibWebUI/styles.css";
+
+/* my style */
